@@ -1,0 +1,56 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} {% endblock title%}
+ {% block css %} {% endblock css %} 
+ 
+ {% block body %}
+ <!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container">
+      <div class="breadcrumb-area">
+        <ul class="breadcrumbs">
+          <li><a href="/">Home</a></li>
+          <li class="active">Thank You</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Sub Banner end -->
+  
+ <div class="about-real-estate  content-area-5 bg-grea-3 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="about-text clearfix">
+                    <h3>{{data}}
+                        THANK YOU FOR CONTACTING LPC INVEST</h3>
+                    <h5>We’ve received your information and it’s on it’s way to our team of experts.</h5>
+                    <p>Congrats on making the first step towards financial security. One of our team members will be in touch with you as soon as possible.</p>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="about-img-section">
+                    <div class="image-box sssa">
+                        <div class="image-1"><img src="https://lpcinvest.com/wp-content/uploads/2021/03/thank-you-1-1024x666.jpg" class="w-100" alt="photo"></div>
+                    </div>
+                    <div class="about-box-Experience">
+                        <img src="img/about-shape.png" alt="image" class="img-fluid">
+                        <div class="content">
+                            <h3>25+</h3>
+                            <p class="mb-0">Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+
+
+{%endblock body%}
+
+
+
+{% block script %} 
+
+{% endblock script %}

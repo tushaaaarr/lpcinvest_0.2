@@ -1,0 +1,84 @@
+
+{% extends './basic.html' %} 
+{% block title %} Exclusive Properties {{page_data.page_name}}{% endblock title%} 
+{% block body %}
+<div class="dashboard-content">
+    <div class="dashboard-list">
+        <div class="container ml-5">
+            <h3 class="heading m-3">Favorited Properties List</h3>
+
+            {%if page_data.not_found%}
+            <div class="pages-404">
+            <div class="nobottomborder">
+              <h1 style='color:#00CE8D'>
+                It seems we can't find what you're looking for.!</h1>
+              <div class="row">
+                <div class="col-lg-5 col-md-5">
+                  <div class="coming-form clearfix" style="margin-top:0px;">
+                          <p>Please try searching again</p>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    {%endif%}
+            <div id="list_view_div">
+                {%for property in fav_properties %}
+                <!-- Property box 2 start -->
+                <div class="property-box-2">
+                    <div class="row g-0">
+                        <div class="col-lg-5 col-md-5">
+                            <div class="property-photo">
+                                <a href="/properties/{{property.id}}" class="property-img">
+                                    <img src="/media/{{property.image}}" alt="properties"
+                                        class="img-fluid" />
+                                    <div class="listing-badges">
+                                        <div class="tag">{{property.status}}</div>
+                                    </div>
+                                    <div class="price-box">
+                                        From <span>£{{property.price}}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7">
+                            <div class="detail">
+                                <div class="hdg">
+                                    <h3 class="title">
+                                        <a href="/properties/{{property.id}}">{{property.title}}</a>
+                                    </h3>
+                                    <h5 class="location">
+                                        <a href="/properties/{{property.id}}">
+                                            <i class="flaticon-pin"></i>{{property.adddress}}
+                                        </a>
+                                    </h5>
+                                </div>
+                                <ul class="facilities-list clearfix">
+                                    <li><span>Area</span>1200 Sqft</li>
+                                    <li><span>Bedrooms</span> {{property.room}}</li>
+                                    <li><span>Baths</span> {{property.bathrooms}}</li>
+                                </ul>
+                                <div class="footer">
+                                    {% if property.is_favorite %}
+                                    <i class="heart fa fa-heart" id="{{property.id}}"></i>
+                                    {%else%}
+                                    <i class="heart fa fa-heart-o" id="{{property.id}}"></i>
+                                    {%endif%}
+                                    <span>
+                                        <i class="flaticon-calendar"></i>{{property.pub_date}}
+                                        Ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+

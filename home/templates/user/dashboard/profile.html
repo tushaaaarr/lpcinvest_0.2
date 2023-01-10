@@ -1,0 +1,62 @@
+{% extends './basic.html' %} 
+ {% block title %} Profile {{page_data.page_name}}{% endblock title%} 
+ {% block body %}
+ 
+        <div class="dashboard-content">
+          <div class="dashboard-list">
+            <h3 class="heading">Profile Details</h3>
+            <div class="dashboard-message contact-2 bdr clearfix">
+              <div class="row">
+
+                <div class="col-lg-9 col-md-9">
+                  <form action="/profile" method="POST">
+                    {%csrf_token%}
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6">
+                        <div class="form-group phone">
+                          <label for="fname" class="form-label">First Name</label>
+                          <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name"
+                            value="{{user.fname}}" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6">
+                        <div class="form-group title">
+                          <label for="lname" class="form-label">Last Name</label>
+                          <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name"
+                            value="{{user.lname}}" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6">
+                        <div class="form-group phone">
+                          <label for="phone" class="form-label">Phone</label>
+                          <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone"
+                            value="{{user.mobile}}" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6">
+                        <div class="form-group email">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" name="email" class="form-control" id="email" placeholder="Email"
+                            value="{{user.email}}" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6">
+                        <div class="form-group email">
+                          <label for="City" class="form-label">City</label>
+                          <input type="text" name="city" class="form-control" id="City" placeholder="City"
+                            value="{{user.city}}" />
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-outline" type="submit">Update</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="sub-banner-2 text-center">
+            © 2022 LPC Invest Limited
+          </p>
+        </div>
+
+        {% endblock body %}

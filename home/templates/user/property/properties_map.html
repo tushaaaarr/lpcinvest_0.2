@@ -1,0 +1,390 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} {% endblock title%} 
+{% block css %} {% endblock css %} 
+
+{% block body %} 
+
+
+<!-- Sidenav start -->
+<nav id="sidebar" class="nav-sidebar">
+    <!-- Close btn-->
+    <div id="dismiss">
+        <i class="fa fa-close"></i>
+    </div>
+    <div class="sidebar-inner">
+        <div class="sidebar-logo">
+            <img src="img/logos/black-logo.png" alt="sidebarlogo">
+        </div>
+        <div class="sidebar-navigation">
+            <h3 class="heading">Pages</h3>
+            <ul class="menu-list">
+                <li><a href="#" class="pt0">Index <em class="fa fa-chevron-down"></em></a>
+                    <ul>
+                        <li><a href="/">Index 01 <span class="badge badge-success">New</span></a></li>
+                        <li><a href="index-2.html">Index 02</a></li>
+                        <li><a href="index-3.html">Index 03</a></li>
+                        <li><a href="index-4.html">Index 04</a></li>
+                        <li><a href="index-5.html">Index 05</a></li>
+                        <li><a href="index-6.html">Index 06</a></li>
+                        <li><a href="index-7.html">Index 07</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="active">Properties <em class="fa fa-chevron-down"></em></a>
+                    <ul>
+                        <li>
+                            <a href="#">Property List <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="properties-list-rightside.html">Right Sidebar</a></li>
+                                <li><a href="properties-list-leftsidebar.html">Left Sidebar</a></li>
+                                <li><a href="properties-list-fullwidth.html">Fullwidth</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Property Grid <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="properties-list-rightside.html">Right Sidebar</a></li>
+                                <li><a href="properties-list-leftsidebar.html">Left Sidebar</a></li>
+                                <li><a href="properties-list-fullwidth.html">Fullwidth</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Property Map <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="properties-map-rightside-list.html">Map List 01</a></li>
+                                <li><a href="properties-map-leftside-list.html">Map List 02</a></li>
+                                <li><a href="properties-map-rightside-grid.html">Map Grid 01</a></li>
+                                <li><a href="properties-map-leftside-grid.html">Map Grid 02</a></li>
+                                <li><a href="properties-map-full.html">Map FullWidth</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Property Detail <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="properties-details.html">Property Detail 01</a></li>
+                                <li><a href="properties-details-2.html">Property Detail 02</a></li>
+                                <li><a href="properties-details-3.html">Property Detail 03</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Agents <em class="fa fa-chevron-down"></em></a>
+                    <ul>
+                        <li><a href="agent-list.html">Agent List</a></li>
+                        <li>
+                            <a href="#">Agent Grid <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="agent-grid.html">Agent Grid 01</a></li>
+                                <li><a href="agent-grid-2.html">Agent Grid 02</a></li>
+                                <li><a href="agent-grid-3.html">Agent Grid 03</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="agent-detail.html">Agent Detail</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Pages <em class="fa fa-chevron-down"></em></a>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="elements.html">Elements</a></li>
+                        <li><a href="pricing-tables.html">Pricing Tables</a></li>
+                        <li><a href="properties-comparison.html">Properties Comparison</a></li>
+                        <li><a href="search-brand.html">Properties Brands</a></li>
+                        <li><a href="gallery-3column.html">Gallery 3 column</a></li>
+                        <li><a href="gallery-4column.html">Gallery 4 column</a></li>
+                        <li><a href="typography.html">Typography</a></li>
+                        <li><a href="faq.html">Faq</a></li>
+                        <li><a href="icon.html">Icons</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                        <li><a href="404.html">Error Page</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Blog <em class="fa fa-chevron-down"></em></a>
+                    <ul>
+                        <li>
+                            <a href="#">Blog Columns <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="blog-columns-2col.html">2 Columns</a></li>
+                                <li><a href="blog-columns-3col.html">3 Columns</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Blog Classic <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="blog-classic-sidebar-right.html">Right Sidebar</a></li>
+                                <li><a href="blog-classic-sidebar-left.html">Left Sidebar</a></li>
+                                <li><a href="blog-classic-fullwidth.html">FullWidth</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Blog Details <em class="fa fa-chevron-down"></em></a>
+                            <ul>
+                                <li><a href="blog-single-sidebar-right.html">Right Sidebar</a></li>
+                                <li><a href="blog-single-sidebar-left.html">Left Sidebar</a></li>
+                                <li><a href="blog-single-fullwidth.html">Fullwidth</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">My Account <em class="fa fa-chevron-down"></em></a>
+                    <ul>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="forgot-password.html">Forgot Password</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="my-profile.html">My Profile</a></li>
+                        <li><a href="/favorited-properties">My Properties</a></li>
+                        <li><a href="/exclusive-properties">My Invoices</a></li>
+                        <li><a href="/favorited-properties">Favorited Properties</a></li>
+                        <li><a href="messages.html">Messages</a></li>
+                        <li><a href="bookings.html">Bookings</a></li>
+                        <li><a href="/submit-property">Submit Property</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/submit-property">Submit Property</a>
+                </li>
+            </ul>
+        </div>
+        <div class="get-in-touch">
+            <h3 class="heading">Get in Touch</h3>
+            <div class="get-in-touch-box d-flex">
+                <i class="flaticon-phone"></i>
+                <div class="detalis">
+                    <a href="tel:0477-0477-8556-552">0477 8556 552</a>
+                </div>
+            </div>
+            <div class="get-in-touch-box d-flex">
+                <i class="flaticon-mail"></i>
+                <div class="detalis">
+                    <a href="#">info@themevessel.com</a>
+                </div>
+            </div>
+            <div class="get-in-touch-box d-flex  mb-0">
+                <i class="flaticon-internet"></i>
+                <div class="detalis">
+                    <a href="#">info@themevessel.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="get-social">
+            <h3 class="heading">Get Social</h3>
+            <a href="#" class="facebook-bg">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="twitter-bg">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="google-bg">
+                <i class="fa fa-google"></i>
+            </a>
+            <a href="#" class="linkedin-bg">
+                <i class="fa fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+<!-- Sidenav end -->
+
+<!-- Map content start -->
+<div class="map-content content-area container-fluid">
+    <div class="row">
+        <div class="col-lg-5 col-xl-6">
+            <div class="row">
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="col-lg-7 col-xl-6 map-content-sidebar">
+            <div class="properties-map-search properties-pad">
+                <div class="title-area">
+                    <h2 class="pull-left">Search</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="properties-map-search-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <input class="form-control search-fields" placeholder="Enter address e.g. street, city">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields">
+                                    <option>All Status</option>
+                                    <option>{{property.status}}</option>
+                                    <option>For Rent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields">
+                                    <option>All Type</option>
+                                    <option>Apartments</option>
+                                    <option>Houses</option>
+                                    <option>Shop</option>
+                                    <option>Restaurant</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields">
+                                    <option>location</option>
+                                    <option>United States</option>
+                                    <option>American Samoa</option>
+                                    <option>Belgium</option>
+                                    <option>Canada</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="range-slider form-group clearfix">
+                                <label>Area</label>
+                                <div data-min="0" data-max="10000" data-min-name="min_area" data-max-name="max_area" data-unit="Sq ft" data-name="area" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="range-slider form-group clearfix">
+                                <label>Price</label>
+                                <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="options-content" class="collapse">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields">
+                                        <option>Bedrooms</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields">
+                                        <option>Bathroom</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields">
+                                        <option>Balcony</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields">
+                                        <option>Garage</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="margin-t-10">Features</label>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox1" type="checkbox">
+                                    <label for="checkbox1">
+                                        Free Parking
+                                    </label>
+                                </div>
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox2" type="checkbox">
+                                    <label for="checkbox2">
+                                        Air Condition
+                                    </label>
+                                </div>
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox3" type="checkbox">
+                                    <label for="checkbox3">
+                                        Places to seat
+                                    </label>
+                                </div>
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox4" type="checkbox">
+                                    <label for="checkbox4">
+                                        Swimming Pool
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox5" type="checkbox">
+                                    <label for="checkbox5">
+                                        Laundry Room
+                                    </label>
+                                </div>
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox6" type="checkbox">
+                                    <label for="checkbox6">
+                                        Window Covering
+                                    </label>
+                                </div>
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox7" type="checkbox">
+                                    <label for="checkbox7">
+                                        Central Heating
+                                    </label>
+                                </div>
+                                <div class="checkbox checkbox-theme checkbox-circle">
+                                    <input id="checkbox8" type="checkbox">
+                                    <label for="checkbox8">
+                                        Alarm
+                                    </label>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-area hidden-sm hidden-xs">
+                    <h2 class="pull-left results-for">Results For : Properties List</h2>
+                    <div class="pull-right btns-area">
+                        <a href="properties-list-leftsidebar.html" class="change-view-btn active-view-btn"><i class="fa fa-th-list"></i></a>
+                        <a href="properties-grid-leftside.html" class="change-view-btn"><i class="fa fa-th-large"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="fetching-properties pad-0-15 hidden-sm hidden-xs"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Map content end -->
+
+<!-- Full Page Search -->
+<div id="full-page-search">
+    <button type="button" class="close">×</button>
+    <form action="index.html#">
+        <input type="search" value="" placeholder="type keyword(s) here"/>
+        <button type="submit" class="btn btn-sm button-theme">Search</button>
+    </form>
+</div>
+
+
+{%endblock body%}

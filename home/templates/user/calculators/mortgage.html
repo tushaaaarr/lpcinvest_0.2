@@ -1,0 +1,259 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} Mortgage Calculator {%endblock title%}{% block css %}
+
+<style>
+    .table_head th strong {
+        font-weight: bolder !important;
+        color: black;
+        font-size: 19;
+    }
+
+    #result_table {
+        display: none;
+    }
+
+    .total {
+        font-weight: bolder !important;
+        color: black;
+    }
+
+
+    /** Floor plans start **/
+    .floor-plans table {
+        width: 100%;
+        margin-bottom: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.0.7);
+    }
+
+    .floor-plans table tr:first-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.0.7);
+    }
+
+    .floor-plans table td,
+    table th {
+        padding: 10px 15px;
+        border-right: 1px solid rgba(0, 0, 0, 0.0.7);
+    }
+
+    .floor-plans table td {
+        font-size: 17px;
+        font-weight: 400;
+        color: #343434;
+    }
+
+    .floor-plans table strong {
+        font-weight: 500;
+    }
+    .contact-form{
+        z-index: 999!important;
+        background: #fff;;
+        box-shadow: 0px 5px 15px 0px rgb(62 65 159 / 10%);
+        padding:15px;
+        padding-bottom: 25px;
+    }
+</style>{% endblock css %} {% block body %}
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container">
+        <div class="breadcrumb-area">
+            <ul class="breadcrumbs">
+                <li><a href="/">Home</a></li>
+                <li class="active">Mortgage Calculator </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<div class="content-area-17">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1>Mortgage Calculator </h1>
+            <p>
+                Our mortgage calculator is here to give you a guide to how much you can borrow for your next investment or new home. Please be advised that our mortgage calculator should only be used as a guide. Once you have decided on your investment and have used our mortgage calculator to get an idea of the rates and repayments. We would advise to speak with one of our mortgage advisers for a more detailed discussion..</p>
+        </div>
+        <div class="row g-0 contact">
+            <div class="contact-form mb-0">
+                <h3 class="mb-20">Mortgage Calculator</h3>
+                <div class="row">
+        <div class="block-wrap">
+          <form id="loan-form" class="mb-3">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Total Amount</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">£</div>
+                    </div><!-- input-group-prepend -->
+                    <input id="amount" type="text" class="form-control" placeholder="Total Amount" value="210750">
+                  </div><!-- input-group -->
+                </div><!-- form-group -->
+              </div><!-- col-md-4 -->
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Interest Rate</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">%</div>
+                    </div><!-- input-group-prepend -->
+                    <input id="interest" type="text" class="form-control" placeholder="Interest Rate" value="3">
+                  </div><!-- input-group -->
+                </div><!-- form-group -->
+              </div><!-- col-md-4 -->
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Loan Terms (Years)</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="houzez-icon bi bi-calendar"></i>
+                      </div>
+                    </div><!-- input-group-prepend -->
+                    <input id="years" type="text" class="form-control" placeholder="Loan Terms (Years)" value="20">
+                  </div><!-- input-group -->
+                </div><!-- form-group -->
+              </div><!-- col-md-4 -->
+              <div class="col-md-12 mt-3">
+                <div class="send-btn text-center">
+                    <input class="btn-6" type="submit" value="Calculate"></input>
+                </div>
+            </div>
+            <!-- col-md-12 -->
+            </div><!-- row -->
+          </form>
+        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container contact-form" id="result_table">
+    <h3 class="heading-2 text-center mt-0">Your calculation</h3>
+    <div id="result" class="">
+                    <div class="form-group">
+                      <div class="floor-plans mb-50">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td><strong>Monthly Payment</strong></td>
+                              <td><strong>Total Payment</strong></td>
+                              <td><strong>Total Interest</strong></td>
+                            </tr>
+                            <tr>
+                              <td> <input type="number" class="form-control" id="monthly-payment" disabled value='{{Calculated_data.monthlyPayment}}' /></td>
+                              <td> <input type="number" class="form-control" id="total-payment" disabled value="{{Calculated_data.totalPayment}}"/></td>
+                              <td> <input type="number" class="form-control" id="total-interest" disabled value="{{Calculated_data.totalInterest}}"/></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+  <!-- Loader Here -->
+  <div id="loading">
+</div>
+<!-- Results -->
+
+
+
+{%endblock body%} {% block script %}
+
+<script>
+    // jQuery is preprocessed
+
+// Listen for Submit
+document.getElementById("loan-form").addEventListener("submit", function(e) {
+
+    document.getElementById("result_table").style.display = "block";
+
+    // Hide Results
+    document.getElementById("result").style.display = "none";
+  
+    // Show Loader
+    document.getElementById("loading").style.display = "block";
+  
+    setTimeout(calculateResults, 0);
+  
+    e.preventDefault();
+  });
+  
+  // Calculate Results
+  function calculateResults() {
+    // UI Vars
+    const amount = document.getElementById("amount");
+    const interest = document.getElementById("interest");
+    const years = document.getElementById("years");
+    const monthlyPayment = document.getElementById("monthly-payment");
+    const totalPayment = document.getElementById("total-payment");
+    const totalInterest = document.getElementById("total-interest");
+  
+    const principal = parseFloat(amount.value);
+    const calculatedInterest = parseFloat(interest.value) / 100 / 12;
+    const calculatedPayments = parseFloat(years.value) * 12;
+  
+    // Computed Monthly payment
+    const x = Math.pow(1 + calculatedInterest, calculatedPayments);
+    const monthly = (principal * x * calculatedInterest) / (x - 1);
+  
+    if (isFinite(monthly)) {
+      monthlyPayment.value = monthly.toFixed(2);
+      totalPayment.value = (monthly * calculatedPayments).toFixed(2);
+      totalInterest.value = (monthly * calculatedPayments - principal).toFixed(2);
+  
+      // Show Results
+      document.getElementById("result").style.display = "block";
+  
+      // Hide Loader
+      document.getElementById("loading").style.display = "none";
+    } else {
+      showError("Please check number inputs");
+    }
+  }
+  
+  // Show Error
+  function showError(error) {
+    // Hide Results
+    document.getElementById("result").style.display = "none";
+  
+    // Hide Loader
+    document.getElementById("loading").style.display = "none";
+  
+    // Create a div
+    const errorDiv = document.createElement("div");
+  
+    // Get Elements
+    const card = document.querySelector(".card");
+    const heading = document.querySelector(".heading");
+  
+    // Add class
+    errorDiv.className = "alert alert-danger";
+  
+    // Create text node and append div
+    errorDiv.appendChild(document.createTextNode(error));
+  
+    // Insert error above heading
+    card.insertBefore(errorDiv, heading);
+  
+    // Clear Error after 3 seconds
+    setTimeout(clearError, 0);
+  
+    // Clear Error
+    function clearError() {
+      document.querySelector(".alert").remove();
+    }
+  }
+  
+</script>
+{% endblock script %}

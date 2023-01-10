@@ -1,0 +1,150 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %}{{page_data.page_name}}{{page_data.page_name}}{% endblock title%} {% block css %} {% endblock css %} {% block body %}
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+  <div class="container">
+    <div class="breadcrumb-area">
+      <h1>          Construction Updates
+      </h1>
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="active">
+          Construction Updates
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Services start -->
+
+<div class="properties-details-page content-area">
+  <div class="container">
+    <div class="inside-properties">
+      <div class="main-title">
+        <h1>
+          Construction Updates | <span style="color:#00CE8D;">{{page_data.page_name}}</span>
+          </h1>
+      </div>
+      <iframe
+        src="https://www.youtube.com/embed/5e0LxrLSzok"
+        allowfullscreen=""
+      ></iframe>
+    </div>
+  </div>
+
+  <div class="services content-area content-area-12">
+    {%for construction in constructions_lst %}
+      <!-- Main title -->
+      <div class="main-title">
+        <h4>{{construction.title }} <span style="color:#00CE8D;">Construction Update – {{construction.pub_date}}</span>
+        </h4>
+        <p>
+
+          {{construction.title | title }} is progressing well, with the completion date nearing.
+
+        </p>
+      </div>
+
+      <div class="slick-slider-area ">
+        <div
+          class="row slick-carousel"
+          data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+          {%for img in construction.images %}
+          <div class="slick-slide-item p-0">
+            <div class="card service-box p-0">
+              <img
+                class="card-img-top"
+                src="/media/{{img.images}}"
+                style="height: 300px"
+                alt="service"
+                onclick="zoom()"
+              />
+            </div>
+          </div>
+          {%endfor%}
+
+
+        </div>
+        <div class="slick-btn mb-5">
+          <div class="slick-prev slick-arrow-buton-2 sab-4">
+            <i class="fa fa-angle-left"></i>
+          </div>
+          <div class="slick-next slick-arrow-buton-2 sab-3">
+            <i class="fa fa-angle-right"></i>
+          </div>
+        </div>
+      </div>
+      <br>
+
+  </div>
+
+  <!-- Modal Slider Start -->
+<div id="myModal" class="modale">
+  <span class="close">&times;</span>
+
+    <div id="carouselInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {% for img in construction.images %}
+          {% if forloop.first %}
+            <div class="carousel-item active p-5" >
+
+              <img src="/media/{{img.images}}" class="d-block img-fluid mx-auto zoom-images" alt="slider-photo"
+             onclick="zoom(event)"/>
+
+            </div>
+          {%else%}
+            <div class="carousel-item p-5">
+
+              <img src="/media/{{img.images}}" class="d-block img-fluid mx-auto zoom-images" alt="slider-photo"  onclick="zoom(event)"/>
+            </div>
+          {%endif%}
+
+        {%endfor%}
+      </div>
+      <button class="carousel-control-prev prevv" type="button" data-bs-target="#carouselInterval" data-bs-slide="prev">
+        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+        <i class="fa fa-angle-left"></i>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next nextt" type="button" data-bs-target="#carouselInterval" data-bs-slide="next">
+        <i class="fa fa-angle-right"></i>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+</div>
+{%endfor%}
+<!-- Modal Slider End -->
+
+
+  <!-- Services end -->
+
+<script type="text/javascript">
+  var $ = jQuery.noConflict();
+
+  $(document).ready(function(){
+
+  var zoomImages = $('.zoom-images');
+
+  zoomImages.each(function() {
+          $(this).imageZoom();
+    });
+  });
+</script>
+
+<script>
+  function zoom(){
+
+    document.getElementById('myModal').style.display="block";
+  }
+
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function() {
+    console.log("sada");
+  document.getElementById('myModal').style.display = "none";
+  }
+</script>
+
+  {%endblock body%}
+</div>

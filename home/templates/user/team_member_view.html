@@ -1,0 +1,69 @@
+{% extends 'user/basic.html' %} {% load static %}
+ {% block title %} {{team_member.name }}{% endblock title%} {% block css %} {% endblock css %} 
+ 
+ 
+ {% block body %}
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+  <div class="container">
+    <div class="breadcrumb-area">
+      <h1>{{page_data.member_name}}</h1>
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="active">{{team_member.name}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Sub Banner end -->
+<!-- Agent page start -->
+<div class="agent-page content-area">
+    <div class="container">
+        <!-- Heading -->
+        <h1 class="heading-2">{{team_member.name}}</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row team-2 mb-50 g-0">
+                    <div class="col-xl-5 col-lg-6 col-md-5 col-sm-12">
+                        <div class="photo">
+                            <img src="/media/{{team_member.image}}" alt="avatar-9" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-6 col-md-7 col-sm-12 align-self-center">
+                        <div class="detail">
+                            <h4>
+                                <a href="agent-detail.html">{{team_member.name}}</a>
+                            </h4>
+                            <h5>{{team_member.role}}</h5>
+                            <div class="contact">
+                                <ul>
+                                    <li>
+                                        <i class="flaticon-pin"></i><a>{{team_member.address}}</a>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-mail"></i><a href="mailto:{{team_member.email}}">{{team_member.email}}</a>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-phone"></i><a href="tel:{{team_member.mobile}}"> {{team_member.mobile}}</a>
+                                    </li>
+                                    <li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="agent-biography">
+                    <h3 class="heading-2">Biography</h3>
+                    <p>{{team_member.desc}}</p>
+               
+
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+  {%endblock body%}
+</div>

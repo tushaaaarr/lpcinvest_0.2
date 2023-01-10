@@ -1,0 +1,121 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} Meet The Team {%endblock title%} {% block css %} {% endblock css %} {% block body %}
+
+<!-- Sub banner start -->
+<!-- <div class="sub-banner">
+  <div class="container">
+    <div class="breadcrumb-area">
+      <h1>{{page_data.member_name}}</h1>
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href='/about'>About</a></li> <li class="active">Meet the team</li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+
+
+<section class="site-hero overlay" style="background-image: url('/static/img/team/team.jpeg');" data-stellar-background-ratio="0.5">
+
+  <div class="container">
+  <div class="row site-hero-inner justify-content-center align-items-center">
+    <div class="col-md-10 text-center" data-aos="fade-up">
+
+      <div class="text-center">
+        <h1 class="heading">Team</h1>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- Sub banner end -->
+<div class="container my-5">
+
+  <!-- <h1 class="h1 text-center py-4" style="color:#00CE8D;"><span style="color:#262525">Meet Our </span>Award Winning Team</h1>
+  <hr style="height:5px;background-color: #00CE8D;"/>
+  <p class="lead text-center py-3 mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting
+    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+    1500s, when an unknown printer took a
+    galley of type and scrambled it to make a type specimen book.
+    1500s, when an unknown printer took a
+    galley of type and scrambled it to make a type specimen book.
+  </p> -->
+
+
+  <!-- <div class="row">
+    {%for member in team_members %}
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="team-5">
+            <div class="team-info">
+                <img src="/media/{{member.image}}"
+                    alt="agent-5" class="img-fluid" style="max-height:400px;">
+            </div>
+            <div class="team-box">
+                <div class="team-details">
+                    <i class="fa fa-user user d-lg-none"></i>
+                    <div>
+                        <a href="/team-member/{{member.name}}/{{member.id}}">
+                            <h4 class='text-capitalize'>{{member.name}}</h4>
+                        </a>
+                        <p>{{member.role}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+  
+  </div> -->
+
+    <div class="row bg-light">
+      <div class="container section bg-light">
+      
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7 mb-5" data-aos="fade-up">
+              <h2 class="heading">Meet <span style="color: #00CE8D;">Our Team</span></h2>
+              <p> Let us help you find your perfect investment today.</p>
+            </div>
+          </div>
+      
+          <div class="row">
+      
+          {%for member in team_members %}        
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="block-2">
+                <div class="flipper">
+                  <div class="front" style="background-image: url('/media/{{member.image}}');">
+                    <div class="box">
+                      <h2>{{member.name}}</h2>
+                      <p>{{member.role}}</p>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <!-- back content -->
+                    <blockquote class="my-5"><p style="font-size: 14px;">{{member.desc}}</p>
+                    </blockquote>
+                    <div class="author d-flex">
+                      <div class="image mr-3 align-self-center">
+                        <img src="/media/{{member.image}}" alt="">
+                      </div>
+                      <div class="name align-self-center">{{member.name}} <span class="position">{{member.role}}</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- .flip-container -->
+            </div>
+            {%endfor%}      
+          </div>
+        </div>
+      </div>
+</div>
+
+{%endblock body%} {% block script %} {% endblock script %}

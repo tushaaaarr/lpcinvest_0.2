@@ -1,0 +1,64 @@
+{% extends 'user/basic.html' %} {% load static %}
+ {% block title %} Download{{page_data.page_name}}{% endblock title%} {% block css %} {% endblock css %} 
+ {% block body %}
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+  <div class="container">
+    <div class="breadcrumb-area">
+      <h1>Download</h1>
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="active">Download</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Services start -->
+<div class="services content-area content-area-12">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>UK Property Investment Guides</h1>
+            <p>Grab a FREE download of our UK Property Investment Guides, available in an easy to read PDF format.</p>
+        </div>
+
+        <div class="slick-slider-area">
+            <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+                {%for city in download_assets %}
+                <div class="slick-slide-item">
+                    <div class="card service-box">
+                        <img class="card-img-top" src="/media/{{city.image}}" style="height: 200px;" alt="service">
+                        <div class="card-body detail">
+                            <div class="heading clearfix">
+                                <div class="number">
+                                </div>
+                                <div class="title">
+                                    <h4><a href="">{{city.title}}</a></h4>
+                                </div>
+                            </div>
+                            <p>{{city.desc}};</p>
+                            <a href="{{city.downlodable_url}}" class="read-more font-weight-bold">Download</a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+
+            </div>
+            <div class="slick-btn">
+                <div class="slick-prev slick-arrow-buton-2 sab-4">
+                    <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="slick-next slick-arrow-buton-2 sab-3">
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services end -->
+
+  {%endblock body%}
+</div>

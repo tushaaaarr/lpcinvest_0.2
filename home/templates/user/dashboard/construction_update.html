@@ -1,0 +1,72 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %}Property
+Updates{{page_data.page_name}}{% endblock title%} {% block css %} {% endblock css %} {% block body %}
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container">
+        <div class="breadcrumb-area">
+            <h1>Property Updates</h1>
+            <ul class="breadcrumbs">
+                <li><a href="/">Home</a></li>
+                <li class="active">Property Updates</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<div class="properties-details-page content-area">
+    <div class="container">
+
+        <div class="main-title">
+            <h1>
+                Keep On Track
+                </h1>
+            <p>As off-plan development experts, we complete all due diligence and soliciting before our developments complete construction. Most of our properties are completed on time. Here are all of our developments that are currently under construction.</p>
+          </div>
+        <div class="row">
+            {%for property in construction_updates %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="container property-box-6 w-80">
+                    <a href="/construction-updates/{{property.property.title}}">
+                        <div class="property-photo">
+                            <img src="/media/{{property.property.image}}" alt="photo" class="img-fluid w-100"  style="height:400px;;"/>
+                        </div>
+                        <div class="tag">Under Construction</div>
+                    </a>
+                    <div class="property-inner">
+                        <div class="property-info">
+                            <h4 class="properties-name">
+                                <a href="/construction-updates/{{property.property.title}}">{{property.property.title}}</a>
+                            </h4>
+                            <p class="location">
+                                <a href="/construction-updates/{{property.property.title}}">
+                                    <i class="fa fa-map-marker"></i> {{property.property.get_city_display}}
+                                </a>
+                        </div>
+                    </div>
+                    <div class="team-hover-content">
+                        <a href="/construction-updates/{{property.property.title}}">
+                            <div class="property-photo">
+                                <img src="/media/{{property.property.image}}" alt="photo" class="img-fluid w-100"style="height:400px;" />
+                            </div>
+                        </a>
+                        <div class="property-info mt-0">
+                            <h4 class="properties-name">
+                                <a href="/construction-updates/{{property.property.title}}">{{property.property.title}}</a>
+                            </h4>
+                            <p class="location">
+                                <a href="/construction-updates/{{property.property.title}}">
+                                    <i class="fa fa-map-marker"></i> {{property.property.get_city_display}}
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+
+    {%endblock body%}

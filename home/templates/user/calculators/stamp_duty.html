@@ -1,0 +1,273 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} Stamp Duty Calculator {%endblock title%}{% block css %}
+
+<style>
+    .contact-new{
+        
+    }
+    .contact-new .div{
+        padding: 3px !important;
+    color: #495057!important;
+    width: 100%;
+    min-height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 3px;
+    }
+    /** Contact 2 start **/
+    .contact-new .contact-innner {
+    z-index: 999!important;
+    background: #fff;;
+    box-shadow: 0px 5px 15px 0px rgb(62 65 159 / 10%);
+    padding:15px;
+    padding-bottom: 25px;
+}
+
+.contact-new .contact-innner {
+        margin: 0 auto -80px;
+    }
+    .table_head th strong {
+        font-weight: bolder !important;
+        color: black;
+        font-size: 19;
+    }
+
+    #result_table {
+        display: none;
+    }
+
+    .total {
+        font-weight: bolder !important;
+        color: black;
+    }
+
+
+    /** Floor plans start **/
+    .floor-plans table {
+        width: 100%;
+        margin-bottom: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.0.7);
+    }
+
+    .floor-plans table tr:first-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.0.7);
+    }
+
+    .floor-plans table td,
+    table th {
+        padding: 10px 15px;
+        border-right: 1px solid rgba(0, 0, 0, 0.0.7);
+    }
+
+    .floor-plans table td {
+        font-size: 15px;
+        font-weight: 400;
+        color: #343434;
+    }
+
+    .floor-plans table strong {
+        font-weight: 500;
+    }
+    .contact-form{
+        z-index: 999!important;
+        background: #fff;;
+        box-shadow: 0px 5px 15px 0px rgb(62 65 159 / 10%);
+        padding:15px;
+        padding-bottom: 25px;
+    }
+</style>{% endblock css %} {% block body %}
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container">
+        <div class="breadcrumb-area">
+            <ul class="breadcrumbs">
+                <li><a href="/">Home</a></li>
+                <li class="active">Stamp Duty Calculator</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+<div class="content-area-17">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1>Stamp Duty Calculator</h1>
+            <p>Our stamp duty calculator is here to give you a guide to how much you can borrow for your next investment
+                or new home. Please be advised that our stamp duty calculator should only be used as a guide. Once you
+                have decided on your investment and have used our mortgage calculator to get an idea of the rates and
+                repayments.
+                We would advise to speak with one of our advisers for a more detailed discussion..</p>  
+        </div>
+        <div class="row g-0 contact">
+            <div class="contact-form mb-0">
+                <div class="row">
+        <div class="block-wrap">
+          <form id="loan-form" class="mb-3">
+            <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label  for="amount" class="form-label">Property Purchase Price</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">£</div>
+                            </div><!-- input-group-prepend -->
+                            <input id="amount" type="number" class="form-control" placeholder="Property Purchase Price" value="210750">
+                          </div><!-- input-group -->
+                        </div><!-- form-group -->
+                      </div>              
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="status" class="form-label">Type of buyer</label>
+                            <select class="selectpicker search-fields" name="status" id='status'>
+                                <option value="first">Are you a first-time buyer? </option>
+                                <option value="second"> Is this a buy-to-let or second home? </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-3">
+                        <div class="send-btn text-center">
+                            <input class="btn-6" type="submit" value="Calculate"></input>
+                        </div>
+                    </div>
+
+
+            <!-- col-md-12 -->
+            </div><!-- row -->
+          </form>
+        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="container contact-form" id="result_table">
+    <h3 class="heading-2 text-center mt-0">Your calculation</h3>
+
+    <div class="floor-plans">
+        <table>
+            <thead>
+                <tr class="table_head">
+                    <th><strong>Rate</strong></th>
+                    <th><strong>Band</strong></th>
+                    <th><strong>Amount</strong></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="1" class="total">Total</td>
+                    <td id="trate"></td>
+                    <td id="tdue"></td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<br>
+<br>
+
+{%endblock body%} {% block script %}
+
+<script>
+    // jQuery is preprocessed
+
+    $(function () {
+
+        var priceInput = $('input[type="number"]');
+        var tbody = $('table tbody');
+        var trateField = $('#trate');
+        var tdueField = $('#tdue');
+        var submitButton = $('input[type="submit"]');
+
+        submitButton.click(function (e) {
+            e.preventDefault();
+            document.getElementById("result_table").style.display = 'block';
+            var price = priceInput.val() > 0 ? priceInput.val() : 0;
+            if ($("#status").val() == 'second') {
+                var secondHome = true
+            }
+
+
+
+            var stampduty = 0;
+            var intervals = {
+                0: {
+                    'from': 0,
+                    'to': 125000,
+                    'rate': 0
+                },
+                1: {
+                    'from': 125000,
+                    'to': 250000,
+                    'rate': 2
+                },
+                2: {
+                    'from': 250000,
+                    'to': 925000,
+                    'rate': 5
+                },
+                3: {
+                    'from': 925000,
+                    'to': 1500000,
+                    'rate': 10
+                },
+                4: {
+                    'from': 1500000,
+                    'to': parseInt(price),
+                    'rate': 12
+                }
+            };
+
+            for (var interval in intervals) {
+                if (price > 1500000 || intervals[interval]['from'] == 0 || price > intervals[interval]['from']) {
+
+                    if (secondHome && price >= 40000) {
+                        intervals[interval]['rate'] += 3;
+                    }
+
+                    if (price < intervals[interval]['to']) {
+                        intervals[interval]['to'] = price;
+                    }
+
+                    intervals[interval]['due'] = ((intervals[interval]['to'] - intervals[interval]['from']) / 100) * intervals[interval]['rate'];
+                    stampduty += intervals[interval]['due'];
+
+                } else {
+                    delete intervals[interval];
+                }
+            }
+
+            var stampdutyRate = (Math.round((stampduty / price) * 10000)) / 100;
+
+            /** THE MAGIC ENDS HERE **/
+
+            tbody.html('');
+
+            for (var interval in intervals) {
+                var insertHtml = '<tr>';
+                insertHtml += '<td><strong>£' + intervals[interval]['from'] + " - £" + + intervals[interval]['to'] + '</strong></td>';
+                insertHtml += '<td><strong>' + intervals[interval]['rate'] + '%</strong></td>';
+                insertHtml += '<td><strong>£ ' + intervals[interval]['due'] + '</strong></td>';
+                insertHtml += '</strong></tr>';
+                tbody.append(insertHtml);
+            }
+            tdueField.html("£ " + stampduty);
+            trateField.html(stampdutyRate + '%');
+
+        });
+
+    });
+</script>
+{% endblock script %}

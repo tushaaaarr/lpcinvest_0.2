@@ -1,0 +1,451 @@
+{% extends 'user/basic.html' %} {% load static %}
+ {% block title %} {{page_data.page_name}}{% endblock title%} {% block css %}
+ <style>
+
+
+  .properties-description p strong{
+    font-weight: bolder !important;
+    color: #dc3545;
+    margin-top: 5px!important;
+    margin-bottom: 0px o !important;
+  }
+  .properties-description li {
+  list-style-type: square;
+  margin-left: 15px;
+}
+ </style> {% endblock css %} {% block body %}
+
+<!-- Sub banner start -->
+<!-- <div class="sub-banner">
+  <div class="container">
+    <div class="breadcrumb-area">
+      <h1>Properties Detail</h1>
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="active">Properties Detail</li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+<!-- Sub Banner end -->
+
+
+<!-- Properties details page start -->
+<div class="properties-details-page content-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <!-- Heading properties 3 start -->
+        <div class="heading-properties-3">
+          <div class="clearfix">
+            <div class="pull-left">
+              <h1>{{property.title}}</h1>
+            </div>
+            <div class="pull-right">
+              <h1><span>£{{property.price}}</span></h1>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="pull-left">
+
+              <p><i class="flaticon-pin"></i>{{property.adddress}}</p>
+            </div>
+            <div class="pull-right">
+              <p><span>{{property.area}} / sq ft</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Properties desciption start -->
+        <div class="product-slider-box cds-2 clearfix mb-40 row">
+          <div class="product-img-slide">
+            <div class="slider-for col-md-12">
+              {%for img in prop_images%}
+
+              <img src="/media/{{img.images}}" class="img-fluid w-100" alt="slider-photo"
+              style="max-height:400px; height:100%;" onclick="zoom()"/>
+              {%endfor%}
+            </div>
+            <div class="slider-nav col-md-12">
+              {%for img in prop_images%}
+              <img src="/media/{{img.images}}" class="img-fluid w-100" alt="slider-photo"
+              style="height:100px;" />
+              {%endfor%}
+            </div>
+          </div>
+          <!-- <div id="carouselInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {%for img in prop_images%}
+                {%if forloop.first %}
+                  <div class="carousel-item active" data-bs-interval="2000">
+
+                    <img src="/media/{{img.images}}" class="d-block w-100" alt="slider-photo"
+                    style="height:400px;" onclick="zoom(event)"/>
+
+                  </div>
+                {%else%}
+                  <div class="carousel-item" data-bs-interval="5000">
+
+                    <img src="/media/{{img.images}}" class="d-block w-100" alt="slider-photo"
+                    style="height:400px;"  onclick="zoom(event)"/>
+                  </div>
+                {%endif%}
+
+              {%endfor%}
+            </div>
+            <button class="carousel-control-prev prevv" type="button" data-bs-target="#carouselInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next nextt" type="button" data-bs-target="#carouselInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div> -->
+
+
+        </div>
+
+    <!-- Properties description start -->
+    <div class="properties-description mb-40">
+      <h3 class="heading-2">Description</h3>
+
+      {{property.content | safe}}
+    </div>
+
+
+        <!-- Properties amenities start -->
+        <div class="properties-amenities mb-40">
+          <h3 class="heading-2">Features</h3>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <ul class="amenities">
+                {%for feature in feature_data.feature_list%}
+                <li><i class="fa fa-check"></i>{{feature.feature}}</li>
+                {%endfor%}
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Floor plans start -->
+        <div>
+        <div class="floor-plans mb-50">
+          <h3 class="heading-2">Floor Plans</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Size</strong></td>
+                <td><strong>Rooms</strong></td>
+                <td><strong>Bathrooms</strong></td>
+                <td><strong>Year Built</strong></td>
+                <td><strong>Property Type:</strong></td>
+                <td><strong>Property Status:</strong></td>
+
+              </tr>
+              <tr>
+                <td>{{property.area}}</td>
+                <td>{{furniture_data.room}}</td>
+                <td>{{furniture_data.bathrooms}}</td>
+                <td>{{property.year_built}}</td>
+                <td>{{property.type}}</td>
+                <td>{{feature_data.status_list}}</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <div class="block-wrap">
+          <div class="block-title-wrap">
+            <h3 class="heading-2">Mortgage Calculator</h3>
+          </div>
+
+          <form id="loan-form" class="mb-3">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Total Amount</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">£</div>
+                    </div><!-- input-group-prepend -->
+                    <input id="amount" type="text" class="form-control" placeholder="Total Amount" value="210750">
+                  </div><!-- input-group -->
+                </div><!-- form-group -->
+              </div><!-- col-md-4 -->
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Interest Rate</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">%</div>
+                    </div><!-- input-group-prepend -->
+                    <input id="interest" type="text" class="form-control" placeholder="Interest Rate" value="3">
+                  </div><!-- input-group -->
+                </div><!-- form-group -->
+              </div><!-- col-md-4 -->
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Loan Terms (Years)</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="houzez-icon bi bi-calendar"></i>
+                      </div>
+                    </div><!-- input-group-prepend -->
+                    <input id="years" type="text" class="form-control" placeholder="Loan Terms (Years)" value="20">
+                  </div><!-- input-group -->
+                </div><!-- form-group -->
+              </div><!-- col-md-4 -->
+
+              <div class="col-md-12">
+                <input type="submit" value="Calculate" class="btn btn-outline btn-block mt-2" />
+              </div><!-- col-md-12 -->
+            </div><!-- row -->
+          </form>
+        </div>
+
+
+        <!-- Loader Here -->
+        <div id="loading">
+        </div>
+        <!-- Results -->
+        <div id="result">
+          <div class="form-group">
+            <div class="floor-plans mb-50">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Monthly Payment</strong></td>
+                    <td><strong>Total Payment</strong></td>
+                    <td><strong>Total Interest</strong></td>
+                  </tr>
+                  <tr>
+                    <td> <input type="number" class="form-control" id="monthly-payment" disabled value='{{Calculated_data.monthlyPayment}}' /></td>
+                    <td> <input type="number" class="form-control" id="total-payment" disabled value="{{Calculated_data.totalPayment}}"/></td>
+                    <td> <input type="number" class="form-control" id="total-interest" disabled value="{{Calculated_data.totalInterest}}"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <a class="btn btn-outline btn-slim mb-3" href="http://maps.google.com/?q={{property.adddress}}"
+          target="_blank"><i class="bi bi-map mr-1"></i> Open on Google
+          Maps</a>
+
+        <!-- Location start -->
+        <div class="location mb-50">
+          <div class="map">
+            <h3 class="heading-2">Property Location</h3>
+            <div id="map" class="contact-map"></div>
+          </div>
+        </div>
+
+        <input type="hidden" id="location_coord",name="location_coord" value="{{location_coord}}">
+        <!-- Inside properties start -->
+        <div class="inside-properties mb-50">
+          <h3 class="heading-2">Property Video</h3>
+          <iframe src="https://www.youtube.com/embed/5e0LxrLSzok" allowfullscreen=""></iframe>
+        </div>
+        <!-- Similar Properties start -->
+
+
+
+        <h3 class="heading-2">Similar Properties</h3>
+        <div class="row similar-properties">
+          {%for property in similar_properties%}
+          <div class="col-md-6">
+            <div class="property-box">
+              <div class="property-photo">
+                <a href="/properties/{{property.id}}" class="property-img">
+                  <div class="listing-badges">
+                    <span class="featured">Featured</span>
+                  </div>
+                  <div class="price-box">From <span>£ {{property.price}}</span></div>
+                  <img class="d-block w-100" src="/media/{{property.image}}" alt="properties" style="height:300px;" />
+                </a>
+              </div>
+              <div class="detail">
+                <h1 class="title">
+                  <a href="/properties/{{property.id}}">{{property.title}}</a>
+                </h1>
+
+                <div class="location">
+                  <a href="/properties/{{property.id}}">
+                    <i class="flaticon-pin"></i>{{property.adddress}}</a>
+                </div>
+              </div>
+              <ul class="facilities-list clearfix">
+                <li>
+                  <span>Area</span>{{property.area}}
+                </li>
+                <li>
+                  <span>Beds</span> {{property.bathrooms}}
+                </li>
+                <li>
+                  <span>Baths</span> {{property.room}}
+                </li>
+                <li>
+                  <span>Garage</span> 1
+                </li>
+              </ul>
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="sidebar-right">
+
+
+          <!-- Advanced search start -->
+          <div class="widget advanced-search">
+            <h3>Property From</h3>
+            <div class="pipedriveWebForms" data-pd-webforms=https://webforms.pipedrive.com/f/cB7meCB7GbTrgUwl1wvr6F0GvWoG7Z5U9Qk6y8Jc1DZeGGQwaVaV0Ktrgr92kk7fvJ><script src=https://webforms.pipedrive.com/f/loader></script></div>
+            <!-- <p>Enter your contact details below for a free no-obligation chat with one of our experienced property
+              brokers,</p>
+            <form action="/send-property-form" method="POST">
+              {%csrf_token%}
+              <div class="form-group form-box">
+                <input type="text" name="fname" class="form-control" placeholder="First Name" aria-label="First Name" required/>
+              </div>
+              <div class="form-group form-box">
+                <input type="text" name="lname" class="form-control" placeholder="Last Name" aria-label="Last Name" required/>
+              </div>
+              <div class="form-group form-box">
+                <input type="email" name="email" class="form-control" placeholder="Email Address"
+                  aria-label="Email Address" required/>
+              </div>
+              <div class="form-group form-box">
+                <input type="phone" name="phone" class="form-control" placeholder="Phone Number"
+                  aria-label="Phone Number" required/>
+              </div>
+
+                <div class="form-group form-box">
+                <textarea  class="form-control" name="message" placeholder="Write message" aria-label="Write message"></textarea>
+            </div>
+              <div class="form-group form-box checkbox clearfix">
+                <div class="form-check checkbox-theme">
+                  <input class="form-check-input" type="checkbox" value="" id="termsOfService" required/>
+                  <label class="form-check-label" for="termsOfService">
+                    I agree to the<a href="#" class="terms">terms of service</a>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn-md btn-theme w-100">
+                  Sumbit
+                </button>
+              </div>
+            </form> -->
+
+
+          </div>
+
+
+
+          <!-- Recent properties start -->
+          <div class="widget recent-properties">
+            <h3 class="sidebar-title">Recent Properties</h3>
+            <div class="s-border"></div>
+            <div class="m-border"></div>
+
+            {%for property in common_properties_data.recent_properties%}
+            <div class="d-flex mb-3 recent-posts-box">
+                <a class="col-6 p-0" href="/properties/{{property.id}}">
+                    <img src="/media/{{property.image}}" alt="small-properties" class="flex-shrink-0 img-fluid w-100" />
+                </a>
+                <div class="detail col-6 align-self-center">
+                    <h5 class="m-0">
+                        <a href="/properties/{{property.id}}">{{property.title}}</a>
+                    </h5>
+                    <div class="listing-post-meta">
+                        ${{property.price}}
+                        <a href="/properties/{{property.id}}" class="d-block"><i class="fa fa-calendar"></i>
+                            {{property.pub_date}} </a>
+                    </div>
+                </div>
+            </div>
+
+            {%endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="myModal" class="modale">
+      <span class="close">&times;</span>
+
+      <div id="carouselInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {%for img in prop_images%}
+            {%if forloop.first %}
+              <div class="carousel-item active p-5" data-bs-interval="2000">
+
+                <img src="/media/{{img.images}}" class="d-block img-fluid mx-auto zoom-images" alt="slider-photo"
+                style="height:100%; max-height:60vh; width:100%; max-width:70vw;" onclick="zoom(event)"/>
+
+              </div>
+            {%else%}
+              <div class="carousel-item p-5" data-bs-interval="5000">
+
+                <img src="/media/{{img.images}}" class="d-block img-fluid mx-auto zoom-images" alt="slider-photo"
+                style="height:100%; max-height:60vh; width:100%; max-width:70vw;"  onclick="zoom(event)"/>
+              </div>
+            {%endif%}
+
+          {%endfor%}
+        </div>
+        <button class="carousel-control-prev prevv" type="button" data-bs-target="#carouselInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next nextt" type="button" data-bs-target="#carouselInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+  var $ = jQuery.noConflict();
+
+  $(document).ready(function(){
+
+    var zoomImages = $('.zoom-images');
+
+    zoomImages.each(function() {
+      $(this).imageZoom();
+    });
+
+  });
+ </script>
+
+  <script>
+    function zoom(){
+
+      document.getElementById('myModal').style.display="block";
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+      console.log("sada");
+    document.getElementById('myModal').style.display = "none";
+    }
+  </script>
+
+
+
+  {%endblock body%}
+</div>
