@@ -76,6 +76,23 @@
 
 
     <style>
+        .navAlt{
+        width:40% !important;
+        text-align: left!important;
+        backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.7);
+        }
+
+        @media (max-width:768px) {
+            .navAlt{
+        width:100% !important;
+        text-align: left!important;
+        backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.7);
+        }
+            
+        }
+
         .ui-autocomplete{
             color:black;
             background-color: #fff ;
@@ -391,16 +408,17 @@
             <!-- </div> -->
             <!-- END menu-toggle -->
 
-            <div class="site-navbar js-site-navbar">
+            <div class="site-navbar js-site-navbar ms-auto navAlt border-0 p-3 rounded-start">
               <nav role="navigation">
                 <div class="container">
-                  <div class="row full-height align-items-center">
-                    <div class="col-md-6 mx-auto">
-                      <ul class="list-unstyled menu">
+                  <div class="row full-height align-items-md-center align-items-start pt-5 pt-md-0 ps-md-3 ps-2">
+                    <div class="col-md-12">
+                      <ul class="list-unstyled menu fw-bold" style="font-size: 28px!important;">
                         <li class="active"><a href="/">Home</a></li>
                         <li class="nav-item dropdown" >
-                            <a class="nav-link dropdown-toggle" href="/all-properties" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Properties</a>
-                            <div class="p-2 px-5 dropdown-menu" style="box-shadow: 0 0 10px rgba(0,0,0,0.5);"aria-labelledby="navbarDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Properties</a>
+                            <div class="p-2 px-5 dropdown-menu" style="box-shadow: 0 0 10px rgba(0,0,0,0.5);" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <a href="/all-properties" class="dropdown-item fs-3">All Properties</a>
                                 {%for city in common_properties_data.cities%}
                                 <a class="dropdown-item fs-3" href="/city/{{city}}">{{city | title}}</a>
                                 {%endfor%}
@@ -408,7 +426,7 @@
                         
                         </li>
                         <li class="nav-item dropdown" >
-                            <a class="nav-link dropdown-toggle" href="/all-properties" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">City Guide</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">City Guide</a>
                             <div class="p-2 px-5 dropdown-menu" style="box-shadow: 0 0 10px rgba(0,0,0,0.5);"aria-labelledby="navbarDropdown">
                                 {%for city in common_properties_data.cities%}
                                 <a class="dropdown-item fs-3" href="/city-guide/{{city}}">{{city | title}}</a>
