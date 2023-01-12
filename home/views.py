@@ -146,7 +146,9 @@ def updated_index(request):
     return render(request,'user/updated_index.html')
 
 def about(request):
-    return render(request,'user/about_us.html')
+    team_members = TeamMembers.objects.all()[:3]
+    
+    return render(request,'user/about_us.html',{'team_members':team_members})
 
 
 def property(request):
@@ -166,6 +168,7 @@ def property_list_by_city(request,in_city):
     type_dict['type_id'] = 'city'
     type_dict['type_value'] = in_city
     feature_data = property_listing(request,type_dict)
+    feature_data['selected_city'] = in_city
     properties = feature_data['properties']
     page_data = {}
     if len(properties)<1:
@@ -249,7 +252,7 @@ def property_listing(request,type_dict=None):
         page_data['not_found'] = True
 
 
-    context = {"properties":properties,"page_data":page_data,
+    context = {"properties":properties,"page_data":page_data,'feature_data':feature_data,
         'is_paginated':True, 'paginator':product_paginator,"page_obj":properties}
 
     if type_dict is None:
@@ -346,10 +349,10 @@ def filter_property(query,properties):
         dt3 = list(dt3.values_list('property', flat=True))
         properties = properties.filter(id__in = dt3)
 
-    
     properties = properties.filter(city__in=get_containing(CITIES_CHOICES,query["city"])).filter(
         price__range=(int(query['min_price']),int(query['max_price']))).filter(
         deposited_price__range=(query["min_deposit"],query['max_deposit']))
+   
 
     return properties
 
@@ -378,35 +381,46 @@ def property_sorting(query,properties):
 
 
 def search(request):
-    if request.is_ajax():
-        query = request.GET.get('term', '')
-        search_title = Properties.objects.filter(title__icontains=query.lower())
-        search_type= Properties.objects.filter(type__in = get_containing(PROP_TYPE_CHOICES,query.lower()))
-        results = []
-        for type_name in (search_type):
-            if type_name.get_type_display() not in results:
-                results.append(type_name.get_type_display())
+    # if request.is_ajax():
+    #     query = request.GET.get('term', '')
+    #     search_title = Properties.objects.filter(title__icontains=query.lower())
+    #     search_type= Properties.objects.filter(type__in = get_containing(PROP_TYPE_CHOICES,query.lower()))
+    #     results = []
+    #     for type_name in (search_type):
+    #         if type_name.get_type_display() not in results:
+    #             results.append(type_name.get_type_display())
 
-        for title in search_title:
-            if title.title not in results:
-                results.append(title.title)
+    #     for title in search_title:
+    #         if title.title not in results:
+    #             results.append(title.title)
 
-        data = json.dumps(results)
+    #     data = json.dumps(results)
 
-        return HttpResponse(data)
+    #     return HttpResponse(data)
 
     properties_data = {}
-    query = request.GET.get('query', "")
-    properties_status = request.GET.getlist('properties_status', "")
-    properties = Properties.objects.filter(Q(title__contains=query) | Q(type__in=get_containing(PROP_TYPE_CHOICES,query.lower())))
+    q_type = request.GET.get('type', "")
+    properties_status = request.GET.getlist('status', "")
 
-    if not 'all' in properties_status:
-        dt = PropertyStatusMapper.objects.all()
-        status_id = StatusMaster.objects.filter(status__in=properties_status)
-        dt = dt.filter(status__in=status_id)
+    properties = Properties.objects.all()
+    dt_ = PropertyStatusMapper.objects.all()
+    if not 'all' in q_type.strip():
+        if q_type == "buy_to_let":
+            type_id = StatusMaster.objects.filter(status__startswith="Buy to let")
+        elif q_type == "buy_to_live":
+            type_id = StatusMaster.objects.filter(status__startswith="Buy to live")
+        else:
+            type_id = StatusMaster.objects.all()
+
+        dt = dt_.filter(status__in=type_id)
         dt_ids = list(dt.values_list('property', flat=True))
         properties = properties.filter(id__in = dt_ids)
 
+    if not 'all' in properties_status:
+        status_id = StatusMaster.objects.filter(status__in=properties_status)
+        dt = dt_.filter(status__in=status_id)
+        dt_ids = list(dt.values_list('property', flat=True))
+        properties = properties.filter(id__in = dt_ids)
     sort_properties = request.GET.get('ordering', "")
     if sort_properties:
         properties_data = property_sorting(sort_properties,properties)
@@ -681,7 +695,6 @@ def my_properties(request):
     {'exclusive_properties':fav_properties,"page_data":page_data}
     )
 
-
 @login_required(redirect_field_name='next',login_url = '/login')
 def monthly_offers(request):
     page_data = {}
@@ -771,17 +784,52 @@ def teams(request):
     return render(request,'user/teams.html',{'team_members':team_members})
 
 def blog(request):
+    page_data = {}
     blog_list = []
-    blogs = Blogs.objects.all()
+    blogs = Blogs.objects.all()[1:]
     for blog in blogs:
         blog.desc = blog.desc[:50]
         blog_list.append(blog)
-    return render(request,'user/blog.html',{'blogs':blog_list})
+    
+    if request.GET.get('blog_title'):
+        title = request.GET.get('blog_title')
+        city = request.GET.get('blog_city')
+        blogs = Blogs.objects.all()
+        if not 'all' in city:
+            blogs = blogs.filter(city__in = get_containing(CITIES_CHOICES,city))
+
+        blogs = blogs.filter(desc__icontains=title.lower()) 
+        if len(blogs)<1:
+            page_data['not_found'] = True
+        blog_list = blogs
+
+    PRODUCTS_PER_PAGE= 6
+    page = request.GET.get('page',1)
+    product_paginator = Paginator(blog_list, PRODUCTS_PER_PAGE)
+
+    try:
+        blog_list = product_paginator.page(page)
+    except EmptyPage:
+        blog_list = product_paginator.page(product_paginator.num_pages)
+    except:
+        blog_list = product_paginator.page(PRODUCTS_PER_PAGE)
+
+    return render(request,'user/blog.html',{'blogs':blog_list,"page_data":page_data,
+    'paginator':product_paginator,"page_obj":blog_list,'is_paginated':True,})
 
 def readblog(request,id):
+    
     blog_content = Blogs.objects.filter(id=id)[0]
+    properties = Properties.objects.all()[:5]
+    cleaned_properties = []
+    for property_ in properties:
+        prop = clean_property_data(property_)
+        cleaned_properties.append(prop)
+    # related_blogs = Blogs.objects.filter(city__in = get_containing(CITIES_CHOICES,blog_content.city)) 
+    related_blogs = Blogs.objects.all()[:4] 
     return render(request,'user/readblog.html',
-    {'blog_content':blog_content}
+    # return render(request,'user/read_blog_1.html',
+    {'blog_content':blog_content,"properties":cleaned_properties,"related_blogs":related_blogs}
     )    
 
 def partners(request):

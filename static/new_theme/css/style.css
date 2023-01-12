@@ -148,7 +148,8 @@ textarea.form-control {
       font-family: "Playfair Display", times, serif; }
       .site-navbar nav .menu li a {
         color: #000;
-        font-size: 40px;
+        font-weight: 400!important;
+        font-size: 32px;
         padding: 5px 10px;
         position: relative; }
         .site-navbar nav .menu li a:hover:before {
@@ -1267,6 +1268,6 @@ textarea.form-control {
         font-size: 1.2rem;
         line-height: 47px; }
       .custom-pagination ul li.active span {
-        background: #00CE8D
+        background: #00CE8D;
         color: #fff;
         border-radius: 50%; }

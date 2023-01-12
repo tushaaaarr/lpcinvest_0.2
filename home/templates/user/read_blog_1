@@ -1,0 +1,417 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} Meet The Team {%endblock title%} {% block css %} {% endblock css %} {% block body %}
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+  <div class="container">
+    <div class="breadcrumb-area">
+      <h1>{{page_data.member_name}}</h1>
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href='/about'>About</a></li> <li class="active">blog</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Sub banner end -->
+<div class="container my-5">
+
+  <header class="container my-5">
+    <h1 class="display-4 text-center fw-bold">Your Guide to Investing in Property  <span class="d-block fw-light" style="color:#00CE8D"> That Hasn’t Begun Construction</span></h1>
+
+    <div class="d-flex justify-content-center">
+      <div class="col-12 d-flex justify-content-center  gap-4  align-items-center mb-5">
+        <h5 class="fs-5 text-center mb-0 p-0">Share to:</h5>
+        <div class="d-flex gap-3 justify-content-between">
+          <a class="btn cont-sec" href="https://www.instagram.com/?url=https://google.com">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a class="btn cont-sec" href="https://www.facebook.com/sharer/sharer.php?u=https://google.com">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a class="btn cont-sec" href="https://google.com">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a class="btn cont-sec" href="https://wa.me/whatsappphonenumber/?text=https://google.com">
+            <i class="fa fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+  <hr/>
+
+<!-- Article Summary Start -->
+  <div class="row">
+    <div class="col-12 d-flex align-items-center gap-5">
+      <div class="col-6 d-none d-lg-block">
+        <img src="{% static 'img/background-index/1.jpg' %}" class="img-fluid" style="height:400px;object-fit:cover"/>
+      </div>
+      <article class="col-lg-6 col-12 container text-center">
+        <h3 class="display-4 fw-bold" style="color:#00CE8D">Article Summary</h3>
+        <span class="d-flex align-items-center justify-content-between">
+          <hr class="w-100" style="border:1px solid black"/>
+          <p class="lead p-0 m-0 w-100 fw-bold">Where to invest</p>
+          <hr class="w-100" style="border:1px solid black"/>
+        </span>
+          <ul style="list-style-type:disc" class="text-start fs-5 py-3">
+            <li>Here at LPC Invest we ONLY work alongside award winning,  </li>
+            <li>trusted developers and contractors to provide our investors with as  </li>
+            <li>little risk exposure as possible. Following the above checklist will  </li>
+            <li>allow for you to ensure the upmost levels of security and achieve peace  </li>
+            <li>of mind throughout your property investment journey.  </li>
+          </ul>
+      </article>
+    </div>
+  </div>
+<!-- Aricle Summary Ends -->
+
+<!-- Main content Starts -->
+  <main class="container my-5 fs-5">
+    <p class="my-3 text-lead">
+      Even though buying off-the-plan properties is becoming more and more common, it's important to understand the risks associated with them. This blog will explain what makes specific developments more or less risky so that you can decide on an off-plan purchase with greater knowledge.
+      So, to begin with, should you make an investment in a property where building has not yet begun?
+      This is defiantly something to explore extensively, that is for sure. Before considering buying an off-plan property, property investors should go through the following checklist of questions and make sure they are familiar with the answers and the overall risk.
+    </p>
+    <ul class="list-group list-group-numbered my-4 ms-5 align-center boxShadow" style="width:90%">
+      <li class="list-group-item">Do you have any news regarding the developer? </li>
+      <li class="list-group-item"> Are they skilled and experienced in the off-plan industry? </li>
+      <li class="list-group-item">Are they built to a high standard and are they able to show proof of completed sites? </li>
+      <li class="list-group-item">Has construction begun on-site? </li>
+      <li class="list-group-item">Have they made extensive plans already? </li>
+      <li class="list-group-item">What is the developer's track record? </li>
+      <li class="list-group-item">Are they working with credible contractors? </li>
+      <li class="list-group-item">Are they funded in advance? </li>
+      <li class="list-group-item">Do they have any updates on the construction? </li>
+    </ul>
+
+    <p class="text-lead">
+      Following this checklist will help you to gain a wider understanding of the
+      potential risks surrounding off plan property investment. The importance of
+      each of these areas are detrimental to your investment planning. Read more below.
+    </p>
+
+    <hr/>
+
+    <article>
+      <div class="textBox py-2">
+          <h4 class="display-6 fw-bold">
+            Key Phrase Bank
+          </h4>
+
+          <h6 class="fs-5 fw-bold pt-3">
+            Forward Funding
+          </h6>
+          <p>
+            This means that the development has been funded by professional institutes prior to the build. Highlighting their trust in the constructors and developers, providing a lessened risk factor.
+          </p>
+
+          <h6 class="fs-5 fw-bold pt-3">
+            Fractional Funding
+          </h6>
+          <p>
+            This states that the developer relies on investor deposits to fund the construction and so, set targets will need to be met before construction begins. However, the risk attributed to these surrounds delays due to waiting for targets to be met.
+          </p>
+      </div>
+
+      <div class="textBox py-2">
+        <h4 class="display-6 fw-bold">
+          Units are sold before the construction is initiated, why?
+        </h4>
+        <p>
+          Before beginning construction on a site, developers occasionally need
+          to sell a particular number of properties. This is frequently the case
+          when a developer uses deposits to pay for the development's construction.
+          These types of developments frequently require the sale of a sizable
+          percentage of the units, and they are frequently heavily incentivised
+          (through furniture packages etc.). In rare circumstances, sites may demand
+          that up to 75% of the units be sold before construction can begin.
+          With reliance's such as these, it becomes evident that delays may arise.
+          Taking into account the worlds current climate and whether targets are met
+          will help predict this also.  In more extreme cases this may result in
+          the development not being built at all, this highlighting the risk level
+          of these developments further.
+        </p>
+      </div>
+
+      <div class="textBox py-2">
+        <h4 class="display-6 fw-bold">
+          The Importance of Planning
+        </h4>
+        <p>
+          Although planning is definitely necessary before starting the approval
+          process for the majority of traditional property investments, it is
+          nevertheless important to ensure that they have the required planning
+          permission also. Planning applications are always accessible to the general
+          public online.
+          Visit the government website and use the 'register of planning decisions'
+          to look up a planning application. You can find out which local council
+          it pertains to and access a connection to their website after entering
+          the correct postcode.
+          You may often search for planning applications and documentation on the
+          council website using the application reference number provided, address,
+           postcode, or even a map. This will enable you to access the application's
+           and decision's details once you have located the relevant application.
+        </p>
+      </div>
+
+      <div class="textBox py-2">
+        <h4 class="display-6 fw-bold">
+          Constuction has stopped, what steps should I take?
+        </h4>
+        <p>
+          A variety of factors, including a lack of funding, an increase in material
+          costs, and disruptions to supply networks, can cause property developments
+          to be postponed. It's crucial to read the contract's fine print and
+          conditions. A long stop date, which is the agreed-upon deadline for the
+          property to be finished, will typically be written at this point.
+          Buyers who still haven't been able to move into their newly constructed
+          homes after that date might be eligible to receive their deposits back
+          and, if they so want, cancel the contract. For the most part, the best
+          option to get your money returned will need you to see a skilled solicitor.
+          The long stop date may also be extended at your discretion.
+          Sometimes events take place outside of a development's control.
+          A condition for force majeure is applicable in this situation.
+          This provision in a contract modifies the parties' obligations and
+          liabilities in the event of an unforeseen, extraordinary event.
+          Here legal advice is recommended again.
+        </p>
+      </div>
+
+      <div class="textBox py-2">
+        <h4 class="display-6 fw-bold">
+          LPC’s Guide to Identifying Trusted Construction Contractors
+        </h4>
+        <p>
+          If you're thinking about purchasing an off-the-plan property,
+          make sure the construction completed by a reputable contractor.
+          Verify their track record for timely completion of previous developments
+          as well as the construction of high-quality properties. Make sure they are not overly ambitious with time frames and that
+          they have the resources necessary to complete the build.
+          Here at LPC Invest we ONLY work alongside award winning, trusted developers and contractors to provide our investors with as little risk exposure as possible. Following the above checklist will allow for you to ensure the upmost levels of security and achieve peace of mind throughout your property investment journey.
+        </p>
+      </div>
+
+    </article>
+  </main>
+<!-- Main content Ends -->
+
+<!-- Share Buttons Start -->
+  <div class="d-flex justify-content-center">
+    <div class="col-12 d-flex justify-content-center  gap-4  align-items-center mb-5">
+      <h5 class="fs-5 text-center mb-0 p-0">Share to:</h5>
+      <div class="d-flex gap-3 justify-content-between">
+        <a class="btn cont-sec" href="https://www.instagram.com/?url=https://google.com">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a class="btn cont-sec" href="https://www.facebook.com/sharer/sharer.php?u=https://google.com">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a class="btn cont-sec" href="https://google.com">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a class="btn cont-sec" href="https://wa.me/whatsappphonenumber/?text=https://google.com">
+          <i class="fa fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+<!-- Share Buttons Start -->
+
+
+
+  <div class="row bg-para mx-0 d-flex justify-content-center" style="height:70vh">
+    <div class="col-md-6 col-12 p-3 d-flex align-items-center justify-content-center">
+      <div class="text-center">
+        <h2 class="h2 py-3" style="color:#00CE8D;">Explore our properties</h2>
+        <button class="btn btn-lg cont-sec"><i class="fa fa-group pe-2"></i> Explore Now</button>
+      </div>
+    </div>
+    <div class="col-md-6 p-3 col-12 d-flex align-items-center justify-content-center">
+      <div class="text-center">
+        <h2 class="h2" style="color:#00CE8D;">From £249,950</h2>
+        <h5 class="h5 fw-light text-light"><i class="fa fa-info-circle"></i> Yield: 13.5%</h5>
+        <h5 class="h5 fw-light text-light"><i class="fa fa-building"></i> In Construction</h5>
+        <h5 class="h5 fw-light text-light"><i class="fa fa-calendar"></i> Est. Q4 2024</h5>
+        <h5 class="h5 fw-light text-light"><i class="fa fa-clock-o"></i> Lease Length: 250 Years</h5>
+      </div>
+    </div>
+  </div>
+
+
+  <hr style="height:5px;background:black"/>
+
+<!-- Related Article section start -->
+
+  <div class="row">
+
+    <h1 class="h1 text-center py-4" style="color:#00CE8D;"><span style="color:#262525">Related </span>Articles</h1>
+
+    <div class="slick-slider-area ">
+      <div
+        class="row slick-carousel"
+        data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+          <!--Blog Card  Start-->
+          <div class="slick-slide-item col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="position-relative tm-card" style="height:550px!important">
+              <img src="{% static 'img/background-index/1.jpg' %}"
+              class="w-100" style="height:80%;object-fit:cover;">
+
+              <div style="position:absolute;bottom:0;z-index:2" class="p-1 w-100 mx-auto">
+                <div class="card text-dark bg-light mb-3">
+                  <h5 class="pt-3 mb-0 ps-3">Your Guide to Investing in Property That Hasn’t Begun Construction </h5>
+                  <p class="card-header pb-3"><i class="fa fa-calendar"></i> January 4, 2023</p>
+                  <div class="card-body">
+                    <p>
+                      Even though buying off-the-plan properties is becoming more and more common,
+                    </p>
+                    <button class="btn btn-lg cont-sec">Read more...</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!--Blog Card  End-->
+
+
+          <!--Blog Card  Start-->
+          <div class="slick-slide-item col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="position-relative tm-card" style="height:550px!important">
+              <img src="{% static 'img/background-index/1.jpg' %}"
+              class="w-100" style="height:80%;object-fit:cover;">
+
+              <div style="position:absolute;bottom:0;z-index:2" class="p-1 w-100 mx-auto">
+                <div class="card text-dark bg-light mb-3">
+                  <h5 class="pt-3 mb-0 ps-3">Your Guide to Investing in Property That Hasn’t Begun Construction </h5>
+                  <p class="card-header pb-3"><i class="fa fa-calendar"></i> January 4, 2023</p>
+                  <div class="card-body">
+                    <p>
+                      Even though buying off-the-plan properties is becoming more and more common,
+                    </p>
+                    <button class="btn btn-lg cont-sec">Read more...</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!--Blog Card  End-->
+
+          <!--Blog Card  Start-->
+          <div class="slick-slide-item col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="position-relative tm-card" style="height:550px!important">
+              <img src="{% static 'img/background-index/1.jpg' %}"
+              class="w-100" style="height:80%;object-fit:cover;">
+
+              <div style="position:absolute;bottom:0;z-index:2" class="p-1 w-100 mx-auto">
+                <div class="card text-dark bg-light mb-3">
+                  <h5 class="pt-3 mb-0 ps-3">Your Guide to Investing in Property That Hasn’t Begun Construction </h5>
+                  <p class="card-header pb-3"><i class="fa fa-calendar"></i> January 4, 2023</p>
+                  <div class="card-body">
+                    <p>
+                      Even though buying off-the-plan properties is becoming more and more common,
+                    </p>
+                    <button class="btn btn-lg cont-sec">Read more...</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!--Blog Card  End-->
+
+          <!--Blog Card  Start-->
+          <div class="slick-slide-item col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="position-relative tm-card" style="height:550px!important">
+              <img src="{% static 'img/background-index/1.jpg' %}"
+              class="w-100" style="height:80%;object-fit:cover;">
+
+              <div style="position:absolute;bottom:0;z-index:2" class="p-1 w-100 mx-auto">
+                <div class="card text-dark bg-light mb-3">
+                  <h5 class="pt-3 mb-0 ps-3">Your Guide to Investing in Property That Hasn’t Begun Construction </h5>
+                  <p class="card-header pb-3"><i class="fa fa-calendar"></i> January 4, 2023</p>
+                  <div class="card-body">
+                    <p>
+                      Even though buying off-the-plan properties is becoming more and more common,
+                    </p>
+                    <button class="btn btn-lg cont-sec">Read more...</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!--Blog Card  End-->
+
+          <!--Blog Card  Start-->
+          <div class="slick-slide-item col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="position-relative tm-card" style="height:550px!important">
+              <img src="{% static 'img/background-index/1.jpg' %}"
+              class="w-100" style="height:80%;object-fit:cover;">
+
+              <div style="position:absolute;bottom:0;z-index:2" class="p-1 w-100 mx-auto">
+                <div class="card text-dark bg-light mb-3">
+                  <h5 class="pt-3 mb-0 ps-3">Your Guide to Investing in Property That Hasn’t Begun Construction </h5>
+                  <p class="card-header pb-3"><i class="fa fa-calendar"></i> January 4, 2023</p>
+                  <div class="card-body">
+                    <p>
+                      Even though buying off-the-plan properties is becoming more and more common,
+                    </p>
+                    <button class="btn btn-lg cont-sec">Read more...</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!--Blog Card  End-->
+
+          <!--Blog Card  Start-->
+          <div class="slick-slide-item col-lg-4 col-md-6 col-sm-12 mb-5">
+            <div class="position-relative tm-card" style="height:550px!important">
+              <img src="{% static 'img/background-index/1.jpg' %}"
+              class="w-100" style="height:80%;object-fit:cover;">
+
+              <div style="position:absolute;bottom:0;z-index:2" class="p-1 w-100 mx-auto">
+                <div class="card text-dark bg-light mb-3">
+                  <h5 class="pt-3 mb-0 ps-3">Your Guide to Investing in Property That Hasn’t Begun Construction </h5>
+                  <p class="card-header pb-3"><i class="fa fa-calendar"></i> January 4, 2023</p>
+                  <div class="card-body">
+                    <p>
+                      Even though buying off-the-plan properties is becoming more and more common,
+                    </p>
+                    <button class="btn btn-lg cont-sec">Read more...</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!--Blog Card  End-->
+
+
+
+      </div>
+      <div class="slick-btn mb-5">
+        <div class="slick-prev slick-arrow-buton-2 sab-4">
+          <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="slick-next slick-arrow-buton-2 sab-3">
+          <i class="fa fa-angle-right"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<!-- Related Article secion End -->
+
+</div>
+{%endblock body%} {% block script %} {% endblock script %}

@@ -1,39 +1,93 @@
-{% extends 'user/basic.html' %} {% load static %} {% block title %} {{blog_content.desc}} {%endblock title%} {% block css %} {% endblock css %} {% block body %}
+{% extends 'user/basic.html' %} {% load static %} {% block title %} {{blog_content.desc}} {%endblock title%} 
+{% block css %}
+{% endblock css %} 
+<style>
+  .display-4, .display-4 p{
+    font-size:10px!important;
+  }
+  .display-4 {
+    font-size: 20px !important;
+    line-height: 1.2;
+  }
+  .display-4 {
+    font-size:2rem!important;
+    font-weight: 700!important;;;
+    line-height: 1.2;
+  }
+  .cont-sec{
+    padding-left: 20px !important;
+    padding-right: 20px!important;;
+    padding-top: 5px!important;;
+    padding-bottom: 5px!important;;
+    border-radius: 50px!important;;
+  }
+  .display-6 {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+</style>
+{% block body %}
 
-<!-- Sub banner start -->
-<div class="sub-banner">
-  <div class="container">
-    <div class="breadcrumb-area">
-      <h1>{{page_data.member_name}}</h1>
-      <ul class="breadcrumbs">
-        <li><a href="/">Home</a></li>
-        <li class="active"><a href='/about'>About</a></li> <li class="active">blog</li>
-      </ul>
-    </div>
-  </div>
-</div>
-<!-- Sub banner end -->
-<div class="container my-5">
-  <header class="container my-5">
-    <h1 class="display-4 text-center fw-bold" style="font-size:14px !important;">{{blog_content.title | safe }}</h1>
-    <div class="d-flex justify-content-center">
-      <div class="col-12 d-flex justify-content-center  gap-4  align-items-center mb-5">
-        <h5 class="fs-5 text-center mb-0 p-0">Share to:</h5>
-        <div class="d-flex gap-3 justify-content-between">
-          <a class="btn cont-sec" href="https://www.instagram.com/?url=https://google.com">
-            <i class="fa fa-instagram"></i>
-          </a>
-          <a class="btn cont-sec" href="https://www.facebook.com/sharer/sharer.php?u=https://google.com">
-            <i class="fa fa-facebook"></i>
-          </a>
-          <a class="btn cont-sec" href="https://google.com">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a class="btn cont-sec" href="https://wa.me/whatsappphonenumber/?text=https://google.com">
-            <i class="fa fa-whatsapp"></i>
-          </a>
-        </div>
+<!-- Banner start -->
+<div class="banner" id="banner">
+  
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item item-bg active">
+              <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg" alt="banner">
+              <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                <div class="carousel-content container align-self-center">
+                  <div class="banner-info2">
+                      <div class="text-l text-center">
+                          <h3 class="text-uppercase">Blogs</h3>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </div>
+          <div class="carousel-item item-bg">
+              <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-1.jpg" alt="banner">
+              <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                      <div class="text-l text-center">
+                          <h3 class="text-uppercase">Blogs</h3>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item item-bg">
+              <img class="d-block w-100 h-100" src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner">
+              <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                <div class="carousel-content container align-self-center">
+                  <div class="banner-info2">
+                    <div class="text-l text-center">
+                        <h3 class="text-uppercase">Blogs</h3>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="top:45%">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="width:15%;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+ 
+</div>
+<!-- Banner end -->
+
+<!-- Sub banner end -->
+<div class="container mt-5 mb-2">
+  <header>
+    <h2 class="heading text-center" >{{blog_content.title | safe }}</h2>
 
     </div>
   </header>
@@ -42,31 +96,57 @@
 
 
 <!-- Main content Starts -->
-  <main class="container my-5 fs-5">
+</div>
 
-    {{blog_content.content | safe }}
+
+<!-- Blog body start -->
+
+
+      <div class="blog-body content-area-5 pt-2 bg-light">
+        <div class="">
+          
+                    <!-- Blog 1 start -->
+                    <div class="blog-1 blog-big" style="z-index:1">
+                        <div class="bg-light">
+                          {{blog_content.content | safe }}     
+
+
+</div>
+</div>
+</div>
+<!-- Blog body end -->
+
+
+<!-- Full Page Search -->
+<div id="full-page-search">
+  <button type="button" class="close">×</button>
+  <form action="index.html#">
+      <input type="search" value="" placeholder="type keyword(s) here"/>
+      <button type="submit" class="btn btn-sm button-theme">Search</button>
+  </form>
+</div>
+
+
+
 
   
-   
-  </main>
 <!-- Main content Ends -->
 
 <!-- Share Buttons Start -->
   <div class="d-flex justify-content-center">
     <div class="col-12 d-flex justify-content-center  gap-4  align-items-center mb-5">
-      <h5 class="fs-5 text-center mb-0 p-0">Share to:</h5>
-      <div class="d-flex gap-3 justify-content-between">
-        <a class="btn cont-sec" href="https://www.instagram.com/?url=https://google.com">
-          <i class="fa fa-instagram"></i>
+      <div class="d-flex gap-3 justify-content-between share_btns">
+        <a class="btn cont-sec py-2 px-3" href="https://www.instagram.com/?url=https://google.com">
+          <i class="fa fa-instagram pt-1"></i>
         </a>
-        <a class="btn cont-sec" href="https://www.facebook.com/sharer/sharer.php?u=https://google.com">
-          <i class="fa fa-facebook"></i>
+        <a class="btn cont-sec py-2 px-3" href="https://www.facebook.com/sharer/sharer.php?u=https://google.com">
+          <i class="fa fa-facebook pt-1"></i>
         </a>
-        <a class="btn cont-sec" href="https://google.com">
-          <i class="fa fa-twitter"></i>
+        <a class="btn cont-sec py-2 px-3" href="https://google.com">
+          <i class="fa fa-twitter pt-1"></i>
         </a>
-        <a class="btn cont-sec" href="https://wa.me/whatsappphonenumber/?text=https://google.com">
-          <i class="fa fa-whatsapp"></i>
+        <a class="btn cont-sec py-2 px-3" href="https://wa.me/whatsappphonenumber/?text=https://google.com">
+          <i class="fa fa-whatsapp pt-1"></i>
         </a>
       </div>
     </div>
@@ -76,35 +156,15 @@
 
 
 
-  <div class="row bg-para mx-0 d-flex justify-content-center" style="height:70vh">
-    <div class="col-md-6 col-12 p-3 d-flex align-items-center justify-content-center">
-      <div class="text-center">
-        <h2 class="h2 py-3" style="color:#00CE8D;">Explore our properties</h2>
-        <button class="btn btn-lg cont-sec"><i class="fa fa-group pe-2"></i> Explore Now</button>
-      </div>
-    </div>
-    <div class="col-md-6 p-3 col-12 d-flex align-items-center justify-content-center">
-      <div class="text-center">
-        <h2 class="h2" style="color:#00CE8D;">From £249,950</h2>
-        <h5 class="h5 fw-light text-light"><i class="fa fa-info-circle"></i> Yield: 13.5%</h5>
-        <h5 class="h5 fw-light text-light"><i class="fa fa-building"></i> In Construction</h5>
-        <h5 class="h5 fw-light text-light"><i class="fa fa-calendar"></i> Est. Q4 2024</h5>
-        <h5 class="h5 fw-light text-light"><i class="fa fa-clock-o"></i> Lease Length: 250 Years</h5>
-      </div>
-    </div>
-  </div>
-
-
-  <hr style="height:5px;background:black"/>
-
+ 
 <!-- Related Article section start -->
 
  <!--Blog Card  Start-->
- <div class="blog comon-slick content-area bg-light" data-aos="fade-up">
+ <div class="blog comon-slick content-area bg-light mt-3" data-aos="fade-up">
   <div class="container">
       <!-- Main title -->
       <div class="main-title-5">
-          <h2 class="heading">Blog and <span style="color:#00CE8D">Articles</span></span></h2>
+          <h2 class="heading">Related <span style="color:#00CE8D">Articles</span></span></h2>
           <div class="title-border">
               <div class="title-border-inner"></div>
               <div class="title-border-inner"></div>
@@ -113,7 +173,7 @@
       </div>
       <div class="slick row comon-slick-inner"
           data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-       {%for blog in blogs%}   
+       {%for blog in related_blogs%}   
           <div class="item slide-box">
               <div class="blog-3 b-photo2" style=" background: url(media/{{blog.image_1}});
               background-size:cover;background-repeat: no-repeat;background-position: center;">
@@ -128,12 +188,64 @@
           </div>
          {%endfor%}
       </div>
-      <div class="col-12 d-flex justify-content-center justify-content-lg-end">
-          <a href="/blogs" class="btn w-25 cont-sec" style="border-radius: 0%;">See More</a>
-      </div>
+     
   </div>
 </div>
 <!-- Related Article secion End -->
+
+
+
+<!-- Featured properties start -->
+<div class="featured-car-section pt-2 comon-slick content-area bg-light mt-5" data-aos="fade-up">
+  <div class="container">
+      <!-- Main title -->
+      <div class="main-title-5">
+          <h2 class="heading pt-0">Featured <span style="color:#00CE8D">Properties</span></h2>
+          <div class="title-border">
+              <div class="title-border-inner"></div>
+              <div class="title-border-inner"></div>
+              <div class="title-border-inner"></div>
+          </div>
+      </div>
+
+      <div class="slick row" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+          {%for property in properties %}
+          <div class="item" style="font-weight: 700!important;">
+              <div class="property-box-3">
+                  <img src="/media/{{property.image}}" alt="photo" class="img-fluid w-100" style="height: 350px;">
+                  <div class="ling-section">
+                      <h3 style="font-weight: 700!important;">
+                          <a href="/properties/{{property.id}}">{{property.title}}</a>
+                      </h3>
+                      <ul class="member-socials clearfix" style="margin:0px;">
+                          <li style="font-weight:700;">
+                              <i class="fa fa-map-marker"></i> {{property.city | title}}
+                          </li>
+                      </ul>
+                      {%if property.yields %}
+                      <ul class="member-socials clearfix" style="margin:0px;">
+                          <li style="font-weight:700 !important;">
+                              <i class="fa fa-info-circle"></i> Net Yields: {{property.yields}}
+                          </li>
+                      </ul>
+                      {%endif%}
+                      <ul class="member-socials clearfix" style="margin:0px;">
+                      <li  style="font-weight: bolder;font-weight: 700;">
+                          <span style="color: #00CE8D;font-weight:bolder;font-size: 15px;">From </span> £{{property.price}}
+                      </li>
+                  </ul>
+                      <a href="/properties/{{property.id}}" class="read-more-btn">Read More</a>
+                  </div>
+              </div>
+          </div>
+
+        {%endfor%}
+      </div>
+  </div>
+</div>
+  
+  <hr style="height:5px;background:black"/>
+
 
 </div>
 {%endblock body%} {% block script %} {% endblock script %}

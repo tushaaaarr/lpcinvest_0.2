@@ -75,24 +75,67 @@
         padding-bottom: 25px;
     }
 </style>{% endblock css %} {% block body %}
-<!-- Sub banner start -->
-<div class="sub-banner">
-    <div class="container">
-        <div class="breadcrumb-area">
-            <ul class="breadcrumbs">
-                <li><a href="/">Home</a></li>
-                <li class="active">Stamp Duty Calculator</li>
-            </ul>
+<div class="banner" id="banner">
+  
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item item-bg active">
+                <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                        <div class="text-l text-center">
+                            <h3 class="text-uppercase">Stamp Duty Calculator</h3>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="carousel-item item-bg">
+                <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-1.jpg" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                    <div class="carousel-content container align-self-center">
+                      <div class="banner-info2">
+                        <div class="text-l text-center">
+                            <h3 class="text-uppercase">Stamp Duty Calculator</h3>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                      <div class="text-l text-center">
+                          <h3 class="text-uppercase">Stamp Duty Calculator</h3>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+            </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="top:45%">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="width:15%">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-</div>
+   
+  </div>    
 <!-- Sub Banner end -->
-<div class="content-area-17">
+<div class="content-area-17 bg-light mt-3">
     <div class="container">
         <!-- Main title -->
         <div class="main-title text-center">
-            <h1>Stamp Duty Calculator</h1>
-            <p>Our stamp duty calculator is here to give you a guide to how much you can borrow for your next investment
+            <h1 style="font-weight:700">
+                Stamp Duty <span style="color:#00CE8D;"> Calculator</span>
+                </h1>
+            <p style="font-weight: 700;">Our stamp duty calculator is here to give you a guide to how much you can borrow for your next investment
                 or new home. Please be advised that our stamp duty calculator should only be used as a guide. Once you
                 have decided on your investment and have used our mortgage calculator to get an idea of the rates and
                 repayments.
@@ -146,8 +189,8 @@
 </div>
 <br>
 
-<div class="container contact-form" id="result_table">
-    <h3 class="heading-2 text-center mt-0">Your calculation</h3>
+<div class="container contact-form bg-light" id="result_table">
+    <h4 class="heading text-center mt-0">Your calculation</h4>
 
     <div class="floor-plans">
         <table>
@@ -159,10 +202,10 @@
                 </tr>
             </thead>
             <tfoot>
-                <tr>
+                <tr class=" fw-bold">
                     <td colspan="1" class="total">Total</td>
-                    <td id="trate"></td>
-                    <td id="tdue"></td>
+                    <td class=" fw-bold" id="trate"></td>
+                    <td class=" fw-bold" id="tdue"></td>
                 </tr>
             </tfoot>
             <tbody>
@@ -174,7 +217,38 @@
 
     </div>
 </div>
-
+<!-- Contact section start -->
+<div style="box-shadow:0 0 10px rgba(0,0,0,0.2)" data-aos="fade-up" class='bg-light mt-3'>
+    <div class="container py-5 contact_section " >
+      <div class="row d-flex justify-content-around p-3" >
+        <div class="col-12 col-md-6 p-3">
+          <p class="text-lead" style="font-weight:700">Want to know more?</p>
+          <h2 class="heading pb-4" style="color:#00CE8D;"><span style="color:#252626">Contact us</span> today</h3>
+          <div class="d-flex justify-content-between">
+            <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
+            <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
+                <button type="button" class="btn p-2  px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
+          </div>
+    
+          <p class="py-4" style="font-weight:700!important;">
+            Our team of expert property consultants are on hand to answer your questions and help you plan your perfect investment. Book an appointment today to start your investment journey.
+          </p>
+          <div class="d-flex justify-content-between">
+            <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec p-2 px-3 " style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
+            <a href="https://calendly.com/tusharspatil808/30min?month=2022-12" target="_blank">
+            <button type="button" class="btn cont-sec px-3 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
+          </div>
+    
+        </div>
+        <div class="col-12 col-md-5 p-3">
+          <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5);" src="/media/media/iStock-171572347-1-scaled.jpg"/>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Contact section End -->
+    
+  <!--Download Guide section Start  -->
 <br>
 <br>
 

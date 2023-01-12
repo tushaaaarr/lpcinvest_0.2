@@ -36,9 +36,6 @@ Version:    1.1.0
     27. Sub Footer / .sub-footer
 -------------------------------------------------------------------*/
 /** Global classes**/
-body{
-    overflow-x: hidden;
-}
 a{
     font-weight: inherit;
 }

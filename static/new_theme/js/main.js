@@ -5,8 +5,8 @@
   $('.site-menu-toggle').click(function(){
     var $this = $(this);
     if ( $('body').hasClass('menu-open') ) {
-      $this.removeClass('open');
-      $('.js-site-navbar').fadeOut(400);
+      $this.removeClass('open');     
+      $('.js-site-navbar').fadeOut(400);     
       $('body').removeClass('menu-open');
     } else {
       $this.addClass('open');

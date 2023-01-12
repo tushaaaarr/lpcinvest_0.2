@@ -1,72 +1,97 @@
 {% extends 'user/basic.html' %} {% load static %} {% block title %}Property
 Updates{{page_data.page_name}}{% endblock title%} {% block css %} {% endblock css %} {% block body %}
 
-<!-- Sub banner start -->
-<div class="sub-banner">
-    <div class="container">
-        <div class="breadcrumb-area">
-            <h1>Property Updates</h1>
-            <ul class="breadcrumbs">
-                <li><a href="/">Home</a></li>
-                <li class="active">Property Updates</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Sub Banner end -->
 
-<div class="properties-details-page content-area">
+
+<!-- Banner start -->
+<div class="banner" id="banner">
+  
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item item-bg active">
+                <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                        <div class="text-l text-center">
+                            <h3 class="text-uppercase">Construction Updates</h3>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="carousel-item item-bg">
+                <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-1.jpg" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                    <div class="carousel-content container align-self-center">
+                      <div class="banner-info2">
+                        <div class="text-l text-center">
+                            <h3 class="text-uppercase">Construction Updates</h3>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                      <div class="text-l text-center">
+                          <h3 class="text-uppercase">Construction Updates</h3>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="top:45%">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="width:15%;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+   
+  </div>
+  <!-- Banner end -->
+  
+<div class="properties-details-page content-area bg-light mt-3  ">
     <div class="container">
 
         <div class="main-title">
             <h1>
-                Keep On Track
+                Keep On <span style="color:#00CE8D">Track</span>
                 </h1>
-            <p>As off-plan development experts, we complete all due diligence and soliciting before our developments complete construction. Most of our properties are completed on time. Here are all of our developments that are currently under construction.</p>
+            <p style="font-weight:700;">As off-plan development experts, we complete all due diligence and soliciting before our developments complete construction. Most of our properties are completed on time. Here are all of our developments that are currently under construction.</p>
           </div>
-        <div class="row">
+          
+          <div class="row mt-3 bg-light">
             {%for property in construction_updates %}
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="container property-box-6 w-80">
-                    <a href="/construction-updates/{{property.property.title}}">
-                        <div class="property-photo">
-                            <img src="/media/{{property.property.image}}" alt="photo" class="img-fluid w-100"  style="height:400px;;"/>
-                        </div>
-                        <div class="tag">Under Construction</div>
-                    </a>
-                    <div class="property-inner">
-                        <div class="property-info">
-                            <h4 class="properties-name">
-                                <a href="/construction-updates/{{property.property.title}}">{{property.property.title}}</a>
-                            </h4>
-                            <p class="location">
-                                <a href="/construction-updates/{{property.property.title}}">
-                                    <i class="fa fa-map-marker"></i> {{property.property.get_city_display}}
-                                </a>
-                        </div>
-                    </div>
-                    <div class="team-hover-content">
-                        <a href="/construction-updates/{{property.property.title}}">
-                            <div class="property-photo">
-                                <img src="/media/{{property.property.image}}" alt="photo" class="img-fluid w-100"style="height:400px;" />
+              <div class="col-lg-4 col-md-6">
+                <div class="item slide-box">
+                    <div class="blog-3 b-photo2" style=" background: url(/media/{{property.property.image}});
+                    background-size:cover;background-repeat: no-repeat;background-position: center;">
+                        <div class="blog-info">
+                            <h3 style="font-weight:700"><a href="/construction-updates/{{property.property.title}}">{{property.title}}..</a>
+                            </h3>
+                            <h3 style="color:#00CE8D;font-weight: 700;">Under Construction</h3>
+                            <div>
+                                <p><i class="fa fa-calendar pe-3 pt-4"></i> {{property.pub_date}}</p> 
                             </div>
-                        </a>
-                        <div class="property-info mt-0">
-                            <h4 class="properties-name">
-                                <a href="/construction-updates/{{property.property.title}}">{{property.property.title}}</a>
-                            </h4>
-                            <p class="location">
-                                <a href="/construction-updates/{{property.property.title}}">
-                                    <i class="fa fa-map-marker"></i> {{property.property.get_city_display}}
-                                </a>
-                            </p>
                         </div>
 
                     </div>
                 </div>
-            </div>
-            {%endfor%}
-        </div>
+              </div>
+              {%endfor%}
+          </div>
+
+
+
+       
     </div>
 
     {%endblock body%}

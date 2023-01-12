@@ -37,7 +37,7 @@
     display: block;
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 0;
     transform: translateY(-50%);
 }
 
@@ -515,7 +515,7 @@
 }
 
 .main-header .dropdown-toggle::after {
-    top: 17px;
+    /* top: 17px; */
 }
 
 /** Main header 1 area start **/

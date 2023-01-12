@@ -1,193 +1,260 @@
-{% extends 'user/basic.html' %} {% load static %} {% block title %} Blogs and Articles {%endblock title%} {% block css %} {% endblock css %} {% block body %}
+{% extends 'user/basic.html' %} {% load static %} 
+{% load templatehelpers %}
+{% block title %} Blogs and Articles {%endblock title%} {% block css %} 
+<style>
 
-<section class="site-hero overlay" style="background-image: url('https://www.teahub.io/photos/full/151-1513340_real-estate-banner-design.jpg');" data-stellar-background-ratio="0.5">
+  .pagination-box{
+    text-align: center !important;
+  }
+  p{
+    font-weight: 700!important;
+  }
+  </style>
+{% endblock css %} {% block body %}
 
-  <div class="container">
-  <div class="row site-hero-inner justify-content-center align-items-center">
-    <div class="col-md-10 text-center" data-aos="fade-up">
-
-      <div class="text-center">
-        <h1 class="heading">Blogs</h1>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-</section>
-
-
-<div class="container my-5">
-
-  <h1 class="h1 heading text-center py-4" style="color:#00CE8D;"><span style="color:#262525">Latest </span>News</h1>
-  <hr style="height:5px;background-color: #00CE8D;"/>
-  <p class="lead text-center py-3 mb-5">
-    Keep up to date about the latest developments across the property market</p>
-  <div class="row">
-
-    <div class="col-12 my-4 text-dark">
-      <form class="d-flex justify-content-between gap-4">
-          <div class="mb-3 w-100">
-            <label for="Select" class="form-label">Topic</label>
-            <select id="Select" class="form-select">
-              <option>-Select Topic-</option>
-            </select>
-          </div>
-          <div class="mb-3 w-100">
-            <label for="Select" class="form-label">City</label>
-            <select id="Select" class="form-select">
-              <option>-Select City-</option>
-            </select>
-          </div>
-      </form>
-    </div>
-
-    <!--Blog Card  Start-->
-    <div class="blog comon-slick content-area bg-light" data-aos="fade-up">
-      <div class="container">
-          <!-- Main title -->
-          <div class="main-title-5">
-              <h2 class="heading">Blog and <span style="color:#00CE8D">Articles</span></span></h2>
-              <div class="title-border">
-                  <div class="title-border-inner"></div>
-                  <div class="title-border-inner"></div>
-                  <div class="title-border-inner"></div>
-              </div>
-          </div>
-          <div class="slick row comon-slick-inner"
-              data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-           {%for blog in blogs%}   
-              <div class="item slide-box">
-                  <div class="blog-3 b-photo2" style=" background: url(media/{{blog.image_1}});
-                  background-size:cover;background-repeat: no-repeat;background-position: center;">
-                      <div class="blog-info">
-                          <h3 style="font-weight:700"><a href="/blog/{{blog.id}}">{{blog.desc}}..</a></h3>
-                          <div>
-                              <p><i class="fa fa-calendar pe-3 pt-4"></i> {{blog.pub_date}}</p> 
-                          </div>
-                      </div>
+<div class="banner" id="banner">
   
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item item-bg active">
+              <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg" alt="banner">
+              <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                <div class="carousel-content container align-self-center">
+                  <div class="banner-info2">
+                      <div class="text-l text-center">
+                          <h3 class="text-uppercase">Blogs</h3>
+                      </div>
                   </div>
               </div>
-             {%endfor%}
+              </div>
           </div>
+          <div class="carousel-item item-bg">
+              <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-1.jpg" alt="banner">
+              <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                      <div class="text-l text-center">
+                          <h3 class="text-uppercase">Blogs</h3>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item item-bg">
+              <img class="d-block w-100 h-100" src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner">
+              <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                <div class="carousel-content container align-self-center">
+                  <div class="banner-info2">
+                    <div class="text-l text-center">
+                        <h3 class="text-uppercase">Blogs</h3>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="top:45%">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="width:15%">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+ 
+</div>
+<br>
+<div class="container my-5 mt-5">
+<div class="inline-search-area isa-5 isa-992 clearfix">
+  <form method='get' action='/blogs'>
+      <div class="row">
+          <div class="autocomplete col-md-6 col-sm-12 col-12" id='autocomplete'>
+              <input class="form-control search-fields sf" name='blog_title' id="blog_title"
+                  placeholder="Search for Blog title"
+                  hx-get="/search/autocompldete" hx-trigger="keyup changed delay:100ms"
+                  hx-target="#search-results" hx-indicator=".htmx-indicator" style="border: solid #00CE8D 1px;">
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+              <select class="selectpicker search-fields" name="blog_city"style="border: solid #00CE8D 1px;"
+                  id="blog_city">
+                  <option type="button" value="all">All Cities </option>
+                  {%for city in common_properties_data.cities%}
+                  <option value="{{city}}">{{city | title}} </option>
+                  {%endfor%}
+              </select>
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+              <button class="btn button-theme btn-search w-100 mb-0">
+                  <strong>Search</strong>
+              </button>
+          </div>
+      </div>
+  </form>
+</div>
+</div>
+<div class="container">
+  <h1 class="h1 heading text-center py-4" style="color:#00CE8D;"><span style="color:#262525">Blogs and </span>Articles</h1>
+  <hr style="height:5px;background-color: #00CE8D;"/>
+  <p class="text-center py-3 mb-5">Keep up to date about the latest developments across the property market</p>
+
+</div>
+
+
+</div>
+<!-- Blog body start -->
+<div class="blog comon-slick content-area bg-light pt-3 mt-3 mb-3" data-aos="fade-up">
+  <div class="container">
+
+    {%if page_data.not_found%}
+    <div class="pages-404">
+    <div class="nobottomborder">
+      <h1 style='color:#00CE8D'>
+        It seems we can't find what you're looking for.!</h1>
+      <div class="row">
+        <div class="col-lg-5 col-md-5">
+          <div class="coming-form clearfix" style="margin-top:0px;">
+                  <p>Please try searching again</p>
+              </div>
+            </div>
+
+          </div>
+      </div>
+  </div>
+{%endif%}
+{%if blogs%}
+
+    <div class="main-title-5">
+    <h2 class="heading">Recent <span style="color:#00CE8D">Articles</span></span></h2>
+    </div>
+      <div class="row">
+        {%for blog in blogs%}   
+          <div class="col-lg-4 col-md-6">
+            <div class="item slide-box">
+                <div class="blog-3 b-photo2" style=" background: url(media/{{blog.image_1}});
+                background-size:cover;background-repeat: no-repeat;background-position: center;">
+                    <div class="blog-info">
+                        <h3 style="font-weight:700"><a href="/blog/{{blog.id}}">{{blog.desc}}..</a></h3>
+                        <div>
+                            <p><i class="fa fa-calendar pe-3 pt-4"></i> {{blog.pub_date}}</p> 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+          {%endfor%}
+
+         
         
       </div>
-  </div>
-    
-  </div>
-
-<!-- Tools Area Start -->
-  <div class="row mt-5">
-    <h1 class="h1 text-center py-4" style="color:#00CE8D;"><span style="color:#262525">We Support you </span>all the Way</h1>
-
-    <div class="col-lg-4 col-12 mb-5">
-
-      <div class="position-relative tm-card" style="height:400px!important;box-shadow:0 5px 15px rgba(0,0,0,0.8)">
-        <img src="{% static 'img/img-1.jpg' %}"
-        class="w-100" style="height:100%;object-fit:cover;">
-        <div class="card-body bg-none w-100" style="position:absolute;top:5%;z-index:2">
-          <h3 class="h3 py-2 pb-1 text-light fw-bold">City Guide</h3>
-          <hr style="height:5px;background-color: #00CE8D;opacity:1;width:50%;"/>
+      <!-- Page navigation start -->
+      <div class="text-center py-2 mr-3" style="text-align: center!important;">
+        {% if is_paginated %}
+        <div class="pagination-box hidden-mb-45 text-center">
+          <nav class="pagination">
+            <ul class="pagination mx-auto">
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" tabindex="-1" aria-disabled="true"
+                  href="{% relative_url page_obj.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
+              </li>
+              {% endif %}
+              {% for i in paginator.page_range %}
+              {% if i == page_obj.number%}
+              <li class="page-item">
+                <a class="page-link active" href="{% relative_url i 'page' request.GET.urlencode %}">{{i}}</a>
+              </li>
+        
+        
+              {% else %}
+              <li class="page-item">
+                <a class="page-link " href="{% relative_url i 'page' request.GET.urlencode %}">{{i}}</a>
+              </li>
+        
+              {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link" tabindex="-1"
+                  href="{% relative_url page_obj.next_page_number 'page' request.GET.urlencode %}">Next</a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
         </div>
-
-        <div class="card-body bg-none w-100 d-flex justify-content-center" style="position:absolute;bottom:5%;z-index:2">
-          <a href="/blog/1"class="btn cont-sec" style="border-radius:0">Read more...</a>
+        {% endif %}
+        
         </div>
-      </div>
-    </div>
-
-
-    <div class="col-lg-4 col-12 mb-5">
-
-      <div class="position-relative tm-card" style="height:400px!important;box-shadow:0 5px 15px rgba(0,0,0,0.8)">
-        <img src="{% static 'img/img-1.jpg' %}"
-        class="w-100" style="height:100%;object-fit:cover;">
-        <div class="card-body bg-none w-100" style="position:absolute;top:5%;z-index:2">
-          <h3 class="h3 py-2 pb-1 text-light fw-bold">Events</h3>
-          <hr style="height:5px;background-color: #00CE8D;opacity:1; width:50%;"/>
-        </div>
-
-        <div class="card-body bg-none w-100 d-flex justify-content-center" style="position:absolute;bottom:5%;z-index:2">
-          <a href="/blog/1"class="btn cont-sec" style="border-radius:0">Read more...</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-12 mb-5">
-
-      <div class="position-relative tm-card" style="height:400px!important;box-shadow:0 5px 15px rgba(0,0,0,0.8)">
-        <img src="{% static 'img/img-1.jpg' %}"
-        class="w-100" style="height:100%;object-fit:cover;">
-        <div class="card-body bg-none w-100" style="position:absolute;top:5%;z-index:2">
-          <h3 class="h3 py-2 pb-1 text-light fw-bold">Our Services</h3>
-          <hr style="height:5px;background-color: #00CE8D;opacity:1;width:50%;"/>
-        </div>
-
-        <div class="card-body bg-none w-100 d-flex justify-content-center" style="position:absolute;bottom:5%;z-index:2">
-          <a href="/blog/1"class="btn cont-sec" style="border-radius:0">Read more...</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-
-  <div class="row">
-    <div class="col-md-6 col-12 mb-5">
-
-      <div class="position-relative tm-card" style="height:400px!important;box-shadow:0 5px 15px rgba(0,0,0,0.8)">
-        <img src="{% static 'img/img-1.jpg' %}"
-        class="w-100" style="height:100%;object-fit:cover;">
-        <div class="card-body bg-none w-100" style="position:absolute;top:5%;z-index:2">
-          <h3 class="h3 py-2 pb-1 text-light fw-bold">Mortgage Calculator</h3>
-          <hr style="height:5px;background-color: #00CE8D;opacity:1;width:50%;"/>
-        </div>
-
-        <div class="card-body bg-none w-100 d-flex justify-content-center" style="position:absolute;bottom:5%;z-index:2">
-          <a href="/blog/1"class="btn cont-sec" style="border-radius:0">Read more...</a>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-md-6 col-12 mb-5">
-
-      <div class="position-relative tm-card" style="height:400px!important;box-shadow:0 5px 15px rgba(0,0,0,0.8)">
-        <img src="{% static 'img/img-1.jpg' %}"
-        class="w-100" style="height:100%;object-fit:cover;">
-        <div class="card-body bg-none w-100" style="position:absolute;top:5%;z-index:2">
-          <h3 class="h3 py-2 pb-1 text-light fw-bold">Properties Search </h3>
-          <hr style="height:5px;background-color: #00CE8D;opacity:1;width:50%;"/>
-        </div>
-
-        <div class="card-body bg-none w-100 d-flex justify-content-center" style="position:absolute;bottom:5%;z-index:2">
-          <a href="/blog/1"class="btn cont-sec" style="border-radius:0">Read more...</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
+{%endif%}  
 </div>
 
-<!-- Tools Area End -->
 
-<div class="row bg-para mx-0 d-flex justify-content-center">
 
-    <div class="col-lg-4 col-12 p-3 d-flex align-items-center justify-content-center">
-      <img src="{% static 'img/logo/logo1.png' %}"
-      class="w-75 img-fluid" style="max-width:250px;">
-    </div>
-    <div class="col-lg-4 p-3 col-12 d-flex align-items-center justify-content-center">
-      <div>
-      <h2 class="h2" style="color:#00CE8D;">Come and Discuss</h2>
-      <h4 class="h4 text-light">Your Goal</h4>
-      <h4 class="h4 text-light">Your Vision</h4>
-      <h4 class="h4 text-light">Your Property Portfolio</h4>
+
+<!-- Contact section start -->
+<div style="box-shadow:0 0 10px rgba(0,0,0,0.2)" data-aos="fade-up" class='bg-light mt-3'>
+  <div class="container py-5 contact_section " >
+    <div class="row d-flex justify-content-around p-3" >
+      <div class="col-12 col-md-6 p-3">
+        <p class="text-lead" style="font-weight:700">Want to know more?</p>
+        <h2 class="heading pb-4" style="color:#00CE8D;"><span style="color:#252626">Contact us</span> today</h3>
+        <div class="d-flex justify-content-between">
+          <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
+          <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
+              <button type="button" class="btn p-2  px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
+        </div>
+  
+        <p class="py-4" style="font-weight:700!important;">
+          Our team of expert property consultants are on hand to answer your questions and help you plan your perfect investment. Book an appointment today to start your investment journey.
+        </p>
+        <div class="d-flex justify-content-between">
+          <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec p-2 px-3 " style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
+          <a href="https://calendly.com/tusharspatil808/30min?month=2022-12" target="_blank">
+          <button type="button" class="btn cont-sec px-3 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
+        </div>
+  
+      </div>
+      <div class="col-12 col-md-5 p-3">
+        <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5);" src="/media/media/iStock-171572347-1-scaled.jpg"/>
       </div>
     </div>
-    <div class="col-lg-4 col-12 d-flex align-items-center justify-content-center p-3">
-      <button class="btn btn-lg cont-sec" style="border-radius:0"><i class="fa fa-group"></i> Talk To Us</button>
+  </div>
+  </div>
+  <!-- Contact section End -->
+  
+<!--Download Guide section Start  -->
+<div class="my-5" style="box-shadow:0 0 10px rgba(0,0,0,0.2); background-image:url("{% static 'img/modal_image.jpg' %}");
+background-position:center;bacground-repeat:no-repeat;background-attachment:center; background-size:100%;">
+<div class="container" >
+  <div class="row d-flex justify-content-around p-3" >
+    <div class="col-12 col-lg-6 p-3">
+      <p class="text-lead text-light">Want Invest Today</p>
+      <h3 class="display-5 pb-4" style="color:#00CE8D;">Why buy in {{property.get_city_display | title }} ?</h3>
+
+      <p class="lead pb-3 text-dark">
+        {{property.get_city_display | title }} has become the UK’s second city and is one of the country’s
+        top property markets. This great city has built on its industrial
+        revolution foundations to become a truly global, 21st-century destination
+        for people, businesses and investors from around the world.
+
+        Major regeneration projects, rapid population growth and an economy
+        growing faster than the national average have contributed to an exciting,
+        vibrant city that has grabbed the limelight. Unprecedented growth in the
+        housing market has followed naturally – making this the perfect time to
+        invest in {{property.get_city_display | title }} property and take advantage of its reliability and
+        long-term growth prospects.
+      </p>
+      <button type="button" class="btn cont-sec px-3 py-2 fs-5"  data-bs-toggle="modal" data-bs-target="#downloadFrom"><i class="fa fs-5 fa-download px-2"></i>Download Guide</button>
     </div>
+    <div class="d-md-none d-lg-block col-lg-5 p-5">
+      <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5); transform:rotate(-10deg);object-fit:cover;" src="{% static 'img/modal_image.jpg' %}"/>
+    </div>
+  </div>
 </div>
+</div>
+<!--
+
 {%endblock body%} {% block script %} {% endblock script %}

@@ -2,60 +2,102 @@
  {% block title %} Download{{page_data.page_name}}{% endblock title%} {% block css %} {% endblock css %} 
  {% block body %}
 
-<!-- Sub banner start -->
-<div class="sub-banner">
-  <div class="container">
-    <div class="breadcrumb-area">
-      <h1>Download</h1>
-      <ul class="breadcrumbs">
-        <li><a href="/">Home</a></li>
-        <li class="active">Download</li>
-      </ul>
-    </div>
-  </div>
-</div>
-<!-- Sub Banner end -->
 
-<!-- Services start -->
-<div class="services content-area content-area-12">
-    <div class="container">
-        <!-- Main title -->
-        <div class="main-title">
-            <h1>UK Property Investment Guides</h1>
-            <p>Grab a FREE download of our UK Property Investment Guides, available in an easy to read PDF format.</p>
-        </div>
-
-        <div class="slick-slider-area">
-            <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-                {%for city in download_assets %}
-                <div class="slick-slide-item">
-                    <div class="card service-box">
-                        <img class="card-img-top" src="/media/{{city.image}}" style="height: 200px;" alt="service">
-                        <div class="card-body detail">
-                            <div class="heading clearfix">
-                                <div class="number">
-                                </div>
-                                <div class="title">
-                                    <h4><a href="">{{city.title}}</a></h4>
-                                </div>
-                            </div>
-                            <p>{{city.desc}};</p>
-                            <a href="{{city.downlodable_url}}" class="read-more font-weight-bold">Download</a>
+<!-- Banner start -->
+<div class="banner" id="banner">
+  
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item item-bg active">
+                <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                        <div class="text-l text-center">
+                            <h3 class="text-uppercase">Download</h3>
                         </div>
                     </div>
                 </div>
-                {%endfor%}
-
-            </div>
-            <div class="slick-btn">
-                <div class="slick-prev slick-arrow-buton-2 sab-4">
-                    <i class="fa fa-angle-left"></i>
                 </div>
-                <div class="slick-next slick-arrow-buton-2 sab-3">
-                    <i class="fa fa-angle-right"></i>
+            </div>
+            <div class="carousel-item item-bg">
+                <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-1.jpg" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                    <div class="carousel-content container align-self-center">
+                      <div class="banner-info2">
+                        <div class="text-l text-center">
+                            <h3 class="text-uppercase">Download</h3>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner">
+                <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+                  <div class="carousel-content container align-self-center">
+                    <div class="banner-info2">
+                      <div class="text-l text-center">
+                          <h3 class="text-uppercase">Download</h3>
+                      </div>
+                  </div>
+                  </div>
                 </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="top:45%">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="width:15%;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+   
+  </div>
+  <!-- Banner end -->
+  
+<!-- Services start -->
+<div class="services content-area content-area-12 bg-light mt-3">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>UK Property <span style="color: #00CE8D;">Investment Guides</span></h1>
+            <p style="font-weight: 700;">Grab a FREE download of our UK Property Investment Guides, available in an easy to read PDF format.</p>
+        </div>
+
+        <div class="slick-slider-area">
+        <div class="row">
+            {%for city in download_assets %}
+            <div class="col-lg-4 col-md-6">
+                <div class="slick-slide-item">
+                    <div class="card service-box">
+                        <img class="card-img-top" src="media/media/1.1.jpg" style="height: 200px;" alt="service">
+                        <div class="card-body detail text-center">
+                            <div class="heading clearfix">
+                                <div class="number">
+                                </div>
+                                <div class="text-center ">
+                                    <h4 style="color:#00CE8D;font-weight:700;" class="mx-auto">{{city.title}}</h4>
+                                </div>
+                            </div>
+                            <p class="text-start" style="font-weight: 700;">{{city.desc}};</p>
+                            <a href="{{city.downlodable_url}}" class="font-weight-bold btn cont-sec" style="border-radius: 0;">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                {%endfor%}
+
+
+
+
+
+
+
+
+      </div>   
     </div>
 </div>
 <!-- Services end -->
