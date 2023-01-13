@@ -800,8 +800,8 @@ def blog(request):
         blogs = Blogs.objects.all()
         if not 'all' in city:
             blogs = blogs.filter(city__in = get_containing(CITIES_CHOICES,city))
-
         blogs = blogs.filter(desc__icontains=title.lower()) 
+
         if len(blogs)<1:
             page_data['not_found'] = True
         blog_list = blogs
@@ -829,10 +829,15 @@ def readblog(request,id):
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
     # related_blogs = Blogs.objects.filter(city__in = get_containing(CITIES_CHOICES,blog_content.city)) 
-    related_blogs = Blogs.objects.all()[:4] 
+    blog_list = []
+    blogs = Blogs.objects.all()[:5]
+    for blog in blogs:
+        blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
+        blog_list.append(blog)
     return render(request,'user/readblog.html',
     # return render(request,'user/read_blog_1.html',
-    {'blog_content':blog_content,"properties":cleaned_properties,"related_blogs":related_blogs}
+    {'blog_content':blog_content,"properties":cleaned_properties,"related_blogs":blog_list}
     )    
 
 def partners(request):
