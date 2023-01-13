@@ -34,6 +34,11 @@
 	  console.log('show');
 	});
 
+ // aos
+$(function() {
+  AOS.init();
+});
+
 
 	// home slider
 	$('.home-slider').owlCarousel({

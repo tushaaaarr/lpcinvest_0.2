@@ -352,26 +352,7 @@ select{
             <div class="col-lg-5 col-md-5">
               <div class="coming-form clearfix" style="margin-top:0px;">
                       <p>Please try searching again</p>
-
                   </div>
-                  <div class="property-info mt-0">
-                    <h4 class="properties-name">
-                      <a href="/properties/{{property.id}}">{{property.title}}</a>
-                      <p class="location">
-                        <a href="/properties/{{property.id}}">
-                          <i class="fa fa-map-marker"></i> {{property.city | title}}
-                        </a>
-                        {%if property.yields %}
-                      <p class="location">
-                        <a><i class="fa fa-info-circle"></i> Net Yields: {{property.yields}}</a>
-                      </p>
-                      {%endif%}
-
-                      {%if property.room %}
-                      <p class="location"><a><i class="fa fa-home"></i> Units: {{property.room}} Bed {{property.type | title}}</a></p>
-                      {%endif%}
-                  </div>
-
                 </div>
 
               </div>

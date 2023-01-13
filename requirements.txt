@@ -12,3 +12,4 @@ requests
 django-tinymce==3.4.0
 geopy==2.2.0
 pytonik-time-ago==0.2.0
+readtime==2.0.0

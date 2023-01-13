@@ -26,6 +26,11 @@
     font-weight: 300;
     line-height: 1.2;
   }
+  .carousel-inner h3{
+font-size:24px!important;
+  }
+
+
 </style>
 {% block body %}
 
@@ -40,7 +45,7 @@
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
                       <div class="text-l text-center">
-                          <h3 class="text-uppercase">Blogs</h3>
+                          <h3 class="text-capitalize" style="font-size:22px;">{{blog_content.desc}}</h3>
                       </div>
                   </div>
               </div>
@@ -52,7 +57,7 @@
                   <div class="carousel-content container align-self-center">
                     <div class="banner-info2">
                       <div class="text-l text-center">
-                          <h3 class="text-uppercase">Blogs</h3>
+                          <h3 class="text-capitalize"style="font-size:22px;">{{blog_content.desc}}</h3>
                       </div>
                   </div>
                   </div>
@@ -64,7 +69,7 @@
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
                     <div class="text-l text-center">
-                        <h3 class="text-uppercase">Blogs</h3>
+                        <h3 class="text-capitalize" style="font-size:22px;">{{blog_content.desc}}</h3>
                     </div>
                 </div>
                 </div>
@@ -88,7 +93,6 @@
 <div class="container mt-5 mb-2">
   <header>
     <h2 class="heading text-center" >{{blog_content.title | safe }}</h2>
-
     </div>
   </header>
   <hr/>
@@ -98,6 +102,11 @@
 <!-- Main content Starts -->
 </div>
 
+<div class="row mx-0">
+  <div class="container">
+    <img src="/static/img/blog.jpeg" class="img-fluid w-100"/>
+  </div>
+</div>
 
 <!-- Blog body start -->
 
@@ -195,57 +204,31 @@
 
 
 
-<!-- Featured properties start -->
-<div class="featured-car-section pt-2 comon-slick content-area bg-light mt-5" data-aos="fade-up">
-  <div class="container">
-      <!-- Main title -->
-      <div class="main-title-5">
-          <h2 class="heading pt-0">Featured <span style="color:#00CE8D">Properties</span></h2>
-          <div class="title-border">
-              <div class="title-border-inner"></div>
-              <div class="title-border-inner"></div>
-              <div class="title-border-inner"></div>
+<!-- Contact section start -->
+<div data-aos="fade-up" class='mt-3 altContSec ' style="">
+  <div class="container mx-auto py-5 contact_section " >
+    <div class="row d-flex justify-content-center px-0" >
+      <div class="col-12">
+        <p class="text-lead text-light" style="font-weight:700">Want to know more?</p>
+        <h2 class="heading pb-4" style="color:#00CE8D;"><span class="text-light">Contact us</span> today</h3>
+        <div class="d-md-flex d-block gap-3">
+              <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
+              <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
+                  <button type="button" class="btn p-2 my-2  cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
+              
+              <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
+              <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
+              <button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
           </div>
       </div>
-
-      <div class="slick row" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-          {%for property in properties %}
-          <div class="item" style="font-weight: 700!important;">
-              <div class="property-box-3">
-                  <img src="/media/{{property.image}}" alt="photo" class="img-fluid w-100" style="height: 350px;">
-                  <div class="ling-section">
-                      <h3 style="font-weight: 700!important;">
-                          <a href="/properties/{{property.id}}">{{property.title}}</a>
-                      </h3>
-                      <ul class="member-socials clearfix" style="margin:0px;">
-                          <li style="font-weight:700;">
-                              <i class="fa fa-map-marker"></i> {{property.city | title}}
-                          </li>
-                      </ul>
-                      {%if property.yields %}
-                      <ul class="member-socials clearfix" style="margin:0px;">
-                          <li style="font-weight:700 !important;">
-                              <i class="fa fa-info-circle"></i> Net Yields: {{property.yields}}
-                          </li>
-                      </ul>
-                      {%endif%}
-                      <ul class="member-socials clearfix" style="margin:0px;">
-                      <li  style="font-weight: bolder;font-weight: 700;">
-                          <span style="color: #00CE8D;font-weight:bolder;font-size: 15px;">From </span> £{{property.price}}
-                      </li>
-                  </ul>
-                      <a href="/properties/{{property.id}}" class="read-more-btn">Read More</a>
-                  </div>
-              </div>
-          </div>
-
-        {%endfor%}
-      </div>
+    </div>
   </div>
-</div>
-  
-  <hr style="height:5px;background:black"/>
+  </div>
+  <!-- Contact section End -->
 
 
+
 </div>
+
+
 {%endblock body%} {% block script %} {% endblock script %}

@@ -6728,7 +6728,8 @@ mark {
 
 /** main-footer-3 start **/
 .main-footer-3 {
-    background: url(../img/footer-bg.png);
+    /* background: url(../img/footer-bg.png); */
+    background:#1a1a1a;
     z-index: 0;
     background-position: center center;
     background-repeat: no-repeat;
@@ -13301,4 +13302,59 @@ margin-top: 30px;
     background-attachment: fixed;
     background-size: cover;
   }
+
+
+  /* Search Modal start */
+
+  .btn-searchTop{
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color:#ffffff ;
+    background-color:transparent;
+    pointer-events: painted;  
+  }
+
+  #toggleSearchModal{
+    display:none;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    z-index:99;
+    height:100vh;
+    width:100vw;
+  }
+
+  #toggleSearchModal>.closeTog>.closeSearch{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+  }
   
+  /* Search Modal end */
+.altContSec{
+    margin-top: 50px;
+    margin-bottom:50px;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../media/media/1.1.jpg') ;
+    background-position: center;
+    background-attachment: fixed!important;
+    background-size:cover !important;
+    background-repeat: no-repeat;
+    color:white;
+}
+
+
+.nav-link{
+    text-transform:capitalized!important;
+}

@@ -23,6 +23,7 @@ from django.contrib import messages
 import time
 from django.contrib import messages 
 import time
+import readtime
 User = get_user_model()
 
 
@@ -137,6 +138,7 @@ def home_page(request):
     blogs = Blogs.objects.all()[:5]
     for blog in blogs:
         blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
         blog_list.append(blog)
     context = {"properties":cleaned_properties,"team_members":team_members,"blogs":blog_list}    
     return render(request,'user/index.html',context)
@@ -786,9 +788,10 @@ def teams(request):
 def blog(request):
     page_data = {}
     blog_list = []
-    blogs = Blogs.objects.all()[1:]
+    blogs = Blogs.objects.all()[:5]
     for blog in blogs:
         blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
         blog_list.append(blog)
     
     if request.GET.get('blog_title'):

@@ -39,6 +39,7 @@
     duration: 1000
   });
 
+  
 	// home slider
 	$('.home-slider').owlCarousel({
     loop:true,

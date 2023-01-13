@@ -127,7 +127,6 @@
                 <div class="carousel-content container">
                     <div class="text-center bi-3">
                         <div class="clearfix">
-                            <h3>Find Your Amazing Home</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
                         </div>
                         <div class="clearfix">
@@ -192,7 +191,7 @@
           <p class="mb-4" style="font-weight: 700;">Find your next big investment with the team of property pundits of LPC Invest. We specialise in residential sales and brand new property investments. Best-known for our unbeatable client-success record, your property investment vision is supported by the most experienced team in the UK.
             If getting high-yield returns on your holdings sounds like a sweet deal, then join hands with our team. Working with LPC Invest means you get access to the most promising real estate opportunity in the UK backed by award-winning developers. Get started on building an impressive property portfolio with the assistance of seasoned real estate pros of LPC Invest.
             .</p>
-          <p><a href="/about" class="btn btn-primary text-white py-2 mr-3 cont-sec" style="border-radius:0;">Learn More</a></p>
+          <p><a href="/about" class="btn btn-primary text-white py-2 mr-3 cont-sec round-0">Learn More</a></p>
         </div>
         
       </div>
@@ -237,11 +236,11 @@
                             </li>
                         </ul>
                         {%endif%}
-                        <ul class="member-socials clearfix" style="margin:0px;">
-                        <li  style="font-weight: bolder;font-weight: 700;">
-                            <span style="color: #00CE8D;font-weight:bolder;font-size: 15px;">From </span> £{{property.price}}
-                        </li>
-                    </ul>
+                        <ul class="member-socials clearfix d-block" style="margin:0px;">
+                            <li  style="font-weight: bolder;font-weight: 700;">
+                                <span style="color: #00CE8D;font-weight:bolder;font-size: 15px;">From </span> £{{property.price}}
+                            </li>
+                        </ul>
                         <a href="/properties/{{property.id}}" class="read-more-btn">Read More</a>
                     </div>
                 </div>
@@ -545,30 +544,21 @@
 <!-- Testimonial 5 end -->
 
 <!-- Contact section start -->
-<div style="box-shadow:0 0 10px rgba(0,0,0,0.2)" data-aos="fade-up" class='bg-light mt-3'>
-<div class="container py-5 contact_section " >
-  <div class="row d-flex justify-content-around p-3" >
-    <div class="col-12 col-md-6 p-3">
-      <p class="text-lead" style="font-weight:700">Want to know more?</p>
-      <h2 class="heading pb-4" style="color:#00CE8D;"><span style="color:#252626">Contact us</span> today</h3>
-      <div class="d-flex justify-content-between">
-        <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
-        <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
-            <button type="button" class="btn p-2  px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
-      </div>
-
-      <p class="lead py-4" style="font-weight:700">
-        Our team of expert property consultants are on hand to answer your questions and help you plan your perfect investment. Book an appointment today to start your investment journey.
-      </p>
-      <div class="d-flex justify-content-between">
-        <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec p-2 px-3 " style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
-        <a href="https://calendly.com/tusharspatil808/30min?month=2022-12" target="_blank">
-        <button type="button" class="btn cont-sec px-3 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
-      </div>
-
-    </div>
-    <div class="col-12 col-md-5 p-3">
-      <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5);" src="/media/media/iStock-171572347-1-scaled.jpg"/>
+<div data-aos="fade-up" class='mt-3 altContSec' style="">
+<div class="container mx-auto py-5 contact_section " >
+  <div class="row d-flex justify-content-center px-0" >
+    <div class="col-12">
+      <p class="text-lead text-light" style="font-weight:700">Want to know more?</p>
+      <h2 class="heading pb-4" style="color:#00CE8D;"><span class="text-light">Contact us</span> today</h3>
+      <div class="d-md-flex d-block gap-3">
+            <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
+            <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
+                <button type="button" class="btn p-2 my-2  cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
+            
+            <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
+            <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
+            <button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
+        </div>
     </div>
   </div>
 </div>
@@ -595,9 +585,13 @@
                 background-size:cover;background-repeat: no-repeat;background-position: center;">
                     <div class="blog-info">
                         <h3 style="font-weight:700"><a href="/blog/{{blog.id}}">{{blog.desc}}..</a></h3>
-                        <div>
-                            <p><i class="fa fa-calendar pe-3 pt-4"></i> {{blog.pub_date}}</p> 
-                        </div>
+                        <div class="container">
+                            <div class = "btn-group">
+                                      <p><i class="fa fa-calendar pe-1 pt-4"></i> {{blog.pub_date}}</p> 
+                                      <p class="ml-3 text-capitalize"><i class="fa fa-clock-o pe-1 pt-4"></i>{{blog.read_time}}</p> 
+                            </div>
+                      </div>
+  
                     </div>
 
                 </div>

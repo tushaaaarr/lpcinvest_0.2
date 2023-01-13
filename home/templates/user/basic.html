@@ -185,6 +185,29 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+
+ <!-- Search Modal start -->
+ <div id="toggleSearchModal" class="row m-0 h-100">
+    <div class="closeTog position-absolute d-flex justify-content-end p-5">
+        <button class="closeSearch border-0 btn-danger" onclick="searchPop()"><i class="fa fa-close"></i></button>
+    </div>
+        <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+            <div class="searchModal">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="search" id="form1" class="form-control" placeholder="Search..."/>
+                    </div>
+                    <button type="button" class="btn btn-primary border-1 rounded-0 cont-sec">
+                        <i class="fa fa-search fw-bold fs-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div> 
+    </div> 
+<!-- Search Modal End -->
+
+
+
     <!-- Top header 3 start -->
 
     <!-- <div class="top-header-3 d-none d-lg-block" id="top-header-3">
@@ -223,7 +246,7 @@
                         </div>
 
                         <div class="top-contact-item tci2">
-                            <a href="https://calendly.com/tusharspatil808/30min?month=2022-12" target="_blank">
+                            <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
                             <i class="bi bi-calendar3"></i></a>
                         </div>
 
@@ -253,7 +276,7 @@
                     </div>
 
                       <div class="navbar-brand">
-                        <a href="https://calendly.com/tusharspatil808/30min?month=2022-12" target="_blank">
+                        <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
                         <i class="bi bi-calendar3"></i></a>
                       </div>
 
@@ -344,7 +367,7 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item" target="_blank"
-                                        href="https://calendly.com/tusharspatil808/30min?month=2022-12">Book
+                                        href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting">Book
                                         Appointment</a>
                                 </li>
                             </ul>
@@ -394,16 +417,16 @@
     <div class="main-header-5 main-header d-xl-block d-none" >
           <div class="container px-0">
               <div class="header-inner" >
-                  <nav class="navbar navbar-expand-lg navbar-light">
+                  <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
                       <!-- <div class="d-flex justify-content-between">
                           <button class="navbar-toggler" id="drawer" type="button">
                           <span class="fa fa-bars"></span>
                       </button>
                       </div> -->
-                      <div class="navbar-collapse collapse w-100 px-5" id="navbar">
+                      <div class="navbar-collapse collapse w-100 px-0" id="navbar">
                           <ul class="navbar-nav w-100 justify-content-between">
                               <li class="nav-item dropdown">
-                                  <a  class="nav-link dropdown-toggle" href="/all-properties" id="navbarDropdownMenuLink2"
+                                  <a  class="nav-link dropdown-toggle text-capitalize" href="/all-properties" id="navbarDropdownMenuLink2"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Properties
                                   </a>
   
@@ -421,7 +444,7 @@
                           </li>
   
                           <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6"
+                              <a class="nav-link dropdown-toggle text-capitalize" href="#" id="navbarDropdownMenuLink6"
                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   City Guide
                               </a>
@@ -445,37 +468,38 @@
                                   Resources
                               </a>
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                  <li><a class="dropdown-item" href="/downloads">Begginer Guide</a></li>
-                                  {% comment %} <li><a class="dropdown-item" href="agent-detail.html">INVESTING IN UK FROM
-                                          OVERSEA</a></li> {% endcomment %}
-                                  <li><a class="dropdown-item" href="agent-detail.html">5 Reasons to invest  ...</a>
+                                  <li><a class="dropdown-item text-capitalize" href="/downloads">Beginners Guide</a></li>
+                                  <li><a class="dropdown-item text-capitalize" href="agent-detail.html">Investing in uk from overseas</a></li>
+                                  <li><a class="dropdown-item text-capitalize" href="agent-detail.html">5 Reasons to invest</a>
                                   </li>
-                                  <li><a class="dropdown-item" href="/construction-updates">Construction Updates</a></li>
-                                  <li><a class="dropdown-item" href="/downloads">Downloadable Assets</a></li>
+                                  <li><a class="dropdown-item text-capitalize" href="/construction-updates">Construction Updates</a></li>
+                                  <li><a class="dropdown-item text-capitalize" href="/downloads">Downloadable Assets</a></li>
   
-                                  <li><a class="dropdown-item" href="/faqs">FAQs</a></li>
+                                  <li><a class="dropdown-item text-capitalize" href="/faqs">FAQs</a></li>
                                   <li>
-                                      <a class="dropdown-item" href="/stamp-duty-calculator">Stamp Duty Calculator</a>
+                                      <a class="dropdown-item text-capitalize" href="/stamp-duty-calculator">Stamp Duty Calculator</a>
                                   </li>
                                   <li>
-                                      <a class="dropdown-item" href="/mortgage-calculator">Mortgage Calculator </a>
+                                      <a class="dropdown-item text-capitalize" href="/mortgage-calculator">Mortgage Calculator </a>
                                   </li>
                               </ul>
                           </li>
                           <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="/about" id="navbarDropdownMenuLink6"
+                              <a class="nav-link dropdown-toggle text-capitalize" href="/about" id="navbarDropdownMenuLink6"
                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                  <a class="dropdown-item" href="/about">About LPC</a>
+                                  <a class="dropdown-item text-capitalize" href="/about">About LPC</a>
                           </li>
                           <li>
-                              <a class="dropdown-item" href="#">lPC in the community</a>
+                              <a class="dropdown-item text-capitalize" href="#">lPC in the community</a>
                           </li>
                           <li>
-                              <a class="dropdown-item" href="/about/team">Meet the team</a>
+                              <a class="dropdown-item text-capitalize" href="/about/team">Meet the team</a>
                           </li>
                           <li>
-                              <a class="dropdown-item" href="/about/partners">Partners</a>
+                              <a class="dropdown-item text-capitalize" href="/about/partners">Partners</a>
+                              <li> <a class="dropdown-item text-capitalize" href="/about/partners">referral scheme</a></li>
+
                           </li>
                           </li>
                           </ul>
@@ -489,7 +513,7 @@
                                   </li>
                                   <li>
                                       <a class="dropdown-item" target="_blank"
-                                          href="https://calendly.com/tusharspatil808/30min?month=2022-12">Book
+                                          href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting">Book
                                           Appointment</a>
                                   </li>
                               </ul>
@@ -515,7 +539,14 @@
   
                                 </ul>
                           </li>
+                          <!-- <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                          </li> -->
+ 
                           </ul>
+
+                            <button onclick="searchPop()" id="conPhn" class="btn btn-sm border-left bg-none rounded-0 px-3 ms-3 me-2 fw-bold"><i class="fa fa-search fs-4"></i></button>
+
                       </div>
                   </nav>
               </div>
@@ -523,6 +554,7 @@
         </div>
       <!-- Main header end -->
 
+       
 
       <nav id="sidebar" class="nav-sidebar site-navbar js-site-navbar py-0 border-0">
         <!-- Close btn-->
@@ -548,25 +580,7 @@
                             <li><a href="/city/{{city}}">{{city|title }}</a></li>
                             {%endfor%}
                     
-                            <li>
-                                <a href="/all-properties">Cities <em class="fa fa-chevron-down"></em></a>
-                                <ul>
-                                    {%for city in common_properties_data.cities%}
-                                    <li><a class="dropdown-item" href="/city/{{city}}">{{city|title }}</a></li>
-                            </li>
-                            {%endfor%}
-                                 </ul>
-                            </li>
-                            <li>
-                                <a href="#">Residential
-                                        Properties <em class="fa fa-chevron-down"></em></a>
-                                <ul>
-                                    <li><a class="dropdown-item" href="/property-type/appartments">Apartments</a></li>
-                                        <li><a class="dropdown-item" href="/property-type/studios">Studio</a>
-                                        </li>
-    
-                                </ul>
-                            </li>
+                           
                         </ul>
                     </li>
                     <li><a href="/blogs">Blogs<em class="fa fa-chevron-down"></em></a>
@@ -581,19 +595,19 @@
                     </li>
                     <li><a href="#">Resources <em class="fa fa-chevron-down"></em></a>
                         <ul>
-                            <li><a class="dropdown-item" href="agent-list.html">Begginer Guide</a></li>
-                                    <li><a class="dropdown-item" href="agent-detail.html">Investing in uk from oversea</a></li>
-                                    <li><a class="dropdown-item" href="agent-detail.html">5 Reasons to invest  ...</a>
+                            <li><a class="dropdown-item text-capitalize" href="agent-list.html">Beginners Guide</a></li>
+                                    <li><a class="dropdown-item text-capitalize" href="agent-detail.html">Investing in uk from overseas</a></li>
+                                    <li><a class="dropdown-item text-capitalize" href="agent-detail.html">5 Reasons to invest</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="/construction-updates">Construction Updates</a></li>
-                                    <li><a class="dropdown-item" href="/downloads">Downloadable Assets</a></li>
+                                    <li><a class="dropdown-item text-capitalize" href="/construction-updates">Construction Updates</a></li>
+                                    <li><a class="dropdown-item text-capitalize" href="/downloads">Downloadable Assets</a></li>
     
-                                    <li><a class="dropdown-item" href="/faqs">FAQs</a></li>
+                                    <li><a class="dropdown-item text-capitalize" href="/faqs">FAQs</a></li>
                                     <li>
-                                        <a class="dropdown-item" href="/stamp-duty-calculator">Stamp Duty Calculator</a>
+                                        <a class="dropdown-item text-capitalize" href="/stamp-duty-calculator">Stamp Duty Calculator</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="/mortgage-calculator">Mortgage Calculator </a>
+                                        <a class="dropdown-item text-capitalize" href="/mortgage-calculator">Mortgage Calculator </a>
                                     </li>
     
                         </ul>
@@ -602,19 +616,19 @@
     
                     <li><a href="/login">About Us <em class="fa fa-chevron-down"></em></a>
                         <ul>
-                            <li>  <a class="dropdown-item" href="/about">About LPC</a></li>
-                            <li>  <a class="dropdown-item" href="#">lPC in the community</a></li>
-                            <li><a class="dropdown-item" href="/about/team">Meet the team</a></li>
-                            <li> <a class="dropdown-item" href="/about/partners">Partners</a></li>
-    
+                            <li>  <a class="dropdown-item text-capitalize" href="/about">About LPC</a></li>
+                            <li>  <a class="dropdown-item text-capitalize" href="#">LPC in the community</a></li>
+                            <li><a class="dropdown-item text-capitalize" href="/about/team">Meet the team</a></li>
+                            <li> <a class="dropdown-item text-capitalize" href="/about/partners">Partners</a></li>
+                            <li> <a class="dropdown-item text-capitalize" href="/about/partners">referral scheme</a></li>
                         </ul>
                     </li>
     
                     <li><a href="/login">Contact Us<em class="fa fa-chevron-down"></em></a>
                         <ul>
-                            <li>  <a class="dropdown-item" href="/contact">Contact Us</a></li>
-                            <li>  <a class="dropdown-item" target="_blank"
-                                href="https://calendly.com/tusharspatil808/30min?month=2022-12">Book
+                            <li>  <a class="dropdown-item text-capitalize" href="/contact">Contact Us</a></li>
+                            <li>  <a class="dropdown-item text-capitalize" target="_blank"
+                                href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting">Book
                                 Appointment</a></li>
                         </ul>
                     </li>
@@ -656,6 +670,21 @@
     
     
               </div>
+              <div class="get-social">
+                <h3 class="heading">Get Social</h3>
+                <a href="#" class="facebook-bg">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#" class="twitter-bg">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="google-bg">
+                    <i class="fa fa-google"></i>
+                </a>
+                <a href="#" class="linkedin-bg">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+            </div>
             </div>
         </div>
     </nav>
@@ -858,7 +887,7 @@
                     <ul>
                         <li>  <a class="dropdown-item" href="/contact">Contact Us</a></li>
                         <li>  <a class="dropdown-item" target="_blank"
-                            href="https://calendly.com/tusharspatil808/30min?month=2022-12">Book
+                            href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting">Book
                             Appointment</a></li>
                     </ul>
                 </li>
@@ -922,7 +951,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <h3>Subscribe Newsletter</h3>
+                    <h3>Subscribe <span style="color: #00CE8D;">Newsletter</span></h3>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="Subscribe-box">
@@ -1035,17 +1064,20 @@
                         <div class="s-border"></div>
                         <ul class="links">
                             <li>
-                                <a href="/about"><i class="fa fa-angle-right"></i>About LPC</a>
+                                <a href="/about" class='text-capitalize'><i class="fa fa-angle-right"></i>About LPC</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-angle-right"></i>lPC in the
+                                <a href="#" class='text-capitalize'><i class="fa fa-angle-right"></i>lPC in the
                                     community</a>
                             </li>
                             <li>
-                                <a href="/about/team"><i class="fa fa-angle-right"></i>Meet the team</a>
+                                <a href="/about/team" class='text-capitalize'><i class="fa fa-angle-right"></i>Meet the team</a>
                             </li>
                             <li>
-                                <a href="/about/partners"><i class="fa fa-angle-right"></i>Partners</a>
+                                <a href="/about/partners"class='text-capitalize'><i class="fa fa-angle-right"></i>Partners</a>
+                            </li>
+                            <li>
+                                <a href="/about/partners"class='text-capitalize'><i class="fa fa-angle-right"></i>referral scheme</a>
                             </li>
                         </ul>
                     </div>
@@ -1061,7 +1093,7 @@
                             </li>
                             <li>
                                 <a target="_blank"
-                                    href="https://calendly.com/tusharspatil808/30min?month=2022-12"><i class="fa fa-angle-right"></i>Book
+                                    href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting"><i class="fa fa-angle-right"></i>Book
                                     Appointment</a>
                             </li>
                         </ul>
@@ -1230,16 +1262,8 @@ function showError(error) {
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+
     $(document).ready(function () {
-        $("#query").autocomplete({
-          source: "/search",
-          minLength: 2,
-          open: function () {
-            setTimeout(function () {
-            console.log("")
-            }, 0);
-          }
-        });
         AOS.init();
         window.addEventListener('load', AOS.refresh);
       });
@@ -1327,7 +1351,7 @@ $(".heart.fa").click(function() {
     window.onscroll = function(){logoChanger()};
     function logoChanger(){
         document.documentElement.scrollTop > 200?document.getElementById('logoTop').src="{% static 'img/logo/logo3.png' %}":document.getElementById('logoTop').src="{% static 'img/logo/logo2.png' %}";
-        // document.documentElement.scrollTop > 200?document.getElementById('conPhn').style.color="rgba(0,0,0,0.8)":document.getElementById('conPhn').style.color="rgba(255,255,255,0.8)";
+        document.documentElement.scrollTop > 200?document.getElementById('conPhn').style.color="rgba(0,0,0,0.8)":document.getElementById('conPhn').style.color="rgba(255,255,255,0.8)";
         // document.documentElement.scrollTop > 200?document.getElementById('conPhn2').style.border="1px solid rgba(0,0,0,0.8)":document.getElementById('conPhn2').style.border="1px solid rgba(255,255,255,0.8)";
         const allLink = document.getElementsByClassName('nav-link');
         if(document.documentElement.scrollTop > 200){
@@ -1342,10 +1366,13 @@ $(".heart.fa").click(function() {
 
             }
         }
-            // :document.getElementsByClassName('nav-link').map(ini=>ini.style.color="white");
-        // document.documentElement.scrollTop > 200?document.getElementById('conPhnt').style.padding="10px 0 0 0":document.getElementById('conPhnt').style.padding="0";
-        // document.documentElement.scrollTop > 200?document.getElementById('conTog').style.padding="12px 0 0 0":document.getElementById('conTog').style.padding="24px 0 0 0";
+    }
 
+    function searchPop(){
+
+        document.getElementById('toggleSearchModal').style.display=="block"?document.getElementById('toggleSearchModal').style.display="none":document.getElementById('toggleSearchModal').style.display="block";
+        
+    
     }
 </script>
 

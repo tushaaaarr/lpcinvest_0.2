@@ -99,7 +99,40 @@
         <img src="/static/img/logo/logo3.png" alt="sidebarlogo" />
         <div class="bgcurve d-md-block d-lg-none"></div>
       </div>
-      <div class="sidebar-navigation">
+      
+      <div class="dashboard-nav h-100" style="display:block!important">
+        <div class="dashboard-inner">
+          <h4>Main</h4>
+          <ul>
+            <li>
+              <a href="/"><i class="fa fa-home"></i> Home</a>
+            </li>
+            
+          </ul>
+          <ul>
+            <li class="{{page_data.is_favorite_properties}}">
+              <a href="/favorited-properties"><i class="flaticon-heart"></i>Favorited Properties</a>
+            </li>
+            <li class="{{page_data.is_exclusive_properties}}">
+              <a href="/exclusive-properties"><i class="flaticon-bill"></i>Exclusive Properties</a>
+            </li>
+            <li class="{{page_data.is_offers}}">
+              <a href="/monthly-offers"><i class="flaticon-discount"></i>Offers</a>
+            </li>
+          </ul>
+          <h4>Account</h4>
+          <ul>
+            <li class="{{page_data.is_profile}}">
+              <a href="/profile"><i class="flaticon-male"></i>My Profile</a>
+            </li>
+            <li>
+              <a href="/logout"><i class="flaticon-logout"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- <div class="sidebar-navigation">
         <ul class="menu-list">
           <li>
               <a href="/all-properties">Properties <em class="fa fa-chevron-down"></em></a>
@@ -165,7 +198,7 @@
           <ul>
               <li>  <a class="dropdown-item" href="/contact">Contact Us</a></li>
               <li>  <a class="dropdown-item" target="_blank"
-                  href="https://calendly.com/tusharspatil808/30min?month=2022-12">Book
+                  href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting">Book
                   Appointment</a></li>
           </ul>
       </li>
@@ -181,24 +214,7 @@
               </ul>
           </li>
       </ul>
-      </div>
-
-      <div class="get-in-touch">
-        <h3 class="heading">Get in Touch</h3>
-        <div class="get-in-touch-box d-flex">
-            <i class="flaticon-phone"></i>
-            <div class="detalis">
-              <a href="tel://+44 161 713 3883">+44 161 713 3883</a>            </div>
-        </div>
-        <div class="get-in-touch-box d-flex">
-            <i class="flaticon-mail"></i>
-            <div class="detalis">
-              <a href="mailto:info@lpcinvest.com">info@lpcinvest.com
-              </a>            </div>
-        </div>
-    
-    
-    </div>
+      </div> -->
     
     </div>
   </nav>
@@ -229,133 +245,6 @@
 
 
           
-          <div class="navbar-collapse collapse w-100 justify-content-end" id="navbar">
-              <ul class="navbar-nav ml-auto">
-                
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="/all-properties" id="navbarDropdownMenuLink2"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Properties
-              </a>
-
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Cities</a>
-                        <ul class="dropdown-menu">
-                          {%for city in common_properties_data.cities%}
-                          
-                          <li><a class="dropdown-item" href="/city/{{city}}">{{city}}</a></li>
-                  </li>
-                  {%endfor%}
-              </ul>
-                      </li>
-
-                      <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Residential Properties</a>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/property-type/appartments">Apartments</a></li>
-                                    <li><a class="dropdown-item" href="/property-type/studios">Studio</a>
-                                        
-                          </ul>
-                      </li>
-                    
-                  </ul>
-              </li>
-
-            
-
-
-
-
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        City Guide
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/city-guide/birmingham">Birmingham</a></li>
-                        <li><a class="dropdown-item" href="/city-guide/bournemouth">Bournemouth</a></li>
-                        <li><a class="dropdown-item" href="/city-guide//Bolton">Bolton</a></li>
-
-                    </ul>
-                </li>
-
-                     <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Resources
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/downloads">Begginer Guide</a></li>
-                                <li><a class="dropdown-item" href="agent-detail.html">INVESTING IN UK FROM
-                                        OVERSEA</a></li>
-                                <li><a class="dropdown-item" href="agent-detail.html">5 Reasons to invest  ...</a>
-                                </li>
-                                <li><a class="dropdown-item" href="/construction-updates">Construction Updates</a></li>
-                                <li><a class="dropdown-item" href="/downloads">Downloadable Assets</a></li>
-
-                                <li><a class="dropdown-item" href="/faqs">FAQs</a></li>
-                                <li><a class="dropdown-item" href="/stamp-duty-calculator">Stamp Duty Calculator</a></li>
-                                <li><a class="dropdown-item" href="/mortgage-calculator">Mortgage Calculator </a></li>
-                            </ul>   
-                        </li>
-
-                           
-                      
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/about" id="navbarDropdownMenuLink6"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/about">About LPC</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">lPC in the community</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="/about/team">Meet the team</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="/about/partners">Partners</a>
-                    </li>
-                    </li>
-                    </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdownMenuLink6"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Us</a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li>
-                              <a class="dropdown-item" href="/contact">Contact Us</a>
-                          </li>
-                          <li>
-                              <a class="dropdown-item" target="_blank"
-                                  href="https://calendly.com/tusharspatil808/30min?month=2022-12">Book
-                                  Appointment</a>
-                          </li>
-                      </ul>
-
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink7"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        My Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/profile">Login</a></li>
-                        <li><a class="dropdown-item" href="/profile">Register</a></li>
-                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                        <li><a class="dropdown-item" href="/favorited-properties">Favorited Properties</a></li>
-
-                        <li><a class="dropdown-item" href="/exclusive-properties">Exclusive Properties</a></li>
-
-                        <li><a class="dropdown-item" href="/monthly-offers">Offers</a></li>
-
-
-
-
-                        </ul>
-                </li>
-
-              </ul>
-
-          </div>
       </nav>
   </div>
 </header>
@@ -372,16 +261,10 @@
               <li>
                 <a href="/"><i class="fa fa-home"></i> Home</a>
               </li>
-              <li class="{{page_data.is_notification}}">
-                <a href="messages.html"><i class="flaticon-mail"></i> Notifications
-                  <span class="nav-tag">6</span></a>
-              </li>
             </ul>
             <h4>Listings</h4>
             <ul>
-              <li class="{{page_data.is_my_properties}}">
-                <a href="/my-properties"><i class="flaticon-empire-state-building"></i>My Properties</a>
-              </li>
+            
               <li class="{{page_data.is_favorite_properties}}">
                 <a href="/favorited-properties"><i class="flaticon-heart"></i>Favorited Properties</a>
               </li>
@@ -391,9 +274,7 @@
               <li class="{{page_data.is_offers}}">
                 <a href="/monthly-offers"><i class="flaticon-discount"></i>Offers</a>
               </li>
-              <li class="{{page_data.is_submit}}">
-                <a href="/submit-property"><i class="flaticon-plus"></i>Submit Property</a>
-              </li>
+             
             </ul>
             <h4>Account</h4>
             <ul>
