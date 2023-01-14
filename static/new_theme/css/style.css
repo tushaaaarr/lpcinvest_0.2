@@ -1018,12 +1018,16 @@ textarea.form-control {
       bottom: 20px; }
       .block-2 .front .box h2, .block-2 .front .box p {
         color: #fff;
+        text-transform: capitalize !important;
         margin: 0;
         padding: 0;
         line-height: 1.5; }
       .block-2 .front .box h2 {
-        font-size: 20px; }
+        font-size: 20px; 
+        text-transform: capitalize !important;
+      }
       .block-2 .front .box p {
+        text-transform: capitalize !important;
         font-size: 12px; }
   .block-2 .back {
     background: #fff;

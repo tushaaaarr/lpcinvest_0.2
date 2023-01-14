@@ -24,6 +24,10 @@
     .properties-description li {
         list-style-type: square;
         margin-left: 15px;
+        line-height: 25px;
+color: #343434;
+font-weight: 700;
+font-family: 'Mulish', sans-serif;
     }
 
     {% comment %} .product-slider-box img {
@@ -180,6 +184,7 @@
   .recent-posts-box h5 a{
     text-decoration: none !important;
     color: #00CE8D !important;
+    text-transform: capitalize !important;
 
   }
 buttons{
@@ -235,10 +240,11 @@ buttons{
       <div class="row">
         <div class="col-xs-12">
             <div  class="text-center request_btn_area mb-2">
-                <button type="submit" class="btn btn-outline mb-3" data-bs-toggle="modal" data-bs-target="#downloadFrom">
+              <br>
+                <button type="  submit" class="btn-4 mt-3" data-bs-toggle="modal" data-bs-target="#downloadFrom">
                   <i class="fa fa-file-pdf-o"></i>
                   Request for Brochure</button>
-                <button type="submit" class="btn btn-outline mb-3" data-bs-toggle="modal" data-bs-target="#enquireFrom">
+                <button type="submit" class="btn-4 mt-3" data-bs-toggle="modal" data-bs-target="#enquireFrom">
                     <i class="fa fa-question-circle"></i> Enquire</button>
             </div>
 
@@ -247,17 +253,17 @@ buttons{
 
 
       <div class="container">
-          <div class="row">
+          <div class="row mt-5">
               <div class="col-lg-5 col-md-12 clearfix">
                   <div class="text text-start yield_data">
-                      <h1>{{property.title}}</h1>
-                      <h5><i class="flaticon-pin"></i> {{property.get_city_display | title }} </h5>
+                      <h1 class="text-capitalize">{{property.title}}</h1>
+                      <h5 class="mt-3"><i class="flaticon-pin"></i> {{property.get_city_display | title }} </h5>
                       <h5> <i class="fa fa-info"></i> Net Yield: &nbsp;{{property.yields | title}} </h5>
                       <h5><i class="fa-light fa-screwdriver-wrench"></i>Completion Date: {{property.year_built}}</h5>
                   </div>
               </div>
-              <div class="col-lg-7 col-md-12 text-end">
-                  <h1 class="text-capitalize"><span>From </span> £{{property.price}}</h1>
+              <div class="col-lg-7 col-md-12 text-end mt-3">
+                  <h1 class="text-capitalize display-5"><span>From </span> £{{property.price}}</h1>
               </div>
           </div>
       </div>
@@ -403,7 +409,7 @@ buttons{
 
           <div  class="text-center mb-3">
             <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
-              <button type="submit" class="btn btn-outline enquire_btn"> <i class="bi bi-whatsapp"></i> CONTACT US</button>
+              <button type="submit" class="btn-4"> <i class="bi bi-whatsapp"></i> CONTACT US</button>
           </a>
 
         </div>
@@ -417,8 +423,8 @@ buttons{
 
 
                     <div  class="text-center">
-                        <button type="submit" class="btn btn-outline enquire_btn" data-bs-toggle="modal" data-bs-target="#enquireFrom">
-                            <i class="fa fa-info"></i> Enquire</button>
+                        <button type="submit" class="btn-4" data-bs-toggle="modal" data-bs-target="#enquireFrom">
+                            <i class="fa fa-question-circle"></i> Enquire</button>
                     </div>
                 </div>
 
@@ -473,8 +479,8 @@ buttons{
                         </tbody>
                     </table>
                     <div  class="text-center mb-5">
-                        <button type="submit" class="btn btn-outline enquire_btn" data-bs-toggle="modal" data-bs-target="#downloadFrom">
-                            <i class="fa fa-building"></i> Download the bronchure</button>
+                        <button type="submit" class="btn-4" data-bs-toggle="modal" data-bs-target="#downloadFrom">
+                            <i class="fa fa-file-pdf-o"></i> Download the bronchure</button>
                     </div>
                 </div>
 

@@ -3172,6 +3172,7 @@ input[type=checkbox]:checked + label:before {
 
 .property-box-3 h3 a{
     color: #fff;
+    text-transform: capitalize !important;
 }
 
 .property-box-3 h3 a:hover{
@@ -5103,8 +5104,9 @@ mark {
 }
 
 .testimonial .testimonial-info-box h6 {
-    margin-bottom: 15px;
-    font-weight: 400;
+    margin-bottom: 25px;
+    font-weight: 700 !important;
+    margin-bottom: 2px;
 }
 
 .testimonial .testimonial-info-box::before {
@@ -8701,6 +8703,19 @@ margin-top: 30px;
 }
 
 /** Sidebar widget start **/
+
+#advWid{
+    display:none;
+}
+
+/* @media all and (min-width: 992px) {
+    #advWid{
+        display:block;
+    }
+   } */
+
+
+
 .sidebar-right {
     margin: 0 0 30px 0;
     background: #fff;
@@ -13243,7 +13258,7 @@ margin-top: 30px;
 .cont-sec:hover{
   color:#00CE8D!important;
   border: 2px solid #00CE8D!important;
-  background-color: transparent!important;
+  background-color: transparent !important;
 }
 /* #toggler:focus>.bar1{
   transform: translate(0, 17px) rotate(-45deg);
@@ -13356,5 +13371,16 @@ margin-top: 30px;
 
 
 .nav-link{
-    text-transform:capitalized!important;
+    text-transform:capitalize !important;
+}
+.lpcTod{
+    background:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('../img/team/1.jpg');
+    background-attachment:fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg-mission{
+    background: linear-gradient(143deg, rgba(0,206,141,1) 0%, rgba(0,180,123,1) 100%);
 }

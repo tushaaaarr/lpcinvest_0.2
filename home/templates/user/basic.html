@@ -208,202 +208,6 @@
 
 
 
-    <!-- Top header 3 start -->
-
-    <!-- <div class="top-header-3 d-none d-lg-block" id="top-header-3">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-3">
-                    <div class="top-logo">
-                        <a href="/"><img src="{% static 'img/logo/logo2.png' %}" style="height:40px;" alt="logo"></a>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-9">
-                    <div class="top-header-inner">
-                        <div class="top-contact-item">
-                            <i class="bi bi-geo-alt"></i>
-                            <div class="content">
-                                <p> <a href="https://www.google.com/maps/search/25%2F7+Barden,+London/@51.5287718,-0.2416803,11z/data=!3m1!4b1"
-                                    target="blank">Arrive, MediaCityUK</a> </p>
-                                <a href="https://www.google.com/maps/search/25%2F7+Barden,+London/@51.5287718,-0.2416803,11z/data=!3m1!4b1"
-                                    target="blank"> M50 2NT
-                                </a>
-                            </div>
-                        </div>
-                        <div class="top-contact-item">
-                            <i class="bi bi-envelope-open"></i>
-                            <div class="content">
-                                <p> <a href="tel://+44 161 713 3883">+44 161 713 3883</a></p>
-                                <a href="mailto:info@lpcinvest.com">info@lpcinvest.com
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="top-contact-item tci2">
-                            <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
-                            <i class="bi bi-whatsapp"></i>
-                        </a>
-                        </div>
-
-                        <div class="top-contact-item tci2">
-                            <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
-                            <i class="bi bi-calendar3"></i></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Top header 3 end -->
-
-    <!-- Main header start -->
-    <!-- <header class="main-header sticky-header main-header-5 " id="main-header-5">
-      <div class="bgcurve d-md-block d-lg-none"></div>
-        <div class="container">
-            <div class="header-inner" >
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand logos mr-auto" href="/">
-                        <img src="{% static 'img/logo/logo3.png' %}" alt="logo" class="logo-photo"
-                        style="height:30px;">
-                    </a>
-
-                    <div class="d-flex justify-content-between">
-                    <div class="navbar-brand ml-auto">
-                        <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
-                        <i class="bi bi-whatsapp"></i>
-                    </a>
-                    </div>
-
-                      <div class="navbar-brand">
-                        <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
-                        <i class="bi bi-calendar3"></i></a>
-                      </div>
-
-
-                        <button class="navbar-toggler" id="drawer" type="button">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    </div>
-                    <div class="navbar-collapse collapse w-100" id="navbar">
-                        <ul class="navbar-nav w-100 justify-content-start">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/all-properties" id="navbarDropdownMenuLink6"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Properties</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    {%for city in common_properties_data.cities%}
-                                    <li><a class="dropdown-item" href="/city/birmingham">{{city | title}}</a></li>
-                                    {%endfor%}
-                                </ul>
-                            </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                City Guide
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                {%for city in common_properties_data.cities%}
-                                <li><a class="dropdown-item" href="/city-guide/{{city}}">{{city | title}}</a></li>
-                                {%endfor%}
-
-
-                            </ul>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blogs">
-                                Blogs</a>
-
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Resources</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/downloads">Begginer Guide</a></li>
-                                {% comment %} <li><a class="dropdown-item" href="agent-detail.html">INVESTING IN UK FROM
-                                        OVERSEA</a></li> {% endcomment %}
-                                <li><a class="dropdown-item" href="agent-detail.html">5 Reasons to invest  ...</a>
-                                </li>
-                                <li><a class="dropdown-item" href="/construction-updates">Construction Updates</a></li>
-                                <li><a class="dropdown-item" href="/downloads">Downloadable Assets</a></li>
-
-                                <li><a class="dropdown-item" href="/faqs">FAQs</a></li>
-                                <li><a class="dropdown-item" href="/blogs">Blogs & Articals</a></li>
-
-                                <li>
-                                    <a class="dropdown-item" href="/stamp-duty-calculator">Stamp Duty Calculator</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/mortgage-calculator">Mortgage Calculator </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/about" id="navbarDropdownMenuLink6"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/about">About LPC</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">lPC in the community</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/about/team">Meet the team</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/about/partners">Partners</a>
-                        </li>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/contact" id="navbarDropdownMenuLink6"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Us</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <a class="dropdown-item" href="/contact">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" target="_blank"
-                                        href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting">Book
-                                        Appointment</a>
-                                </li>
-                            </ul>
-
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink7"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                My Account
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/profile">Login</a></li>
-                                <li><a class="dropdown-item" href="/profile">Register</a></li>
-                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                                <li><a class="dropdown-item" href="/favorited-properties">Favorited Properties</a></li>
-
-                                <li><a class="dropdown-item" href="/exclusive-properties">Exclusive Properties</a></li>
-
-                                <li><a class="dropdown-item" href="/monthly-offers">Offers</a></li>
-
-
-
-
-                                </ul>
-                        </li>
-                        </ul>
-                        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-                                                </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header> -->
-
-
-
     <header class="site-header js-site-header">
       <div class="container-fluid">
         <div class="row d-flex align-items-center">
@@ -433,6 +237,7 @@
                                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                                           <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="/all-properties">All Cities</a></li>
                                               {%for city in common_properties_data.cities%}
                                               <li><a class="dropdown-item" href="/city/{{city}}">{{city|title }}</a></li>
                                       {%endfor%}
@@ -576,6 +381,7 @@
                     <li>
                         <a href="/all-properties">Properties <em class="fa fa-chevron-down"></em></a>
                         <ul>
+                            <li><a href="/all-properties">All Properties</a></li>
                             {%for city in common_properties_data.cities%}
                             <li><a href="/city/{{city}}">{{city|title }}</a></li>
                             {%endfor%}
@@ -667,21 +473,22 @@
                         <a href="mailto:info@lpcinvest.com">info@lpcinvest.com
                         </a>            </div>
                   </div>
-    
-    
+              </div>
+              <div class='text-center mt-1'><a href='https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting' target="_blank" >
+              <button type="submit" class="btn-4"> <i class="fa fa-video-camera"></i> Book a Call</button></a>
               </div>
               <div class="get-social">
                 <h3 class="heading">Get Social</h3>
-                <a href="#" class="facebook-bg">
+                <a href="#" class="facebook-bg cont-sec">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a href="#" class="twitter-bg">
+                <a href="#" class="twitter-bg cont-sec">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a href="#" class="google-bg">
+                <a href="#" class="google-bg cont-sec">
                     <i class="fa fa-google"></i>
                 </a>
-                <a href="#" class="linkedin-bg">
+                <a href="#" class="linkedin-bg bg-none cont-sec">
                     <i class="fa fa-linkedin"></i>
                 </a>
             </div>
@@ -698,240 +505,17 @@
                     <span></span>
                     <span></span>
                 </div>
-            <!-- </div> -->
-            <!-- END menu-toggle -->
-   
-            <!-- <div class="site-navbar js-site-navbar ms-auto navAlt border-0 p-3 rounded-start">
-              <nav role="navigation">
-                <div class="container">
-                  <div class="row full-height align-items-md-center align-items-start pt-5 pt-md-0 ps-md-3 ps-2">
-                    <div class="col-md-12">
-                      <ul class="list-unstyled menu fw-bold" style="font-size: 28px!important;">
-                        <li class="active"><a href="/">Home</a></li>
-                        <li class="nav-item dropdown" >
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Properties</a>
-                            <div class="p-2 px-5 dropdown-menu" style="box-shadow: 0 0 10px rgba(0,0,0,0.5);" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <a href="/all-properties" class="dropdown-item fs-3">All Properties</a>
-                                {%for city in common_properties_data.cities%}
-                                <a class="dropdown-item fs-3" href="/city/{{city}}">{{city | title}}</a>
-                                {%endfor%}
-                            </div>
-                        
-                        </li>
-                        <li class="nav-item dropdown" >
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">City Guide</a>
-                            <div class="p-2 px-5 dropdown-menu" style="box-shadow: 0 0 10px rgba(0,0,0,0.5);"aria-labelledby="navbarDropdown">
-                                {%for city in common_properties_data.cities%}
-                                <a class="dropdown-item fs-3" href="/city-guide/{{city}}">{{city | title}}</a>
-                                {%endfor%}
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown" >
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>                        
-                        </li>
-                        <li><a href="/blogs">Blogs</a></li>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                        <li><a href="/profile">My Account</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-            </div> -->
+       
           </div>
         </div>
       </div>
     </header>
-    <!-- END head -->
-    <!-- {% if request.path == "/about" %}
-    <section class="site-hero overlay" style="background-image: url('/static/img/team/team.jpeg');" data-stellar-background-ratio="0.5">
-      {% else %}
-    <section class="site-hero overlay" style="background-image: url('https://www.teahub.io/photos/full/151-1513340_real-estate-banner-design.jpg');" data-stellar-background-ratio="0.5">
-        {% endif %}
-        <div class="container">
-        <div class="row site-hero-inner justify-content-center align-items-center">
-          <div class="col-md-10 text-center" data-aos="fade-up">
-
-            <div class="text-center">
-              {% if request.path == "/" %}
-              <h1 class="heading">A Best Place To Stay </h1>
-              {% else %}
-              {% endif %}
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    
-    </section> -->
-    <!-- END section -->
-
-    {% if request.path == "/" %}
-    <!-- <section class="section bg-light pb-0"  >
-      <div class="container">
-
-        <div class="row check-availabilty" id="next">
-          <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-
-            <form method='get' action='/search'>              
-                <div class="row">
-                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
-                    <div class="field-icon-wrap">
-                        <div class="icon"><span class="icon-calendar"></span></div>
-                        <input name='query' id="query" placeholder="Search for Property and Property type" class="form-control">
-                    </div>
-                    </div>
-                
-                    <div class="col-md-6 mb-3 mb-md-0 col-lg-4">
-                        <div class="col-md-12 mb-3 mb-md-0 px-0">
-                        <div class="field-icon-wrap">
-                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                            <select name="properties_status" id="properties_status" class="form-control" style="color:rgba(0,0,0,0.8)">
-                                
-                                <option type="button" value="all">All Status </option>
-                                {%for status in common_properties_data.status%}
-                                <option>{{status}}</option>
-                                {%endfor%}
-                            </select>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 align-self-end">
-                    <button class="btn btn-primary btn-block text-white cont-sec">Search</button>
-                    </div>
-              </div>
-            </form>
-          </div>
-
-
-        </div>
-      </div>
-    </section> -->
-    {%endif%}
 
 
 
 
-    <!-- Main header end -->
-<!-- Sidenav start -->
-<!-- <nav id="sidebar" class="nav-sidebar"> -->
-    <!-- Close btn-->
-    <!-- <div id="dismiss" >
-        <i class="text-light fa fa-close"></i>
-    </div>
-
-    <div class="sidebar-inner">
-
-        <div class="sidebar-inner">
-          <div style="background:#00CE8D;height:71px; width:90%;position:absolute;z-index:-1;right:0;"></div>
-            <div class="sidebar-logo border-0" >
-
-              <img src="/static/img/logo/logo3.png" alt="sidebarlogo" />
-              <div class="bgcurve d-md-block d-lg-none"></div>
-            </div>
-            <div class="sidebar-navigation">
-              <ul class="menu-list">
-                <li>
-                    <a href="/all-properties">Properties <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        {%for city in common_properties_data.cities%}
-                        <li><a class="dropdown-item"  href="/city/{{city}}">{{city|title }}</a></li>
-                        {%endfor%}
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#">City Guide <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        {%for city in common_properties_data.cities%}
-                        <li><a class="dropdown-item" href="/city-guide/{{city}}">{{city|title }}</a></li>
-                        {%endfor%}
-                    </ul>
-                </li>
-                <li><a href="#">Resources <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        <li><a class="dropdown-item" href="agent-list.html">Begginer Guide</a></li>
-                                <li><a class="dropdown-item" href="agent-detail.html">Investing in uk from oversea</a></li>
-                                <li><a class="dropdown-item" href="agent-detail.html">5 Reasons to invest  ...</a>
-                                </li>
-                                <li><a class="dropdown-item" href="/construction-updates">Construction Updates</a></li>
-                                <li><a class="dropdown-item" href="/downloads">Downloadable Assets</a></li>
-
-                                <li><a class="dropdown-item" href="/faqs">FAQs</a></li>
-                                <li><a class="dropdown-item" href="/blogs">Blogs & Articals</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="/stamp-duty-calculator">Stamp Duty Calculator</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/mortgage-calculator">Mortgage Calculator </a>
-                                </li>
-
-                    </ul>
-                </li>
 
 
-                <li><a href="/login">About Us <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        <li>  <a class="dropdown-item" href="/about">About LPC</a></li>
-                        <li>  <a class="dropdown-item" href="#">lPC in the community</a></li>
-                        <li><a class="dropdown-item" href="/about/team">Meet the team</a></li>
-                        <li> <a class="dropdown-item" href="/about/partners">Partners</a></li>
-
-                    </ul>
-                </li>
-
-                <li><a href="/login">Contact Us<em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        <li>  <a class="dropdown-item" href="/contact">Contact Us</a></li>
-                        <li>  <a class="dropdown-item" target="_blank"
-                            href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting">Book
-                            Appointment</a></li>
-                    </ul>
-                </li>
-
-
-                <li><a href="/login">My Account <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Register</a></li>
-                        <li><a href="/profile">Profile</a></li>
-
-                        <li><a href="/favorited-properties">Favorited Properties </a></li>
-
-                        <li><a href="/exclusive-properties">Exclusive Properties</a></li>
-
-                        <li><a href="/monthly-offers">Offers</a></li>
-
-
-
-
-                    </ul>
-                </li>
-            </ul>
-            </div>
-
-            <div class="get-in-touch">
-              <h3 class="heading">Get in Touch</h3>
-              <div class="get-in-touch-box d-flex">
-                  <i class="flaticon-phone"></i>
-                  <div class="detalis">
-                    <a href="tel://+44 161 713 3883">+44 161 713 3883</a>            </div>
-              </div>
-              <div class="get-in-touch-box d-flex">
-                  <i class="flaticon-mail"></i>
-                  <div class="detalis">
-                    <a href="mailto:info@lpcinvest.com">info@lpcinvest.com
-                    </a>            </div>
-              </div>
-
-
-          </div>
-        </div>
-    </div>
-</nav> -->
     {%block body%}
     <script>window.pipedriveLeadboosterConfig = {base: 'leadbooster-chat.pipedrive.com',companyId: 10346415,playbookUuid: '7435e1ea-a099-4348-b123-407c50b5b832',version: 2};(function () {var w = window;if (w.LeadBooster) {console.warn('LeadBooster already exists');} else {w.LeadBooster = {q: [],on: function (n, h) {this.q.push({ t: 'o', n: n, h: h });},trigger: function (n) {this.q.push({ t: 't', n: n });},};}})();</script>
     <script src=https://leadbooster-chat.pipedrive.com/assets/loader.js async></script>
@@ -951,7 +535,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <h3>Subscribe <span style="color: #00CE8D;">Newsletter</span></h3>
+                    <h3 class="fw-bold">Subscribe <span style="color: #00CE8D;">Newsletter</span></h3>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="Subscribe-box">
@@ -1079,6 +663,12 @@
                             <li>
                                 <a href="/about/partners"class='text-capitalize'><i class="fa fa-angle-right"></i>referral scheme</a>
                             </li>
+                            <li>
+                                <a href="/about/privacy-policy"class='text-capitalize'><i class="fa fa-angle-right"></i>privacy policy</a>
+                            </li>
+                            <li>
+                                <a href="/about/terms-conditions"class='text-capitalize'><i class="fa fa-angle-right"></i>Terms & Conditions</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="footer-item">
@@ -1108,17 +698,18 @@
 
                         <ul class="contact-info">
                             <li>
-                                <i class="flaticon-pin"></i>Address:
+                                <i class="flaticon-pin cont-sec"></i>Address:
                                 <a href="https://www.google.com/maps/search/25%2F7+Barden,+London/@51.5287718,-0.2416803,11z/data=!3m1!4b1"
                                     target="_blank">Arrive, MediaCityUK</a>
 
                             </li>
                             <li>
-                                <i class="flaticon-mail"></i><a href="mailto:info@lpcinvest.com">info@lpcinvest.com
+                                <i class="flaticon-mail cont-sec"></i><a href="mailto:info@lpcinvest.com">info@lpcinvest.com
                                 </a>
                             </li>
                             <li>
-                                <i class="flaticon-phone"></i><a href="tel:+44 (0) 161 713 3883">+44 161 713
+                                
+                                <i class="flaticon-phone cont-sec"></i><a href="tel:+44 (0) 161 713 3883">+44 161 713
                                     3883</a>
                             </li>
                             <li></li>
@@ -1126,23 +717,23 @@
                         </ul>
                         <div class="social-media clearfix">
                             <div class="social-list">
-                                <div class="icon facebook">
+                                <div class="icon facebook cont-sec">
                                     <div class="tooltip">Facebook</div>
                                     <span><i class="fa fa-facebook"></i></span>
                                 </div>
-                                <div class="icon twitter">
+                                <div class="icon twitter cont-sec">
                                     <div class="tooltip">Twitter</div>
                                     <span><i class="fa fa-twitter"></i></span>
                                 </div>
-                                <div class="icon instagram">
+                                <div class="icon instagram cont-sec">
                                     <div class="tooltip">Instagram</div>
                                     <span><i class="fa fa-instagram"></i></span>
                                 </div>
-                                <div class="icon github">
+                                <div class="icon github cont-sec">
                                     <div class="tooltip">Github</div>
                                     <span><i class="fa fa-github"></i></span>
                                 </div>
-                                <div class="icon youtube mr-0">
+                                <div class="icon youtube mr-0 cont-sec">
                                     <div class="tooltip">Youtube</div>
                                     <span><i class="fa fa-youtube"></i></span>
                                 </div>

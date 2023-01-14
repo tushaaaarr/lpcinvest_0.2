@@ -33,7 +33,8 @@ urlpatterns = [
 
     path('blogs',views.blog,name='blogs'),
     path('blog/<int:id>',views.readblog,name='blog_view'),
-
+    path('about/privacy-policy',views.privacy_policy,name='privacy_policy'),
+    path('about/terms-conditions',views.terms_conditions,name='terms_conditions'),
     # path('login/', LoginView.as_view(), name='login'),
     # path('register/', RegisterView.as_view(), name='register'),
 

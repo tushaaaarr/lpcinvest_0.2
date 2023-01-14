@@ -1,11 +1,12 @@
-{% extends 'user/basic.html' %} {% load static %} {% block title %} About Us {%endblock title%} {% block css %} {% endblock css %} {% block body %}
+{% extends 'user/basic.html' %} {% load static %} {% block title %} About Us {%endblock title%} {% block css %} 
+{% endblock css %} {% block body %}
 
 <div class="banner" id="banner">
   
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
           <div class="carousel-item item-bg active">
-              <img class="d-block w-100 h-100" src="{% static 'img/team/team.jpeg' %}" alt="banner">
+              <img class="d-block w-100 h-100" src="{% static 'img/team/1.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
@@ -17,7 +18,7 @@
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg" alt="banner">
+              <img class="d-block w-100 h-100" src="{% static 'img/team/2.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                   <div class="carousel-content container align-self-center">
                     <div class="banner-info2">
@@ -29,7 +30,7 @@
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100" src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner">
+              <img class="d-block w-100 h-100" src="{% static 'img/team/3.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
@@ -59,44 +60,84 @@
 
 <!-- Welcome section Start -->
 
-<section class="py-5 bg-light text-start mt-5" id="next">
+<section class="py-2 bg-light text-start mt-3 bg-light" id="next">
+  <div class="about-real-estate  content-area-5 bg-grea-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 order-1 order-lg-1">
+              <h2 class="heading text-capitalize">Who we <span style="color:#00CE8D">are?</span></h2>
+                <div class="about-text clearfix">
+                    <p class="mb-0">LPC Invest was founded in 2018 by a team of experienced property experts. We specialize in brand-new properties, off-plan developments, and completed projects in emerging neighbourhoods. Our goal is to provide our clients with the best possible service and help them find their dream property.
+                      LPC Invest was created to serve homebuyers, first-time property investors and portfolio extenders looking for the perfect and most profitable property. The LPC Invest team is a group of experienced professionals who have a deep knowledge of the property market. We are here to help you find that ideal investment and to build a lucrative portfolio.
+                    </p>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 order-3 order-lg-2">
+                <div class="about-img-section">
+                    <div class="image-box sssa mt-3">
+                        <div class="image-1"><img src="{% static 'img/team/1.jpg' %}" class="w-100" alt="photo"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 order-2 order-lg-3">
+              <div class="about-text clearfix">
+                <p>
+                  We believe that everyone should have the opportunity to invest in property, whether they're looking for their forever home or searching for a profitable investment. We offer a wide range of services to help our clients achieve their goals, and we're always happy to answer any questions you may have.
+                  If you're thinking about investing in property, we urge you to take advantage of everything we have to offer at LPC Invest. We'll help you every step of the way, from finding the right property to ensuring it's a profitable investment. Contact us today to learn more!
+                </p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
   <div class="container">
     <div class="row align-items-start">
-      <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
-        <img src="media/media/1.1.jpg" alt="Image" class="img-fluid rounded">
-      </div>
-      <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
-        <h2 class="heading fs-1">Welcome to <span style="display: block;color:#00CE8D">LPC Invest!</span></h2>
-        <p class="mb-4" style="font-weight: 700;">Find your next big investment with the team of property pundits of LPC Invest. We specialise in residential sales and brand new property investments. Best-known for our unbeatable client-success record, your property investment vision is supported by the most experienced team in the UK.
-          If getting high-yield returns on your holdings sounds like a sweet deal, then join hands with our team. Working with LPC Invest means you get access to the most promising real estate opportunity in the UK backed by award-winning developers. Get started on building an impressive property portfolio with the assistance of seasoned real estate pros of LPC Invest.
-          .</p>
-        <p><a href="/about" class="btn btn-primary text-white py-2 mr-3 cont-sec" style="border-radius:0;">Learn More</a></p>
-      </div>
-      
+
+      <div class="col-md-12 col-lg-5 order-lg-2" data-aos="fade-up">
+        <h2 class="heading fs-1">The <span style="color:#00CE8D">Beginning</span></h2>
+          <p>
+            LPC Invest was founded by Lee Chettoe and Louise Wareing in 2018. They had a shared belief that there was a better way to source property investment opportunities for their clients, one that was more bespoke and considered.
+            LPC Invest strives to provide the highest quality opportunities for our clients by being approachable and innovative. We work with some of the UK's leading developers to bring you unique investment opportunities that you won't find anywhere else.
+          </p>
+          <p> Our values are important to us here at LPC Invest - we are approachable, innovative, and committed to providing the highest quality opportunities for our clients. We want to make sure that you feel comfortable and confident when making an investment with us, which is why we will always take the time to get to know you and your needs before recommending any property options.
+          </p>
+    </div>
+    <div class="col-md-12 col-lg-6 order-lg-1 position-relative me-5 ms-0 mb-5" data-aos="fade-up">
+      <img src="{% static 'img/team/2.jpg' %}" alt="Image" class="img-fluid rounded">
     </div>
   </div>
 </section>
-<!-- Welcome section End -->
 
-<!-- Promise Area start -->
-{% comment %} <div class="row bg-para mx-0 d-flex justify-content-center" style="height:100vh" data-aos="fade-up">
-  <div class="col-12 p-3 d-flex align-items-center justify-content-center">
-    <div class="text-center w-75 p-5">
-      <h2 class="h2 py-3" style="color:#00CE8D;">Our Promise</h2>
-      <h2 class="heading text-light fs-1" style="opacity: 0.9;">LPC invest are here to provide you with independent, expert advice.</h2>
-      <button class="btn cont-sec" style="border-radius:0;width: 200px;"><i class="fa fa-group pe-2"></i> Meet our Team</button>
+<!-- LPC TODAY SECTION START -->
+<div class="row lpcTod my-5 d-flex align-items-center mx-0">
+  <div class="container py-5">
+   
+    <div class="col-12 px-3 my-auto">
+      <h2 class="heading text-light text-capitalize">LPC invest<span style="color:#00CE8D"> Today</span></h2>
+      <p class="text-light ms-0 ps-0">
+        LPC Invest is a Manchester-based investment company specializing in property development. We work with clients, investors, and developers to create successful investment portfolios that offer the best returns possible.
+        Our team of experts has a wealth of experience in the property market, and we use this knowledge to help our clients make informed decisions about their investments.</p>
+        <p class="text-light ms-0 ps-0"> We pride ourselves on being able to provide a complete service, from start to finish, and our partnership with Reeds Rain allows us to offer support throughout the entire process.
+        Whether you're looking to invest in buy-to-let property, or you're a developer looking for funding for your latest project, we can help you achieve your goals. Contact us today to find out more about how we can help you make the most of your investment.
+
+      </p>
     </div>
   </div>
-</div> {% endcomment %}
-<!-- promise Area end -->
+</div>
+<!-- LPC TODAY SECTION END -->
+
+
+
+
+
 
 <!-- Services start -->
 <div class="services mt-5 bg-light" data-aos="fade-up">
   <div class="container">
       <!-- Main title -->
       <div class="main-title text-center mt-5">
-          <h2 class="heading pt-5" style="font-weight: 700;">Services We <span style="color:#00CE8D">Offer</span></h2>
-          <p style="font-weight: 700;">Seasoned property experts with over 60 years of knowledge and skills.</p>
+          <h2 class="heading pt-5 text-capitalize">Prosper with <span style="color:#00CE8D">LPC Invest</span></h2>
+          <p style="font-weight:700!important;">Grow a highly profitable property portfolio that delivers steady & regular dividends</p>
       </div>
       <div class="row">
           <div class="col-lg-4 col-md-12">
@@ -106,12 +147,11 @@
                   </div>
                   <div class="detail align-self-center">
                       <h3>
-                          <p style="color:#00CE8D;font-weight: 700;">Highly experienced team</p>
+                          <p class='text-capitalize'style="color:#00CE8D" style="font-weight:700!important;">Highly Experienced Team</p>
                       </h3>
-                      <p style="font-weight: 700;"> Seasoned property experts with over 60 years of knowledge and skills.
+                      <p style="font-weight:700!important;"> Seasoned property experts with over 60 years of knowledge and skills.
                       </p>
-                      <a class="read-more" href="/about">Read more...</a>
-                      <h4>01</h4>
+                      <h4 style="font-weight:700!important;">01</h4>
                   </div>
               </div>
           </div>
@@ -122,12 +162,11 @@
                   </div>
                   <div class="detail align-self-center">
                       <h3>
-                          <p style="color:#00CE8D;font-weight:700">Bespoke Solutions for Unique Requirements</p>                    
+                          <p class='text-capitalize'style="color:#00CE8D"style="font-weight:700!important;">Bespoke Solutions for Unique Requirements</p>                    
                       </h3>
-                      <p style="font-weight: 700;"> A vas Completely personalised services for specific goals.</p>                 
+                      <p style="font-weight:700!important;">Offering completely personalised services for specific goals, LPC Invest tailors the experience to all of its individual clients.</p>                 
                     
-                      <a class="read-more" href="/all-properties">Read more...</a>
-                      <h4>02</h4>
+                      <h4 style="font-weight:700!important;">02</h4>
                   </div>
               </div>
           </div>
@@ -138,11 +177,10 @@
                   </div>
                   <div class="detail align-self-center">
                       <h3>
-                          <p style="color:#00CE8D;font-weight:700">Premium property listings</p>
+                          <p class='text-capitalize' style="color:#00CE8D">Premium & Exclusive Property Opportunities</p>
                       </h3>
-                      <p style="font-weight: 700;"> A vast selection of holdings across the United Kingdom to buy, sell or rent.</p> 
-                      <a class="read-more" href="/all-properties">Read more...</a>
-                      <h4>03</h4>
+                      <p style="font-weight:700!important;"> A vast selection of handpicked developments across the United Kingdom populate LPC’s property portfolio.</p> 
+                      <h4 style="font-weight:700!important;">03</h4>
                   </div>
                   </div>
               </div>
@@ -154,25 +192,94 @@
 
 
 
-<div class="row bg-light pt-3 mx-0">
-  <div class="container section blight mb-0">
+<!-- How we work? start -->
+<div class="services mt-5 bg-mission" data-aos="fade-up">
+  <div class="container pb-5 pt-1">
+      <!-- Main title -->
+      <div class="main-title text-center mt-2">
+          <h2 class="text-capitalize heading pt-5" style="padding-top: 1rem !important">How we<span style="color:#00CE8D"class="text-light">Work?</span></h2>
+      </div>
+      <div class="row mb-4">
+          <div class="col-lg-4 col-md-12 mb-2" data-aos="zoom-in">
+              <div class="service-info-3 d-flex shadow-sm h-100">
+                  <div class="icon">
+                      <i class="fa fa-assistive-listening-systems"></i>
+                  </div>
+                  <div class="detail pt-3">
+                      <h3>
+                          <p class="text-capitalize"style="color:#00CE8D" style="font-weight:700!important;">We listen 
+                          </p>
+                      </h3>
+                      <p style="font-weight:700!important;"> 
+                        Our consultants will discuss your needs and goals according to your budget. The more details you provide, the better the solution we can find.
+                      </p>
+                      <h4 style="font-weight:700!important;">01</h4>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-2" data-aos="zoom-in">
+              <div class="service-info-3 d-flex shadow-sm h-100">
+                  <div class="icon">
+                    <i class="fa fa-tasks"></i>
+                  </div>
+                  <div class="detail pt-3">
+                      <h3>
+                          <p class="text-capitalize" style="color:#00CE8D"style="font-weight:700!important;">We do the hard work for you
+                          </p>                    
+                      </h3>
+                      <p style="font-weight:700!important;">
+                        All the information you provide will allow us to create a meticulously crafted strategy and find the perfect developments to offer to you.                        
+                      </p>                 
+                    
+                      <h4 style="font-weight:700!important;">02</h4>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-2" data-aos="zoom-in">
+            <div class="service-info-3 d-flex shadow-sm h-100">
+                    <div class="icon">
+                        <i class="fa fa-road"></i>
+                    </div>
+                    <div class="detail pt-3">
+                        <h3>
+                            <p class="text-capitalize" style="color:#00CE8D">We will lead you to your dream property in a stress-free manner
+                            </p>
+                        </h3>
+                        <p style="font-weight:700!important;">
+                          You will confidently choose the best option and start earning your passive income with LPC Invest.
+                          LPC Invest have cultivated relationships with industry giants and work only with market-leading developers to source the highest quality developments and opportunities.                          
+                        </p> 
+                        <h4 style="font-weight:700!important;">03</h4>
+                    </div>
+                    </div>
+            </div>    
+
+          </div>
+      </div>
+</div>
+<!-- How we work? end -->
+
+
+
+
+
+<div class="row bg-light pt-1 mx-0">
+  <div class="container section blight mb-0 pt-2">
       <div class="row justify-content-center text-center pt-0 mx-0">
         <div class="col-md-7" data-aos="fade-up">
-          <h2 class="heading pt-0">Meet <span style="color: #00CE8D;">Our Team</span></h2>
-          <p style="font-weight: 700 !important;"> Let us help you find your perfect investment today.</p>
+          <h2 class="text-capitalize heading pt-0">Meet The <span style="color: #00CE8D;">LPC Invest Team</span></h2>
         </div>
     </div>
-  
+    
       <div class="row mx-0 px-2">
-  
       {%for member in team_members %}        
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="block-2">
             <div class="flipper">
               <div class="front" style="background-image: url('media/{{member.image}}');">
                 <div class="box">
-                  <h2 style="font-weight:700!important;">{{member.name}}</h2>
-                  <p style="font-weight:700!important;">{{member.role}}</p>
+                  <h2 class="text-capitalize" style="font-weight:700!important;">{{member.name}}</h2>
+                  <p class= style="font-weight:700!important;">{{member.role}}</p>
                 </div>
               </div>
               <div class="back">
@@ -183,7 +290,8 @@
                   <div class="image mr-3 align-self-center">
                     <img src="/media/{{member.image}}" alt="">
                   </div>
-                  <div class="name align-self-center" style="font-weight:700!important;">{{member.name}} <span class="position"style="font-weight:700!important;">{{member.role}}</span></div>
+                  <div class="name align-self-center text-capitalize" style="font-weight:700!important;">{{member.name}} 
+                      <span class="position text-capitalize"style="font-weight:700!important;">{{member.role}}</span></div>
                 </div>
               </div>
             </div>
@@ -197,37 +305,255 @@
   </div>
   </div>
   
+  
   <!-- Our team end -->
-<!-- Contact section start -->
-<div style="box-shadow:0 0 10px rgba(0,0,0,0.2)" data-aos="fade-up" class='bg-light mt-3'>
-  <div class="container py-5 contact_section " >
-    <div class="row d-flex justify-content-around p-3" >
-      <div class="col-12 col-md-6 p-3">
-        <p class="text-lead" style="font-weight:700">Want to know more?</p>
-        <h2 class="heading pb-4" style="color:#00CE8D;"><span style="color:#252626">Contact us</span> today</h3>
-        <div class="d-flex justify-content-between">
-          <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
-          <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
-              <button type="button" class="btn p-2  px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
-        </div>
-  
-        <p class="py-4" style="font-weight:700!important;">
-          Our team of expert property consultants are on hand to answer your questions and help you plan your perfect investment. Book an appointment today to start your investment journey.
-        </p>
-        <div class="d-flex justify-content-between">
-          <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec p-2 px-3 " style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
-          <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
-          <button type="button" class="btn cont-sec px-3 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
-        </div>
-  
+
+
+<!-- LPC Mission -->
+<div class="row my-5 d-flex align-items-center bg-mission py-5 mx-0 px-3" data-aos="fade-up">
+  <div class="container py-5 bg-white shadow-lg border rounded mb-5" data-aos="fade-up">
+   
+    <div class="col-12 px-3 my-auto" >
+      <h2 class="text-capitalize heading display-5">The LPC Invest<span style="color:#00CE8D"> Mission</span></h2>
+
+      <h6 class="fs-6 my-3 mb-4 py-3 px-2 rounded fw-bold shadow" style="color:black;">WE WANT TO MAKE A DIFFERENCE:<span class="fw-light py-2" style="color:#00CE8D;display:block;"> 
+        TO EXCEED THE EXPECTATIONS OF THE CUSTOMERS AND PROVIDE THEM WITH THE BEST PROPERTY INVESTMENT OPPORTUNITY AND THE MOST RELIABLE SUPPORT
+      </span>
+      </h6>
+
+      <p class="ms-0 ps-0">
+        The setting of the highest unrivaled standard in managing, protecting and maximising the potential of all property assets is the core mission here at LPC Invest. Alongside aligning individual interests through service and asset protection, as well as amplifying the asset value, crafts our mission to deliver stark profitability to all investors and to ensure that our clients always get the best available deal.
+        In addition to providing exceptional value and superior customer service to its clients, LPC Invest’s mission is to be a continuously evolving commercial real estate firm. Through preserving an atmosphere in which employees can achieve their professional goals parallel to the organisation and be proud of the company in which they work, we always strive toward this goal.
+        
+      </p>
+    </div>
+  </div>
+
+  <div class="container py-5 bg-white shadow-lg border rounded my-3" data-aos="fade-up">
+   
+    <div class="col-12 px-3 my-auto">
+      <h2 class="heading display-5 text-capitalize">The LPC Invest<span style="color:#00CE8D"> Vision</span></h2>
+
+      <h6 class="fs-6 my-3 mb-4 py-3 px-2 rounded fw-bold shadow" style="color:black;">
+        EXPAND AND BECOME THE NUMBER ONE RELIABLE PROPERTY INVESTMENT COMPANY FOR THE UK AND INVESTORS AROUND THE GLOBE
+      </h6>
+
+      <p class="ms-0 ps-0">
+        Through combining the best products, best solutions and best practices, we aim to be the leading organisation for the delivery of all aspects of property and asset investment across the UK. Collaborating with developers, investors, housing associations and local authorities to assist our clients in the creation and growth of a portfolio that they are to be proud of.
+      </p>
+    </div>
+  </div>
+
+  <div class="container py-5 bg-white shadow-lg border rounded mt-5" data-aos="fade-up">
+   
+    <div class="col-12 px-3 my-auto text-center">
+      <h2 class="heading display-5">Our<span style="color:#00CE8D"> Services</span></h2>
+      <p class="ms-0 ps-0">
+        LPC Invest is a Leading Property Investment Agency operating in the UK, that brings developers closer to their potential clients. We are a progressive team focused on helping investors earn an immediate income through renting ready-to-rent properties or taking advantage of off-plan developments and capitalising on capital growth.
+        As a result, understanding you and your needs is crucial to finding the perfect , rewarding investments that meet your requirements, budget, and set time frame.
+        We will be at your side every step of the way.
+        To alleviate investors' decision-making anxiety, we assist from beginning to end, easing the complexities and fears. 
+      </p>
+    </div>
+  </div>
+</div>
+<!-- LPC Mission SECTION END -->
+
+<!-- Values start -->
+<div class="services mt-5 lpcTod pb-5" data-aos="fade-up">
+  <div class="container">
+      <!-- Main title -->
+      <div class="main-title text-center mt-5">
+          <h2 class="heading text-light pt-5">Our <span style="color:#00CE8D">Values</span></h2>
       </div>
-      <div class="col-12 col-md-5 p-3">
-        <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5);" src="/media/media/iStock-171572347-1-scaled.jpg"/>
+      <div class="row mb-4">
+          <div class="col-lg-4 col-md-12 mb-4">
+              <div class="service-info-3 d-flex bg-light shadow-sm h-100">
+                  <div class="icon">
+                      <i class="flaticon-user"></i>
+                  </div>
+                  <div class="detail pt-3">
+                      <h3>
+                          <p style="color:#00CE8D" style="font-weight:700!important;">Customer-Committed 
+                          </p>
+                      </h3>
+                      <p style="font-weight:700!important;"> 
+                        SLPC Invest’s customer support surpasses all expectations. 
+                        We respect the business our clients provide, and offer them the most efficient assistance that guarantees all potential value for money and ultimately, peace of mind.
+                      </p>
+                      <h4 style="font-weight:700!important;">01</h4>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="service-info-3 d-flex bg-light shadow-sm h-100">
+                  <div class="icon">
+                    <i class="fa fa-shield"></i>
+                  </div>
+                  <div class="detail pt-3">
+                      <h3>
+                          <p style="color:#00CE8D"style="font-weight:700!important;">Quality</p>                    
+                      </h3>
+                      <p style="font-weight:700!important;">Our work is performed and executed to the best of our ability and to the highest possible standard by some of the finest real estate experts in the UK field.
+                      </p>                 
+                    
+                      <h4 style="font-weight:700!important;">02</h4>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="service-info-3 d-flex bg-light shadow-sm h-100">
+                    <div class="icon">
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <div class="detail pt-3">
+                        <h3>
+                            <p style="color:#00CE8D">Integrity</p>
+                        </h3>
+                        <p style="font-weight:700!important;"> Our services are fair and transparent, aimed at offering the best deal for all parties involved. Hence, all decisions are made to benefit our clients and the developers equally.
+                        </p> 
+                        <h4 style="font-weight:700!important;">03</h4>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mb-4">
+              <div class="service-info-3 d-flex bg-light shadow-sm h-100">
+                  <div class="icon">
+                      <i class="fa fa-flask"></i>
+                  </div>
+                  <div class="detail pt-3">
+                      <h3>
+                          <p style="color:#00CE8D">Innovative </p>
+                      </h3>
+                      <p style="font-weight:700!important;"> To outperform the competition, we work tirelessly to achieve excellence in all of our daily operations of LPC Invest. We creatively work to identify and create opportunities where others may not. Through continuously exploring new methods and means, we build self-sustaining systems, thereby reducing customer costs.</p> 
+                      <h4 style="font-weight:700!important;">04</h4>
+                  </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-4 col-md-12 mb-4">
+                <div class="service-info-3 d-flex bg-light shadow-sm h-100">
+                    <div class="icon">
+                        <i class="fa fa-balance-scale"></i>
+                    </div>
+                    <div class="detail pt-3">
+                        <h3>
+                            <p style="color:#00CE8D">Ethical </p>
+                        </h3>
+                        <p style="font-weight:700!important;"> Your time is valuable to us and so, we keep our promises in terms of our service commitments, timings, and objectives, and keep our clients informed of progress at all stages of their journey.
+                        </p> 
+                        <h4 style="font-weight:700!important;">05</h4>
+                    </div>
+                    </div>
+                </div>  
+
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="service-info-3 d-flex bg-light shadow-sm h-100">
+                      <div class="icon">
+                          <i class="fa fa-group"></i>
+                      </div>
+                      <div class="detail pt-3">
+                          <h3>
+                              <p style="color:#00CE8D">Team </p>
+                          </h3>
+                          <p style="font-weight:700!important;"> Without our team, whether they’re the buyers, sellers, tenants or investors, our mission and vision cannot be accomplished. Thus, we strive to invest in our people by working directly alongside them, developing their understanding and ultimately, helping them to succeed.
+                          </p> 
+                          <h4 style="font-weight:700!important;">06</h4>
+                      </div>
+                      </div>
+                  </div>      
+
+          </div>
+      </div>
+</div>
+<!-- Values end -->
+
+
+<!-- Benefits start -->
+<div class="services mt-5 bg-light" data-aos="fade-up">
+  <div class="container">
+      <!-- Main title -->
+      <div class="main-title text-center mt-5">
+          <h2 class="heading fs-1 pt-5 text-capitalize">The Benefits Of Choosing <span style="color:#00CE8D">LPC INVEST</span></h2>
+      </div>
+      <div class="row ">
+        <div class="col-12 col-lg-6 p-5 d-flex align-items-center order-lg-2"> 
+          <img src="static/img/lpc2.svg" class="w-100">
+        </div>
+        <div class="col-12 col-lg-6 d-flex align-items-center order-lg-1">
+
+          <ul class="list-group shadow">
+          
+          
+            <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i>We offer a stress-free experience</li>
+            <li class="list-group-item list-group-item d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i>We only offer the most profitable opportunities</li>
+            <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i><span class="border-left-2 border-dark">We perform the due diligence on developers to reduce the risks to their minimum</span></li>
+            <li class="list-group-item list-group-item d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i>We will be there at every step of your journey</li>
+            <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i>We provide a customised solution for your every need</li>
+            
+            <li class="list-group-item list-group-item d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i>
+              <span class="border-left-2 border-dark">
+                <h6 class="h5 fw-bold border-bottom-1 border-dark">Custom Solutions</h6>              No matter what strategy suits you best, we have it all: Buy- to-Live, Buy- to- Let, Off Plan, and ready to move in properties.
+
+              </span>            
+            </li>
+            <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i>
+              <span class="border-left-2 border-dark">
+              <h6 class="h5 fw-bold border-bottom-1 border-dark">Hassle-Free Approach</h6>
+              Our company has a proven track record in finding profitable buy-to-let property investments and residential properties for our clients. With our open and meticulous strategy, we continuously minimise risk and maximise the rewards for our clients.
+             </span> 
+            </li>
+            <li class="list-group-item list-group-item d-flex gap-1 align-items-center"><i class="fa fa-check text-success fw-bold fs-2 pe-3" ></i>
+              <span class="border-left-2 border-dark">
+              <h6 class="h5 fw-bold border-bottom-1 border-dark" >Fully Managed Property</h6>
+              You have a trusted team of professionals on hand when you invest in our buy-to-let developments with LPC Invest. Our recent partnership with Reeds Rains allows this to be achieved seamlessly for all of our clients. You can sit back, relax and forget about your property, earning a steady income whilst the letting agent manages all aspects for you.
+             </span>
+            </li>             
+
+            
+          </ul>
+
+        </div>
+
       </div>
     </div>
   </div>
+<!-- Benefits end -->
+
+<!-- Community start -->
+<div class="services mt-5 bg-light" data-aos="fade-up">
+  <div class="container">
+      <!-- Main title -->
+      <div class="main-title text-center mt-5">
+          <h2 class="heading fs-1 pt-5 ">LPC in the <span style="color:#00CE8D">Community</span></h2>
+      </div>
+      <div class="row ">
+        <div class="col-12 col-lg-5 p-5 d-flex align-items-center"> 
+          <img src="static/img/community.svg" class="w-100">
+        </div>
+        <div class="col-12 col-lg-7">
+
+          <p class="text-lead fw-bold">
+            At LPC Invest we believe that supporting our local community is essential, we work to give back to the communities that helped raise/nurture our values and mission. We are forever inspired by the drive within our community and colleagues. And so, we want to share some of the ways in which we have been supporting our partners.
+          </p>
+          <div class="shadow p-5 my-3 d-flex gap-2">
+            <p class="text-dark">
+              <span class="h5 d-block fw-bold">Supporting (The Dreams/The Future Of) Young People </span>
+              We have recently sponsored Eccles Rugby Clubs junior division, supporting the future stars of the sporting world.  
+              Home grown since 1897, Eccles RFC are a ambitious, progressive, inclusive community club. Who pride themsleves on offering Rugby for all. Creating an avenue through which the sport can be accessed is something the LPC Invest team believes in and something Eccles RFC upholds. LPC Invest share the ambition and passion of Eccles RFC and will continue to support their growth in the years to come. 
+              Through our partnership LPC Invest helps to maintain the facilities, keep the gates open and keep the pitches cut.
+              See their amazing work for yourself - https://eccles.rfu.club/sponsors
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
   </div>
-  <!-- Contact section End -->
+<!-- Community end -->
+
   
 <!--Download Guide section Start  -->
 <br>
@@ -235,308 +561,180 @@
 
 
 
-<!-- Our team start -->
-<!-- <div class="our-team comon-slick content-area">
-  <div class="container"> -->
-    <!-- Main title -->
-    <!-- <div class="main-title">
-      <h1>Our Agent</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      </p>
-    </div> -->
-    <!-- <div
-      class="slick row comon-slick-inner"
-      data-slick='{"slidesToShow": 4, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'
-    >
-      <div class="item slide-box">
-        <div class="team-1">
-          <div class="team-thumb">
-            <a href="#">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="agent-2"
-                class="img-fluid"
-              />
-            </a>
-            <div class="team-social flex-middle">
-              <div class="team-overlay"></div>
-              <div class="team-social-inner">
-                <a rel="nofollow" href="#" class="facebook">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="twitter">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="google">
-                  <i class="fa fa-google" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="linkedin">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-info">
-            <h4>
-              <a href="#">John Pitarshon</a>
-            </h4>
-            <p>Creative Director</p>
-          </div>
-        </div>
-      </div>
-      <div class="item slide-box">
-        <div class="team-1">
-          <div class="team-thumb">
-            <a href="#">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="agent-2"
-                class="img-fluid"
-              />
-            </a>
-            <div class="team-social flex-middle">
-              <div class="team-overlay"></div>
-              <div class="team-social-inner">
-                <a rel="nofollow" href="#" class="facebook">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="twitter">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="google">
-                  <i class="fa fa-google" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="linkedin">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-info">
-            <h4>
-              <a href="#">Martin Smith</a>
-            </h4>
-            <p>Web Developer</p>
-          </div>
-        </div>
-      </div>
-      <div class="item slide-box">
-        <div class="team-1">
-          <div class="team-thumb">
-            <a href="#">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="agent-2"
-                class="img-fluid"
-              />
-            </a>
-            <div class="team-social flex-middle">
-              <div class="team-overlay"></div>
-              <div class="team-social-inner">
-                <a rel="nofollow" href="#" class="facebook">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="twitter">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="google">
-                  <i class="fa fa-google" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="linkedin">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-info">
-            <h4>
-              <a href="#">Maria Blank</a>
-            </h4>
-            <p>Office Manager</p>
-          </div>
-        </div>
-      </div>
-      <div class="item slide-box">
-        <div class="team-1">
-          <div class="team-thumb">
-            <a href="#">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="agent-2"
-                class="img-fluid"
-              />
-            </a>
-            <div class="team-social flex-middle">
-              <div class="team-overlay"></div>
-              <div class="team-social-inner">
-                <a rel="nofollow" href="#" class="facebook">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="twitter">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="google">
-                  <i class="fa fa-google" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="linkedin">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-info">
-            <h4>
-              <a href="#">Karen Paran</a>
-            </h4>
-            <p>Support Manager</p>
-          </div>
-        </div>
-      </div>
-      <div class="item slide-box">
-        <div class="team-1">
-          <div class="team-thumb">
-            <a href="#">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="agent-2"
-                class="img-fluid"
-              />
-            </a>
-            <div class="team-social flex-middle">
-              <div class="team-overlay"></div>
-              <div class="team-social-inner">
-                <a rel="nofollow" href="#" class="facebook">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="twitter">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="google">
-                  <i class="fa fa-google" aria-hidden="true"></i>
-                </a>
-                <a rel="nofollow" href="#" class="linkedin">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-info">
-            <h4>
-              <a href="#">Karen Paran</a>
-            </h4>
-            <p>Support Manager</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- Our team end -->
 
-<!-- Testimonial 4 start -->
-<!-- <div class="testimonial-4 comon-slick content-area-5">
-  <div class="container"> -->
-    <!-- Main title -->
-    <!-- <div class="main-title">
-      <h1>Our Testimonial</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-        eiusmod.
-      </p>
+
+<!-- Testimonial start -->
+<div class="testimonial comon-slick content-area-5" 
+    style="background: url(static/img/img-1.jpg) rgba(0,0,0,0.5); background-size: cover; background-repeat: no-repeat; background-attachment:fixed;">
+    <div class="container">
+:  <div class="row">
+            <div class="col-lg-4 align-self-center">
+                <!-- Main title -->
+                <div class="main-title main-title-6">
+                    <h1>Our Testimonial</h1>
+                    <p>WHAT OUR CLIENTS SAY ABOUT US (TRUSTPILOT )</p>
+                    <a href="https://uk.trustpilot.com/review/lpcinvest.com" class="btn-4 none-btn-992">Read More <i class="fa fa-angle-double-right"></i></a>                </div>
+            </div>
+            <div class="col-lg-7 offset-lg-1">
+                <div class="slick row comon-slick-inner" data-slick='{"slidesToShow": 2, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">
+                            <h5>
+                                <a>Haneen</a>
+                            </h5>
+                            <h6>Great team at LPC</h6>
+                            <p><i class="fa fa-quote-left"></i> I had a great experience with LPC Invest, they were with me in every step, from searching for property all the way to exchanging contract. They assigned me a dedicated team to guide me through the process and answer any questions I had <i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">
+                           
+                            <h5>
+                                <a>Lawrence Kok</a>
+                            </h5>
+                            <h6>A very good experience with LPC Invest</h6>
+                            <p><i class="fa fa-quote-left"></i> It has been a very good experience with LPC Invest. I talked with Ben Johnson and he together with his colleague Jennifer Iftakhar provided me property advice and introduced me to a good reputable solicitor. They have been very nice and helpful. I thank them both very much for their excellent service. I highly recommend anyone interested in buying a property to work with LPC Invest. <i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">
+                           
+                            <h5>
+                                <a>Abdulaziz Alobaid</a>
+                            </h5>
+                            <h6>Highly recommended estate agent!</h6>
+                            <p><i class="fa fa-quote-left"></i> We recently bought a flat in 55 queens street and the whole experience was lovely. Ryan was our guy, he helped us getting the best deal and also he was nice and sincere. I am recommending this estate agent to all my friends as this is what a person needs; to buy a nice flat with the right guidance and advice.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Ayanda Mhlanga</a>
+                            </h5>
+                            <h6>Excellent service from a clearly client focused company</h6>
+                            <p><i class="fa fa-quote-left"></i> This is my second property purchase with LPC invest and I have once again been able to work closely with Natalie the whole way through. She sent me various options and even took the time out of her Saturday to take me on site visits to each of the properties before making her recommendation.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Michael Chiu</a>
+                            </h5>
+                            <h6>Comment from an invester from Hong Kong</h6>
+                            <p><i class="fa fa-quote-left"></i> Being an oversea invester from Hong Kong, I received remarkable service from LCP Invest Ltd.Their following up has been extremely smooth , precise and every task was completed within reasonable time frame. I am very much surprised by the proactive service level received from LCP.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Oluwarotimi Fasuyi</a>
+                            </h5>
+                            <h6>Good Experience and support on the onboarding process</h6>
+                            <p><i class="fa fa-quote-left"></i> The company was able to support and guide me on the onboarding process throughout the payment and review session.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Tian</a>
+                            </h5>
+                            <h6>Nice service and rapid response</h6>
+                            <p><i class="fa fa-quote-left"></i> Ben and Kerry are very very very friendly and patient to help me during the whole process. Rapid response and detailed instructions. I really enjoyed the experience.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Andy Bullock</a>
+                            </h5>
+                            <h6>A trustworthy company</h6>
+                            <p><i class="fa fa-quote-left"></i> Both Ryan and Kerry were very helpful throughout the process of securing the property. They were regularly available, answered questions honestly and were patient with the time it took to complete the process. I would recommend them.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Tara Brady</a>
+                            </h5>
+                            <h6>Thoroughly impressed</h6>
+                            <p><i class="fa fa-quote-left"></i> I was thoroughly impressed with my interactions with Ryan Griffiths at LPC invest. He was both friendly and professional and answered any questions in a clear and timely manner. I never felt any pressure and he made it easy to contact him at any point. I would certainly invest through LPC Invest again.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Fran</a>
+                            </h5>
+                            <h6>Experienced and Informative</h6>
+                            <p><i class="fa fa-quote-left"></i> I was given advice by a friend to work with LPC, more specifically to work with Ryan Griffiths. I was tentative at first since I am new to investing but over the past weeks have never felt more informed and confident. Ryan has made my experience exciting and easy and I can't thank him enough for the work he's done for me! I strongly recommend working with him and LPC if you have the opportunity.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Raiyah</a>
+                            </h5>
+                            <h6>Excellent service</h6>
+                            <p><i class="fa fa-quote-left"></i> This is my first time buying from LPC Invest and They have been extremely helpful providing a professional service. Ryan has been Great. He has been efficient always taking my calls and answering all questions.
+                                Ryan has been a great help and would recommend him as has been patient and understanding.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Veda</a>
+                            </h5>
+                            <h6>Ryan is an efficient and pleasant person.</h6>
+                            <p><i class="fa fa-quote-left"></i> Ryan has been very efficient, knowledgeable and prompt with his communication. He is not a pushy seller, he patiently explained all our queries and helped us to make the decision. He good local knowledge. He was polite and pleasant throughout.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Rodrigo</a>
+                            </h5>
+                            <h6>Excellent Service</h6>
+                            <p><i class="fa fa-quote-left"></i> This is my first time buying from LPC Invest and I am midway through the process now. Ryan has been fantastic from the day he picked up my call. He has been efficient, friendly and always responds promptly to queries.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Oliver</a>
+                            </h5>
+                            <h6>Ryan pays attention to detail</h6>
+                            <p><i class="fa fa-quote-left"></i> Ryan pays attention to detail throughout the whole process and was able to chat on a personal level and provide honest opinions and feedback which was reassuring<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Luke</a>
+                            </h5>
+                            <h6>Outstanding Service</h6>
+                            <p><i class="fa fa-quote-left"></i>  Could not recommend them more! Gave a lot of time to help us find the right property and were patient and understanding of our needs. Dave was always quick to respond to questions and helped the process move along at every stage.<i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                    <div class="item slide-box">
+                        <div class="testimonial-info-box">      
+                            <h5>
+                                <a>Chris Sallaway</a>
+                            </h5>
+                            <h6>A superb company</h6>
+                            <p><i class="fa fa-quote-left"> A superb company to build a property portfolio with. Supportive throughout the purchase, and an excellent after-sales team. A special thanks to David who went above and beyond in assisting with completion. Thank you.</i><i class="fa fa-quote-right"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div
-      class="slick row comon-slick-inner"
-      data-slick='{"slidesToShow": 2, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'
-    >
-      <div class="item slide-box">
-        <div class="testimonial-info">
-          <div class="user-section">
-            <div class="user-thumb">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="testimonial"
-                style="width: 100px"
-              />
-              <div class="icon">
-                <i class="fa fa-quote-right"></i>
-              </div>
-            </div>
-            <div class="user-name">
-              <h5>Michelle Nelson</h5>
-              <p>Consultant</p>
-            </div>
-          </div>
-          <div class="text">
-            <p>
-              "Bitcoin is one of the most important inventions in all of human
-              history. For the first time ever, anyone can send or receive any
-              amount of money .Lorem ipsum dolor sit amet consectetur
-              adipisicing elit."
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="item slide-box">
-        <div class="testimonial-info">
-          <div class="user-section">
-            <div class="user-thumb">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="testimonial"
-                style="width: 100px"
-              />
-              <div class="icon">
-                <i class="fa fa-quote-right"></i>
-              </div>
-            </div>
-            <div class="user-name">
-              <h5>Anne Brady</h5>
-              <p>Web Designer, Uk</p>
-            </div>
-          </div>
-          <div class="text">
-            <p>
-              "Bitcoin is one of the most important inventions in all of human
-              history. For the first time ever, anyone can send or receive any
-              amount of money .Lorem ipsum dolor sit amet consectetur
-              adipisicing elit."
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="item slide-box">
-        <div class="testimonial-info">
-          <div class="user-section">
-            <div class="user-thumb">
-              <img
-                src="https://img.freepik.com/free-photo/handsome-corporate-man-real-estate-agent-assistant-smiling-hold-hands-together-how-may-i-help-you-smiling-friendly-polite-assist-customer-white-background_176420-45257.jpg?w=740&t=st=1670398199~exp=1670398799~hmac=df8f74814ca0485a54bb039ef39216c39da06dbbbbc3e277adc2abfe8f2ad9d0"
-                alt="testimonial"
-                style="width: 100px"
-              />
-              <div class="icon">
-                <i class="fa fa-quote-right"></i>
-              </div>
-            </div>
-            <div class="user-name">
-              <h5>Carolyn Stone</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-          <div class="text">
-            <p>
-              "Bitcoin is one of the most important inventions in all of human
-              history. For the first time ever, anyone can send or receive any
-              amount of money .Lorem ipsum dolor sit amet consectetur
-              adipisicing elit."
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- Testimonial 4 end -->
+</div>
+</div>
+<!-- Testimonial end -->
+
+
+
 
 <!-- Partners strat -->
 <div class="partners bg-grea-5">

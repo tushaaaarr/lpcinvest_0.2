@@ -1,14 +1,10 @@
 {% extends 'user/basic.html' %} {% load static %} {% block title %} Meet The Team {%endblock title%} {% block css %} {% endblock css %} {% block body %}
 
-
-
-
-<div class="banner" id="banner">
-  
+<div class="banner" id="banner">  
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
           <div class="carousel-item item-bg active">
-              <img class="d-block w-100 h-100" src="{% static 'img/team/team.jpeg' %}" alt="banner">
+              <img class="d-block w-100 h-100" src="{% static 'img/team/1.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
@@ -20,7 +16,7 @@
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100" src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg" alt="banner">
+              <img class="d-block w-100 h-100" src="{% static 'img/team/2.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                   <div class="carousel-content container align-self-center">
                     <div class="banner-info2">
@@ -32,7 +28,7 @@
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100" src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner">
+              <img class="d-block w-100 h-100" src="{% static 'img/team/3.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
@@ -53,15 +49,8 @@
           <span class="visually-hidden">Next</span>
       </button>
   </div>
- 
 </div>    
-
-
 </section>
-
-
-
-
 
 
 <!-- Sub banner end -->
@@ -70,8 +59,7 @@
       <div class="container section">
           <div class="row justify-content-center text-center mb-1">
             <div class="col-md-7 mb-2" data-aos="fade-up">
-              <h2 class="heading">Meet <span style="color: #00CE8D;">Our Team</span></h2>
-              <p> Let us help you find your perfect investment today.</p>
+              <h2 class="heading pt-0">Meet The <span style="color: #00CE8D;">LPC Invest Team</span></h2>
             </div>
           </div>
       
@@ -83,8 +71,8 @@
                 <div class="flipper">
                   <div class="front" style="background-image: url('/media/{{member.image}}');">
                     <div class="box">
-                      <h2>{{member.name}}</h2>
-                      <p>{{member.role}}</p>
+                      <h2 class="text-capitalize">{{member.name}}</h2>
+                      <p class="text-capitalize">{{member.role}}</p>
                     </div>
                   </div>
                   <div class="back">
@@ -95,7 +83,7 @@
                       <div class="image mr-3 align-self-center">
                         <img src="/media/{{member.image}}" alt="">
                       </div>
-                      <div class="name align-self-center">{{member.name}} <span class="position">{{member.role}}</span></div>
+                      <div class="name align-self-center text-capitalize">{{member.name}} <span class="text-capitalize position">{{member.role}}</span></div>
                     </div>
                   </div>
                 </div>
@@ -107,30 +95,21 @@
       </div>
 </div>
 <!-- Contact section start -->
-<div style="box-shadow:0 0 10px rgba(0,0,0,0.2)" data-aos="fade-up" class='bg-light mt-3'>
-  <div class="container py-5 contact_section " >
-    <div class="row d-flex justify-content-around p-3" >
-      <div class="col-12 col-md-6 p-3">
-        <p class="text-lead" style="font-weight:700">Want to know more?</p>
-        <h2 class="heading pb-4" style="color:#00CE8D;"><span style="color:#252626">Contact us</span> today</h3>
-        <div class="d-flex justify-content-between">
-          <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
-          <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
-              <button type="button" class="btn p-2  px-3 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
-        </div>
-  
-        <p class="py-4" style="font-weight:700!important;">
-          Our team of expert property consultants are on hand to answer your questions and help you plan your perfect investment. Book an appointment today to start your investment journey.
-        </p>
-        <div class="d-flex justify-content-between">
-          <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec p-2 px-3 " style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
-          <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
-          <button type="button" class="btn cont-sec px-3 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
-        </div>
-  
-      </div>
-      <div class="col-12 col-md-5 p-3">
-        <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5);" src="/media/media/iStock-171572347-1-scaled.jpg"/>
+<div data-aos="fade-up" class='mt-3 altContSec' style="">
+  <div class="container mx-auto py-5 contact_section " >
+    <div class="row d-flex justify-content-center px-0" >
+      <div class="col-12">
+        <p class="text-lead text-light" style="font-weight:700">Want to know more?</p>
+        <h2 class="heading pb-4" style="color:#00CE8D;"><span class="text-light">Contact us</span> today</h3>
+        <div class="d-md-flex d-block gap-3">
+              <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
+              <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
+                  <button type="button" class="btn p-2 my-2  cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
+              
+              <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
+              <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
+              <button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
+          </div>
       </div>
     </div>
   </div>

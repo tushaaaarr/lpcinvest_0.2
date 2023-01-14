@@ -9,6 +9,7 @@
 <style>
 .aCls{
   color:#00CE8D!important;
+  text-transform: capitalize !important;
 }
 
 .advanced-search h3,option{
@@ -29,6 +30,12 @@ select{
 }
 .cont-sec:hover{
   background-color: #ffffff !important;
+}
+
+@media screen and (max-width: 768px) {
+.property-photo img{
+height:220px!important;
+}
 }
 </style>
 
@@ -112,11 +119,11 @@ select{
 <!-- Properties section start -->
 <div class="properties-section content-area" data-aos="fade">
   <div class="container">
-    <div class="row">
+    <div class="row flex-column-reverse flex-lg-row">
       <div class="col-lg-4 col-md-12">
         <div class="sidebar-left">
           <!-- Advanced search start -->
-          <div class="widget advanced-search">
+          <div class="widget advanced-search d-lg-block d-none">
             <h3 class="sidebar-title">Advanced Search
             </h3>
             <div class="s-border"></div>
@@ -125,13 +132,18 @@ select{
               <div class="form-group">
                 <select class="selectpicker search-fields" name="status">
                   <option value="all">All Status</option>
-                  {%for status in common_properties_data.status%}
-                  {%if properties_data.selected_status == status%}
-                  <option value="{{status}}" selected>{{status}}</option>
-                  {%else %}
-                  <option value="{{status}}">{{status}}</option>
+                  {%if properties_data.selected_status == "Completed"%}
+                  <option value="Completed" selected>Completed </option>
+                  <option value="Off plan">Off Plan</option>
+                  {%elif properties_data.selected_status == "Off plan" %}
+                  <option value="Completed" >Completed </option>
+                  <option value="Off plan"selected>Off Plan</option>
+                  {%else%}
+                  <option value="Completed">Completed </option>
+                  <option value="Off plan">Off Plan</option>
                   {%endif%}
-                  {%endfor%}
+
+
                 </select>
               </div>
               <div class="form-group">
@@ -297,8 +309,8 @@ select{
                     <img src="/media/{{property.image}}" alt="small-properties" class="flex-shrink-0 img-fluid w-100" />
                 </a>
                 <div class="detail col-6 align-self-center">
-                    <h5  class="m-0">
-                        <a class="aCls"style="font-size: 18px!important;" href="/properties/{{property.id}}">{{property.title}}</a>
+                    <h5  class="m-0 text-capitalize">
+                        <a class="text-capitalize aCls"style="font-size: 18px!important;" href="/properties/{{property.id}}">{{property.title}}</a>
                     </h5>
                     <div class="listing-post-meta">
                       £{{property.price}}
@@ -315,13 +327,14 @@ select{
         </div>
       </div>
 
-      <div class="col-lg-8 col-md-12">
+      <div class="col-lg-8 col-12">
         <!-- Option bar start -->
         <div class="option-bar">
-          <div class="row">
-            <div class="col-lg-6 col-8">
+          <div class="row gap-1 justify-content-between">
+            <span class="sort">Sort by:</span>
+            <div class="col-lg-6 col-6">
               <div class="sorting-options2">
-                  <span class="sort">Sort by:</span>
+                  
                   <select class="selectpicker search-fields" name="sort_properties" id="sort-list" onchange="location = finalurl();">
                     <option>Default Order</option>
                     <option value="price_high_low" {{properties_data.is_price_high_low}}>
@@ -339,6 +352,188 @@ select{
                   </select>
               </div>
             </div>
+
+              <!-- Advance search start-->
+              <div class="col-5 mx-0 px-0">
+                <button onclick="togAdvSrch()" style="font-size:12px;" class="d-lg-none cont-sec d-block btn-secondary btn-sm py-2 mx-0 text-capitalize">Advanced Search <i class="fa fa-caret-down"></i></button>
+              </div>
+              <div class="widget advanced-search col-12" id="advWid">
+                <h3 class="sidebar-title">Advanced Search
+                </h3>
+                <div class="s-border"></div>
+                <div class="m-border"></div>
+                <form method="GET" action="/all-properties">
+                  <div class="form-group">
+                    <select class="selectpicker search-fields" name="status">
+                      <option value="all">All Status</option>
+                      {%if properties_data.selected_status == "Completed"%}
+                      <option value="Completed" selected>Completed </option>
+                      <option value="Off plan">Off Plan</option>
+                      {%elif properties_data.selected_status == "Off plan" %}
+                      <option value="Completed" >Completed </option>
+                      <option value="Off plan"selected>Off Plan</option>
+                      {%else%}
+                      <option value="Completed">Completed </option>
+                      <option value="Off plan">Off Plan</option>
+                      {%endif%}
+    
+    
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="selectpicker search-fields" name="type">
+                      <option value="all_type">All Type</option>
+                      {%if properties_data.selected_type == "cash_only"%}
+                      <option value="{{cash_only}}" selected>Cash only </option>
+                      <option value="buy_to_let">Buy to Let</option>
+                      <option value="buy_to_live">Buy to Live</option>
+                      {%elif properties_data.selected_type == "buy_to_let" %}
+                      <option value="{{buy_to_let}}" selected>Buy to Let</option>
+                      <option value="cash_only">Cash only </option>
+                      <option value="buy_to_live">Buy to Live</option>
+                      {%elif properties_data.selected_type == "buy_to_live" %}
+                      <option value="{{buy_to_live}}" selected>Buy to Live</option>
+                      <option value="cash_only">Cash only </option>
+                      <option value="buy_to_let">Buy to Let</option>
+                      {%else%}
+                      <option value="cash_only">Cash only </option>
+                      <option value="buy_to_let">Buy to Let</option>
+                      <option value="buy_to_live">Buy to Live</option>
+                      {%endif%}
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="selectpicker search-fields" name="location">
+                      <option value='City'>All Cities</option>
+                      {%for city in common_properties_data.cities%}
+                      {%if properties_data.selected_city == city%}
+                      <option value="{{city}}" selected>{{city}}</option>
+                      {%else %}
+                      <option value="{{city}}">{{city | title}}</option>
+                      {%endif%}
+                      {%endfor%}
+                    </select>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                      <div class="form-group">
+                        <select class="selectpicker search-fields" name="bedrooms">
+                          <option>Bedrooms</option>
+    
+                          {%if properties_data.selected_bedrooms == "1"%}
+                          <option value="1" selected>1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="studio">Studio</option>
+    
+                          {%elif properties_data.selected_bedrooms == "2" %}
+                          <option value="1">1</option>
+                          <option value="2" selected>2</option>
+                          <option value="3">3</option>
+                          <option value="studio">Studio</option>
+    
+                          {%elif properties_data.selected_bedrooms == "3" %}
+                          <option value="1">1</option>
+                          <option value="2" >2</option>
+                          <option value="3" selected>3</option>
+                          <option value="studio">Studio</option>
+    
+                          {%elif properties_data.selected_bedrooms == "studio" %}
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="studio" selected>Studio</option>
+    
+                          {%else%}
+                          <option value="studio">Studio</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          {%endif%}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                      <div class="form-group">
+                        <select class="selectpicker search-fields" name="bathrooms">
+                          <option>Bathroom</option>
+                          {%if properties_data.selected_bathrooms == "1"%}
+                          <option value="1" selected>1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+    
+                          {%elif properties_data.selected_bathrooms == "2" %}
+                          <option value="1">1</option>
+                          <option value="2" selected>2</option>
+                          <option value="3">3</option>
+    
+                          {%elif properties_data.selected_bathrooms == "3" %}
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3"selected>3</option>
+    
+                          {%else%}
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+    
+                          {%endif%}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="range-slider clearfix form-group mb-30">
+                    <label>Price</label>
+                    <div data-min="0" data-max="1000000" data-min-name="min_price" data-max-name="max_price" data-unit="£"
+                      class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                    <div class="clearfix"></div>
+                  </div>
+    
+                  <div class="range-slider clearfix form-group">
+                    <label>Deposit</label>
+                    <div data-min="0" data-max="100000" data-min-name="min_deposit" data-max-name="max_deposit" data-unit="£"
+                      class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                    <div class="clearfix"></div>
+                  </div>
+    
+    
+                  <div class="accordion accordion-flush other-features mb-30" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          Other Features
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                          <h3 class="sidebar-title">Features</h3>
+    
+                          <div class="s-border"></div>
+                          <div class="m-border"></div>
+    
+                          {%for feature in common_properties_data.feature_list%}
+                          <div class="checkbox checkbox-theme checkbox-circle">
+                            <input id="feature_{{feature.id}}" type="checkbox" name="feature" value="{{feature}}" />
+                            <label for="feature_{{feature.id}}">
+                              {{feature}}
+                            </label>
+                          </div>
+                          {%endfor%}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="features_list" value="" id="features_list" />
+                  <div class="form-group mb-0">
+                    <button class="btn rounded-0 cont-sec " id="FilterButton">Search</button>
+                  </div>
+                </form>
+              </div>
+              <!-- Advance search End -->
+
           </div>
         </div>
 
@@ -358,7 +553,8 @@ select{
               </div>
           </div>
       </div>
-{%endif%}
+
+      {%endif%}
         <div id="list_view_div" data-aos="fade">
           {%for property in properties %}
           <!-- Property box 2 start -->
@@ -382,7 +578,7 @@ select{
               <div class="col-lg-7 col-md-7">
                 <div class="detail">
                   <div class="hdg">
-                    <h3 class="title">
+                    <h3 class="title text-capitalize">
                       <a href="/properties/{{property.id}}">{{property.title}}</a>
                     </h3>
                     <h5 class="location">
@@ -478,6 +674,10 @@ select{
     var new_url = url.toString();
     console.log(new_url)
     return new_url
+  }
+
+  function togAdvSrch(){
+    document.getElementById('advWid').style.display=="block"?document.getElementById('advWid').style.display="none":document.getElementById('advWid').style.display="block";
   }
 
 

@@ -133,7 +133,7 @@ def home_page(request):
     for property_ in properties:
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
-    team_members = TeamMembers.objects.all()[:3]
+    team_members = TeamMembers.objects.all()[::-1][:3]
     blog_list = []
     blogs = Blogs.objects.all()[:5]
     for blog in blogs:
@@ -148,7 +148,7 @@ def updated_index(request):
     return render(request,'user/updated_index.html')
 
 def about(request):
-    team_members = TeamMembers.objects.all()[:3]
+    team_members = TeamMembers.objects.all()[::-1][:3]
     
     return render(request,'user/about_us.html',{'team_members':team_members})
 
@@ -175,6 +175,7 @@ def property_list_by_city(request,in_city):
     page_data = {}
     if len(properties)<1:
         page_data['not_found'] = True
+    
     return render(request,'user/property/properties-list-leftsidebar.html',
     {"properties":properties,"properties_data":feature_data,"page_data":page_data})
 
@@ -253,8 +254,7 @@ def property_listing(request,type_dict=None):
     if len(properties) < 1:
         page_data['not_found'] = True
 
-
-    context = {"properties":properties,"page_data":page_data,'feature_data':feature_data,
+    context = {"properties":properties,"page_data":page_data,'properties_data':feature_data,
         'is_paginated':True, 'paginator':product_paginator,"page_obj":properties}
 
     if type_dict is None:
@@ -782,7 +782,7 @@ def faqs(request):
     return render(request,'user/faq.html')
 
 def teams(request):
-    team_members = TeamMembers.objects.all()
+    team_members = TeamMembers.objects.all()[::-1]
     return render(request,'user/teams.html',{'team_members':team_members})
 
 def blog(request):
@@ -842,6 +842,12 @@ def readblog(request,id):
 
 def partners(request):
     return render(request,'user/partners.html')
+
+def privacy_policy(request):
+    return render(request,'user/privacy_policy.html')
+
+def terms_conditions(request):
+    return render(request,'user/terms_conditions.html')
 
 class LoginView(auth_views.LoginView):
     form_class = LoginForm
