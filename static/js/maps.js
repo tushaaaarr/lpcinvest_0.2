@@ -92,9 +92,6 @@ function drawInfoWindow(property) {
         "<h4><a href='/properties/" + id+ " '>" + title + "</a></h4>" +
         "<p class='address'> <i class='flaticon-pin'></i>" + address + "</p>" +
         "<div class='map-properties-fetures'> " +
-        "<span><i class='flaticon-area'></i>  " + area + " sqft</span> " +
-        "<span><i class='flaticon-bed'></i>  " + bedroom + " Beds</span> " +
-        "<span><i class='flaticon-bathroom'></i>  " + bathroom + " Baths</span> " +
         "</div>" +
         "</div>";
     return ibContent;
@@ -246,26 +243,6 @@ function insertPropertyToArray(property, layout) {
             '                                    </h5>\n' +
             '                                </div>\n' +
             '                                <ul class="facilities-list clearfix">\n' +
-            '                                    <li>\n' +
-            '                                        <span>Area</span>'+area+' Sqft\n' +
-            '                                    </li>\n' +
-            '                                    <li>\n' +
-            '                                        <span>Beds</span> ' + bedroom +' \n' +
-            '                                    </li>\n' +
-            '                                    <li>\n' +
-            '                                        <span>Baths</span> '+bathroom+' \n' +
-            '                                    </li>\n' +
-            '                                    <li>\n' +
-            '                                        <span>Garage</span> '+ garage +' \n' +
-            '                                    </li>\n' +
-            '                                </ul>\n' +
-            '                                <div class="footer">\n' +
-            '                                    <a href="#" tabindex="0">\n' +
-            '                                        <i class="flaticon-people"></i> '+ author +' \n' +
-            '                                    </a>\n' +
-            '                                    <span>\n' +
-            '                                          <i class="flaticon-calendar"></i>'+date+'\n' +
-            '                                    </span>\n' +
             '                                </div>\n' +
             '                            </div>\n' +
             '                        </div>\n' +

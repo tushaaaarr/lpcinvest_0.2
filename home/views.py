@@ -151,6 +151,11 @@ def about(request):
     
     return render(request,'user/about_us.html',{'team_members':team_members})
 
+def community(request):    
+    return render(request,'user/community.html')
+
+def error(request):
+    return render(request,'user/pages/error.html')
 
 def property(request):
     return HttpResponse('property Page....')
@@ -241,7 +246,6 @@ def property_listing(request,type_dict=None):
     PRODUCTS_PER_PAGE= 10
     page = request.GET.get('page',1)
     product_paginator = Paginator(properties, PRODUCTS_PER_PAGE)
-
     try:
         properties = product_paginator.page(page)
     except EmptyPage:
@@ -272,7 +276,6 @@ def property_view_route(request,id):
     return render(request,'pages/error.html')
 
     
-
 def property_view(request,id,title=None):
     feature_data = dict()
     if not Properties.objects.filter(id=id).exists():
@@ -297,9 +300,9 @@ def property_view(request,id,title=None):
     property.price = ("{:,}".format(property.price))
     property.units = units
     page_data = {'page_name':property.title}
-
     context = {'property':property,'prop_images':prop_images,"feature_data":feature_data,"Calculated_data":Calculated_data,
     "page_data":page_data,"location_coord":location_coord}
+
 
     return render(request,'user/property/properties-details1.html',context)
 
@@ -399,19 +402,15 @@ def search(request):
     #     for type_name in (search_type):
     #         if type_name.get_type_display() not in results:
     #             results.append(type_name.get_type_display())
-
     #     for title in search_title:
     #         if title.title not in results:
     #             results.append(title.title)
-
     #     data = json.dumps(results)
-
     #     return HttpResponse(data)
 
     properties_data = {}
     q_type = request.GET.get('type', "")
     properties_status = request.GET.getlist('status', "")
-
     properties = Properties.objects.all()
     dt_ = PropertyStatusMapper.objects.all()
     if not 'all' in q_type.strip():
@@ -421,7 +420,6 @@ def search(request):
             type_id = StatusMaster.objects.filter(status__startswith="Buy to live")
         else:
             type_id = StatusMaster.objects.all()
-
         dt = dt_.filter(status__in=type_id)
         dt_ids = list(dt.values_list('property', flat=True))
         properties = properties.filter(id__in = dt_ids)
@@ -521,7 +519,6 @@ def thankyou_page(request):
 
 
 def SendPropertiesToMap(request,property):
-    # property = Properties.objects.last()
     properties_list = get_properties(property)
     return properties_list
 

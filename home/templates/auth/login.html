@@ -107,7 +107,6 @@
     <!-- End Google Tag Manager (noscript) -->
     <div class="page_loader"></div>
 
-
     {% if messages %}
     <ul class="messages">
       {% for message in messages %}
@@ -129,8 +128,6 @@
     </ul>
     {%endif%}
 
-
-    
     <!-- Contact section start -->
     <div class="contact-section">
       <div class="container-fluid">
@@ -140,22 +137,38 @@
               <div class="typing">
                 <h1>Welcome To LPC-Invest</h1>
               </div>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled
+              <p style="font-weight: 700">
+                LPC Invest was founded in 2018 by a team of experienced property
+                experts. We specialize in brand-new properties, off-plan
+                developments, and completed projects in emerging neighbourhoods.
+                Our goal is to provide our clients with the best possible
+                service and help them find their dream property. LPC Invest was
+                created to serve homebuyers, first-time property investors and
+                portfolio extenders looking for the perfect and most profitable
+                property. The LPC Invest team is a group of experienced
+                professionals who have a deep knowledge of the property market.
+                We are here to help you find that ideal investment and to build
+                a lucrative portfolio.
               </p>
+
               <div class="social-list">
                 <div class="buttons">
-                  <a href="#" class="facebook-bg"
+                  <a
+                    href="https://www.facebook.com/lpcinvest/"
+                    class="facebook-bg"
                     ><i class="fa fa-facebook"></i
                   ></a>
-                  <a href="#" class="twitter-bg"
+                  <a href="https://twitter.com/lpcinvest" class="twitter-bg"
                     ><i class="fa fa-twitter"></i
                   ></a>
-                  <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
-                  <a href="#" class="dribbble-bg"
+                  <a
+                    href="https://www.instagram.com/lpcinvestltd/"
+                    class="google-instagram"
+                    ><i class="fa fa-instagram"></i
+                  ></a>
+                  <a
+                    href="https://www.linkedin.com/company/lpcinvest/"
+                    class="dribbble-bg"
                     ><i class="fa fa-linkedin"></i
                   ></a>
                 </div>
@@ -167,15 +180,18 @@
               <div class="details">
                 <a href="/">
                   <img
-                  src="{% static 'img/logo/logo2.png' %}"
-                  style="height: 20px"
-                  alt="logo"
-                />                </a>
+                    src="{% static 'img/logo/logo2.png' %}"
+                    style="height: 20px"
+                    alt="logo"
+                  />
+                </a>
                 <h3 class="mb-1">Sign Into Your Account</h3>
                 {%if page_data.error%}
-                <P class='text-danger font-weight-bolder mb-2'>Error : {{page_data.error}}</p>
+                <p class="text-danger font-weight-bolder mb-2">
+                  Error : {{page_data.error}}
+                </p>
                 {%endif%}
-                  <form method="POST">
+                <form method="POST">
                   {%csrf_token%}
                   <div class="form-group form-box mt-3">
                     <input
@@ -207,7 +223,7 @@
                         id="rememberMe"
                       />
                       <label class="form-check-label" for="rememberMe">
-                        Remember me
+                        Agree to terms and conditions
                       </label>
                     </div>
                   </div>
@@ -217,9 +233,7 @@
                     </button>
                   </div>
                   <p>
-                    Don't have an account?<a href="/register">
-                      Register here</a
-                    >
+                    Don't have an account?<a href="/register"> Register here</a>
                   </p>
                 </form>
               </div>

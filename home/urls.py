@@ -1,14 +1,11 @@
 from django.urls import path
 from . import views
-from home.views import LoginView, RegisterView
-
 
 urlpatterns = [
     path('',views.home_page,name='home'),
-
     # Aboutus
     path('about',views.about,name='about'),
-
+    path('about/community',views.community,name='community'),
     # Property
     path('all-properties',views.property_listing,name='properties'),
     path('properties-map',views.property_listing_map,name='property_listing_map'),
@@ -63,5 +60,6 @@ urlpatterns = [
 
 
     path('updated-index',views.updated_index,name='updated_index'),
+    path('error',views.error,name='error'),
 
 ]
