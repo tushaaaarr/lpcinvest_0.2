@@ -926,20 +926,18 @@ $(".heart.fa").click(function() {
     window.onscroll = function(){logoChanger()};
     function logoChanger(){
         document.documentElement.scrollTop > 200?document.getElementById('logoTop').src="{% static 'img/logo/logo3.png' %}":document.getElementById('logoTop').src="{% static 'img/logo/logo2.png' %}";
-        document.documentElement.scrollTop > 200?document.getElementById('conPhn').style.color="rgba(0,0,0,0.8)":document.getElementById('conPhn').style.color="rgba(255,255,255,0.8)";
-        // document.documentElement.scrollTop > 200?document.getElementById('conPhn2').style.border="1px solid rgba(0,0,0,0.8)":document.getElementById('conPhn2').style.border="1px solid rgba(255,255,255,0.8)";
-        const allLink = document.getElementsByClassName('nav-link');
+        // document.documentElement.scrollTop > 200?document.getElementById('conPhn').style.color="rgba(0,0,0,0.8)":document.getElementById('conPhn').style.color="rgba(255,255,255,0.8)";
+        let allLink = document.getElementsByClassName('nav-link');
+        const mapLinks = [...allLink]
         if(document.documentElement.scrollTop > 200){
-            
-            for(i=0;i<=allLink.length;i++){
-                allLink[i].style.color="rgba(0,0,0,0.8)";
-            }
+            mapLinks.map((ini)=>{
+                ini.style.color="rgba(0,0,0,0.8)";
+            })
         }
         else{
-            for(i=0;i<=allLink.length;i++){
-                allLink[i].style.color="rgba(255,255,255,0.8)";
-
-            }
+            mapLinks.map((ini)=>{
+                ini.style.color="rgba(255,255,255,0.8)";
+            })
         }
     }
 
