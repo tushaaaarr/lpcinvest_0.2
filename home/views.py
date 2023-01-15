@@ -24,8 +24,8 @@ import time
 from django.contrib import messages 
 import time
 import readtime
+from django.views.decorators.csrf import csrf_exempt
 User = get_user_model()
-
 
 def common(request):
     feature_data = {}
@@ -144,7 +144,6 @@ def home_page(request):
     return render(request,'user/index.html',context)
 
 def updated_index(request):
-    
     return render(request,'user/updated_index.html')
 
 def about(request):
@@ -164,7 +163,7 @@ def get_containing(choices, needle):
             containing.append(k)
     return containing
 
-
+@csrf_exempt 
 def property_list_by_city(request,in_city):
     type_dict = {}
     type_dict['type_id'] = 'city'
@@ -260,29 +259,38 @@ def property_listing(request,type_dict=None):
     if type_dict is None:
         return render(request,'user/property/properties-list-leftsidebar.html',context)
     
-
     return feature_data
 
 
 def property_listing_map(request):
     return render(request,'user/property/properties_map.html')
 
+def property_view_route(request,id):
+    if Properties.objects.filter(id=id).exists():
+        title = Properties.objects.get(id=id).title
+        return redirect(f"/properties/{title}/{id}")
+    return render(request,'pages/error.html')
 
-def property_view(request,id):
+    
+
+def property_view(request,id,title=None):
     feature_data = dict()
+    if not Properties.objects.filter(id=id).exists():
+        return render(request,'pages/error.html')
+
     property = Properties.objects.get(id = id)
     prop_images = PropertyImage.objects.filter(property = property)
     features = PropertyFeatureMapper.objects.filter(property=property)
     feature_data['feature_list'] = features
     status = list(PropertyStatusMapper.objects.filter(property=property).values_list('status__status',flat=True))
     feature_data['status_list'] = ", ".join(status)
-
-    # similar_properties = Properties.objects.filter(city = property.city)[:2]
     Calculated_data = MortgageCalculator(property.price) 
-    
-    # if request.is_ajax(): 
-    #     properties_list = SendPropertiesToMap(request,property)
-    #     return JsonResponse({'data':properties_list}) 
+    try:
+        if request.is_ajax(): 
+            properties_list = SendPropertiesToMap(request,property)
+            return JsonResponse({'data':properties_list}) 
+    except:
+        pass
 
     units = units_available(property)
     location_coord = json.dumps([{'latitude':property.lat,"longitude":property.lon}])    

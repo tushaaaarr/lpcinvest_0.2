@@ -11663,7 +11663,10 @@ margin-top: 30px;
     }
 
     .banner .w-100 {
-        width: auto!important;
+        width: 100%!important;
+        height: 100%!important;
+        object-fit: cover;
+        
     }
 
     .properties-details-Slider .slider-listing {

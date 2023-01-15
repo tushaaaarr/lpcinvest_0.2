@@ -29,7 +29,10 @@ color: #343434;
 font-weight: 700;
 font-family: 'Mulish', sans-serif;
     }
-
+    .floor-plans{
+      font-weight: 700;
+font-family: 'Mulish', sans-serif;
+    }
     {% comment %} .product-slider-box img {
         height: 400px;
     }
@@ -215,21 +218,21 @@ buttons{
 
         <div class="slide slide-box">
             <div class="banner-img">
-                <img src="{% static 'img/slider-property/1-min.jpg' %}" alt="banner" class="img-fluid bp" loading="lazy">
+                <img src="{% static 'img/slider-property/1-min.jpg' %}" alt="banner" class="img-fluid bp">
             </div>
         </div>
         <div class="slide slide-box">
             <div class="banner-img">
-                <img src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner" class="img-fluid bp" loading="lazy">
+                <img src="{% static 'img/slider-property/2-min.jpg' %}" alt="banner" class="img-fluid bp">
             </div>
         </div>    <div class="slide slide-box">
             <div class="banner-img">
-                <img src="{% static 'img/slider-property/3-min.jpg' %}" alt="banner" class="img-fluid bp" loading="lazy">
+                <img src="{% static 'img/slider-property/3-min.jpg' %}" alt="banner" class="img-fluid bp">
             </div>
         </div>
         <div class="slide slide-box">
             <div class="banner-img">
-                <img src="{% static 'img/slider-property/4-min.jpg' %}" alt="banner" class="img-fluid bp" loading="lazy">
+                <img src="{% static 'img/slider-property/4-min.jpg' %}" alt="banner" class="img-fluid bp">
             </div>
         </div>
     </div>
@@ -258,8 +261,12 @@ buttons{
                   <div class="text text-start yield_data">
                       <h1 class="text-capitalize">{{property.title}}</h1>
                       <h5 class="mt-3"><i class="flaticon-pin"></i> {{property.get_city_display | title }} </h5>
+                      {%if property.yields %}
                       <h5> <i class="fa fa-info"></i> Net Yield: &nbsp;{{property.yields | title}} </h5>
+                      {%endif%}
+                      {%if property.year_built%}
                       <h5><i class="fa-light fa-screwdriver-wrench"></i>Completion Date: {{property.year_built}}</h5>
+                      {%endif%}
                   </div>
               </div>
               <div class="col-lg-7 col-md-12 text-end mt-3">
@@ -288,7 +295,7 @@ buttons{
                         <div class="about-img-section">
                             <div class="image-box sssa">
                                 <div class="image-1"><img
-                                        src="{% static 'img/modal_image.jpg' %}"
+                                        src="{% static 'img/modal_image.jpg' %} loading="lazy""
                                         class="w-100" alt="photo"></div>
                             </div>
                             <div class="about-box-Experience">
@@ -299,7 +306,6 @@ buttons{
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class="pipedriveWebForms"
                         data-pd-webforms=https://webforms.pipedrive.com/f/cB7meCB7GbTrgUwl1wvr6F0GvWoG7Z5U9Qk6y8Jc1DZeGGQwaVaV0Ktrgr92kk7fvJ>
-                        <script src=https://webforms.pipedrive.com/f/loader></script>
                     </div>
                     </div>
                 </div>
@@ -329,7 +335,7 @@ buttons{
                           <div class="about-img-section">
                               <div class="image-box sssa">
                                   <div class="image-1"><img
-                                          src="{% static 'img/modal_image.jpg' %}"
+                                          src="{% static 'img/modal_image.jpg' %} loading="lazy""
                                           class="w-100" alt="photo"></div>
                               </div>
                               <div class="about-box-Experience">
@@ -338,7 +344,8 @@ buttons{
                           </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <div class="pipedriveWebForms" data-pd-webforms=https://webforms.pipedrive.com/f/6iEzffLE99coEvWbS7AKaBdP93xeO8FzTVrPYNMaqyGN8AIVi2Dz8OdimuAgLXxcLp><script src=https://webforms.pipedrive.com/f/loader></script></div>
+                        <div class="pipedriveWebForms" data-pd-webforms=https://webforms.pipedrive.com/f/6iEzffLE99coEvWbS7AKaBdP93xeO8FzTVrPYNMaqyGN8AIVi2Dz8OdimuAgLXxcLp>
+                        </div>
                       </div>
                   </div>
               </div>
@@ -359,7 +366,7 @@ buttons{
                 <div class="heading-properties-3">
                     <div class="clearfix">
                         <div class="pull-left">
-                            <h1>{{property.title}}</h1>
+                            <h1 class="text-capitalize">{{property.title}}</h1>
                         </div>
                         <div class="pull-right">
                             <h1>From&nbsp;<span> £{{property.price}}</span></h1>
@@ -367,29 +374,12 @@ buttons{
                     </div>
                     <div class="clearfix">
                         <div class="pull-left">
-
                             <p><i class="flaticon-pin"></i>{{property.get_city_display | title }}</p>
                         </div>
 
                     </div>
                 </div>
-                  <!-- Properties desciption start -->
-        <!-- <div class="product-slider-box cds-2 clearfix mb-40 row">
-            <div class="product-img-slide">
-              <div class="slider-for col-md-12">
-                {%for img in prop_images%}
-
-                <img src="/media/{{img.images}}" class="img-fluid w-100" alt="slider-photo" onclick="zoom()"/>
-                {%endfor%}
-              </div>
-              <div class="slider-nav col-md-12 ">
-                {%for img in prop_images%}
-                <img src="/media/{{img.images}}" class="img-fluid w-100 gallary_img" alt="slider-photo"
-                />
-                {%endfor%}
-              </div>
-            </div>
-          </div> -->
+  
 
           <div class="row">
             <div class="col-md-12 p-5">
@@ -453,7 +443,7 @@ buttons{
 
 
                 <div class="floor-plans bg-light" style="box-shadow: none;" id="mobile_view_table">
-                    <h3 class="heading-2">Investment highlights</h3>
+                    <h3 class="heading-2 text-capitalize">Investment highlights</h3>
                     <table class="table">
                         <tbody>
                             <tr>
@@ -596,16 +586,7 @@ buttons{
             </div>
 
             <input type="hidden" id="location_coord" ,name="location_coord" value="{{location_coord}}">
-            <!-- Inside properties start -->
-            <div class="inside-properties mb-50">
-                <h3 class="heading-2">Property Video</h3>
-                <iframe src="https://www.youtube.com/embed/5e0LxrLSzok" allowfullscreen=""></iframe>
-            </div>
-            <!-- Similar Properties start -->
-
-
-
-
+           
         </div>
         <div class="col-lg-4 col-md-12">
             <div class="sidebar-right">
@@ -614,7 +595,6 @@ buttons{
                     <h3>Property From</h3>
                     <div class="pipedriveWebForms"
                         data-pd-webforms=https://webforms.pipedrive.com/f/cB7meCB7GbTrgUwl1wvr6F0GvWoG7Z5U9Qk6y8Jc1DZeGGQwaVaV0Ktrgr92kk7fvJ>
-                        <script src=https://webforms.pipedrive.com/f/loader></script>
                     </div>
 
 
@@ -629,16 +609,16 @@ buttons{
     <div class="m-border"></div>
     {%for property in common_properties_data.recent_properties%}
     <div class="d-flex mb-3 recent-posts-box">
-        <a class="col-6 p-0" href="/properties/{{property.id}}">
-            <img src="/media/{{property.image}}" alt="small-properties" class="flex-shrink-0 img-fluid w-100" />
+        <a class="col-6 p-0" href="/properties/{{property.title}}/{{property.id}}">
+            <img src="/media/{{property.image}}" alt="small-properties" class="flex-shrink-0 img-fluid w-100" loading="lazy"/>
         </a>
         <div class="detail col-6 align-self-center">
-            <h5 class="m-0">
-                <a href="/properties/{{property.id}}">{{property.title}}</a>
+            <h5 class="m-0 text-capitalize">
+                <a href="/properties/{{property.title}}/{{property.id}}" class="text-capitalize">{{property.title}}</a>
             </h5>
             <div class="listing-post-meta">
               £{{property.price}}
-                <a href="/properties/{{property.id}}" class="d-block"><i class="fa fa-calendar"></i>
+                <a href="/properties/{{property.title}}/{{property.id}}" class="d-block"><i class="fa fa-calendar"></i>
                     {{property.pub_date}} </a>
             </div>
         </div>
@@ -661,7 +641,7 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
   <div class="row d-flex justify-content-around p-3" >
     <div class="col-12 col-lg-6 p-3">
       <p class="text-lead text-light">Want Invest Today</p>
-      <h3 class="display-5 pb-4" style="color:#00CE8D;">Why buy in {{property.get_city_display | title }} ?</h3>
+      <h3 class="display-5 pb-4 text-capitalize" style="color:#00CE8D;">Why buy in {{property.get_city_display | title }} ?</h3>
 
       <p class="lead pb-3 text-dark">
         {{property.get_city_display | title }} has become the UK’s second city and is one of the country’s
@@ -679,7 +659,7 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
       <button type="button" class="btn cont-sec px-3 py-2 fs-5"  data-bs-toggle="modal" data-bs-target="#downloadFrom"><i class="fa fs-5 fa-download px-2"></i>Download Guide</button>
     </div>
     <div class="d-md-none d-lg-block col-lg-5 p-5">
-      <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5); transform:rotate(-10deg);object-fit:cover;" src="{% static 'img/modal_image.jpg' %}"/>
+      <img class="img-fluid object-fit-cover h-100 rounded" style="box-shadow:0 0 10px rgba(0,0,0,0.5); transform:rotate(-10deg);object-fit:cover;" src="{% static 'img/modal_image.jpg' %}"loading="lazy"/>
     </div>
   </div>
 </div>
@@ -691,12 +671,12 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
   <div class="container mx-auto py-5 contact_section " >
     <div class="row d-flex justify-content-center px-0" >
       <div class="col-12">
-        <p class="text-lead text-light" style="font-weight:700">Want to know more?</p>
-        <h2 class="heading pb-4" style="color:#00CE8D;"><span class="text-light">Contact us</span> today</h3>
+        <p class="text-lead text-light text-capitalize" style="font-weight:700">Want to know more?</p>
+        <h2 class="heading pb-4 text-capitalize" style="color:#00CE8D;"><span class="text-light">Contact us</span> today</h3>
         <div class="d-md-flex d-block gap-3">
               <a href="tel://+44 161 713 3883"> <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
               <a href="https://api.whatsapp.com/send?phone=1617133883&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
-                  <button type="button" class="btn p-2 my-2  cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>whatsapp</button></a>
+                  <button type="button" class="btn p-2 my-2  cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>Whatsapp</button></a>
               
               <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
               <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
@@ -707,91 +687,6 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
   </div>
   </div>
   <!-- Contact section End -->
-
-
-
-  <!-- Modal Slider Start -->
-
-
-  <!-- <div id="myModal" class="modale">
-    <span class="close">&times;</span>
-
-    <div id="carouselInterval" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        {%for img in prop_images%}
-          {%if forloop.first %}
-            <div class="carousel-item active p-5" >
-
-              <img src="/media/{{img.images}}" class="d-block img-fluid mx-auto zoom-images" alt="slider-photo"
-             onclick="zoom(event)"/>
-
-            </div>
-          {%else%}
-            <div class="carousel-item p-5">
-
-              <img src="/media/{{img.images}}" class="d-block img-fluid mx-auto zoom-images" alt="slider-photo"  onclick="zoom(event)"/>
-            </div>
-          {%endif%}
-
-        {%endfor%}
-      </div>
-      <button class="carousel-control-prev prevv" type="button" data-bs-target="#carouselInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next nextt" type="button" data-bs-target="#carouselInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
-</div>     -->
-
-<div class="col-md-12">
-  <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-    {%for img in prop_images%}
-      <div class="slider-item">
-        <a href="/media/{{img.images}}" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
-      </div>
-    {%endfor%}
-  </div>
-  <!-- END slider -->
-</div>
-
-
-
-<!-- Modal Slider End -->
-
-
-
-
-
-<script type="text/javascript">
-    var $ = jQuery.noConflict();
-
-    $(document).ready(function(){
-
-      var zoomImages = $('.zoom-images');
-
-      zoomImages.each(function() {
-        $(this).imageZoom();
-      });
-
-    });
-   </script>
-
-    <script>
-      function zoom(){
-
-        document.getElementById('myModal').style.display="block";
-      }
-
-      var span = document.getElementsByClassName("close")[0];
-      span.onclick = function() {
-        console.log("sada");
-      document.getElementById('myModal').style.display = "none";
-      }
-    </script>
     <script src="{%static 'new_theme/js/jquery.fancybox.min.js' %}"></script>
 {%endblock body%}
 

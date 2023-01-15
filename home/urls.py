@@ -14,10 +14,9 @@ urlpatterns = [
     path('properties-map',views.property_listing_map,name='property_listing_map'),
     path('city/<str:in_city>',views.property_list_by_city,name='property_list_by_city'),
     # path('property-type/<str:in_type>/',views.property_list_by_type,name='property-type'),
-
-    path('properties/<str:id>',views.property_view,name='property_view'),
+    path('properties/<str:title>/<str:id>',views.property_view,name='property_view'),
+    path('properties/<str:id>',views.property_view_route,name='property_view_route'),
     path('send-property-form',views.property_form,name='property_form'),
-
     path('city-guide/<str:city>',views.CityGuide,name='cityguide'),
 
     # Search
