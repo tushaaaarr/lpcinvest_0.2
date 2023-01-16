@@ -13387,3 +13387,10 @@ margin-top: 30px;
 .bg-mission{
     background: linear-gradient(143deg, rgba(0,206,141,1) 0%, rgba(0,180,123,1) 100%);
 }
+
+.modalBgbr{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../img/background-index/2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}

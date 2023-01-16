@@ -242,9 +242,9 @@ buttons{
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-            <div  class="text-center request_btn_area mb-2">
+            <div  class="text-center request_btn_area mb-0 mb-md-2">
               <br>
-                <button type="  submit" class="btn-4 mt-3" data-bs-toggle="modal" data-bs-target="#downloadFrom">
+                <button type="  submit" class="btn-4 d-block mt-3 d-md-inline mx-auto " data-bs-toggle="modal" data-bs-target="#downloadFrom">
                   <i class="fa fa-file-pdf-o"></i>
                   Request for Brochure</button>
                 <button type="submit" class="btn-4 mt-3" data-bs-toggle="modal" data-bs-target="#enquireFrom">
@@ -322,9 +322,9 @@ buttons{
 <div class="modal fade" id="downloadFrom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="downloadFromLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
       <div class="modal-content" >
-        <div class="modal-body" >
+        <div class="modal-body modalBgbr">
                   <button type="button" class="btn-close text-center" data-bs-dismiss="modal" aria-label="Close"></button>
-          <div class="about-real-estate  content-area-5 bg-grea-3 mt-5"  >
+          <div class="about-real-estate  content-area-5 bg-none mt-5"  >
               <div class="container">
                   <div class="row">
                       <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -473,21 +473,19 @@ buttons{
                             <i class="fa fa-file-pdf-o"></i> Download the bronchure</button>
                     </div>
                 </div>
-
-
                 <h5 class="fs-5 text-light text-center mt-5 ">Share to:</h5>
                 <div class="col-12 d-flex justify-content-center mb-5">
                   <div class="d-flex gap-3 justify-content-between">
-                    <a class="btn cont-sec" href="https://www.instagram.com/?url=https://google.com">
+                    <a class="btn cont-sec" href="https://www.instagram.com/?url={{ request.build_absolute_uri }}">
                       <i class="fa fa-instagram"></i>
                     </a>
-                    <a class="btn cont-sec" href="https://www.facebook.com/sharer/sharer.php?u=https://google.com">
+                    <a class="btn cont-sec" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
                       <i class="fa fa-facebook"></i>
                     </a>
-                    <a class="btn cont-sec" href="https://google.com">
+                    <a class="btn cont-sec" href="http://twitter.com/share?text=text goes here&url={{ request.build_absolute_uri }}">
                       <i class="fa fa-twitter"></i>
                     </a>
-                    <a class="btn cont-sec" href="https://wa.me/whatsappphonenumber/?text=https://google.com">
+                    <a class="btn cont-sec" href="https://wa.me/1617133883/?text=Hi%2C I enquired through the LPC-Invest website and am interested in your projec">
                       <i class="fa fa-whatsapp"></i>
                     </a>
                   </div>

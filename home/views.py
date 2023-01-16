@@ -93,6 +93,7 @@ def units_available(property):
         rooms = " & ".join([str(x) for x in rooms])
         if not len(rooms)<1:
             units += f"{rooms} Bed Apartments"
+
     return units
 
 def clean_property_data(property,user_id= None):
@@ -193,7 +194,6 @@ def convert_time_ago(time_date):
 def property_listing(request,type_dict=None):
     if type_dict == None:
         properties = Properties.objects.filter(is_underconstruction = False).filter(is_exclusive = False)
-
     elif type_dict['type_id'] == 'city':
         properties = Properties.objects.filter(city__in = get_containing(CITIES_CHOICES,type_dict['type_value'])).filter(is_underconstruction = False).filter(is_exclusive = False)
 
@@ -273,13 +273,12 @@ def property_view_route(request,id):
     if Properties.objects.filter(id=id).exists():
         title = Properties.objects.get(id=id).title
         return redirect(f"/properties/{title}/{id}")
-    return render(request,'pages/error.html')
-
-    
+    return render(request,'user/pages/error.html')
+ 
 def property_view(request,id,title=None):
     feature_data = dict()
     if not Properties.objects.filter(id=id).exists():
-        return render(request,'pages/error.html')
+        return render(request,'user/pages/error.html')
 
     property = Properties.objects.get(id = id)
     prop_images = PropertyImage.objects.filter(property = property)
@@ -326,10 +325,10 @@ def filter_property(query,properties):
         except:
             pass
     
-    dt = PropertyStatusMapper.objects.filter(property_id__in = properties_ids)
+    dt_st = PropertyStatusMapper.objects.filter(property_id__in = properties_ids)
     if not 'all' in query['status']:
         status_id = StatusMaster.objects.filter(status__in=query['status'])
-        dt = dt.filter(status__in=status_id)
+        dt = dt_st.filter(status__in=status_id)
         dt_ids = list(dt.values_list('property', flat=True))
         properties = properties.filter(id__in = dt_ids)
 
@@ -340,7 +339,8 @@ def filter_property(query,properties):
             type_id = StatusMaster.objects.filter(status__startswith="Buy to live")
         else:
             type_id = StatusMaster.objects.all()
-        dt = dt.filter(status__in=type_id)
+
+        dt = dt_st.filter(status__in=type_id)
         dt_ids = list(dt.values_list('property', flat=True))
         properties = properties.filter(id__in = dt_ids)
 
@@ -512,7 +512,6 @@ def stamp_duty_calculator(request):
 
 def mortgage_calculator(request):
     return render(request,'user/calculators/mortgage.html')
-
 
 def thankyou_page(request):
     return render(request,'user/thankyou_page.html')

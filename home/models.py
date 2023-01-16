@@ -119,7 +119,6 @@ class PropertyTypeMapper(models.Model):
         return str(self.property.title)
 
 
-
 class PropertyFeatureMapper(models.Model):
     property = models.ForeignKey(Properties, default=None, on_delete=models.CASCADE)
     feature = models.ForeignKey(FeatureMaster, default=None, on_delete=models.CASCADE)
@@ -191,7 +190,6 @@ class Discount(models.Model):
         verbose_name = "Discount"
         verbose_name_plural = "Discounts"
 
-
 class PropertyOffers(models.Model):
     title = models.CharField(max_length=100)
     property = models.ForeignKey(Properties, default=None, on_delete=models.CASCADE)
@@ -201,8 +199,6 @@ class PropertyOffers(models.Model):
 
     def __str__(self):
         return (str(self.title))
-
-
 
 class PropertyImage(models.Model):
     property = models.ForeignKey(Properties, default=None, on_delete=models.CASCADE)
@@ -220,19 +216,6 @@ class DownloadableAssets(models.Model):
 
     def __str__(self):
         return self.title
-
-    # def save(self, *args, **kwargs):
-    #     self.feature = self.title.capitalize()
-
-    #     # # image = Image.open(self.image.path)
-    #     # self.image = self.image.resize()
-    #     size = (300, 180)
-    #     filename = self.image
-    #     image = Image.open(filename)
-    #     image.thumbnail(size, Image.ANTIALIAS)
-    #     image.save(filename)
-    #     # self.image= image
-    #     return super(DownloadableAssets, self).save(*args, **kwargs)
 
 
 class ConstructionUpdates(models.Model):
@@ -292,7 +275,6 @@ class TeamMembers(models.Model):
     def save(self, *args, **kwargs):
         self.name = self.name.capitalize()
         return super(TeamMembers, self).save(*args, **kwargs)
-    
     
     
 
