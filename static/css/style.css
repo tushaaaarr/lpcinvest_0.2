@@ -13389,8 +13389,9 @@ margin-top: 30px;
 }
 
 .modalBgbr{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../img/background-index/2.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../img/img-2.jpg');
     background-size: cover;
     background-position: center;
+    backdrop-filter: blur(20px);
     background-attachment: fixed;
 }
