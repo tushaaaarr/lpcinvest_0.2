@@ -50,7 +50,7 @@
       <div class="carousel-item item-bg active">
         <img
           class="d-block w-100 h-100"
-          src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-2.jpg"
+          src="{% static 'img/background-index/1.jpg' %}"
           alt="banner"
         />
         <div
@@ -74,9 +74,7 @@
       <div class="carousel-item item-bg">
         <img
           class="d-block w-100 h-100"
-          src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-2-html/HTML/main/img/banner/img-1.jpg"
-          alt="banner"
-        />
+          src="{% static 'img/background-index/2.jpg' %}"alt="banner"/>
         <div
           class="carousel-caption banner-slider-inner d-flex h-100 text-start"
         >
@@ -98,7 +96,7 @@
       <div class="carousel-item item-bg">
         <img
           class="d-block w-100 h-100"
-          src="{% static 'img/slider-property/2-min.jpg' %}"
+          src="{% static 'img/background-index/3.jpg' %}"
           alt="banner"
         />
         <div
@@ -414,7 +412,7 @@
             <div class="col-lg-6 col-6">
               <div class="sorting-options2">
                 <select
-                  class="selectpicker search-fields"
+                  class="selectpicker search-fields  pe-0"
                   name="sort_properties"
                   id="sort-list"
                   onchange="location = finalurl();"

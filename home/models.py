@@ -58,7 +58,7 @@ class Properties(models.Model):
     price = models.IntegerField(default=0)
     yields = models.CharField(blank=True,max_length=40)
     area = models.CharField(blank=True,max_length=40)
-    deposited_price = models.IntegerField(blank=True,default=0)
+    deposited_price = models.IntegerField(blank=True,null=True)
     # Location
     adddress = models.CharField(max_length=50)
     city = models.CharField(max_length=20,choices = CITIES_CHOICES)
@@ -72,8 +72,8 @@ class Properties(models.Model):
 
     # Media
     image = models.FileField(upload_to = 'media')
-    year_built = models.CharField(max_length=10)
-    embedded_link_youtube = models.CharField(max_length=100)
+    year_built = models.CharField(max_length=10,blank=True)
+    embedded_link_youtube = models.CharField(max_length=100,blank=True)
     pub_date = models.DateField(default=datetime.now())
 
     def __str__(self):

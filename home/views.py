@@ -564,6 +564,15 @@ def CityGuide(request,city=None):
 def contact(request):
     return render(request,'user/contact.html')
 
+def beginners_guide(request):
+    return render(request,'user/pages/beginners_guide.html')
+
+def reasons_to_invest(request):
+    return render(request,'user/pages/reasons.html')
+
+def investing_uk(request):
+    return render(request,'user/pages/investing_uk.html')
+
 def newsletter(request):
     return render(request,'user/dashboard/newsletter.html')
 
@@ -674,13 +683,12 @@ def exclusive_properties(request):
     fav_properties = list()
     for prop in properties:
         fav_properties.append(clean_property_data(prop,request.user))
-
-    property_ids = UserExclusiveProperties.objects.filter(user= request.user).values_list("property_id",flat=True)
-    properties = Properties.objects.filter(id__in = property_ids)        
-    exclusive_properties = list()
-    for prop in properties:
-        exclusive_properties.append(clean_property_data(prop,request.user))      
-    
+    # property_ids = UserExclusiveProperties.objects.filter(user= request.user).values_list("property_id",flat=True)
+    # properties = Properties.objects.filter(id__in = property_ids)        
+    # exclusive_properties = list()
+    # for prop in properties:
+    #     exclusive_properties.append(clean_property_data(prop,request.user))      
+    exclusive_properties = fav_properties
     if len(exclusive_properties)<1:
         page_data['not_found'] = True
     page_data['is_exclusive_properties'] = 'active'

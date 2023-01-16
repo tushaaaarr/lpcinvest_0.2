@@ -2,12 +2,9 @@ $(function () {
 
     'use strict';
 
-    // Showing page loader
     $(window).on('load', function () {
         populateColorPlates();  
-        setTimeout(function () {
-            $(".page_loader").fadeOut("fast");
-        }, 100);
+        
 
         if ($('body .filter-portfolio').length > 0) {
             $(function () {

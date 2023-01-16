@@ -60,6 +60,7 @@ urlpatterns = [
 
 
     path('updated-index',views.updated_index,name='updated_index'),
-    path('error',views.error,name='error'),
-
+    path('investing-in-the-uk',views.investing_uk,name='investing_uk'),
+    path('reasons-to-invest',views.reasons_to_invest,name='reasons_to_invest'),
+    path('beginners-guide',views.beginners_guide,name='beginners_guide'),
 ]
