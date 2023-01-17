@@ -194,23 +194,29 @@
 
 
  <!-- Search Modal start -->
- <div id="toggleSearchModal" class="row m-0 h-100">
+ <div id="toggleSearchModal" class="row m-0 h-100  ">
     <div class="closeTog position-absolute d-flex justify-content-end p-5">
         <button class="closeSearch border-0 btn-danger" onclick="searchPop()"><i class="fa fa-close"></i></button>
     </div>
-        <div class="h-100 w-100 d-flex align-items-center justify-content-center">
-            <div class="searchModal">
+        <div class="h-100 w-100 d-flex align-items-start pt-md-0 pt-5  mt-md-0 mt-5 align-items-md-center justify-content-center">
+            <div class="searchModal mt-md-0 mt-5 pt-md-0 pt-5">
+                <form method='get' action='/top-search'>
                 <div class="input-group">
-                    <div class="form-outline">
-                        <input type="search" id="form1" class="form-control" placeholder="Search..."/>
+                    <div class="form-outline autocomplete" id="autocomplete">
+                        <input type="search" id="query" name="query" class="form-control search-fields sf" placeholder="Search for anything"
+                        hx-get="/search/autocompldete" hx-trigger="keyup changed delay:100ms"
+                        hx-target="#search-results" hx-indicator=".htmx-indicator"/>
                     </div>
-                    <button type="button" class="btn btn-primary border-1 rounded-0 cont-sec">
+                    <button type="submit" class="btn btn-primary border-1 rounded-0 cont-sec">
                         <i class="fa fa-search fw-bold fs-4"></i>
                     </button>
                 </div>
+            </form>
             </div>
         </div> 
     </div> 
+
+
 <!-- Search Modal End -->
 
 
@@ -223,7 +229,7 @@
               <img id="logoTop" src="{% static 'img/logo/logo2.png' %}" style="height:40px;" alt="logo">
             </a>
           </div>
-          <div class="col-6 col-lg-9 pe-1">
+          <div class="col-6 col-lg-9 pe-1 d-flex justify-content-end">
     <!-- Main header start -->
     <div class="main-header-5 main-header d-xl-block d-none" >
           <div class="container px-0">
@@ -309,7 +315,6 @@
                           <li>
                               <a class="dropdown-item text-capitalize" href="/about/partners">Partners</a>
                               <li> <a class="dropdown-item text-capitalize" href="/about/partners">referral scheme</a></li>
-
                           </li>
                           </li>
                           </ul>
@@ -327,36 +332,24 @@
                                           Appointment</a>
                                   </li>
                               </ul>
-  
                           </li>
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink7"
-                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  My Account
-                              </a>
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                   <li><a class="dropdown-item" href="/profile">Login</a></li>
                                   <li><a class="dropdown-item" href="/profile">Register</a></li>
                                   <li><a class="dropdown-item" href="/profile">Profile</a></li>
                                   <li><a class="dropdown-item" href="/favorited-properties">Favorited Properties</a></li>
-  
                                   <li><a class="dropdown-item" href="/exclusive-properties">Exclusive Properties</a></li>
-  
                                   <li><a class="dropdown-item" href="/monthly-offers">Offers</a></li>
-  
-  
-  
-  
                                 </ul>
                           </li>
                           <!-- <li class="nav-item">
                             <a class="nav-link disabled" href="#">Disabled</a>
                           </li> -->
- 
                           </ul>
-
-                            <!-- <button onclick="searchPop()" id="conPhn" class="btn btn-sm border-left bg-none rounded-0 px-3 ms-3 me-2 fw-bold"><i class="fa fa-search fs-4"></i></button> -->
-
+                          <button onclick="searchPop()" id="conPhn" class="btn btn-sm border-left bg-none rounded-0 px-3 ms-3 me-2 fw-bold"><i class="fa fa-search fs-4"></i></button>
                       </div>
                   </nav>
               </div>
@@ -506,10 +499,11 @@
     </nav>
 
 
-
+        
+            <button onclick="searchPop()" id="conPhn2" class="btn btn-sm border-right bg-none d-xl-none d-block rounded-0 px-3 ms-3 me-2 fw-bold"><i class="fa fa-search fs-4"></i></button>
 
             <!-- <div class="d-flex align-items-center justify-content-end" id="conTog" style="padding-top:24px"> -->
-                <div class="site-menu-toggle js-site-menu-toggle ms-2 me-2 d-block d-xl-none"  data-aos="fade" >
+                <div id="conTog" class="site-menu-toggle mt-3 js-site-menu-toggle ms-2 me-2 d-block d-xl-none"  data-aos="fade" >
                     <span></span>
                     <span></span>
                     <span></span>
@@ -895,7 +889,6 @@ function showError(error) {
 // $('#idSelect').selectpicker('refresh');
 // });
 $(".heart.fa").click(function() {
-
     var is_checked
     if (this.className == "heart fa fa-heart-o"){
         is_checked = true
@@ -910,22 +903,20 @@ $(".heart.fa").click(function() {
     "status": is_checked
     }
     fav_properties.push(temp_dict);
-    console.log(fav_properties)
   $(this).toggleClass("fa-heart fa-heart-o");
   $.ajax({ url: 'get-favorited-properties',
-                                    type: "POST",
-                                    dataType: "json",
-                                    headers: {
-                                    "X-CSRFToken": getCookie("csrftoken")
-                                    },
-                                    data: {'fav_properties':JSON.stringify(fav_properties)},
-                                    }).done(function(data) {
-                                        console.log(data,data.result)
-                                            if (data.result === true)
-                                            {
-                                                alert(data.message);
-                                        }
-                                    });
+type: "POST",
+dataType: "json",
+headers: {
+"X-CSRFToken": getCookie("csrftoken")
+},
+data: {'fav_properties':JSON.stringify(fav_properties)},
+}).done(function(data) {
+        if (data.result === true)
+        {
+            window.location('/login')
+    }
+});
 });
 
 
@@ -940,7 +931,10 @@ $(".heart.fa").click(function() {
     window.onscroll = function(){logoChanger()};
     function logoChanger(){
         document.documentElement.scrollTop > 200?document.getElementById('logoTop').src="{% static 'img/logo/logo3.png' %}":document.getElementById('logoTop').src="{% static 'img/logo/logo2.png' %}";
-        // document.documentElement.scrollTop > 200?document.getElementById('conPhn').style.color="rgba(0,0,0,0.8)":document.getElementById('conPhn').style.color="rgba(255,255,255,0.8)";
+        document.documentElement.scrollTop > 200?document.getElementById('conPhn').style.color="rgba(0,0,0,0.8)":document.getElementById('conPhn').style.color="rgba(255,255,255,0.8)";
+        document.documentElement.scrollTop > 200?document.getElementById('conPhn2').style.color="rgba(0,0,0,0.8)":document.getElementById('conPhn2').style.color="rgba(255,255,255,0.8)";
+        document.documentElement.scrollTop > 200?document.getElementById('conPhn2').style.marginTop="16px":document.getElementById('conPhn2').style.marginTop="0px";
+
         let allLink = document.getElementsByClassName('nav-link');
         const mapLinks = [...allLink]
         if(document.documentElement.scrollTop > 200){
@@ -1005,16 +999,23 @@ $(".heart.fa").click(function() {
 <script src="{%static 'new_theme/js/main.js' %}"></script>
 
 
-
-$(window).bind("load", function() {
-    <script src="https://webforms.pipedrive.com/f/loader" defer></script>
-    <script src= "https://leadbooster-chat.pipedrive.com/assets/loader.js" defer></script>
-
- });
- {% comment %} <div class="page_loader"></div> {% endcomment %}
-
- <script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        $("#query").autocomplete({
+          source: "/top-search",
+          minLength: 2,
+          open: function () {
+            setTimeout(function () {
+            }, 0);
+          }
+        });
+      });
+    </script>
   
+
+<script src="https://webforms.pipedrive.com/f/loader" defer></script>
+<script src= "https://leadbooster-chat.pipedrive.com/assets/loader.js" defer></script>
 </script>
 </body>
 </html>

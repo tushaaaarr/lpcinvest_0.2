@@ -93,7 +93,6 @@ def units_available(property):
         rooms = " & ".join([str(x) for x in rooms])
         if not len(rooms)<1:
             units += f"{rooms} Bed Apartments"
-
     return units
 
 def clean_property_data(property,user_id= None):
@@ -110,7 +109,6 @@ def clean_property_data(property,user_id= None):
         status = "Completed"
     else:
         status = 'Off plan'
-
     properties_dict = {
         "title":property.title,
         "id":property.id,
@@ -221,12 +219,16 @@ def property_listing(request,type_dict=None):
         properties = properties_data['properties']
 
     feature_data = {}
+    feature_data['min_deposit']=0
+    feature_data['max_deposit']= 100000
+    feature_data['min_price']= 0
+    feature_data['max_price']= 1000000
     feature_data['selected_city'] = query['city']
     feature_data['selected_type']  = query['type']
     feature_data['selected_status']  = " ".join(query['status'])
     feature_data['selected_bedrooms']  = query['bedrooms']
     feature_data['selected_bathrooms']  = query['bathrooms']
-
+ 
     cleaned_properties = []
     for property_ in properties:
         try:
@@ -242,7 +244,7 @@ def property_listing(request,type_dict=None):
         feature_data.update(properties_data)
     except:
         pass
-    
+
     PRODUCTS_PER_PAGE= 10
     page = request.GET.get('page',1)
     product_paginator = Paginator(properties, PRODUCTS_PER_PAGE)
@@ -301,8 +303,10 @@ def property_view(request,id,title=None):
     page_data = {'page_name':property.title}
     context = {'property':property,'prop_images':prop_images,"feature_data":feature_data,"Calculated_data":Calculated_data,
     "page_data":page_data,"location_coord":location_coord}
-
-
+    url = request.build_absolute_uri()
+    import urllib.parse
+    url = urllib.parse.quote(url)
+    page_data['url'] = url
     return render(request,'user/property/properties-details1.html',context)
 
 
@@ -356,16 +360,15 @@ def filter_property(query,properties):
             dt2 = list(dt2.values_list('property', flat=True))
             properties = properties.filter(id__in = dt2)
 
-    if query['bathrooms'] != 'Bathroom':
-        dt3 = dt.filter(furniture_type__in=get_containing(FURNITURE_TYPE_CHOICES,"bathrooms")).filter(
-            furniture_counts=int(query['bathrooms']))
-        dt3 = list(dt3.values_list('property', flat=True))
-        properties = properties.filter(id__in = dt3)
+    # if query['bathrooms'] != 'Bathroom':
+    #     dt3 = dt.filter(furniture_type__in=get_containing(FURNITURE_TYPE_CHOICES,"bathrooms")).filter(
+    #         furniture_counts=int(query['bathrooms']))
+    #     dt3 = list(dt3.values_list('property', flat=True))
+    #     properties = properties.filter(id__in = dt3)
 
     properties = properties.filter(city__in=get_containing(CITIES_CHOICES,query["city"])).filter(
         price__range=(int(query['min_price']),int(query['max_price']))).filter(
         deposited_price__range=(query["min_deposit"],query['max_deposit']))
-   
 
     return properties
 
@@ -393,21 +396,89 @@ def property_sorting(query,properties):
     return properties_data
 
 
-def search(request):
-    # if request.is_ajax():
-    #     query = request.GET.get('term', '')
-    #     search_title = Properties.objects.filter(title__icontains=query.lower())
-    #     search_type= Properties.objects.filter(type__in = get_containing(PROP_TYPE_CHOICES,query.lower()))
-    #     results = []
-    #     for type_name in (search_type):
-    #         if type_name.get_type_display() not in results:
-    #             results.append(type_name.get_type_display())
-    #     for title in search_title:
-    #         if title.title not in results:
-    #             results.append(title.title)
-    #     data = json.dumps(results)
-    #     return HttpResponse(data)
+def top_search(request):
+    if request.is_ajax():
+        query = request.GET.get('term', '')
+        search_title = Properties.objects.filter(title__icontains=query.lower())
+        search_type= Properties.objects.filter(type__in = get_containing(PROP_TYPE_CHOICES,query.lower()))
+        search_blogs= Blogs.objects.filter(desc__icontains = query.lower())
+        top_keys = ['blogs','latest properties','blog','new apartments','latest blogs','construction updates','new constructions','constructions','stamp duty calculator','mortgage calculator','studios']
+        search_keys = [x for x in top_keys if query in x]
+        results = []
 
+        for keyw in search_keys:
+            if keyw not in results:
+                results.append(keyw.capitalize())
+
+        for type_name in (search_type):
+            if type_name.get_type_display() not in results:
+                results.append(type_name.get_type_display())
+
+        for title in search_title:
+            if title.title not in results:
+                results.append(title.title)
+        for blog in search_blogs:
+            if blog.desc not in results:
+                results.append(blog.desc)
+
+        data = json.dumps(results)
+        return HttpResponse(data)
+
+    query = request.GET.get('query', "")
+    properties = Properties.objects.filter(title__contains=query.lower())
+    blogs = Blogs.objects.filter(desc__icontains = query.lower())
+
+    if query.lower() in ['blogs','blog','latest blogs']:
+        return redirect('/blogs')
+
+    if query.lower() in ['latest properties','new apartments']:
+        properties_data = property_sorting("latest_property",Properties.objects.all())
+        properties = properties_data['properties']
+
+    if query.lower() in ['studios','studio']:
+        type_dt = PropertyTypeMapper.objects.filter(type__type ='studio')
+        type_dt2 = list(type_dt.values_list('property', flat=True))
+        properties = Properties.objects.filter(id__in = type_dt2)
+
+    if blogs:
+        try:
+            blog_id = blogs[0].id
+            return redirect(f"/blog/{blog_id}")
+        except:
+            pass
+
+    if query.lower() in ['construction updates','new constructions','constructions']:
+        return redirect('/construction-updates')
+
+    if query.lower() in ['stamp duty calculator']:
+        return redirect('/stamp-duty-calculator')
+        
+    if query.lower() in ['mortgage calculator','calculator','calculators']:
+        return redirect('/mortgage-calculator')
+
+    properties_data = None
+    sort_properties = request.GET.get('ordering', "")
+    if sort_properties:
+        properties_data = property_sorting(sort_properties,properties)
+        properties = properties_data['properties']
+
+    fav_properties = list()
+    try:
+        for prop in properties:
+            fav_properties.append(clean_property_data(prop,request.user))
+            properties = fav_properties
+    except:
+        for prop in properties:
+            fav_properties.append(clean_property_data(prop))
+            properties = fav_properties
+    
+    page_data = {}
+    if len(properties) < 1:
+        page_data['not_found'] = True
+    return render(request,'user/property/properties-list-leftsidebar.html',{"properties":properties,"properties_data":properties_data,'page_data':page_data})
+
+
+def search(request):
     properties_data = {}
     q_type = request.GET.get('type', "")
     properties_status = request.GET.getlist('status', "")
@@ -527,12 +598,13 @@ def get_favorite_properties(request):
         query = request.POST.get('fav_properties', '')
         query = json.loads(query)[0]
         property_id = Properties.objects.get(id=int(query['property_id']))
-        if UserFavProperties.objects.filter(property=property_id,user= request.user).exists():
-            UserFavProperties.objects.filter(property=property_id,user= request.user).update(is_checked=query['status'])
-        else:
-            UserFavProperties(user=request.user,property=property_id,is_checked = query['status']).save()
-
-    return HttpResponse('OK.')
+        try:
+            if UserFavProperties.objects.filter(property=property_id,user= request.user).exists():
+                UserFavProperties.objects.filter(property=property_id,user= request.user).update(is_checked=query['status'])
+            else:
+                UserFavProperties(user=request.user,property=property_id,is_checked = query['status']).save()
+        except:
+            return redirect('/login')
 
 def property_form(request):
     fname = request.POST.get('fname')
@@ -800,13 +872,13 @@ def teams(request):
 def blog(request):
     page_data = {}
     blog_list = []
-    blogs = Blogs.objects.all()[:5]
+    blogs = Blogs.objects.all()
     for blog in blogs:
         blog.desc = blog.desc[:50]
         blog.read_time = readtime.of_text(blog.content)
         blog_list.append(blog)
     
-    if request.GET.get('blog_title'):
+    if request.GET.get('blog_city'):
         title = request.GET.get('blog_title')
         city = request.GET.get('blog_city')
         blogs = Blogs.objects.all()
@@ -817,7 +889,7 @@ def blog(request):
         if len(blogs)<1:
             page_data['not_found'] = True
         blog_list = blogs
-
+        page_data['selected_city'] = city
     PRODUCTS_PER_PAGE= 6
     page = request.GET.get('page',1)
     product_paginator = Paginator(blog_list, PRODUCTS_PER_PAGE)

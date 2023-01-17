@@ -18,7 +18,7 @@ urlpatterns = [
 
     # Search
     path('search',views.search,name='search'),
-
+    path('top-search',views.top_search,name='top-search'),
     path('resources',views.resources,name='resources'),
     path('downloads',views.download_assets,name='download_assets'),
     # Contact

@@ -17,7 +17,7 @@
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
           <div class="carousel-item item-bg active">
-              <img class="d-block w-100 h-100" src="/static/img/background-index/1.jpg" alt="banner">
+              <img class="d-block w-100 h-100 ratioCar" src="/static/img/background-index/1.jpg" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
@@ -29,7 +29,7 @@
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100" src="/static/img/background-index/2.jpg" alt="banner">
+              <img class="d-block w-100 h-100 ratioCar" src="/static/img/background-index/2.jpg" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                   <div class="carousel-content container align-self-center">
                     <div class="banner-info2">
@@ -41,7 +41,7 @@
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100" src="/static/img/background-index/3.jpg" alt="banner">
+              <img class="d-block w-100 h-100 ratioCar" src="/static/img/background-index/3.jpg" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
@@ -80,7 +80,13 @@
                   id="blog_city">
                   <option type="button" value="all">All Cities </option>
                   {%for city in common_properties_data.cities%}
-                  <option value="{{city}}">{{city | title}} </option>
+                  {%if page_data.selected_city == city%}
+                  <option value="{{city}}" selected>{{city | title }}</option>
+                  {%else %}
+                  <option value="{{city}}">{{city | title}}</option>
+                  {%endif%}
+
+                  
                   {%endfor%}
               </select>
           </div>

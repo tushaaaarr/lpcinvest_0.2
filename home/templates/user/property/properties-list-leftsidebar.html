@@ -49,7 +49,7 @@
     <div class="carousel-inner">
       <div class="carousel-item item-bg active">
         <img
-          class="d-block w-100 h-100"
+          class="d-block w-100 h-100 ratioCar"
           src="{% static 'img/background-index/1.jpg' %}"
           alt="banner"
         />
@@ -73,7 +73,7 @@
       </div>
       <div class="carousel-item item-bg">
         <img
-          class="d-block w-100 h-100"
+          class="d-block w-100 h-100 ratioCar"
           src="{% static 'img/background-index/2.jpg' %}"alt="banner"/>
         <div
           class="carousel-caption banner-slider-inner d-flex h-100 text-start"
@@ -95,7 +95,7 @@
       </div>
       <div class="carousel-item item-bg">
         <img
-          class="d-block w-100 h-100"
+          class="d-block w-100 h-100 ratioCar"
           src="{% static 'img/background-index/3.jpg' %}"
           alt="banner"
         />
@@ -324,22 +324,15 @@
                     id="flush-collapseOne"
                     class="accordion-collapse collapse"
                     aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample"
-                  >
+                    data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <h3 class="sidebar-title">Features</h3>
-
                       <div class="s-border"></div>
                       <div class="m-border"></div>
 
                       {%for feature in common_properties_data.feature_list%}
                       <div class="checkbox checkbox-theme checkbox-circle">
-                        <input
-                          id="feature_{{feature.id}}"
-                          type="checkbox"
-                          name="feature"
-                          value="{{feature}}"
-                        />
+                        <input id="feature_{{feature.id}}"type="checkbox"name="feature"value="{{feature}}"/>
                         <label for="feature_{{feature.id}}">
                           {{feature}}
                         </label>
