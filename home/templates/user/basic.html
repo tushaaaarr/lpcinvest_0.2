@@ -195,11 +195,11 @@
 
  <!-- Search Modal start -->
  <div id="toggleSearchModal" class="row m-0 h-100  ">
-    <div class="closeTog position-absolute d-flex justify-content-end p-5">
+    <div class="closeTog position-absolute d-flex justify-content-end p-2 p-md-5">
         <button class="closeSearch border-0 btn-danger" onclick="searchPop()"><i class="fa fa-close"></i></button>
     </div>
         <div class="h-100 w-100 d-flex align-items-start pt-md-0 pt-5  mt-md-0 mt-5 align-items-md-center justify-content-center">
-            <div class="searchModal mt-md-0 mt-5 pt-md-0 pt-5">
+            <div class="searchModal mt-md-0 pt-md-0">
                 <form method='get' action='/top-search'>
                 <div class="input-group">
                     <div class="form-outline autocomplete" id="autocomplete">
@@ -999,7 +999,7 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
 <script src="{%static 'new_theme/js/main.js' %}"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="application/json" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function () {
         $("#query").autocomplete({
