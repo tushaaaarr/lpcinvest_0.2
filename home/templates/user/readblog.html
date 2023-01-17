@@ -145,16 +145,16 @@ font-size:24px!important;
   <div class="d-flex justify-content-center">
     <div class="col-12 d-flex justify-content-center  gap-4  align-items-center mb-5">
       <div class="d-flex gap-3 justify-content-between share_btns">
-        <a class="btn cont-sec py-2 px-3" href="https://www.instagram.com/?url=https://google.com">
+        <!-- <a class="btn cont-sec py-2 px-3" href="https://www.instagram.com/?url=https://google.com">
           <i class="fa fa-instagram pt-1"></i>
-        </a>
-        <a class="btn cont-sec py-2 px-3" href="https://www.facebook.com/sharer/sharer.php?u=https://google.com">
+        </a> -->
+        <a class="btn cont-sec py-2 px-3" href="https://www.facebook.com/sharer/sharer.php?u={{common_properties_data.url}}" target="_blank">
           <i class="fa fa-facebook pt-1"></i>
         </a>
-        <a class="btn cont-sec py-2 px-3" href="https://google.com">
+        <a class="btn cont-sec py-2 px-3" href="http://twitter.com/share?text=text goes here %0A&url={{common_properties_data.url}}" target="_blank">
           <i class="fa fa-twitter pt-1"></i>
         </a>
-        <a class="btn cont-sec py-2 px-3" href="https://wa.me/whatsappphonenumber/?text=https://google.com">
+        <a class="btn cont-sec py-2 px-3" href="https://api.whatsapp.com/send?text={{common_properties_data.url}}" target="_blank">
           <i class="fa fa-whatsapp pt-1"></i>
         </a>
       </div>
@@ -195,7 +195,7 @@ font-size:24px!important;
                                     <p class="ml-3 text-capitalize"><i class="fa fa-clock-o pe-1 pt-4"></i>{{blog.read_time}}</p> 
                           </div>
                     </div>
-
+                    
                   </div>
 
               </div>

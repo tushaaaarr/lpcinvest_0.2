@@ -38,6 +38,11 @@ def common(request):
     for property in recent_properties:
         property.price = ("{:,}".format(property.price))
     feature_data['recent_properties'] = recent_properties
+
+    url = request.build_absolute_uri()
+    import urllib.parse
+    url = urllib.parse.quote(url)
+    feature_data['url'] = url
     return {
         'common_properties_data':feature_data
         }
@@ -303,10 +308,7 @@ def property_view(request,id,title=None):
     page_data = {'page_name':property.title}
     context = {'property':property,'prop_images':prop_images,"feature_data":feature_data,"Calculated_data":Calculated_data,
     "page_data":page_data,"location_coord":location_coord}
-    url = request.build_absolute_uri()
-    import urllib.parse
-    url = urllib.parse.quote(url)
-    page_data['url'] = url
+    
     return render(request,'user/property/properties-details1.html',context)
 
 
