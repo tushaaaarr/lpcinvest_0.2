@@ -825,6 +825,9 @@
   </form>
 </div>
 
+
+
+
 <script>
   function finalurl() {
     var url = new URL(window.location.href);
@@ -832,7 +835,6 @@
     search_params.set("ordering", document.getElementById("sort-list").value);
     url.search = search_params.toString();
     var new_url = url.toString();
-    console.log(new_url);
     return new_url;
   }
 
@@ -866,5 +868,6 @@
     }
   });
 </script>
+
 
 {%endblock body%}

@@ -47,7 +47,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script  src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script type="text/javascript" src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    {% comment %} <script src="https://code.jquery.com/jquery-3.5.0.js"></script> {% endcomment %}
 
 
 <!-- New theme Styles Start-->
@@ -75,6 +75,9 @@
 
 
     <style>
+        .seH:hover{
+            background-color:white !important;
+        }
         .navAlt{
         width:40% !important;
         text-align: left!important;
@@ -169,7 +172,7 @@
           "ctaText":"Start Chat",
           "borderRadius":"25",
           "autoShow":false,
-          "phoneNumber":"9108085748"
+          "phoneNumber":"+44 7788 258827"
       }
     };
         s.onload = function() {
@@ -186,7 +189,7 @@
 
 <!-- CONTACT BUTTONS FIXED START -->
         <div class="conTcts d-md-flex w-50 justify-content-end gap-5 d-none" style="position:absolute;top:2%;right:5%;z-index:99;" data-aos="zoom-out">
-            <a href="tel://+44 161 713 3883" class="fs-6  text-light opacity-50"><i class="fa fa-phone pe-0"></i> +44 161 713 3883</a>
+            <a href="tel://+44 7788 258827" class="fs-6  text-light opacity-50"><i class="fa fa-phone pe-0"></i>  +44 7788 258827</a>
             <a href="mailto:info@lpcinvest.com" class="fs-6 text-light opacity-50 "><i class="fa fa-envelope pe-2"></i> info@lpcinvest.com</a>
         </div>
 <!-- CONTACT BUTTONS FIXED END -->
@@ -203,11 +206,11 @@
                 <form method='get' action='/top-search'>
                 <div class="input-group">
                     <div class="form-outline autocomplete" id="autocomplete">
-                        <input type="search" id="query" name="query" class="form-control search-fields sf" placeholder="Search for anything"
+                        <input type="search" id="query" name="query" style="width:100%;" class="form-control search-fields sf" placeholder="Search for anything"
                         hx-get="/search/autocompldete" hx-trigger="keyup changed delay:100ms"
                         hx-target="#search-results" hx-indicator=".htmx-indicator"/>
                     </div>
-                    <button type="submit" class="btn btn-primary border-1 rounded-0 cont-sec">
+                    <button type="submit" class="btn btn-primary border-1 rounded-0 cont-sec seH">
                         <i class="fa fa-search fw-bold fs-4"></i>
                     </button>
                 </div>
@@ -463,7 +466,7 @@
                   <div class="get-in-touch-box d-flex">
                       <i class="flaticon-phone"></i>
                       <div class="detalis">
-                        <a href="tel://+44 161 713 3883">+44 161 713 3883</a>            </div>
+                        <a href="tel://+44 7788 258827"> +44 7788 258827</a>            </div>
                   </div>
                   <div class="get-in-touch-box d-flex">
                       <i class="flaticon-mail"></i>
@@ -957,39 +960,28 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
     }
 </script>
 
-<!-- Logo on scroll changer End -->
-
-
-
 <!-- New theme js end -->
-
-
 <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/bootstrap-submenu.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/rangeslider.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.mb.YTPlayer.js' %}"defer></script>
 <script type="text/javascript" src="{% static 'js/bootstrap-select.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.scrollUp.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/leaflet.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/leaflet-providers.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/leaflet.markercluster.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/leaflet.js' %}"defer></script>
+<script type="text/javascript" src="{% static 'js/leaflet-providers.js' %}" defer></script>
+<script type="text/javascript" src="{% static 'js/leaflet.markercluster.js' %}" defer></script>
 <script type="text/javascript" src="{% static 'js/dropzone.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.filterizr.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.countdown.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/boxes-component.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/boxes-core.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/boxes-component.js' %}"defer></script>
+<script type="text/javascript" src="{% static 'js/boxes-core.js' %}"defer></script>
 <script type="text/javascript" src="{% static 'js/maps.js' %}" defer></script>
 <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
-<script src="jquery.ui.touch-punch.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
 <script src="{%static 'new_theme/js/owl.carousel.min.js' %}"></script>
 <script src="{%static 'new_theme/js/jquery.stellar.min.js' %}"></script>
 <script src="{%static 'new_theme/js/jquery.fancybox.min.js' %}"></script>
@@ -997,9 +989,8 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
 <script src="{%static 'new_theme/js/bootstrap-datepicker.js' %}"></script>
 <script src="{%static 'new_theme/js/jquery.timepicker.min.js' %}"></script>
 <script src="{%static 'new_theme/js/main.js' %}"></script>
-
-
-<script type="application/json" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function () {
         $("#query").autocomplete({
@@ -1014,8 +1005,9 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
     </script>
   
 
+</script>
+
 <script src="https://webforms.pipedrive.com/f/loader" defer></script>
 <script src= "https://leadbooster-chat.pipedrive.com/assets/loader.js" defer></script>
-</script>
 </body>
 </html>
