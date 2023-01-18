@@ -32,21 +32,62 @@
 .cont-sec:hover strong{
     color:#00CE8D;
 }
+
+.altCar{
+    background-color: black;
+}
+
+.altCar img{
+    height:100vh !important;
+    width:100vw !important;
+    object-fit: cover;
+    animation: zoomin 8s linear forwards;
+}
+.altCar .carousel-item:after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.5);
+}
+@keyframes zoomin {
+    0%{transform:matrix(1.2, 0, 0, 1.2, 0, 0);}
+    /* 50%{transform:matrix(1, 0, 0, 1,0, 0);} */
+    100%{transform:matrix(1.3, 0, 0, 1.3, 60, 0);}
+}
+
 </style>
 
 {% endblock %}{% block body %}
 
 <!-- Banner start -->
 <div class="banner" id="banner">
-    <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
+    <div id="bannerCarousole" class="carousel slide carousel-fade" data-bs-touch="false" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item banner-max-height active item-bg">
-                <div id="boxgallery" class="boxgallery" data-effect="effect-1">
+            <!-- <div class="carousel-item banner-max-height item-bg bg-dark"> -->
+
+            <div class="bg-dark altCar">
+                <div class="carousel-item active" data-bs-interval="6000">
+                    <img src="/static/img/background-index/1.jpg" class="d-block " alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="6000">
+                    <img src="/static/img/background-index/2.jpg" class="d-block " alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="6000">
+                    <img src="/static/img/background-index/3.jpg" class="d-block " alt="...">
+                </div>
+
+            </div>
+
+                
+                <!-- <div id="boxgallery" class="boxgallery" data-effect="effect-1">
                     <div class="panel"><img src="/static/img/background-index/1.jpg" alt="Image 1"/></div>
                     <div class="panel"><img src="/static/img/background-index/2.jpg" alt="Image 2"/></div>
                     <div class="panel"><img src="/static/img/background-index/3.jpg" alt="Image 3"/></div>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
             <div class="carousel-caption d-flex h-100">
                 <div class="carousel-content container">
                     <div class="text-center bi-3">

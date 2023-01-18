@@ -1,9 +1,57 @@
 {% extends 'user/basic.html' %} {% load static %} {% block title %} About Us {%endblock title%} {% block css %} 
 {% endblock css %} {% block body %}
 
+
+
+<!-- Banner start -->
+<div class="banner" id="banner">
+  <div id="bannerCarousole" class="carousel slide carousel-fade" data-bs-touch="false" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <!-- <div class="carousel-item banner-max-height item-bg bg-dark"> -->
+
+          <div class="bg-dark altCar">
+              <div class="carousel-item active" data-bs-interval="6000">
+                  <img src="/static/img/background-index/1.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="6000">
+                  <img src="/static/img/background-index/2.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="6000">
+                  <img src="/static/img/background-index/3.jpg" class="d-block " alt="...">
+              </div>
+
+          </div>
+
+              
+              <!-- <div id="boxgallery" class="boxgallery" data-effect="effect-1">
+                  <div class="panel"><img src="/static/img/background-index/1.jpg" alt="Image 1"/></div>
+                  <div class="panel"><img src="/static/img/background-index/2.jpg" alt="Image 2"/></div>
+                  <div class="panel"><img src="/static/img/background-index/3.jpg" alt="Image 3"/></div>
+              </div> -->
+          <!-- </div> -->
+          <div class="carousel-caption d-flex h-100">
+              <div class="carousel-content container">
+                  <div class="text-center bi-3">
+                      <div class="clearfix">
+                          <h3 class="text-capitalize">Reasons to Invest</h3>
+                      </div>
+                      <div class="clearfix">                
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Banner end -->
+
+
+
+
+
 <!-- Benefits start -->
-<div class="bg-info d-flex align-items-center  justify-content-center py-5">
-<div class="services my-5 py-5" data-aos="fade-up">
+<div class="bg-light d-flex align-items-center  justify-content-center py-5">
+<div class="services my-3 py-5" data-aos="fade-up">
     <div class="container bg-light rounded shadow-lg pt-2 pb-5 px-4 my-5">
         <!-- Main title -->
         <div class="main-title text-center mt-2 pb-2">
@@ -13,10 +61,10 @@
             </p>
          </div>
         <div class="row ">
-          <div class="col-12 col-lg-6 p-5 d-flex align-items-center order-lg-2"> 
+          <!-- <div class="col-12 col-lg-6 p-5 d-flex align-items-center order-lg-2"> 
             <img src="/static/img/lpc2.svg" class="w-100">
-          </div>
-          <div class="col-12 col-lg-6 d-flex align-items-center order-lg-1">
+          </div> -->
+          <div class="col-12 col-lg-12 d-flex align-items-center order-lg-1">
   
             <ul class="list-group shadow">
             
@@ -72,6 +120,33 @@
     </div>
 
   </div>   
-  <!-- Benefits end -->
+<!-- Benefits end -->
+
+
+<!-- Contact section start -->
+<div data-aos="fade-up" class='mt-1 altContSec'>
+  <div class="container mx-auto py-5 contact_section " >
+    <div class="row d-flex justify-content-center px-0" >
+      <div class="col-12">
+        <p class="text-lead text-light text-capitalize" style="font-weight:700">Want to know more?</p>
+        <h2 class="heading pb-4 text-capitalize" style="color:#00CE8D;"><span class="text-light">Contact us</span> today</h3>
+        <div class="d-md-flex d-block gap-3">
+              <a href="tel://+44 7788 258827"> <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
+              <a href="https://api.whatsapp.com/send?phone=+447788258827&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
+                  <button type="button" class="btn p-2 my-2  cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>Whatsapp</button></a>
+              
+              <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
+              <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
+              <button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact section End -->
+
+
+
+
 
   {%endblock body%} {% block script %} {% endblock script %}
