@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap-submenu.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap-select.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" /> {% endcomment %}
     <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'fonts/bootstrap-icons/bootstrap-icons.css' %}" />
     <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
@@ -133,6 +133,9 @@
 @media screen and (max-width: 815px) {
     .navbar-brand i{
     display:block!important;
+    }
+    #team_members{
+        display:none !important;
     }
 }
 .contact_section i, button, a{
@@ -970,9 +973,9 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
 <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.scrollUp.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/leaflet.js' %}"defer></script>
+{% comment %} <script type="text/javascript" src="{% static 'js/leaflet.js' %}"defer></script>
 <script type="text/javascript" src="{% static 'js/leaflet-providers.js' %}" defer></script>
-<script type="text/javascript" src="{% static 'js/leaflet.markercluster.js' %}" defer></script>
+<script type="text/javascript" src="{% static 'js/leaflet.markercluster.js' %}" defer></script> {% endcomment %}
 <script type="text/javascript" src="{% static 'js/dropzone.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.filterizr.js' %}"></script>
@@ -981,7 +984,7 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
 <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/boxes-component.js' %}"defer></script>
 <script type="text/javascript" src="{% static 'js/boxes-core.js' %}"defer></script>
-<script type="text/javascript" src="{% static 'js/maps.js' %}" defer></script>
+{% comment %} <script type="text/javascript" src="{% static 'js/maps.js' %}" defer></script> {% endcomment %}
 <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 <script src="{%static 'new_theme/js/owl.carousel.min.js' %}"></script>
 <script src="{%static 'new_theme/js/jquery.stellar.min.js' %}"></script>

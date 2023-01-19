@@ -137,14 +137,16 @@ def home_page(request):
     for property_ in properties:
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
-    team_members = TeamMembers.objects.all()[::-1][:3]
+    # team_members = TeamMembers.objects.all()[::-1][:3]
     blog_list = []
     blogs = Blogs.objects.all()[:5]
     for blog in blogs:
         blog.desc = blog.desc[:50]
         blog.read_time = readtime.of_text(blog.content)
         blog_list.append(blog)
-    context = {"properties":cleaned_properties,"team_members":team_members,"blogs":blog_list}    
+    context = {"properties":cleaned_properties,
+    # "team_members":team_members,
+    "blogs":blog_list}    
     return render(request,'user/index.html',context)
 
 def updated_index(request):
