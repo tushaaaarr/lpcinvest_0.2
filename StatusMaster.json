@@ -1,0 +1,1 @@
+[{"model": "home.statusmaster", "pk": 14, "fields": {"status": "Completed"}}, {"model": "home.statusmaster", "pk": 15, "fields": {"status": "Off plan"}}, {"model": "home.statusmaster", "pk": 16, "fields": {"status": "Buy to live"}}, {"model": "home.statusmaster", "pk": 17, "fields": {"status": "Buy to let"}}]
