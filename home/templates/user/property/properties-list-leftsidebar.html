@@ -159,7 +159,7 @@
             <form method="GET" action="/all-properties">
               <div class="form-group">
                 <select class="selectpicker search-fields" name="status">
-                  <option value="all">All Status</option>
+                  <option value="all">Development Status</option>
                   {%if properties_data.selected_status == "Completed"%}
                   <option value="Completed" selected>Completed</option>
                   <option value="Off plan">Off Plan</option>
@@ -174,7 +174,7 @@
               </div>
               <div class="form-group">
                 <select class="selectpicker search-fields" name="type">
-                  <option value="all_type">All Type</option>
+                  <option value="all_type">Property Type</option>
                   {%if properties_data.selected_type == "cash_only"%}
                   <option value="{{cash_only}}" selected>Cash only</option>
                   <option value="buy_to_let">Buy to Let</option>
