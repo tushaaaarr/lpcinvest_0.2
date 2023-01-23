@@ -1,11 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .models import *
-from django.contrib.auth import views as auth_views
-from django.views import generic
-from django.urls import reverse_lazy
-from .forms import LoginForm, RegisterForm
 import json
-from django.db.models import    Q
+# from django.db.models import    Q
 from collections import defaultdict
 from django.http import JsonResponse
 from django.contrib.auth import authenticate
@@ -18,13 +14,10 @@ import math
 from pytonik_time_ago.timeago import timeago
 from django.contrib.auth.decorators import login_required
 import geopy.distance
-from geopy.geocoders import Nominatim
+# from geopy.geocoders import Nominatim
 from django.contrib import messages
-import time
-from django.contrib import messages 
-import time
+# import time
 import readtime
-from django.views.decorators.csrf import csrf_exempt
 User = get_user_model()
 
 def common(request):
@@ -38,7 +31,6 @@ def common(request):
     for property in recent_properties:
         property.price = ("{:,}".format(property.price))
     feature_data['recent_properties'] = recent_properties
-
     url = request.build_absolute_uri()
     import urllib.parse
     url = urllib.parse.quote(url)
@@ -46,36 +38,6 @@ def common(request):
     return {
         'common_properties_data':feature_data
         }
-
-
-def get_furniture_list(properties):
-    properties_list = []
-    for property in properties:
-        d = defaultdict(list)
-        prop = PropertyFurnitureMapper.objects.filter(property = property)
-        for furniture in prop:
-            furniture.furniture_type = int(furniture.furniture_type)
-            if furniture.furniture_type == 1:
-                d['room'].append(furniture.furniture_counts.furniture_counts)
-            elif furniture.furniture_type == 2:
-                d['bathrooms'].append(furniture.furniture_counts.furniture_counts)
-            elif furniture.furniture_type == 3:
-                d['garage'].append(furniture.furniture_counts.furniture_counts)
-
-        properties_dict = {
-            "title":property.title,
-            "id":property.id,
-            "adddress":property.adddress,
-            'area':property.area,
-            'beds':d['beds'],
-            'room':",".join(d['room']),
-            'bathrooms':",".join(d['bathrooms']),
-            'image':property.image,
-            "price":property.price,
-        }
-        properties_list.append(properties_dict)
-
-    return properties_list
 
 def get_discounted_price(property):
     if PropertyOffers.objects.filter(property=property).exists():
@@ -114,6 +76,7 @@ def clean_property_data(property,user_id= None):
         status = "Completed"
     else:
         status = 'Off plan'
+
     properties_dict = {
         "title":property.title,
         "id":property.id,
@@ -131,7 +94,7 @@ def clean_property_data(property,user_id= None):
     }
     return properties_dict
     
-def home_page(request):
+def home_page(request): 
     properties = Properties.objects.all()[:5]
     cleaned_properties = []
     for property_ in properties:
@@ -154,21 +117,16 @@ def updated_index(request):
 
 def about(request):
     team_members = TeamMembers.objects.all()[::-1][:3]
-    
     return render(request,'user/about_us.html',{'team_members':team_members})
 
 def community(request):    
-    return render(request,'user/community.html')
+    return render(request,'user/community.html')    
+
+def developers(request):
+    return render(request,'user/pages/developers.html')
 
 def error(request):
     return render(request,'user/pages/error.html')
-    
-def developers(request):
-    return render(request,'user/pages/developers.html')    
-
-def property(request):
-    return HttpResponse('property Page....')
-
 
 def get_containing(choices, needle):
     containing = []
@@ -177,7 +135,6 @@ def get_containing(choices, needle):
             containing.append(k)
     return containing
 
-@csrf_exempt 
 def property_list_by_city(request,in_city):
     type_dict = {}
     type_dict['type_id'] = 'city'
@@ -195,7 +152,6 @@ def property_list_by_city(request,in_city):
 def convert_time_ago(time_date):
     time = time_date.strftime('%H:%M:%S')
     date = time_date
-    mixed = str(date) + str(time)
     time_ago = timeago(f"{str(date)} {str(time)}").ago
     return time_ago.split(',')[0]
 
@@ -229,10 +185,10 @@ def property_listing(request,type_dict=None):
         properties = properties_data['properties']
 
     feature_data = {}
-    feature_data['min_deposit']=0
-    feature_data['max_deposit']= 100000
-    feature_data['min_price']= 0
-    feature_data['max_price']= 1000000
+    # feature_data['min_deposit']=0
+    # feature_data['max_deposit']= 100000
+    # feature_data['min_price']= 0
+    # feature_data['max_price']= 1000000
     feature_data['selected_city'] = query['city']
     feature_data['selected_type']  = query['type']
     feature_data['selected_status']  = " ".join(query['status'])
@@ -274,9 +230,7 @@ def property_listing(request,type_dict=None):
 
     if type_dict is None:
         return render(request,'user/property/properties-list-leftsidebar.html',context)
-    
     return feature_data
-
 
 def property_listing_map(request):
     return render(request,'user/property/properties_map.html')
@@ -287,6 +241,7 @@ def property_view_route(request,id):
         return redirect(f"/properties/{title}/{id}")
     return render(request,'user/pages/error.html')
  
+
 def property_view(request,id,title=None):
     feature_data = dict()
     if not Properties.objects.filter(id=id).exists():
@@ -315,7 +270,6 @@ def property_view(request,id,title=None):
     "page_data":page_data,"location_coord":location_coord}
     
     return render(request,'user/property/properties-details1.html',context)
-
 
 def filter_property(query,properties):
     # Query Validation
@@ -911,15 +865,14 @@ def blog(request):
     return render(request,'user/blog.html',{'blogs':blog_list,"page_data":page_data,
     'paginator':product_paginator,"page_obj":blog_list,'is_paginated':True,})
 
-def readblog(request,id):
-    
+def readblog(request,id,title):
     blog_content = Blogs.objects.filter(id=id)[0]
     properties = Properties.objects.all()[:5]
     cleaned_properties = []
     for property_ in properties:
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
-    # related_blogs = Blogs.objects.filter(city__in = get_containing(CITIES_CHOICES,blog_content.city)) 
+    
     blog_list = []
     blogs = Blogs.objects.all()[:5]
     for blog in blogs:
@@ -928,8 +881,15 @@ def readblog(request,id):
         blog_list.append(blog)
     return render(request,'user/readblog.html',
     # return render(request,'user/read_blog_1.html',
-    {'blog_content':blog_content,"properties":cleaned_properties,"related_blogs":blog_list}
-    )    
+    {'blog_content':blog_content,"properties":cleaned_properties,"related_blogs":blog_list})
+        
+
+def readblog_route(request,id):
+    if Blogs.objects.filter(id=id).exists():
+        title = Blogs.objects.get(id=id).desc
+        return redirect(f"/blog/{title}/{id}")
+    return render(request,'user/pages/error.html')
+ 
 
 def partners(request):
     return render(request,'user/partners.html')
@@ -940,12 +900,3 @@ def privacy_policy(request):
 def terms_conditions(request):
     return render(request,'user/terms_conditions.html')
 
-class LoginView(auth_views.LoginView):
-    form_class = LoginForm
-    template_name = 'auth/login.html'
-
-
-class RegisterView(generic.CreateView):
-    form_class = RegisterForm
-    template_name = 'accounts/register.html'
-    success_url = reverse_lazy('login')

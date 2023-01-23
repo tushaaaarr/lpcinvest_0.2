@@ -186,7 +186,7 @@ font-size:24px!important;
               <div class="blog-3 b-photo2" style="background:url(/media/{{blog.image_1}});
               background-size:cover;background-repeat: no-repeat;background-position: center;">
                   <div class="blog-info">
-                      <h3 style="font-weight:700"><a href="/blog/{{blog.id}}">{{blog.desc}}..</a></h3>
+                      <h3 style="font-weight:700" class='text-capitalize'><a href="/blog/{{blog.desc | slugify}}/{{blog.id}}">{{blog.desc}}..</a></h3>
                       <div class="container">
                           <div class = "btn-group">
                                     <p><i class="fa fa-calendar pe-1 pt-4"></i> {{blog.pub_date}}</p> 

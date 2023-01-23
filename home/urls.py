@@ -12,7 +12,7 @@ urlpatterns = [
     path('properties-map',views.property_listing_map,name='property_listing_map'),
     path('city/<str:in_city>',views.property_list_by_city,name='property_list_by_city'),
     # path('property-type/<str:in_type>/',views.property_list_by_type,name='property-type'),
-    path('properties/<str:title>/<str:id>',views.property_view,name='property_view'),
+    path('properties/<slug:title>/<str:id>',views.property_view,name='property_view'),
     path('properties/<str:id>',views.property_view_route,name='property_view_route'),
     path('send-property-form',views.property_form,name='property_form'),
     path('city-guide/<str:city>',views.CityGuide,name='cityguide'),
@@ -29,7 +29,8 @@ urlpatterns = [
      # Blog
 
     path('blogs',views.blog,name='blogs'),
-    path('blog/<int:id>',views.readblog,name='blog_view'),
+    # path('blog/<int:id>',views.readblog_route,name='readblog_route'),
+    path('blog/<slug:title>/<str:id>',views.readblog,name='readblog'),
     path('about/privacy-policy',views.privacy_policy,name='privacy_policy'),
     path('about/terms-conditions',views.terms_conditions,name='terms_conditions'),
     # path('login/', LoginView.as_view(), name='login'),

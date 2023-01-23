@@ -1,4 +1,8 @@
-{% extends 'user/basic.html' %} {% load static %} {% block title %} Meet The Team {%endblock title%} {% block css %} {% endblock css %} {% block body %}
+{% extends 'user/basic.html' %} {% load static %} {% block title %} Meet The Team {%endblock title%}
+
+{% block css %}
+
+  {% endblock css %} {% block body %}
 
 <div class="banner" id="banner">  
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -88,7 +92,7 @@
                   </div>
                   <div class="back">
                     <!-- back content -->
-                    <blockquote class="my-5"><p style="font-size: 14px;">{{member.desc}}</p>
+                    <blockquote class="my-5"><p>{{member.desc | safe }}</p>
                     </blockquote>
                     <div class="author d-flex">
                       <div class="image mr-3 align-self-center">

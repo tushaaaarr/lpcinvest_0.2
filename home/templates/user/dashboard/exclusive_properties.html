@@ -1,12 +1,50 @@
 
 {% extends './basic.html' %} 
 {% block title %} Exclusive Properties {{page_data.page_name}}{% endblock title%} 
+{% block css %}
+
+<style>
+  .aCls {
+    color: #00ce8d !important;
+    text-transform: capitalize !important;
+  }
+
+  .advanced-search h3,
+  option {
+    font-weight: 700 !important;
+  }
+  select {
+    font-weight: 700 !important;
+  }
+  .property-box-2 a,
+  h5 {
+    font-weight: 700 !important;
+  }
+  .location a {
+    font-weight: 700 !important;
+  }
+  .cont-sec:hover strong {
+    color: #00ce8d;
+  }
+  .cont-sec:hover {
+    background-color: #ffffff !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .property-photo img {
+      height: 220px !important;
+    }
+  }
+</style>
+
+{% endblock css %}
+
 {% block body %}
 
 <div class="dashboard-content">
     <div class="dashboard-list">
         <div class="container ml-5">
-            <h3 class="heading m-3">Exclusive Properties List</h3>
+            <h3 class="heading my-3 px-0 fw-bold fs-4">Exclusive Properties List</h3>
 
             {%if page_data.not_found%}
             <div class="pages-404">
@@ -33,7 +71,7 @@
         <div class="col-lg-5 col-md-5">
           <div class="property-photo">
             <a
-              href="/properties/{{property.title}}/{{property.id}}"
+              href="/properties/{{property.title | slugify }}/{{property.id}}"
               class="property-img"
             >
               <img
@@ -46,8 +84,8 @@
                 <div class="tag">{{property.status}}</div>
               </div>
               {%endif%}
-              <div class="price-box" style="font-weight: 700">
-                From <span>£{{property.price}}</span>
+              <div class="price-box px-2  rounded" style="font-weight: 700">
+                <span class="text-dark">From</span> £{{property.price}}
               </div>
             </a>
           </div>
@@ -55,13 +93,13 @@
         <div class="col-lg-7 col-md-7">
           <div class="detail">
             <div class="hdg">
-              <h3 class="title text-capitalize">
-                <a href="/properties/{{property.title}}/{{property.id}}"
+              <h3 class="title text-capitalize fw-bold px-0">
+                <a href="/properties/{{property.title | slugify }}/{{property.id}}"
                   >{{property.title}}</a
                 >
               </h3>
               <h5 class="location">
-                <a href="/properties/{{property.title}}/{{property.id}}"
+                <a href="/properties/{{property.title | slugify }}/{{property.id}}"
                   ><span>
                     <i class="fa fa-map-marker"></i>{{property.city |title}}</span
                   >

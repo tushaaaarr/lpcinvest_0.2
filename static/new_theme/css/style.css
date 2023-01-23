@@ -1045,7 +1045,9 @@ textarea.form-control {
     right: 0;
     text-align: center;
     padding: 0 20px;
-    font-size: 18px; }
+    font-size: 14px !important;
+    font-family: "Tahoma", sans-serif !important;
+   }
   .block-2 .author {
     bottom: 0;
     position: absolute;
@@ -1275,3 +1277,6 @@ textarea.form-control {
         background: #00CE8D;
         color: #fff;
         border-radius: 50%; }
+        .recent-posts-box h5 a{
+          font-size: 16px!important;
+        }

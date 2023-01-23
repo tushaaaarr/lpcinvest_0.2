@@ -75,9 +75,9 @@
                 <div class="carousel-item" data-bs-interval="6000">
                     <img src="/static/img/background-index/2.jpg" class="d-block " alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="6000">
+                {% comment %} <div class="carousel-item" data-bs-interval="6000">
                     <img src="/static/img/background-index/3.jpg" class="d-block " alt="...">
-                </div>
+                </div> {% endcomment %}
 
             </div>
 
@@ -178,7 +178,7 @@
                     <img src="/media/{{property.image}}" alt="photo" class="img-fluid w-100" style="height: 350px;" loading="lazy">
                     <div class="ling-section">
                         <h3 style="font-weight: 700!important;">
-                            <a href="/properties/{{property.title}}/{{property.id}}">{{property.title}}</a>
+                            <a href="/properties/{{property.title | slugify }}/{{property.id}}">{{property.title}}</a>
                         </h3>
                         <ul class="member-socials clearfix" style="margin:0px;">
                             <li style="font-weight:700;">
@@ -197,7 +197,7 @@
                                 <span class="text-dark pe-1">From </span> £{{property.price}}
                             </li>
                         </ul>
-                        <a href="/properties/{{property.title}}/{{property.id}}" class="read-more-btn">Read More</a>
+                        <a href="/properties/{{property.title | slugify }}/{{property.id}}" class="read-more-btn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -280,7 +280,7 @@
         <!-- Main title -->
         <!-- Main title -->
         <div class="main-title-5 ">
-            <h2 class="heading pt-0">Top UK<span style="color:#00CE8D">Hotspots</span></h2>
+            <h2 class="heading pt-0">Top UK<span style="color:#00CE8D"> Hotspots</span></h2>
             <div class="title-border">
                 <div class="title-border-inner"></div>
                 <div class="title-border-inner"></div>
@@ -433,7 +433,7 @@
                 <div class="blog-3 b-photo2" style=" background: url(media/{{blog.image_1}});
                 background-size:cover;background-repeat: no-repeat;background-position: center;">
                     <div class="blog-info">
-                        <h3 style="font-weight:700"><a href="/blog/{{blog.id}}">{{blog.desc}}..</a></h3>
+                        <h3 style="font-weight:700" class='text-capitalize'><a href="/blog/{{blog.desc | slugify}}/{{blog.id}}">{{blog.desc}}..</a></h3>
                         <div class="container">
                             <div class = "btn-group">
                                       <p><i class="fa fa-calendar pe-1 pt-4"></i> {{blog.pub_date}}</p> 

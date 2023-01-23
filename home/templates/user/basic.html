@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap-submenu.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap-select.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
-    {% comment %} <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/map.css' %}" /> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
     <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'fonts/bootstrap-icons/bootstrap-icons.css' %}" />
     <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
@@ -143,7 +143,32 @@
 .contact_section i, button, a{
     font-weight: 700!important;
 }
-
+ .property-box-2 a,
+  h5 {
+    font-weight: 700 !important;
+  }
+  .location a {
+    font-weight: 700 !important;
+  }
+  .cont-sec:hover strong {
+    color: #00ce8d;
+  }
+  .cont-sec:hover {
+    background-color: #ffffff !important;
+  }
+  .property-box-2 a,
+  h5 {
+    font-weight: 700 !important;
+  }
+  .location a {
+    font-weight: 700 !important;
+  }
+  .cont-sec:hover strong {
+    color: #00ce8d;
+  }
+  .cont-sec:hover {
+    background-color: #ffffff !important;
+  }
     </style>
     {% block css %}  {% endblock css %}
 </head>
@@ -349,17 +374,14 @@
                               <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink7"
                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                  <li><a class="dropdown-item" href="/profile">Login</a></li>
-                                  <li><a class="dropdown-item" href="/profile">Register</a></li>
+                                  <li><a class="dropdown-item" href="/login">Login</a></li>
+                                  <li><a class="dropdown-item" href="/register">Register</a></li>
                                   <li><a class="dropdown-item" href="/profile">Profile</a></li>
                                   <li><a class="dropdown-item" href="/favorited-properties">Favorited Properties</a></li>
                                   <li><a class="dropdown-item" href="/exclusive-properties">Exclusive Properties</a></li>
                                   <li><a class="dropdown-item" href="/monthly-offers">Offers</a></li>
                                 </ul>
                           </li>
-                          <!-- <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                          </li> -->
                           </ul>
                           <button onclick="searchPop()" id="conPhn" class="btn btn-sm border-left bg-none rounded-0 px-3 ms-3 me-2 fw-bold"><i class="fa fa-search fs-4"></i></button>
                       </div>
@@ -978,9 +1000,7 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
 <script type="text/javascript" src="{% static 'js/jquery.scrollUp.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
 
-{% comment %} <script type="text/javascript" src="{% static 'js/leaflet.js' %}"defer></script>
-<script type="text/javascript" src="{% static 'js/leaflet-providers.js' %}" defer></script>
-<script type="text/javascript" src="{% static 'js/leaflet.markercluster.js' %}" defer></script> {% endcomment %}
+ 
 <!-- <script type="text/javascript" src="{% static 'js/dropzone.js' %}"></script> -->
 
 <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
@@ -992,7 +1012,6 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
 <!-- <script type="text/javascript" src="{% static 'js/boxes-component.js' %}"defer></script>
 <script type="text/javascript" src="{% static 'js/boxes-core.js' %}"defer></script> -->
 
-{% comment %} <script type="text/javascript" src="{% static 'js/maps.js' %}" defer></script> {% endcomment %}
 <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 <script src="{%static 'new_theme/js/owl.carousel.min.js' %}"></script>
 <script src="{%static 'new_theme/js/jquery.stellar.min.js' %}"></script>
@@ -1016,7 +1035,7 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
       });
     </script>
 </script>
-<script src="https://webforms.pipedrive.com/f/loader" defer></script>
-<script src= "https://leadbooster-chat.pipedrive.com/assets/loader.js" defer></script>
+{% comment %} <script src="https://webforms.pipedrive.com/f/loader" defer></script>
+<script src= "https://leadbooster-chat.pipedrive.com/assets/loader.js" defer></script> {% endcomment %}
 </body>
 </html>

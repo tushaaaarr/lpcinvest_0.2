@@ -364,8 +364,8 @@
             <div class="d-flex mb-3 recent-posts-box">
               <a
                 class="col-6 p-0"
-                href="/properties/{{property.title}}/{{property.id}}"
-                £
+                href="/properties/{{property.title | slugify }}/{{property.id}}"
+                
               >
                 <img
                   src="/media/{{property.image}}"
@@ -375,17 +375,17 @@
               </a>
               <div class="detail col-6 align-self-center">
                 <h5 class="m-0 text-capitalize">
-                  <a
+                  <a 
                     class="text-capitalize aCls"
-                    style="font-size: 18px !important"
-                    href="/properties/{{property.title}}/{{property.id}}"
+                    style="font-size: 16px !important"
+                    href="/properties/{{property.title | slugify }}/{{property.id}}"
                     >{{property.title}}</a
                   >
                 </h5>
                 <div class="listing-post-meta">
-                  £{{property.price}}
+                  <span style='color:#00CE8D'>From </span> £{{property.price}}
                   <a
-                    href="/properties/{{property.title}}/{{property.id}}"
+                    href="/properties/{{property.title | slugify }}/{{property.id}}"
                     class="d-block"
                     ><i class="fa fa-calendar"></i> {{property.pub_date}}
                   </a>
@@ -695,7 +695,7 @@
               <div class="col-lg-5 col-md-5">
                 <div class="property-photo">
                   <a
-                    href="/properties/{{property.title}}/{{property.id}}"
+                    href="/properties/{{property.title | slugify }}/{{property.id}}"
                     class="property-img"
                   >
                     <img
@@ -718,12 +718,12 @@
                 <div class="detail">
                   <div class="hdg">
                     <h3 class="title text-capitalize">
-                      <a href="/properties/{{property.title}}/{{property.id}}"
+                      <a href="/properties/{{property.title | slugify }}/{{property.id}}"
                         >{{property.title}}</a
                       >
                     </h3>
                     <h5 class="location">
-                      <a href="/properties/{{property.title}}/{{property.id}}"
+                      <a href="/properties/{{property.title | slugify }}/{{property.id}}"
                         ><span>
                           <i class="fa fa-map-marker"></i>{{property.city |title}}</span
                         >

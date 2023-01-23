@@ -31,7 +31,7 @@
                     <div class="col-lg-5 col-md-5">
                       <div class="property-photo">
                         <a
-                          href="/properties/{{property.title}}/{{property.id}}"
+                          href="/properties/{{property.title | slugify }}/{{property.id}}"
                           class="property-img"
                         >
                           <img
@@ -54,12 +54,12 @@
                       <div class="detail">
                         <div class="hdg">
                           <h3 class="title text-capitalize">
-                            <a href="/properties/{{property.title}}/{{property.id}}"
+                            <a href="/properties/{{property.title | slugify }}/{{property.id}}"
                               >{{property.title}}</a
                             >
                           </h3>
                           <h5 class="location">
-                            <a href="/properties/{{property.title}}/{{property.id}}"
+                            <a href="/properties/{{property.title | slugify }}/{{property.id}}"
                               ><span>
                                 <i class="fa fa-map-marker"></i>{{property.city |title}}</span
                               >
@@ -69,7 +69,7 @@
                           <h5 class="location">
                             <a
                               ><span>
-                                <i class="fa fa-info-circle"></i> Net Yields: </span
+                                <i class="fa fa-info-circle"></i> Gross Yields: </span
                               >{{property.yields}}</a
                             >
                           </h5>
