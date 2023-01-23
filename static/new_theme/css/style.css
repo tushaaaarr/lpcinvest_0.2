@@ -25,10 +25,10 @@ a {
 
 h1, h2, h3, h4, h5 {
   color: #000;
-  font-family: "Playfair Display", times, serif; }
+  font-family: "Tahoma", sans-serif; }
 
 .font-family-serif {
-  font-family: "Playfair Display", times, serif; }
+  font-family: "Tahoma", sans-serif; }
 
 .font-family-sans-serif {
   font-family: "Roboto", arial, sans-serif; }
@@ -125,7 +125,7 @@ textarea.form-control {
     color: #fff;
     font-weight: bold;
     line-height: 1;
-    font-family: "Playfair Display", times, serif; }
+    font-family: "Tahoma", sans-serif; }
     @media (max-width: 991.98px) {
       .site-logo a {
         font-size: 27px; } }
@@ -145,7 +145,7 @@ textarea.form-control {
   .site-navbar nav {
     text-align: left; }
     .site-navbar nav .menu {
-      font-family: "Playfair Display", times, serif; }
+      font-family: "Tahoma", sans-serif; }
       .site-navbar nav .menu li a {
         color: #000;
         font-weight: 400!important;
@@ -183,7 +183,7 @@ textarea.form-control {
   width: 100%;
   position: relative; }
   .site-hero .heading {
-    font-family: "Playfair Display", times, serif;
+    font-family: "Tahoma", sans-serif;
     font-weight: bold; }
   .site-hero .scroll-down {
     position: absolute;
@@ -215,7 +215,7 @@ textarea.form-control {
   min-height: 700px; }
   .site-hero-inner .heading {
     font-size: 80px;
-    font-family: "Playfair Display", times, serif;
+    font-family: "Tahoma", sans-serif;
     color: #fff;
     line-height: 1;
     font-weight: bold; }
@@ -349,7 +349,7 @@ textarea.form-control {
 
 .heading-serif, .heading, .testimonial-section .heading, .slider-section .heading, .blog-post-entry .heading {
   font-size: 60px;
-  font-family: "Playfair Display", times, serif;
+  font-family: "Tahoma", sans-serif;
   font-weight: 800; }
   @media (max-width: 991.98px) {
     .heading-serif, .heading, .testimonial-section .heading, .slider-section .heading, .blog-post-entry .heading {
@@ -719,7 +719,7 @@ textarea.form-control {
     border-color: #343a40; }
 
 .contact-section .contact-info p {
-  font-family: "Playfair Display", times, serif;
+  font-family: "Tahoma", sans-serif;
   font-size: 30px;
   margin-bottom: 30px; }
   .contact-section .contact-info p .d-block {

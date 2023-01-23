@@ -70,7 +70,7 @@
 
             <div class="bg-dark altCar">
                 <div class="carousel-item active" data-bs-interval="6000">
-                    <img src="/static/img/background-index/1.jpg" class="d-block " alt="..." >
+                    <img src="/static/img/background-index/1.jpg" class="d-block " alt="...">
                 </div>
                 <div class="carousel-item" data-bs-interval="6000">
                     <img src="/static/img/background-index/2.jpg" class="d-block " alt="...">
@@ -95,14 +95,14 @@
                             <div class="row">
                                 <div class="col-md-6 mb-md-0 col-lg-4 search-col">
                                     <select class="selectpicker search-fields" name="type">
-                                        <option value="all">Any Type</option>
+                                        <option value="all">Property Type</option>
                                         <option value="buy_to_let">Buy to Let</option>
                                         <option value="buy_to_live">Buy To Live</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-lg-0 col-lg-4 search-col">
                                     <select class="selectpicker search-fields" name="status" id="status">
-                                        <option value="all" >Any Status</option>
+                                        <option value="all" >Development Status</option>
                                         <option value="Completed">Completed</option> 
                                         <option value="Off plan">Off Plan</option> 
                                     </select>
@@ -123,14 +123,8 @@
     </div>
 </div>
 <!-- Banner end -->
-
-
-      </div>
+</div>
     </section>
-
-
-
-
 
 <!-- Banner end -->
 
@@ -145,16 +139,15 @@
         <div class="col-md-12 col-lg-4 order-lg-1 text-start" data-aos="fade-up">
           <h2 class="heading fs-1">Welcome to <span style="display: block;color:#00CE8D">LPC Invest!</span></h2>
             
-            <p class="mb-2 " style="font-weight: 700;">LPC Invest is an innovative Property Investment company based in Manchester, presenting an exceptional portfolio of exclusive and recently completed properties across the North-West, UK.</p>
-            <p class="mb-2 " style="font-weight: 700;">We specialise in serving homebuyers, first time property investors and portfolio extenders looking for the perfect and most profitable property. LPC Invest’s team has a collective 62 years of market wide experience to assist you in finding the ideal investment. We have a deep knowledge of the market and its current trends.  </p> </div>
-        
+            <p class="mb-2 ">LPC Invest is an innovative <strong>Property Investment company</strong> based in <strong>Manchester</strong>, presenting an exceptional portfolio of exclusive and recently completed properties across the <strong>North-West, UK</strong>.</p>
+            <p class="mb-2 ">We specialise in serving <strong>Homebuyers, first time property investors and portfolio extenders</strong> looking for the perfect and most profitable property. LPC Invest’s team has a collective <strong>62 years</strong> of market wide experience to assist you in finding the ideal investment. We have a deep knowledge of the market and its <strong>current trends</strong>.  </p> </div>
       </div>
       <div class="row" data-aos="fade-up">
         <div class="col-12 text-start">
-            <p class="mb-4 " style="font-weight: 700;">Our experienced, dynamic and progressive team will support you in reaching your property investment goals.
-                LPC Invest hold access to the UK's most lucrative and exciting property investment opportunities, all delivered by established and award-winning developers. 
-                Our responsibility is to ultimately relieve investors' decision-making anxiety and assist them from beginning to end, easing property investment complexities.
-                Start your journey with us and get more from your investments.
+            <p class="mb-4">Our <strong>experienced, dynamic and progressive</strong> team will support you in reaching your property investment goals.
+                LPC Invest hold access to the UK's most <strong>lucrative and exciting</strong> property investment opportunities, all delivered by established and <strong>award-winning developers</strong>. 
+                Our responsibility is to ultimately relieve investors' decision-making concern and assist them from start to finish, easing property investment complexities.
+                <span class="d-block pt-2">Start your journey with us and get more from your investments.</span>
                 
             </p>
             <p><a href="/about" class="btn btn-primary text-white py-2 mr-3 cont-sec rounded-0">Learn More</a></p>
@@ -164,8 +157,6 @@
     </div>
   </section>
 <!-- Welcome section End -->
-
-
 
 
 <!-- Featured properties start -->
@@ -180,7 +171,6 @@
                 <div class="title-border-inner"></div>
             </div>
         </div>
-
         <div class="slick row" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
             {%for property in properties %}
             <div class="item" style="font-weight: 700!important;">
@@ -198,13 +188,13 @@
                         {%if property.yields %}
                         <ul class="member-socials clearfix" style="margin:0px;">
                             <li style="font-weight:700 !important;">
-                                <i class="fa fa-info-circle"></i> Net Yields: {{property.yields}}
+                                <i class="fa fa-info-circle"></i> Gross Yields: {{property.yields}}
                             </li>
                         </ul>
                         {%endif%}
                         <ul class="member-socials clearfix d-block" style="margin:0px;">
-                            <li  style="font-weight: bolder;font-weight: 700;">
-                                <span style="color: #00CE8D;font-weight:bolder;font-size: 15px;">From </span> £{{property.price}}
+                            <li  class="text-light px-2 rounded" style="font-weight: bolder;font-weight: 700; background: #00CE8D;">
+                                <span class="text-dark pe-1">From </span> £{{property.price}}
                             </li>
                         </ul>
                         <a href="/properties/{{property.title}}/{{property.id}}" class="read-more-btn">Read More</a>
@@ -219,22 +209,20 @@
         </div>
     </div>
 </div>
-
 <!-- Featured properties end -->
-
 
 <!-- Services start -->
 <div class="services mt-5 bg-light" data-aos="fade-up">
     <div class="container">
         <!-- Main title -->
         <div class="main-title text-center mt-5">
-            <h2 class="heading pt-5">Prosper with <span style="color:#00CE8D">LPC Invest</span></h2>
-            <p style="font-weight:700!important;">Grow a highly profitable property portfolio that delivers steady & regular dividends</p>
+            <h2 class="heading pt-5">Unlock Your Success & <span style="color:#00CE8D"> Thrive With LPC</span></h2>
+            <p style="font-weight:700!important;">Achieve substantial financial gain through the development of a diversified property portfolio that yields consistent and reliable returns.</p>
         </div>
         <div class="row">
             
-            <div class="col-lg-4 col-md-12">
-                <div class="service-info-3 d-flex">
+            <div class="col-lg-4 col-md-12 mb-3">
+                <div class="service-info-3 d-flex h-100">
                     <div class="icon">
                         <i class="flaticon-user"></i>
                     </div>
@@ -249,8 +237,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="service-info-3 d-flex">
+            <div class="col-lg-4 col-md-12 mb-3">
+                <div class="service-info-3 d-flex  h-100">
                     <div class="icon">
                         <i class="flaticon-empire-state-building"></i>
                     </div>
@@ -261,13 +249,12 @@
                         <p style="font-weight:700!important;">
                             Offering completely personalised services for specific goals, LPC Invest tailors the experience to all of its individual clients.
                         </p>                 
-                      
                         <h4 style="font-weight:700!important;">02</h4>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="service-info-3 d-flex">
+            <div class="col-lg-4 col-md-12 mb-3">
+                <div class="service-info-3 d-flex  h-100 ">
                     <div class="icon">
                         <i class="flaticon-discount"></i>
                     </div>
@@ -293,7 +280,7 @@
         <!-- Main title -->
         <!-- Main title -->
         <div class="main-title-5 ">
-            <h2 class="heading pt-0">Most Popular <span style="color:#00CE8D">Places</span></h2>
+            <h2 class="heading pt-0">Top UK<span style="color:#00CE8D">Hotspots</span></h2>
             <div class="title-border">
                 <div class="title-border-inner"></div>
                 <div class="title-border-inner"></div>

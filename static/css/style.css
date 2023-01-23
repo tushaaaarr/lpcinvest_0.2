@@ -3150,7 +3150,8 @@ input[type=checkbox]:checked + label:before {
     height: 100%;
     width: 100%;
     z-index: 0;
-    background: linear-gradient(to top,rgb(30 57 133 / 92%) 0%,rgb(38 57 181 / 35%) 35%,rgba(2, 2, 2, 0) 60%,rgba(0,0,0,0) 100%);
+    /* background: linear-gradient(to top,rgb(30 57 133 / 92%) 0%,rgb(38 57 181 / 35%) 35%,rgba(2, 2, 2, 0) 60%,rgba(0,0,0,0) 100%); */
+    background: linear-gradient(to top,rgba(43, 43, 43, 0.7) 0%,rgba(37, 37, 37, 0.35) 35%,rgba(2, 2, 2, 0) 60%,rgba(0,0,0,0) 100%);
     border-radius: 4px 4px 0 0;
     opacity: 1;
 }
@@ -6295,7 +6296,8 @@ mark {
     z-index: 9;
     border-radius: 10px;
     opacity: 1;
-    background: linear-gradient(0,#181a6ca6,rgb(255 255 255 / 0%));
+    background: linear-gradient(to top,rgba(43, 43, 43, 0.7) 0%,rgba(37, 37, 37, 0.35) 35%,rgba(2, 2, 2, 0) 60%,rgba(0,0,0,0) 100%);
+    /* background: linear-gradient(0,#181a6ca6,rgb(255 255 255 / 0%)); */
 }
 
 .blog-3 p{
@@ -10235,27 +10237,11 @@ margin-top: 30px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
 }
 
-.accordion-button:not(.collapsed)::after {
-    background-image: url(../img/down.png);
-    transform: rotate(-180deg);
-}
-
-.accordion-button::after {
-    flex-shrink: 0;
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-left: auto;
-    content: "";
-    background-image: url(../img/up.png);
-    background-repeat: no-repeat;
-    background-size: 1.25rem;
-    transition: transform .2s ease-in-out;
-}
 
 .faq-accordion .accordion-body {
     padding: 30px 20px;
     background: #fff;
-    border-top: 1px solid rgba(0,0,0,.125);
+    /* border-top: 1px solid rgba(0,0,0,.125); */
 }
 
 .bd-none {

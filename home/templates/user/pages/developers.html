@@ -1,0 +1,92 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} About Us {%endblock title%} {% block css %} 
+{% endblock css %} {% block body %}
+
+
+
+<!-- Banner start -->
+<div class="banner" id="banner">
+  <div id="bannerCarousole" class="carousel slide carousel-fade" data-bs-touch="false" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <div class="bg-dark altCar">
+              <div class="carousel-item active" data-bs-interval="6000">
+                  <img src="/static/img/background-index/1.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="6000">
+                  <img src="/static/img/background-index/2.jpg" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="6000">
+                  <img src="/static/img/background-index/3.jpg" class="d-block " alt="...">
+              </div>
+
+          </div>
+          <div class="carousel-caption d-flex h-100">
+              <div class="carousel-content container">
+                  <div class="text-center bi-3">
+                      <div class="clearfix">
+                          <h3 class="text-capitalize">Developers</h3>
+                      </div>
+                      <div class="clearfix">                
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Banner end -->
+
+
+
+
+
+<!-- Benefits start -->
+<div class="bg-light d-flex align-items-center  justify-content-center py-2">
+<div class="services my-3 py-5" data-aos="fade-up">
+    <div class="container bg-light rounded shadow-lg pt-2 pb-5 px-4 my-5">
+        <!-- Main title -->
+        <div class="main-title text-center mt-2 pb-2">
+            <h2 class="heading fs-1 pt-5"><span style="color:#00CE8D">Developers</span> at LPC Invest </h2>
+            <p class="text-dark py-2">
+                LPC is actively looking to build relationships with residential property developers across the <strong>North West</strong>. 
+                We specialise in taking a <strong>collaborative and proactive</strong> approach to marketing new schemes of any size. 
+            </p>
+            <p class="text-dark py-2">
+                Our marketing team can thoroughly review the plans for the site and your requirements as a developer and create a 
+                <strong>bespoke marketing plan</strong> in line with your expectations. Whether you want a large-scale promotion or something more discreet throughout the direct channel or network of investors, we will agree on a strategy that <strong>suits you</strong>. 
+            </p>
+            <p class="text-dark py-2">
+                Our dynamic sales team will <strong>proactively boost sales</strong> and have the ability to hit ambitious targets and a high volume 
+                of sales. At LPC, the developer can relax in the knowledge that an experienced and trusted team can take on <strong>all aspects</strong> of sales, marketing, and after-sales to ensure all units sold move through to exchange and completion. 
+                We have also created <strong>strong partnerships</strong> with associated third parties needed throughout the property purchase journey, including <strong>mortgage brokers, solicitors, lettings and management, and furniture package providers</strong>.            
+            </p>
+         </div>
+      </div>
+    </div>
+
+  </div>   
+<!-- Benefits end -->
+
+
+<!-- Contact section start -->
+<div data-aos="fade-up" class='mt-1 altContSec'>
+  <div class="container mx-auto contact_section " >
+    <div class="row d-flex justify-content-center px-0" >
+      <div class="col-12">
+        <p class="text-lead text-light text-capitalize" style="font-weight:700">Want to know more?</p>
+        <h2 class="heading pb-4 text-capitalize" style="color:#00CE8D;"><span class="text-light">Contact us</span> today</h3>
+        <div class="d-md-flex d-block gap-3">
+              <a href="tel://+44 7788 258827"> <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-phone px-2"></i>Call Us</button></a>
+              <a href="https://api.whatsapp.com/send?phone=+447788258827&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project" target="_blank">
+                  <button type="button" class="btn p-2 my-2  cont-sec" style="border-radius: 0;"><i class="fa fs-5 fa-whatsapp px-2"></i>Whatsapp</button></a>
+              
+              <a href="mailto:info@lpcinvest.com"><button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-envelope px-2"></i>Email</button></a>
+              <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
+              <button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0;"><i class="fa fs-5 fa-edit px-2"></i>Appointment</button></a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact section End -->
+
+{%endblock body%} {% block script %} {% endblock script %}

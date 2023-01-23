@@ -162,6 +162,9 @@ def community(request):
 
 def error(request):
     return render(request,'user/pages/error.html')
+    
+def developers(request):
+    return render(request,'user/pages/developers.html')    
 
 def property(request):
     return HttpResponse('property Page....')

@@ -3,45 +3,57 @@
 {% endblock css %} 
 {% block body %}
 
-<div class="banner" id="banner">
+<div class="banner" id="banner">  
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
           <div class="carousel-item item-bg active">
-              <img class="d-block w-100 h-100 ratioCar" src="{% static 'img/team/1.jpg' %}" alt="banner">
+              <img class="d-block w-100 h-100 ratioCar ratioCar" src="{% static 'img/team/3.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
                       <div class="text-l text-center">
-                          <h3 class="text-uppercase">LPC in the Community</h3>
+                        <h3 class="text-uppercase">LPC in the Community <span class="fs-4 d-block text-light py-2 text-capitalize">Supporting our local community and its future</span></h3>
                       </div>
                   </div>
               </div>
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100 ratioCar" src="{% static 'img/team/2.jpg' %}" alt="banner">
+              <img class="d-block w-100 h-100 ratioCar ratioCar" src="{% static 'img/team/5.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                   <div class="carousel-content container align-self-center">
                     <div class="banner-info2">
                       <div class="text-l text-center">
-                          <h3 class="text-uppercase">LPC in the Community</h3>
+                        <h3 class="text-uppercase">LPC in the Community <span class="fs-4 d-block text-light py-2 text-capitalize">Supporting our local community and its future</span></h3>
                       </div>
                   </div>
                   </div>
               </div>
           </div>
           <div class="carousel-item item-bg">
-              <img class="d-block w-100 h-100 ratioCar" src="{% static 'img/team/3.jpg' %}" alt="banner">
+              <img class="d-block w-100 h-100 ratioCar ratioCar" src="{% static 'img/team/4.jpg' %}" alt="banner">
               <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
                 <div class="carousel-content container align-self-center">
                   <div class="banner-info2">
                     <div class="text-l text-center">
-                        <h3 class="text-uppercase">LPC in the Community</h3>
+                      <h3 class="text-uppercase">LPC in the Community <span class="fs-4 d-block text-light py-2 text-capitalize">Supporting our local community and its future</span></h3>
                     </div>
                 </div>
                 </div>
               </div>
           </div>
+          <div class="carousel-item item-bg">
+            <img class="d-block w-100 h-100 ratioCar ratioCar" src="{% static 'img/team/6.jpg' %}" alt="banner">
+            <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
+              <div class="carousel-content container align-self-center">
+                <div class="banner-info2">
+                  <div class="text-l text-center">
+                    <h3 class="text-uppercase">LPC in the Community <span class="fs-4 d-block text-light py-2 text-capitalize">Supporting our local community and its future</span></h3>
+                  </div>
+              </div>
+              </div>
+            </div>
+        </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="top:45%">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -52,9 +64,7 @@
           <span class="visually-hidden">Next</span>
       </button>
   </div>
- 
 </div>    
-
 
 
 
@@ -66,21 +76,27 @@
           <h2 class="heading fs-1 pt-5 ">LPC in the <span style="color:#00CE8D">Community</span></h2>
       </div>
       <div class="row ">
-        <div class="col-12 col-lg-5 p-5 d-flex align-items-center"> 
-          <img src="/static/img/community.svg" class="w-100">
+        <div class="col-12 col-lg-5 p-2 d-flex align-items-start"> 
+          <a href="https://www.facebook.com/EcclesRugby">
+            <img src="/static/img/community.jpg" class="w-100"/>
+          </a>
         </div>
         <div class="col-12 col-lg-7">
 
           <p class="text-lead fw-bold">
-            At LPC Invest we believe that supporting our local community is essential, we work to give back to the communities that helped raise/nurture our values and mission. We are forever inspired by the drive within our community and colleagues. And so, we want to share some of the ways in which we have been supporting our partners.
+            At LPC Invest we believe that <strong>supporting</strong> our local community is essential, we work to give back to the communities that helped nurture our values and mission. We are forever inspired by the drive within our community and colleagues. And so, we want to share some of the ways in which we have been <strong>supporting our partners</strong>.
           </p>
-          <div class="shadow p-5 my-3 d-flex gap-2">
-            <p class="text-dark">
-              <span class="h5 d-block fw-bold">Supporting (The Dreams/The Future Of) Young People </span>
-              We have recently sponsored Eccles Rugby Clubs junior division, supporting the future stars of the sporting world.  
-              Home grown since 1897, Eccles RFC are a ambitious, progressive, inclusive community club. Who pride themsleves on offering Rugby for all. Creating an avenue through which the sport can be accessed is something the LPC Invest team believes in and something Eccles RFC upholds. LPC Invest share the ambition and passion of Eccles RFC and will continue to support their growth in the years to come. 
-              Through our partnership LPC Invest helps to maintain the facilities, keep the gates open and keep the pitches cut.
-              See their amazing work for yourself - https://eccles.rfu.club/sponsors
+          <div class="shadow p-5 my-3 d-flex gap-2 rounded" style="background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(/static/img/community1.png)no-repeat center ;">
+            <p class="text-light">
+              <span class="h5 d-block fw-bold">Supporting The Future Of Salford's Young People</span>
+
+              We have recently sponsored <strong class="text-light">Eccles Rugby Clubs Junior Division</strong>, supporting the future stars of the sporting world. 
+              Homegrown since <strong class="text-light">1897</strong>, Eccles RFC is an ambitious, progressive, inclusive community club. Who pride themselves on offering Rugby for all.
+              <span class="py-3 d-block text-light">
+                Creating an avenue through which the sport can be accessed is something the LPC Invest team believes in and something Eccles RFC upholds. 
+                LPC Invest share the <strong class="text-light"> and passion</strong> of Eccles RFC and will continue to support their growth in the years to come. Through our partnership LPC Invest helps to maintain the facilities, keep the gates open and keep the pitches cut. 
+              </span>
+                See their amazing work for yourself - <a href="https://eccles.rfu.club/sponsors" class="btn cont-sec rounded">Click Here!</a>
             </p>
           </div>
 
