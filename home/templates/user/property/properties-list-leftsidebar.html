@@ -158,7 +158,7 @@
             <div class="m-border"></div>
             <form method="GET" action="/all-properties">
               <div class="form-group">
-                <select class="selectpicker search-fields" name="status">
+                <select class="selectpicker search-fields" name="status" >
                   <option value="all">Development Status</option>
                   {%if properties_data.selected_status == "Completed"%}
                   <option value="Completed" selected>Completed</option>
@@ -173,7 +173,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <select class="selectpicker search-fields" name="type">
+                <select class="selectpicker search-fields" name="type" >
                   <option value="all_type">Property Type</option>
                   {%if properties_data.selected_type == "cash_only"%}
                   <option value="{{cash_only}}" selected>Cash only</option>
@@ -195,7 +195,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <select class="selectpicker search-fields" name="location">
+                <select class="selectpicker search-fields" name="location" >
                   <option value="City">All Cities</option>
                   {%for city in common_properties_data.cities%} 
                   {%if properties_data.selected_city == city%}
@@ -209,7 +209,7 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
-                    <select class="selectpicker search-fields" name="bedrooms">
+                    <select class="selectpicker search-fields" name="bedrooms" >
                       <option>Bedrooms</option>
 
                       {%if properties_data.selected_bedrooms == "1"%}
@@ -275,7 +275,7 @@
                 </div>
               </div>
 
-              <div class="range-slider clearfix form-group mb-30">
+              <div class="range-slider clearfix form-group mb-30" >
                 <label>Price</label>
                 <div
                   data-min="0"
@@ -283,8 +283,9 @@
                   data-min-name="min_price"
                   data-max-name="max_price"
                   data-unit="£"
-                  class="range-slider-ui ui-slider"
+                  class="range-slider-ui ui-slider pslide"
                   aria-disabled="false"
+                
                 ></div>
                 <div class="clearfix"></div>
               </div>
@@ -297,7 +298,7 @@
                   data-min-name="min_deposit"
                   data-max-name="max_deposit"
                   data-unit="£"
-                  class="range-slider-ui ui-slider"
+                  class="range-slider-ui ui-slider dslide"
                   aria-disabled="false"
                 ></div>
                 <div class="clearfix"></div>
@@ -587,7 +588,7 @@
                     data-min-name="min_price"
                     data-max-name="max_price"
                     data-unit="£"
-                    class="range-slider-ui ui-slider"
+                    class="range-slider-ui ui-slider pslide"
                     aria-disabled="false"
                   ></div>
                   <div class="clearfix"></div>
@@ -601,7 +602,7 @@
                     data-min-name="min_deposit"
                     data-max-name="max_deposit"
                     data-unit="£"
-                    class="range-slider-ui ui-slider"
+                    class="range-slider-ui ui-slider dslide"
                     aria-disabled="false"
                   ></div>
                   <div class="clearfix"></div>
@@ -675,6 +676,9 @@
           <div class="nobottomborder">
             <h1 style="color: #00ce8d">
               It seems we can't find what you're looking for.!
+              {%for property in properties %}
+              <h1>{{property}</h1>
+              {%endfor%}
             </h1>
             <div class="row">
               <div class="col-lg-5 col-md-5">
@@ -709,6 +713,7 @@
                     </div>
                     {%endif%}
                     <div class="price-box px-2  rounded" style="font-weight: 700">
+                      
                       <span class="text-dark">From</span> £{{property.price}}
                     </div>
                   </a>
@@ -867,6 +872,46 @@
       $("#grid_view_div").hide();
     }
   });
+
+
+  function check(){
+    console.log("*********");
+    console.log(document.min-value.value);
+    // console.log(event.target.name);
+  }
+
+
+$( document ).ready(function() {
+    
+    let params = new URLSearchParams(location.search);
+    let minPrice = parseInt(params.get('min_price')==null?0:params.get('min_price'));
+    let maxPrice = parseInt(params.get('max_price')==null?1000000:params.get('max_price'));
+    let maxDepo = parseInt(params.get('max_deposit')==null?1000000:params.get('max_deposit'));
+    let minDepo = parseInt(params.get('min_deposit')==null?0:params.get('min_deposit'));
+    let featuresList = params.get('features_list').split(',')
+    
+    // Price slider state preserve
+    $( ".pslide" ).slider("values",[minPrice,maxPrice]);  
+    $( ".pslide .min-value" ).html(minPrice);
+    $( ".pslide .max-value" ).html(maxPrice);
+    $("input[name='min_price']").val(minPrice);
+    $("input[name='max_price']").val(maxPrice);
+    
+    console.log(featuresList);
+    // Deposit slider state preserve
+
+    $( ".dslide" ).slider("values",[minDepo,maxDepo]);
+    $( ".dslide .min-value" ).html(minDepo);
+    $( ".dslide .max-value" ).html(maxDepo);
+    $("input[name='min_deposit']").val(minDepo);
+    $("input[name='max_deposit']").val(maxDepo);
+    let allF = $("input[name='feature']");
+    jQuery.map(allF, function(ini) { 
+      featuresList.includes(ini.value)?ini.checked=true:ini.checked=false;
+      });  
+});
+
+
 </script>
 
 
