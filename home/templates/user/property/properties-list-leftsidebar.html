@@ -333,8 +333,8 @@
 
                       {%for feature in common_properties_data.feature_list%}
                       <div class="checkbox checkbox-theme checkbox-circle">
-                        <input id="feature_{{feature.id}}"type="checkbox"name="feature"value="{{feature}}"/>
-                        <label for="feature_{{feature.id}}">
+                        <input id="feature_{{feature.id}}" class="form-check-input" type="checkbox"name="feature"value="{{feature}}"/>
+                        <label class="form-check-label" for="feature_{{feature.id}}">
                           {{feature}}
                         </label>
                       </div>
@@ -640,12 +640,13 @@
                         {%for feature in common_properties_data.feature_list%}
                         <div class="checkbox checkbox-theme checkbox-circle">
                           <input
-                            id="feature_{{feature.id}}"
+                            id="feature_{{feature.id}}-sm"
                             type="checkbox"
-                            name="feature"
+                            name="feature2"
                             value="{{feature}}"
+                            class="form-check-input"
                           />
-                          <label for="feature_{{feature.id}}">
+                          <label for="feature_{{feature.id}}-sm" class="form-check-label">
                             {{feature}}
                           </label>
                         </div>
@@ -658,10 +659,10 @@
                   type="hidden"
                   name="features_list"
                   value=""
-                  id="features_list"
+                  id="features_list2"
                 />
                 <div class="form-group mb-0">
-                  <button class="btn rounded-0 cont-sec" id="FilterButton">
+                  <button class="btn rounded-0 cont-sec" id="FilterButton2">
                     Search
                   </button>
                 </div>
@@ -856,8 +857,21 @@
         dt.push($(this).val());
       });
       document.getElementById("features_list").value = dt;
+      
     });
   });
+
+  $(document).ready(function () {
+    $("#FilterButton2").click(function () {
+      var dt2 = [];
+      $.each($("input[name='feature2']:checked"), function () {
+        dt2.push($(this).val());
+      });
+     
+      document.getElementById("features_list2").value = dt2;
+    });
+  });
+
 
   $(".change-view-btn").on("click", function (e) {
     if (this.id == "grid_view") {
@@ -908,7 +922,11 @@ $( document ).ready(function() {
     let allF = $("input[name='feature']");
     jQuery.map(allF, function(ini) { 
       featuresList.includes(ini.value)?ini.checked=true:ini.checked=false;
-      });  
+      });
+    let allF2 = $("input[name='feature2']");
+    jQuery.map(allF2, function(ini) { 
+      featuresList.includes(ini.value)?ini.checked=true:ini.checked=false;
+    });  
 });
 
 
