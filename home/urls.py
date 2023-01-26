@@ -7,6 +7,7 @@ urlpatterns = [
     path('about',views.about,name='about'),
     path('about/community',views.community,name='community'),
     path('about/developers',views.developers,name='developers'),
+    path('cityguide',views.cityguide,name='cityguide'),
     # Property
     path('all-properties',views.property_listing,name='properties'),
     path('properties-map',views.property_listing_map,name='property_listing_map'),

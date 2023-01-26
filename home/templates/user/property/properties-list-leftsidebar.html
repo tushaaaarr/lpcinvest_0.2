@@ -888,11 +888,6 @@
   });
 
 
-  function check(){
-    console.log("*********");
-    console.log(document.min-value.value);
-    // console.log(event.target.name);
-  }
 
 
 $( document ).ready(function() {
@@ -911,9 +906,7 @@ $( document ).ready(function() {
     $("input[name='min_price']").val(minPrice);
     $("input[name='max_price']").val(maxPrice);
     
-    console.log(featuresList);
     // Deposit slider state preserve
-
     $( ".dslide" ).slider("values",[minDepo,maxDepo]);
     $( ".dslide .min-value" ).html(minDepo);
     $( ".dslide .max-value" ).html(maxDepo);
