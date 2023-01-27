@@ -698,13 +698,13 @@ $(function () {
 
 
 
-    // Dropzone initialization
-    Dropzone.autoDiscover = false;
-    $(function () {
-        $("div#myDropZone").dropzone({
-            url: "/file-upload"
-        });
-    });
+    // // Dropzone initialization
+    // Dropzone.autoDiscover = false;
+    // $(function () {
+    //     $("div#myDropZone").dropzone({
+    //         url: "/file-upload"
+    //     });
+    // });
 
     // Filterizr initialization
     $(function () {
