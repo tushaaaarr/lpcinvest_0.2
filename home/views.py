@@ -95,14 +95,14 @@ def clean_property_data(property,user_id= None):
     return properties_dict
     
 def home_page(request): 
-    properties = Properties.objects.all()[:5]
+    properties = Properties.objects.all()[:3]
     cleaned_properties = []
     for property_ in properties:
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
     # team_members = TeamMembers.objects.all()[::-1][:3]
     blog_list = []
-    blogs = Blogs.objects.all()[:5]
+    blogs = Blogs.objects.all()[:3]
     for blog in blogs:
         blog.desc = blog.desc[:50]
         blog.read_time = readtime.of_text(blog.content)
