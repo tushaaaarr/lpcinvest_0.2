@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="utf-8" />
   <!-- <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> -->
+  <link rel="stylesheet" href="{%static 'richtexteditor/rte_theme_default.css' %}" />
+
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/bootstrap-submenu.css' %}" />
@@ -231,7 +233,7 @@
 
   {%endif%}
 <!-- Main header start -->
-<header class="main-header sticky-header header-with-top2" id="main-header-2">
+<header class="main-header sticky-header header-with-top2 mx-0" id="main-header-2">
   <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light">
           <a class="navbar-brand logos" href="/">
@@ -250,9 +252,9 @@
 
 
   <!-- Dashbord start -->
-  <div class="dashboard">
+  <div class="dashboard mx-0">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row mx-0">
         <div class="dashboard-nav">
           <div class="dashboard-inner">
             <h4>Main</h4>
@@ -371,7 +373,16 @@ $.ajax({ url: 'get-favorited-properties',
                             });
 });
 
+</script>
 
+<script type="text/javascript" src="{% static 'richtexteditor/rte.js' %}"></script>
+<script>RTE_DefaultConfig.url_base='richtexteditor'</script>
+<script type="text/javascript" src="{% static 'richtexteditor/plugins/all_plugins.js' %}"></script>
+<script>
+  var editor1cfg = {}
+  editor1cfg.toolbar = "custom";
+  editor1cfg.skin = "grey";
+  var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
 </script>
 
 </body>
