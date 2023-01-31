@@ -698,13 +698,17 @@ $(function () {
 
 
 
-    // // Dropzone initialization
-    // Dropzone.autoDiscover = false;
-    // $(function () {
-    //     $("div#myDropZone").dropzone({
-    //         url: "/file-upload"
-    //     });
-    // });
+    // Dropzone initialization
+    Dropzone.autoDiscover = true;
+    $(function () {
+        $("#myDropZone").dropzone({
+            url: "/",
+            addRemoveLinks: true,
+            dictRemoveFile: "X"
+
+        });
+       
+    });
 
     // Filterizr initialization
     $(function () {

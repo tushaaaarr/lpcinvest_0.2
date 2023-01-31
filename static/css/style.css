@@ -710,6 +710,9 @@ button:focus {
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     border-radius: 3px;
 } */
+  #page_scroller{
+    display: none!important;
+  }
 
 .margin-t-10 {
     margin-top: 10px;
@@ -10435,11 +10438,25 @@ margin-top: 30px;
 
 .dropzone-design .dz-preview .dz-remove {
     font-size: 14px;
+    position:absolute;
+    top:-25%;
+    left:-15%;
+    height: 30px;
+    width: 30px;
+    background: #ff2e2e;
+    color:white;
+    font-weight: 900;
+    border-radius: 100%;
+    z-index: 999;
     text-align: center;
     display: block;
     cursor: pointer;
-    border: none;
 }
+.dropzone-design .dz-preview .dz-remove:hover {
+   text-decoration: none!important;
+   color:white;
+}
+
 
 .dropzone-design .dz-preview .dz-remove:hover {
     text-decoration: underline;
