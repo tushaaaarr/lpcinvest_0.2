@@ -894,6 +894,12 @@ li.active.btn.filtr-button.filtr {
 .dashboard-nav ul li a:hover {
     color: #00CE8D;
 }
+.dashboard-nav ul li a:active {
+    color: #00CE8D!important;
+}
+.dashboard-nav ul li .active {
+    color: #00CE8D!important;
+}
 
 .photoUpload span {
     color: #fff;

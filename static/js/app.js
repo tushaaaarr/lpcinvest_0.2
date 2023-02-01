@@ -699,16 +699,29 @@ $(function () {
 
 
     // Dropzone initialization
-    Dropzone.autoDiscover = true;
-    $(function () {
-        $("#myDropZone").dropzone({
-            url: "/",
-            addRemoveLinks: true,
-            dictRemoveFile: "X"
+    // Dropzone.autoDiscover = true;
+    // $(function () {
+    //     $("#myDropZone").dropzone({
+    //         url: "/submit-property",
+    //         autoProcessQueue: false,
+    //         addRemoveLinks: true,
+    //         dictRemoveFile: "X",
+    //         uploadMultiple: true,
+    //         paramName: 'files',
+    //     });
+        
+    //    console.log("drop trig")
+    // });
 
-        });
-       
-    });
+    // $("#subprop").submit(function (e) {
+    //     e.preventDefault();
+    //     console.log(e.target);
+    //     console.log($("#myDropZone").files);
+
+    //   });
+      
+
+
 
     // Filterizr initialization
     $(function () {

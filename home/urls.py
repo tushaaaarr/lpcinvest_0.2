@@ -54,6 +54,7 @@ urlpatterns = [
     path('my-properties',views.my_properties,name="my_properties"),
     path('monthly-offers',views.monthly_offers,name="monthly_offers"),
     path('submit-property',views.submit_property,name='submit_property'),
+    path('submit-property/addblog',views.addblog,name='addblog'),
     path('construction-updates',views.property_updates,name="property_updates"),
     path('construction-updates/<str:property_name>',views.construction_update_view,name='construction-updates-view'),
 

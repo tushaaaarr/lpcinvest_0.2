@@ -118,6 +118,10 @@ def updated_index(request):
 def about(request):
     team_members = TeamMembers.objects.all()[::-1][:3]
     return render(request,'user/about_us.html',{'team_members':team_members})
+def addblog(request):
+    page_data={}
+    page_data['is_addblog'] = 'active'
+    return render(request,'user/dashboard/addblog.html')    
 
 def community(request):    
     return render(request,'user/community.html')    
@@ -784,7 +788,6 @@ def submit_property(request):
         query['price'] = request.POST.get('price', "")
         query['features_list'] = request.POST.get('features_list', "")
         query['features_list'] = [x for x in query['features_list'].split(',')]
-
     page_data['is_submit'] = 'active'
     return render(request,'user/dashboard/submit_property.html',{"page_data":page_data})
 

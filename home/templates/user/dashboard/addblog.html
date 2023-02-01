@@ -1,0 +1,95 @@
+{% extends './basic.html' %} {% block title %} Exclusive Properties {{page_data.page_name}} 
+{% endblock title%} 
+{%block body %}
+
+<div class="dashboard-content">
+  <div class="dashboard-header clearfix">
+    <div class="row mx-0">
+      <div class="col-sm-12 col-md-5">
+        <h4>Add Blog</h4>
+      </div>
+      <div class="col-sm-12 col-md-7">
+        <div class="breadcrumb-nav">
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/profile">Profile Dashboard</a>
+            </li>
+            <li class="active">Add Blog</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submit-address dashboard-list">
+    <form method="POST" enctype="multipart/form-data" >
+      {%csrf_token%}
+
+
+      <h4 class="bg-grea-3">Title</h4>
+      <div class="row pad-20 mx-0">
+        <div class="col-lg-12">
+        <div id="div_editor1">
+          <p></p>
+        </div>
+        </div>
+      </div>
+
+
+      <h4 class="bg-grea-3">Content</h4>
+      <div class="row pad-20 mx-0">
+        <div class="col-lg-12">
+        <div id="div_editor2">
+          <p></p>
+        </div>
+        </div>
+      </div>
+
+      <h4 class="bg-grea-3">Description</h4>
+      <div class="row pad-20 mx-0">
+          <div class="form-group message">
+            <textarea name="description" class="form-control" rows="3" placeholder="Description"></textarea>
+          </div>
+        </div>
+      
+
+
+      <div class="col-lg-8 col-12">
+        <div class="form-group d-flex justify-content-start gap-4 align-items-center">
+          <label>City</label>
+          <select class="selectpicker search-fields" name="city">
+            {%for city in common_properties_data.cities%}
+            <option value="{{city}}" selected>{{city}}</option>
+            {%endfor%}
+          </select>
+        </div>
+      </div>
+
+
+      <h4 class="bg-grea-3">Add Images (Max 2)</h4>
+      <div class="row pad-20 mx-0">
+          <div class="col-lg-12">
+            <input class="form-control form-control-lg" id="formFileLg" type="file" name="files">
+            <!-- <div id="myDropZone" class="dropzone dropzone-design"  name="files">
+                <input type="file" name="files"/>
+                  <div class="dz-default dz-message"><span>Drop images or click here to upload</span></div>
+              </div> -->
+          </div>
+      </div>
+ 
+      </div>
+        <div class="col-sm-12 text-center">
+          <button type="submit" class="btn-6">Submit Blog</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p class="sub-banner-2 text-center">© 2022 LPC Invest Limited.</p>
+</div>
+
+
+
+
+{% endblock body %}

@@ -255,6 +255,41 @@
   <div class="dashboard mx-0">
     <div class="container-fluid">
       <div class="row mx-0">
+        {%if '/submit-property' in request.path %}
+        <div class="dashboard-nav">
+          <div class="dashboard-inner">
+            <h4>Main</h4>
+            <ul>
+              <li {%if request.path == '/submit-property' %} class="active" {%endif%}>
+                <a href="/submit-property"><i class="fa fa-home"></i> Submit Property</a>
+              </li>
+            </ul>
+            <h4>Blogs</h4>
+            <ul>
+            
+              <li {%if request.path == '/submit-property/addblog' %} class="active" {%endif%}>
+                <a href="/submit-property/addblog"><i class="flaticon-heart"></i>Add Blogs</a>
+              </li>
+              <!-- <li class="{{page_data.is_exclusive_properties}}">
+                <a href="/exclusive-properties"><i class="flaticon-bill"></i>Exclusive Properties</a>
+              </li>
+              <li class="{{page_data.is_offers}}">
+                <a href="/monthly-offers"><i class="flaticon-discount"></i>Offers</a>
+              </li> -->
+             
+            </ul>
+            <h4>Account</h4>
+            <ul>
+              <li class="{{page_data.is_profile}}">
+                <a href="/profile"><i class="flaticon-male"></i>My Profile</a>
+              </li>
+              <li>
+                <a href="/logout"><i class="flaticon-logout"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {%else%}
         <div class="dashboard-nav">
           <div class="dashboard-inner">
             <h4>Main</h4>
@@ -277,6 +312,14 @@
               </li>
              
             </ul>
+
+            <h4>Submit Property</h4>
+            <ul>
+              <li>
+                <a href="/submit-property"><i class="fa fa-home"></i> Submit Property</a>
+              </li>
+            </ul>
+
             <h4>Account</h4>
             <ul>
               <li class="{{page_data.is_profile}}">
@@ -288,6 +331,8 @@
             </ul>
           </div>
         </div>
+        
+        {%endif%}
 
 
     
@@ -383,6 +428,7 @@ $.ajax({ url: 'get-favorited-properties',
   editor1cfg.toolbar = "custom";
   editor1cfg.skin = "grey";
   var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
+  var editor2 = new RichTextEditor("#div_editor2", editor1cfg);
 </script>
 
 </body>

@@ -2,6 +2,9 @@
  {% block title %} Properties{% endblock title%} {% block css %}
 
 <style>
+  .filter-option-inner-inner{
+    text-transform: capitalize!important;
+  }
   .aCls {
     color: #00ce8d !important;
     text-transform: capitalize !important;
@@ -195,13 +198,13 @@
                 </select>
               </div>
               <div class="form-group">
-                <select class="selectpicker search-fields" name="location" >
-                  <option value="City">All Cities</option>
+                <select class="selectpicker search-fields" name="location" class="text-capitalize">
+                  <option value="City" class="text-capitalize"  >all Cities</option>
                   {%for city in common_properties_data.cities%} 
                   {%if properties_data.selected_city == city%}
-                  <option value="{{city}}" selected>{{city}}</option>
+                  <option value="{{city}}" class="text-capitalize" selected>{{city}}</option>
                   {%else %}
-                  <option value="{{city}}">{{city | title}}</option>
+                  <option value="{{city}}" class="text-capitalize">{{city | title}}</option>
                   {%endif%}
                   {%endfor%}
                 </select>
