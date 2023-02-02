@@ -773,7 +773,7 @@ def submit_property(request):
     page_data = {}
     if request.method =="POST":
         query = {}
-        query['images'] = request.FILES.get('files', "")
+        query['images'] = request.FILES.getlist('files', "")
         query['propery_images'] = request.POST.getlist('files', "")
         query['title'] = request.POST.get('title', "")
         query['status'] = request.POST.getlist('status', "")

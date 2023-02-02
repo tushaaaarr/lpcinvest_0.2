@@ -377,6 +377,12 @@
   <script type="text/javascript" src="{% static 'js/boxes-component.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/boxes-core.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/maps.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'richtexteditor/rte.js' %}"></script>
+<script>RTE_DefaultConfig.url_base='richtexteditor'</script>
+<script type="text/javascript" src="{% static 'richtexteditor/plugins/all_plugins.js' %}"></script>
+
+
   <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -420,15 +426,14 @@ $.ajax({ url: 'get-favorited-properties',
 
 </script>
 
-<script type="text/javascript" src="{% static 'richtexteditor/rte.js' %}"></script>
-<script>RTE_DefaultConfig.url_base='richtexteditor'</script>
-<script type="text/javascript" src="{% static 'richtexteditor/plugins/all_plugins.js' %}"></script>
+
 <script>
-  var editor1cfg = {}
-  editor1cfg.toolbar = "custom";
-  editor1cfg.skin = "grey";
-  var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
-  var editor2 = new RichTextEditor("#div_editor2", editor1cfg);
+  
+
+
+  // console.log(editor1.getHTMLCode());
+
+  // var editor2 = new RichTextEditor("#div_editor2", editor1cfg);
 </script>
 
 </body>

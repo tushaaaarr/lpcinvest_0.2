@@ -702,7 +702,7 @@ $(function () {
     // Dropzone.autoDiscover = true;
     // $(function () {
     //     $("#myDropZone").dropzone({
-    //         url: "/submit-property",
+    //         url: "submit-property",
     //         autoProcessQueue: false,
     //         addRemoveLinks: true,
     //         dictRemoveFile: "X",
@@ -710,15 +710,43 @@ $(function () {
     //         paramName: 'files',
     //     });
         
-    //    console.log("drop trig")
+       
     // });
 
-    // $("#subprop").submit(function (e) {
-    //     e.preventDefault();
-    //     console.log(e.target);
-    //     console.log($("#myDropZone").files);
 
-    //   });
+    var editor1cfg = {}
+    editor1cfg.toolbar = "custom";
+    editor1cfg.skin = "grey";
+    var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
+
+    $("#subprop").submit(function (e) {
+        e.preventDefault();
+        // console.log(e.target);
+        // console.log($("#myDropZone").files);
+        console.log(editor1.getHTMLCode());
+
+        const FD = new FormData(document.getElementById('subprop'));
+        let formData = new FormData();    //formdata object
+        
+        
+
+        // var dpzone= document.getElementById('myDropZone')
+        FD.append('message',editor1.getHTMLCode());
+        // console.log([...FD.entries()]);
+        // console.log([...FD.entries()]);
+
+        // dpzone.processQueue()
+
+        const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        }
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('POST','submit-property',true);
+        // xhttp.setRequestHeader("Content-type", "multipart/form-data");
+        xhttp.send(FD);
+        
+      });
       
 
 
