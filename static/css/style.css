@@ -13366,11 +13366,11 @@ margin-top: 30px;
 .altContSec{
     margin-top: 50px;
     margin-bottom:50px;
-    height:100vh;
+    height:70vh;
     display:flex;
     align-items:center;
     box-shadow:0 0 10px rgba(0,0,0,0.2);
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../media/media/1.1.jpg') ;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../static/img/img-1.jpg') ;
     background-position: center;
     background-attachment: fixed!important;
     background-size:cover !important;
