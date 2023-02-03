@@ -179,19 +179,19 @@
                 <select class="selectpicker search-fields" name="type" >
                   <option value="all_type">Property Type</option>
                   {%if properties_data.selected_type == "cash_only"%}
-                  <option value="{{cash_only}}" selected>Cash only</option>
+                  <option value="{{cash_only}}" selected>Cash Only</option>
                   <option value="buy_to_let">Buy to Let</option>
                   <option value="buy_to_live">Buy to Live</option>
                   {%elif properties_data.selected_type == "buy_to_let" %}
                   <option value="{{buy_to_let}}" selected>Buy to Let</option>
-                  <option value="cash_only">Cash only</option>
+                  <option value="cash_only">Cash Only</option>
                   <option value="buy_to_live">Buy to Live</option>
                   {%elif properties_data.selected_type == "buy_to_live" %}
                   <option value="{{buy_to_live}}" selected>Buy to Live</option>
-                  <option value="cash_only">Cash only</option>
+                  <option value="cash_only">Cash Only</option>
                   <option value="buy_to_let">Buy to Let</option>
                   {%else%}
-                  <option value="cash_only">Cash only</option>
+                  <option value="cash_only">Cash Only</option>
                   <option value="buy_to_let">Buy to Let</option>
                   <option value="buy_to_live">Buy to Live</option>
                   {%endif%}
@@ -433,12 +433,6 @@
                   >
                     Newest Properties
                   </option>
-                  <option
-                    value="oldest_property"
-                    {{properties_data.is_oldest_property}}
-                  >
-                    Oldest Properties
-                  </option>
                 </select>
               </div>
             </div>
@@ -477,21 +471,21 @@
                   <select class="selectpicker search-fields" name="type">
                     <option value="all_type">Property Type</option>
                     {%if properties_data.selected_type == "cash_only"%}
-                    <option value="{{cash_only}}" selected>Cash only</option>
+                    <option value="{{cash_only}}" selected>Cash Only</option>
                     <option value="buy_to_let">Buy to Let</option>
                     <option value="buy_to_live">Buy to Live</option>
                     {%elif properties_data.selected_type == "buy_to_let" %}
                     <option value="{{buy_to_let}}" selected>Buy to Let</option>
-                    <option value="cash_only">Cash only</option>
+                    <option value="cash_only">Cash Only</option>
                     <option value="buy_to_live">Buy to Live</option>
                     {%elif properties_data.selected_type == "buy_to_live" %}
                     <option value="{{buy_to_live}}" selected>
                       Buy to Live
                     </option>
-                    <option value="cash_only">Cash only</option>
+                    <option value="cash_only">Cash Only</option>
                     <option value="buy_to_let">Buy to Let</option>
                     {%else%}
-                    <option value="cash_only">Cash only</option>
+                    <option value="cash_only">Cash Only</option>
                     <option value="buy_to_let">Buy to Let</option>
                     <option value="buy_to_live">Buy to Live</option>
                     {%endif%}
