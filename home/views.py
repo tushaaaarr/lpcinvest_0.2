@@ -905,3 +905,5 @@ def privacy_policy(request):
 def terms_conditions(request):
     return render(request,'user/terms_conditions.html')
 
+def landing_page_home(request):
+    return render(request,'landing_page/index.html')
