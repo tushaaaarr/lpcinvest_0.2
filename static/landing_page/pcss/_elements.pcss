@@ -1,0 +1,97 @@
+a {
+  color: $color-black; transition: .3s color ease, .3s background-color ease, .3s box-shadow ease;
+  &:hover, &:focus, &:active {
+    outline: none !important; text-decoration: none;
+  }
+  &:hover {
+    color: inherit;
+  }
+  &.icon {
+    i {
+      color: $color-default; margin-right: 1rem; font-size: 1.2rem;
+    }
+  }
+  i {
+    margin-left: .5rem; margin-right: .5rem;
+  }
+  .appendix {
+    opacity: .4; margin-left: .5rem;
+  }
+  &.link {
+    color: $color-default;
+  }
+  &.nav-link {
+    &.active {
+      color: $color-default;
+      i {
+        color: $color-default; opacity: 1;
+      }
+    }
+    i {
+      color: inherit; opacity: .3;
+    }
+  }
+}
+
+body, html {
+  height: 100%; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; font-weight: 400; position: relative;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem; overflow-x: hidden; line-height: 3rem;
+  &.mfp-zoom-out-cur {
+    overflow-y: hidden;
+  }
+}
+
+dl {
+  margin-bottom: 1rem;
+  dt {
+    float: left; padding: .2rem 0;
+  }
+  dd {
+    text-align: right; padding: .2rem 0;
+  }
+}
+
+h1 {
+  font-size: 6rem; margin-bottom: 3rem; margin-top: 1rem; font-weight: 600;
+}
+h2 {
+  font-size: 5.6rem; margin-bottom: 4rem; padding-top: 1rem; font-weight: 600;
+}
+h3 {
+  font-size: 4.2rem; margin-bottom: 2rem;
+}
+h4 {
+  font-size: 2.4rem; font-weight: 600; margin-bottom: 2.4rem;
+}
+h5 {
+  margin-bottom: 1rem; font-size: 2rem; font-weight: 600;
+}
+
+hr {
+  border-top-width: .2rem; margin-top: 3rem; margin-bottom: 3rem;
+  &.skewed {
+    transform: rotate(-2deg);
+  }
+}
+mark, .mark {
+  background-color: #ffdc23;
+}
+
+p {
+  opacity: .65; margin-bottom: 3rem;
+}
+
+section {
+  position: relative;
+}
+
+ul, ol {
+  line-height: 3.2rem;
+}

@@ -1,0 +1,180 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 1200px and up
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media (min-width: 1200px) {
+
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 992px - 1199px
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media (min-width: 992px) and (max-width: 1199px) {
+  h1 {
+    font-size: 4.2rem; margin-top: 0;
+  }
+  h2 {
+    font-size: 3.8rem;
+  }
+  h3 {
+    font-size: 2.4rem;
+  }
+  h4 {
+    font-size: 2.2rem;
+  }
+  body {
+    font-size: 1.4rem; line-height: 2.4rem;
+  }
+  .block {
+    padding-top: 6rem; padding-bottom: 6rem;
+  }
+  .box {
+    &.box--image {
+      .box__content {
+        padding: 2.5rem;
+      }
+    }
+  }
+  .blockquote {
+    p {
+      font-size: 3rem; line-height: 4rem;
+    }
+  }
+  .big-number {
+    h4 {
+      font-size: 8rem;
+    }
+    h5 {
+      font-size: 1.8rem; line-height: 2.2rem;
+    }
+  }
+  ul, ol {
+    line-height: 2.8rem;
+  }
+  .push-right {
+    right: -6rem;
+  }
+  .push-left {
+    left: -6rem;
+  }
+  .push-down {
+    top: 4rem;
+  }
+  .push-up {
+    top: -4rem;
+  }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 768px - 991px
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 3.8rem; margin-top: 0;
+  }
+  h2 {
+    font-size: 3.2rem;
+  }
+  h3 {
+    font-size: 2.2rem;
+  }
+  h4 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.4rem; line-height: 2.4rem;
+  }
+  .big-number {
+    h4 {
+      font-size: 6rem;
+    }
+    h5 {
+      font-size: 1.4rem; line-height: 2rem;
+    }
+  }
+  .block {
+    padding-top: 4rem; padding-bottom: 4rem;
+  }
+  .blockquote {
+    p {
+      font-size: 2.8rem; line-height: 3.6rem;
+    }
+  }
+  .btn {
+    padding: 1rem 1.6rem .9rem 1.6rem;
+  }
+  .box {
+    &.box--image {
+      .box__content {
+        padding: 2rem;
+      }
+    }
+  }
+  .push-right {
+    right: -4rem;
+  }
+  .push-left {
+    left: -4rem;
+  }
+  .push-down {
+    top: 3rem;
+  }
+  .push-up {
+    top: -3rem;
+  }
+}
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// max to 767px
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media (max-width: 767px) {
+  [class*="col-"] {
+    margin-bottom: 2rem;
+  }
+  .block {
+    padding-top: 4rem; padding-bottom: 4rem;
+  }
+  .blockquote {
+    p {
+      font-size: 2rem; line-height: inherit;
+    }
+    &.blockquote--advanced {
+      &:before {
+        height: 100%; width: 100%;
+      }
+    }
+  }
+  h2 {
+    font-size: 4rem; line-height: 5rem;
+  }
+  #hero {
+    height: auto !important;
+    .hero__background {
+      height: 50rem; border-bottom: none; position: relative; z-index: 1;
+      .owl-stage-outer {
+        height: 100% !important;
+      }
+    }
+    .hero__caption {
+      margin-right: -1.5rem; margin-left: -1.5rem;
+    }
+  }
+  .map-wrapper {
+    .pack {
+      bottom: 0; left: 0; position: relative; width: 100%;
+    }
+  }
+  .page-wrapper {
+    border-width: 0;
+  }
+  .push-right {
+    right: 0;
+  }
+  .push-left {
+    left: 0;
+  }
+  .push-down {
+    top: 0;
+  }
+  .push-up {
+    top: 0;
+  }
+}

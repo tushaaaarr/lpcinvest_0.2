@@ -1,0 +1,197 @@
+.background-wrapper {
+  position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden;
+  &.skew-down, &.skew-up {
+    position: absolute;
+  }
+}
+.background--image, .img-into-bg {
+  background-repeat: no-repeat; background-size: cover; background-position: 50%; overflow: hidden; width: 100%; height: 100%;
+  img {
+    display: none;
+  }
+  &.original--size {
+    background-size: inherit;
+  }
+  &.background--repeat-x {
+    background-repeat: repeat-x;
+  }
+  &.background--repeat-y {
+     background-repeat: repeat-y;
+  }
+  &.background--repeat-repeat {
+    background-repeat: repeat; background-size: inherit;
+  }
+}
+.background--particles {
+  margin-left: -10%; margin-top: -10%; overflow: hidden; width: 120%; height: 120%;
+}
+
+.bg-light {
+  background-color: #fff !important;
+}
+
+.block {
+  section {
+    /*margin-bottom: 6rem;*/
+  }
+}
+
+.img-responsive {
+  max-width: 100%;
+}
+
+.d-table-row {
+  display: table-row;
+}
+
+#content {
+  [data-parallax="scroll"] {
+    .parallax-element {
+      &.background--image {
+        height: 150%;
+      }
+    }
+  }
+}
+
+[data-parallax="scroll"] {
+  .parallax-element {
+    background-position-x: 50%; /*background-size: inherit;*/
+    transform: translateY(0); overflow: visible; position: relative;
+    background-position-y: 0;
+    /*background-image: none !important;*/
+    img {
+      /*display: block; width: 100%;*/ /*position: absolute; bottom: 0;*/
+    }
+  }
+}
+
+.pack {
+  background-color: $color-white; box-shadow: $bs-big; padding: 3rem; border-radius: .3rem; position: relative;
+}
+
+.rounded-corners {
+  border-radius: $br-big;
+}
+
+.has-dark-background {
+  color: $color-white;
+  .btn-framed {
+    color: $color-white;
+  }
+}
+
+.no-shadow {
+  box-shadow: none; text-shadow: none;
+}
+
+.pointer-events-none { pointer-events: none; }
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.text-caps {
+  text-transform: uppercase; font-size: 1.1rem; font-weight: 700;
+}
+
+.height-100px { height: 100px; }
+.height-150px { height: 150px; }
+.height-200px { height: 200px; }
+.height-250px { height: 250px; }
+.height-300px { height: 300px; }
+.height-350px { height: 350px; }
+.height-400px { height: 400px; }
+.height-450px { height: 450px; }
+.height-500px { height: 500px; }
+
+.height-10 { height: 10%; }
+.height-20 { height: 20%; }
+.height-30 { height: 30%; }
+.height-40 { height: 40%; }
+.height-50 { height: 50%; }
+.height-60 { height: 60%; }
+.height-70 { height: 70%; }
+.height-80 { height: 80%; }
+.height-90 { height: 90%; }
+.height-100 { height: 100%; }
+
+.width-10 { width: 10%; }
+.width-20 { width: 20%; }
+.width-25 { width: 25%; }
+.width-30 { width: 30%; }
+.width-33 { width: 33%; }
+.width-40 { width: 40%; }
+.width-50 { width: 50%; }
+.width-60 { width: 60%; }
+.width-70 { width: 70%; }
+.width-80 { width: 80%; }
+.width-90 { width: 90%; }
+.width-100 { width: 100%; }
+
+.width-10px { width: 10px; }
+.width-50px { width: 50px; }
+.width-100px { width: 100px; }
+.width-150px { width: 150px; }
+.width-200px { width: 200px; }
+.width-250px { width: 250px; }
+.width-300px { width: 300px; }
+
+.opacity-5 { opacity: .05 }
+.opacity-10 { opacity: .1; }
+.opacity-20 { opacity: .2; }
+.opacity-30 { opacity: .3; }
+.opacity-40 { opacity: .4; }
+.opacity-50 { opacity: .5; }
+.opacity-60 { opacity: .6; }
+.opacity-70 { opacity: .7; }
+.opacity-80 { opacity: .8; }
+.opacity-90 { opacity: .9; }
+
+.push-right {
+  right: -10rem; position: relative; z-index: 1;
+}
+.push-left {
+  left: -10rem; position: relative; z-index: 1;
+}
+
+.push-down {
+  top: 5rem; position: relative; z-index: 1;
+}
+.push-up {
+  top: -5rem; position: relative; z-index: 1;
+}
+
+.skew-up {
+  position: relative;
+  &:before {
+    background-image: url("../../assets/img/bg-skew-up.png"); background-repeat: no-repeat; background-size: contain; background-position: top left; content: ""; height: 100%; left: 0; position: absolute; pointer-events: none; top: 0; width: 100%; z-index: 1;
+  }
+}
+.skew-down {
+  position: relative;
+  &:after {
+    background-image: url("../../assets/img/bg-skew-down.png"); background-repeat: no-repeat; background-size: contain; background-position: bottom right; bottom: 0; content: ""; height: 100%; left: 0; position: absolute; pointer-events: none; width: 100%; z-index: 1;
+  }
+}
+
+.shadow {
+  box-shadow: $bs-big;
+}
+
+.text-align-right { text-align: right; }
+.text-align-left { text-align: left; }
+
+.text-color-black {
+  color: $color-black;
+}
+.text-color-white {
+  color: $color-white !important;
+}
+.text-color-default {
+  color: $color-default;
+}
