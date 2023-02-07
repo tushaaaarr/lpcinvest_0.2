@@ -906,4 +906,19 @@ def terms_conditions(request):
     return render(request,'user/terms_conditions.html')
 
 def landing_page_home(request):
-    return render(request,'landing_page/index.html')
+    properties = Properties.objects.all()[:3]
+    cleaned_properties = []
+    for property_ in properties:
+        prop = clean_property_data(property_)
+        cleaned_properties.append(prop)
+    # team_members = TeamMembers.objects.all()[::-1][:3]
+    blog_list = []
+    blogs = Blogs.objects.all()[:3]
+    for blog in blogs:
+        blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
+        blog_list.append(blog)
+    context = {"properties":cleaned_properties,
+    # "team_members":team_members,
+    "blogs":blog_list}         
+    return render(request,'landing_page/index.html',context)
