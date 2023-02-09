@@ -11,6 +11,9 @@ Headers:		'Poppins', sans-serif;
 /*----------------------------------------------------------------------------------------------------------------------
 -B-
  */
+* {
+  box-sizing: border-box;
+}
 .badge {
   border-radius: 0.1rem;
   font-size: 1.2rem;
@@ -925,7 +928,7 @@ dl dd {
   padding: 0.2rem 0;
 }
 h1 {
-  font-size: 6rem;
+  font-size: 5rem;
   margin-bottom: 3rem;
   margin-top: 1rem;
   font-weight: 600;
