@@ -67,13 +67,16 @@
                 data-owl-nav-container=".slider-nav"
               >
                 <div class="slide img-into-bg">
-                  <img src="{% static 'img/background-index/1.jpg' %}" alt="" />
+                  <img src="/media/media/Urban_Green_-_Living_Area_2.jpg" alt="" />
                 </div>
                 <div class="slide img-into-bg">
-                  <img src="{% static 'img/background-index/2.jpg' %}" alt="" />
+                  <img src="/media/media/Urban_Green_-_Living_Area_3.jpg" alt="" />
                 </div>
                 <div class="slide img-into-bg">
-                  <img src="{% static 'img/background-index/3.jpg' %}" alt="" />
+                  <img src="/media/media/Urban_Green_-_Living_Area_4.jpg" alt="" />
+                </div>
+                <div class="slide img-into-bg">
+                  <img src="/media/media/Urban_Green_-_Roof_Terrace.jpg" alt="" />
                 </div>
               </div>
             </div>
@@ -85,12 +88,29 @@
           <div class="row">
             <div class="hero__outer-wrapper">
               <div class="hero__inner-wrapper align-bottom">
-                <div class="col-xl-5 col-lg-5 col-md-7">
+                <div class="col-xl-5 col-lg-5 col-md-7 mt-md-5 mt-0">
                   <div class="hero__caption has-dark-background">
-                    <h1>Greenfield Residence</h1>
-                    <form class="form" action="/newsletter">
+                    <h1>Trafford Bar Apartments</h1>
+                    <form class="form" id="contact" form-hero-name onsubmit="return postToGoogle()">
                       <div class="form-group">
-                        <label for="form-hero-email">Subscribe for the latest news!</label>
+                        <label for="form-hero-name">Your Name</label>
+                        <div class="input-group">
+                          <input
+                            id="form-hero-name"
+                            type="text"
+                            class="form-control"
+                            placeholder="Your Name"
+                            aria-label="Your Name"
+                            name="entry.927899505"
+                          />
+                          <span class="input-group-btn">
+                            <span class="btn btn-secondary">
+                              <i class="fa fa-arrow-right"></i>
+                            </span>
+                          </span>
+                        </div>
+
+                        <label class="pt-4" for="form-hero-email">Subscribe for the latest news!</label>
                         <div class="input-group">
                           <input
                             id="form-hero-email"
@@ -98,22 +118,37 @@
                             class="form-control"
                             placeholder="Your Email"
                             aria-label="Your Email"
+                            name="entry.2070231405"
                           />
                           <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="submit">
+                            <span class="btn btn-secondary">
                               <i class="fa fa-arrow-right"></i>
-                            </button>
+                            </span>
                           </span>
                         </div>
+
+                        <label class="pt-4" for="form-hero-number">Your Phone Number</label>
+                        <div class="input-group">
+                          <input
+                            id="form-hero-number"
+                            type="text"
+                            class="form-control"
+                            placeholder="Your Phone Number"
+                            aria-label="Your Phone Number"
+                            name="entry.1788147651"
+                          />
+                          <span class="input-group-btn">
+                            <span class="btn btn-secondary">
+                              <i class="fa fa-arrow-right"></i>
+                            </span>
+                          </span>
+                        </div>
+                        <button class="btn btn-secondary mx-auto my-3" style="background-color: #00ce8d" type="submit">
+                          Submit
+                        </button>
                       </div>
                       <!--end form-group -->
                     </form>
-                    <hr />
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet lorem lobortis est
-                      rutrum ullamcorper.
-                    </p>
-                    <a href="#features" class="btn btn-primary btn-framed">More</a>
                   </div>
                 </div>
                 <div class="slider-nav"></div>
@@ -137,16 +172,14 @@
           <div class="container">
             <div class="block__wrapper">
               <div class="block__title text-center">
-                <h2>Featured Properties</h2>
+                <h2>What You'll Get</h2>
               </div>
               <!--end block-title-->
 
               <div class="row">
-                {%for property in properties %}
-
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                   <a
-                    href="/properties/{{property.title | slugify }}/{{property.id}}"
+                    href="/media/media/Urban_Green_-_Roof_Terrace_tdFfD5o.jpg"
                     class="box box--image box--image--full-image"
                     data-toggle="modal"
                     data-target="#modal-feature"
@@ -155,11 +188,11 @@
                     <div class="box__wrapper">
                       <div class="box__header">
                         <div class="box__image img-into-bg">
-                          <img src="/media/{{property.image}}" alt="" />
+                          <img src="/media/media/Urban_Green_-_Roof_Terrace_tdFfD5o.jpg" alt="" />
                         </div>
                       </div>
                       <div class="box__content">
-                        <h4>{{property.title}}</h4>
+                        <h4>Roof Top Gardens</h4>
                         <h5>Click for more</h5>
                       </div>
                     </div>
@@ -168,7 +201,54 @@
                   <!--end box-image-->
                 </div>
                 <!--end col-xl-4-->
-                {%endfor%}
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                  <a
+                    href="/media/media/Urban_Green_-_Living_Area_3_Ewsi2Hz.jpg"
+                    class="box box--image box--image--full-image"
+                    data-toggle="modal"
+                    data-target="#modal-feature"
+                    data-scroll-reveal="enter left and move 10px"
+                  >
+                    <div class="box__wrapper">
+                      <div class="box__header">
+                        <div class="box__image img-into-bg">
+                          <img src="/media/media/Urban_Green_-_Living_Area_3_Ewsi2Hz.jpg" alt="" />
+                        </div>
+                      </div>
+                      <div class="box__content">
+                        <h4>Stunning Residents Lounge</h4>
+                        <h5>Click for more</h5>
+                      </div>
+                    </div>
+                    <!--end box__wrapper-->
+                  </a>
+                  <!--end box-image-->
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                  <a
+                    href="/media/media/Urban_Green_-_Bedroom_1_g1hUyMK.jpg"
+                    class="box box--image box--image--full-image"
+                    data-toggle="modal"
+                    data-target="#modal-feature"
+                    data-scroll-reveal="enter left and move 10px"
+                  >
+                    <div class="box__wrapper">
+                      <div class="box__header">
+                        <div class="box__image img-into-bg">
+                          <img src="/media/media/Urban_Green_-_Bedroom_1_g1hUyMK.jpg" alt="" />
+                        </div>
+                      </div>
+                      <div class="box__content">
+                        <h4>Luxury One & Two bed apartments</h4>
+                        <h5>Click for more</h5>
+                      </div>
+                    </div>
+                    <!--end box__wrapper-->
+                  </a>
+                  <!--end box-image-->
+                </div>
               </div>
               <!--end row-->
             </div>
@@ -194,8 +274,13 @@
                   <div class="text-align-right push-down">
                     <h2 data-scroll-reveal="enter left and move 10px">New Living For Your Dreaming</h2>
                     <p data-scroll-reveal="enter left and move 10px after 0.1s">
-                      Fusce pretium dui quis est pretium lobortis. Vestibulum eu ex sed nibh condimentum tristique eu
-                      finibus lorem. Nullam sed eleifend massa. Morbi nulla turpis, pharetra et
+                      Trafford Bar apartments is a stunning new luxury development in one of Manchester’s most exciting
+                      up-and-coming areas, just minutes from the city centre and ideally located in the City’s new
+                      premium residential district. Comprised of 174 contemporary one- and two-bedroom apartments, this
+                      building offers a high-end lifestyle and all the convenience of City Centre living at a very
+                      affordable price. This secure community has been designed by award-winning architects in a
+                      convenient location with excellent transport links, educational institutions and near everything
+                      this exciting City has to offer.
                     </p>
                     <a href="#contact" class="btn btn-primary btn-framed">Contact Us</a>
                   </div>
@@ -203,8 +288,8 @@
                 <div class="col-md-5">
                   <img
                     class="width-100 h-100 shadow rounded-corners"
-                    style="background-size: cover"
-                    src="{%static '/img/background-index/1 - Copy.jpg' %}"
+                    style="object-fit: cover"
+                    src="/media/media/Urban_Green_-_Bedroom_1_g1hUyMK.jpg"
                     alt=""
                   />
                 </div>
@@ -324,13 +409,12 @@
           <div class="container">
             <div class="block__wrapper">
               <div class="block__title">
-                <h2>Pricing</h2>
+                <h2>Features</h2>
               </div>
               <!--end block-title-->
 
               <div class="row">
-                <!--end col-md-4-->
-                {%for property in properties %} {% if forloop.counter|divisibleby:2 %}
+                <!-- {%for property in properties %} {% if forloop.counter|divisibleby:2 %}
 
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                   <div class="box box--pricing promoted" data-scroll-reveal="enter bottom and move 10px after 0.1s">
@@ -357,10 +441,8 @@
                           >Learn More</a
                         >
                       </div>
-                    </div>
-                    <!--end box__wrapper-->
+                    </div>    
                   </div>
-                  <!--end box-pricing-->
                 </div>
 
                 {% else %}
@@ -391,16 +473,99 @@
                         >
                       </div>
                     </div>
+                  </div>
+                </div>
+
+                {% endif %}
+
+                {%endfor%} -->
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                  <div class="box box--pricing" data-scroll-reveal="enter bottom and move 10px after 0.1s">
+                    <div class="box__wrapper">
+                      <!-- <div class="box__image height-300px"> -->
+                      <div class="box__image height-250px mb-3">
+                        <div class="img-into-bg p-5">
+                          <i class="fa fa-line-chart my-auto" style="font-size: 20rem; color: #00ce8d"></i>
+                          <!-- <img src="/media/{{property.image}}" alt="" /> -->
+                        </div>
+                      </div>
+                      <div class="box__header">
+                        <h4>NET Yields</h4>
+                        <h3 class="price fs-1">Up to 7.5% NET yields!</h3>
+                      </div>
+                      <div class="box__content">
+                        <ul class="list-unstyled">
+                          <li>Over 24% capital growth forecast in the Trafford Area</li>
+                          <li>13% Manchester rental growth predicted by 2025 = great time to invest.</li>
+                        </ul>
+                      </div>
+                      <div class="box__footer">
+                        <a href="/properties/trafford-bar-apartments/19" class="btn btn-light">Learn More</a>
+                      </div>
+                    </div>
                     <!--end box__wrapper-->
                   </div>
                   <!--end box-pricing-->
                 </div>
 
-                {% endif %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                  <div class="box box--pricing promoted" data-scroll-reveal="enter bottom and move 10px after 0.1s">
+                    <div class="box__wrapper">
+                      <!-- <div class="box__image height-300px"> -->
+                      <div class="box__image height-250px">
+                        <div class="img-into-bg p-5">
+                          <i class="fa fa-bus my-auto text-light" style="font-size: 20rem"></i>
+                          <!-- <img src="/media/{{property.image}}" alt="" /> -->
+                        </div>
+                      </div>
+                      <div class="box__header mb-3">
+                        <h4>Transportation</h4>
+                        <h3 class="price fs-1">Excellent Transport Links</h3>
+                      </div>
+                      <div class="box__content">
+                        <ul class="list-unstyled">
+                          <li>Minutes from the city centre</li>
+                          <li>Located in the City’s new premium residential district</li>
+                        </ul>
+                      </div>
+                      <div class="box__footer">
+                        <a href="/properties/trafford-bar-apartments/19" class="btn btn-light">Learn More</a>
+                      </div>
+                    </div>
+                    <!--end box__wrapper-->
+                  </div>
+                  <!--end box-pricing-->
+                </div>
 
-                <!--end col-md-4-->
-                {%endfor%}
-                <!--end col-md-4-->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                  <div class="box box--pricing" data-scroll-reveal="enter bottom and move 10px after 0.1s">
+                    <div class="box__wrapper">
+                      <!-- <div class="box__image height-300px"> -->
+                      <div class="box__image height-250px">
+                        <div class="img-into-bg p-5">
+                          <i class="fa fa-money my-auto" style="font-size: 20rem; color: #00ce8d"></i>
+                          <!-- <img src="/media/{{property.image}}" alt="" /> -->
+                        </div>
+                      </div>
+                      <div class="box__header">
+                        <h4>Affordability</h4>
+                        <h3 class="price fs-1">Affordable prices for luxurious living</h3>
+                      </div>
+                      <div class="box__content">
+                        <ul class="list-unstyled">
+                          <li>High end city centre living at a more affordable price</li>
+                          <li>Prices Starting from £279,000</li>
+                        </ul>
+                      </div>
+                      <div class="box__footer">
+                        <a href="/properties/trafford-bar-apartments/19" class="btn btn-light">Learn More</a>
+                      </div>
+                    </div>
+                    <!--end box__wrapper-->
+                  </div>
+                  <!--end box-pricing-->
+                </div>
               </div>
               <!--end row-->
             </div>
@@ -422,41 +587,49 @@
           </div>
           <!--end container-->
           <div class="owl-carousel carousel-gallery" data-owl-items="5" data-owl-dots="1" data-owl-nav="0">
-            <a href="assets/img/gallery-01.jpg" class="carousel-gallery__image popup-image">
+            {%for img in prop_images%}
+            <a href="/media/{{img.images}}" class="carousel-gallery__image popup-image">
+              <div class="img-into-bg">
+                <img src="/media/{{img.images}}" alt="" />
+              </div>
+            </a>
+            {%endfor%}
+
+            <!-- <a href="/media/media/1.jpg" class="carousel-gallery__image popup-image">
               <div class="img-into-bg">
                 <img src="/media/media/1.jpg" alt="" />
               </div>
             </a>
-            <a href="assets/img/gallery-02.jpg" class="carousel-gallery__image popup-image">
+            <a href="/media/media/2.jpg" class="carousel-gallery__image popup-image">
               <div class="img-into-bg">
                 <img src="/media/media/2.jpg" alt="" />
               </div>
             </a>
-            <a href="assets/img/gallery-03.jpg" class="carousel-gallery__image popup-image">
+            <a href="/media/media/3.jpg" class="carousel-gallery__image popup-image">
               <div class="img-into-bg">
                 <img src="/media/media/3.jpg" alt="" />
               </div>
             </a>
-            <a href="assets/img/gallery-04.jpg" class="carousel-gallery__image popup-image">
+            <a href="/media/media/4.jpg" class="carousel-gallery__image popup-image">
               <div class="img-into-bg">
                 <img src="/media/media/4.jpg" alt="" />
               </div>
             </a>
-            <a href="assets/img/gallery-05.jpg" class="carousel-gallery__image popup-image">
+            <a href="/media/media/5.jpg" class="carousel-gallery__image popup-image">
               <div class="img-into-bg">
                 <img src="/media/media/5.jpg" alt="" />
               </div>
             </a>
-            <a href="assets/img/image-04.jpg" class="carousel-gallery__image popup-image">
+            <a href="/media/media/6.jpg" class="carousel-gallery__image popup-image">
               <div class="img-into-bg">
                 <img src="/media/media/6.jpg" alt="" />
               </div>
             </a>
-            <a href="assets/img/image-03.jpg" class="carousel-gallery__image popup-image">
+            <a href="/media/media/7.jpg" class="carousel-gallery__image popup-image">
               <div class="img-into-bg">
                 <img src="/media/media/7.jpg" alt="" />
               </div>
-            </a>
+            </a> -->
           </div>
           <div class="background-wrapper">
             <div class="background background--image background--repeat-repeat opacity-50">
@@ -1069,7 +1242,7 @@
       <!--*********************************************************************************************************-->
       <!--************ FOOTER *************************************************************************************-->
       <!--*********************************************************************************************************-->
-      <footer id="footer">
+      <footer id="footer" class="mt-5">
         <div class="container">
           <span>(C) Copyright 2020, All Rights Reserved</span>
         </div>
@@ -1094,7 +1267,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
             <div class="modal__title">
-              <h2>BroadWay Residence</h2>
+              <h2>Trafford Bar Apartments</h2>
             </div>
             <div
               class="owl-carousel modal__carousel"
@@ -1105,13 +1278,16 @@
               data-owl-loop="1"
             >
               <div class="slide img-into-bg">
-                <img src="{% static 'img/background-index/1.jpg' %}" alt="" />
+                <img src="/media/media/Urban_Green_-_Living_Area_2.jpg" alt="" />
               </div>
               <div class="slide img-into-bg">
-                <img src="{% static 'img/background-index/2.jpg' %}" alt="" />
+                <img src="/media/media/Urban_Green_-_Living_Area_3.jpg" alt="" />
               </div>
               <div class="slide img-into-bg">
-                <img src="{% static 'img/background-index/3.jpg' %}" alt="" />
+                <img src="/media/media/Urban_Green_-_Living_Area_4.jpg" alt="" />
+              </div>
+              <div class="slide img-into-bg">
+                <img src="/media/media/Urban_Green_-_Roof_Terrace.jpg" alt="" />
               </div>
             </div>
             <!--end modal__slider-->
@@ -1119,37 +1295,38 @@
           <!--end modal-header-->
           <div class="modal-body">
             <div class="float-left p-5 width-60">
-              <h4>Modern & Clean</h4>
+              <h4>Description</h4>
               <p>
-                Following the phenomenal success of Phase 3, The Mauretania, which sold out in less than 6 weeks, The
-                Aquitania is Phase 4 of the master development and is selling out in record time! Ideally situated
-                within a popular L3 postcode in Liverpool and the massive £5 billion Liverpool Water Scheme. This
-                prestigious development is a stunning collection of elegant apartments in a prime waterfront setting
-                with easy access to a wide range of local amenities and Liverpool’s centre. Each apartment is designed
-                for comfort and to offer the ideal place to relax and a lifestyle that is second to none. Its 350
-                beautiful, smart home apartments range from 1-bed to standard 2-bed and 2-bed duplexes. Each apartment
-                has been designed to maximise light and views across the water and beyond. Every detail has been
-                designed for an easier, more connected, more enjoyable and ultimately more contemporary way of life. 75%
-                already sold in less the 4 weeks.
+                Trafford Bar apartments is a stunning new luxury development in one of Manchester’s most exciting
+                up-and-coming areas, just minutes from the city centre and ideally located in the City’s new premium
+                residential district. Comprised of 174 contemporary one- and two-bedroom apartments, this building
+                offers a high-end lifestyle and all the convenience of City Centre living at a very affordable price.
+                This secure community has been designed by award-winning architects in a convenient location with
+                excellent transport links, educational institutions and near everything this exciting City has to offer.
+                A stylish entrance hall, complete with a concierge and open lounge, sets the tone from the second you
+                enter Urban Green – this home encourages community, well-being and a social environment.
+                High-specification apartments, stunning communal gardens, a residents’ roof terrace with an incredible
+                view, co-working spaces, a residents’ lounge, concierge service and under-croft car parking complete the
+                picture of a beautiful premium home that will raise the bar for the area.
               </p>
             </div>
             <!--end float-left-->
             <div class="float-right p-5 width-40 height-100 position-relative">
               <h4>Find Out More</h4>
               <figure>
-                <a href="/properties/dockside-apartments/10">
+                <a href="/properties/dockside-apartments/19">
                   <i class="fa fa-file"></i>
                   <span>View Brochure</span>
                 </a>
               </figure>
               <figure>
-                <a href="/properties/dockside-apartments/10">
+                <a href="/properties/dockside-apartments/19">
                   <i class="fa fa-file"></i>
                   <span>Latest Prospects</span>
                 </a>
               </figure>
               <figure>
-                <a href="/properties/dockside-apartments/10">
+                <a href="/properties/dockside-apartments/19">
                   <i class="fa fa-file"></i>
                   <span>Download Plans</span>
                 </a>
@@ -1170,7 +1347,8 @@
       <!--end modal-dialog-->
     </div>
     <!--end modal-->
-    <script src="{%static 'landing_page/js/jquery-3.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{%static 'landing_page/js/jquery-3.2.1.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script> -->
     <script src="{%static 'landing_page/js/popper.min.js' %}"></script>
     <script src="{%static 'landing_page/bootstrap/js/bootstrap.min.js' %}"></script>
 
@@ -1179,10 +1357,9 @@
     <script src="{%static 'landing_page/js/owl.carousel.min.js' %}"></script>
     <script src="{%static 'landing_page/assets/js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{%static 'landing_page/assets/js/scrollReveal.min.js' %}"></script>
-    <script src="{%static 'landing_page/js/custom.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-
+    <script src="{%static 'landing_page/js/custom.js' %}"></script>
     <script
       type="text/javascript"
       src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58&libraries=places"
@@ -1198,6 +1375,34 @@
         "load",
         simpleMap(latitude, longitude, markerImage, mapTheme, mapElement)
       );
+    </script>
+
+    <script>
+      function postToGoogle() {
+        var field1 = $("#form-hero-name").val();
+        var field2 = $("#form-hero-email").val();
+        var field3 = $("#form-hero-number").val();
+
+        $.ajax({
+          url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSed-r6oDGdNAJKkE5FiRCwl12o9R_7wjmHfllLBVS-tJkiLuw/formResponse",
+
+          //add your google form generated numbers below which are also the 'names' of your inputs
+          data: {
+            "entry.927899505": field1,
+            "entry.2070231405": field2,
+            "entry.1788147651": field3,
+          },
+          type: "POST",
+          dataType: "xml",
+          success: function (d) {
+            $("#contact").trigger("reset");
+          },
+          error: function (x, y, z) {
+            $("#contact").trigger("reset");
+          },
+        });
+        return false;
+      }
     </script>
   </body>
 </html>

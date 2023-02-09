@@ -906,19 +906,43 @@ def terms_conditions(request):
     return render(request,'user/terms_conditions.html')
 
 def landing_page_home(request):
-    properties = Properties.objects.all()[:3]
+    id=19
+    feature_data = dict()
+    if not Properties.objects.filter(id=id).exists():
+        return render(request,'user/pages/error.html')
+
+    property = Properties.objects.get(id = id)
+    prop_images = PropertyImage.objects.filter(property = property)
+    features = PropertyFeatureMapper.objects.filter(property=property)
+    feature_data['feature_list'] = features
+    status = list(PropertyStatusMapper.objects.filter(property=property).values_list('status__status',flat=True))
+    feature_data['status_list'] = ", ".join(status)
+    Calculated_data = MortgageCalculator(property.price) 
+    try:
+        if request.is_ajax(): 
+            properties_list = SendPropertiesToMap(request,property)
+            return JsonResponse({'data':properties_list}) 
+    except:
+        pass
+
+    units = units_available(property)
+    location_coord = json.dumps([{'latitude':property.lat,"longitude":property.lon}])    
+    property.price = ("{:,}".format(property.price))
+    property.units = units
+    page_data = {'page_name':property.title}
+
+    properties2 = Properties.objects.all()[:3]
     cleaned_properties = []
-    for property_ in properties:
+    for property_ in properties2:
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
-    # team_members = TeamMembers.objects.all()[::-1][:3]
-    blog_list = []
-    blogs = Blogs.objects.all()[:3]
-    for blog in blogs:
-        blog.desc = blog.desc[:50]
-        blog.read_time = readtime.of_text(blog.content)
-        blog_list.append(blog)
-    context = {"properties":cleaned_properties,
-    # "team_members":team_members,
-    "blogs":blog_list}         
+    context = {"properties":cleaned_properties,'property':property,'prop_images':prop_images,"feature_data":feature_data,"Calculated_data":Calculated_data,
+    "page_data":page_data,"location_coord":location_coord}
+
+
+
+
+
+   
+
     return render(request,'landing_page/index.html',context)
