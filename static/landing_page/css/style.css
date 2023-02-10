@@ -1776,6 +1776,23 @@ textarea.form-control {
     top: 0;
   }
 }
+@media (max-width: 512px) {
+  .heads {
+    font-size: 2rem !important;
+  }
+  .heads2 {
+    font-size: 2.5rem !important;
+  }
+  .heads3 {
+    font-size: 1.25rem !important;
+  }
+  .controlmod {
+    width: 50% !important;
+  }
+  .controlmod2 {
+    width: 50% !important;
+  }
+}
 
 .altContSec {
   margin-top: 50px;
