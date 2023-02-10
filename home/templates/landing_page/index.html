@@ -91,7 +91,8 @@
                 <div class="col-xl-5 col-lg-5 col-md-7 mt-md-5 mt-0">
                   <div class="hero__caption has-dark-background">
                     <h1>Trafford Bar Apartments</h1>
-                    <form class="form" id="contact" form-hero-name onsubmit="return postToGoogle()">
+                    <h1 class="text-danger fs-1" id="emtHandle">Fields can't be left empty</h1>
+                    <form class="form" id="contact" form-hero-name onsubmit="return postToGoogle(event)">
                       <div class="form-group">
                         <label for="form-hero-name">Your Name</label>
                         <div class="input-group">
@@ -102,6 +103,7 @@
                             placeholder="Your Name"
                             aria-label="Your Name"
                             name="entry.927899505"
+                            required
                           />
                           <span class="input-group-btn">
                             <span class="btn btn-secondary">
@@ -110,7 +112,7 @@
                           </span>
                         </div>
 
-                        <label class="pt-4" for="form-hero-email">Subscribe for the latest news!</label>
+                        <label class="pt-4" for="form-hero-email">Your Email</label>
                         <div class="input-group">
                           <input
                             id="form-hero-email"
@@ -119,6 +121,7 @@
                             placeholder="Your Email"
                             aria-label="Your Email"
                             name="entry.2070231405"
+                            required
                           />
                           <span class="input-group-btn">
                             <span class="btn btn-secondary">
@@ -136,6 +139,7 @@
                             placeholder="Your Phone Number"
                             aria-label="Your Phone Number"
                             name="entry.1788147651"
+                            required
                           />
                           <span class="input-group-btn">
                             <span class="btn btn-secondary">
@@ -149,6 +153,14 @@
                       </div>
                       <!--end form-group -->
                     </form>
+                    <div class="success text-center my-auto">
+                      <h1 class="text-success fs-1">Thank you. We will contact you soon</h1>
+                      <i class="fa fa-check-circle text-success" style="font-size: 100px"></i>
+                    </div>
+                    <div class="error text-center my-auto">
+                      <h1 class="text-danger fs-1">Something went wrong</h1>
+                      <i class="fa fa-times-circle text-danger" style="font-size: 100px"></i>
+                    </div>
                   </div>
                 </div>
                 <div class="slider-nav"></div>
@@ -1378,10 +1390,16 @@
     </script>
 
     <script>
-      function postToGoogle() {
+      function postToGoogle(event) {
+        event.preventDefault();
         var field1 = $("#form-hero-name").val();
         var field2 = $("#form-hero-email").val();
         var field3 = $("#form-hero-number").val();
+        console.log(field1.length);
+        if (field1.length == 0 || field2.length == 0 || field3.length == 0) {
+          $("#emtHandle").show();
+          return;
+        }
 
         $.ajax({
           url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSed-r6oDGdNAJKkE5FiRCwl12o9R_7wjmHfllLBVS-tJkiLuw/formResponse",
@@ -1393,13 +1411,17 @@
             "entry.1788147651": field3,
           },
           type: "POST",
-          dataType: "xml",
-          success: function (d) {
+          complete: function (d) {
             $("#contact").trigger("reset");
+            $("#contact").hide();
+            $(".success").show();
+            $("#emtHandle").hide();
           },
-          error: function (x, y, z) {
-            $("#contact").trigger("reset");
-          },
+          // error: function (d) {
+          //   $("#contact").trigger("reset");
+          //   $("#contact").hide();
+          //   $(".error").show();
+          // },
         });
         return false;
       }

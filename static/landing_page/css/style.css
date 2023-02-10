@@ -1838,3 +1838,9 @@ textarea.form-control {
 .foq-info {
   padding: 15px 0 35px;
 }
+
+.error,
+.success,
+#emtHandle {
+  display: none;
+}
