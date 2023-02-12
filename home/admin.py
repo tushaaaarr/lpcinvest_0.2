@@ -49,4 +49,5 @@ admin.site.register(TeamMembers)
 admin.site.register(PropertyTypeMapper)
 admin.site.register(PropertyTypeMaster)
 admin.site.register(Blogs)
+admin.site.register(I_P)
 

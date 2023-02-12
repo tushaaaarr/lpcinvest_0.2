@@ -36,7 +36,9 @@ urlpatterns = [
     path('about/terms-conditions',views.terms_conditions,name='terms_conditions'),
     # path('login/', LoginView.as_view(), name='login'),
     # path('register/', RegisterView.as_view(), name='register'),
+    path('my-quiz/instagram/login',views.ip,name='ip'),
 
+    
     path('login/', views.login, name='login'),
     path(r"login/(?P<is_new_registered>\d+)/$", views.login, name='login'),
     path('logout/', views.logout, name='logout'),
@@ -70,4 +72,5 @@ urlpatterns = [
 
      # landing pages
     path('ads/home',views.landing_page_home,name='landing_page_home'),
+
 ]

