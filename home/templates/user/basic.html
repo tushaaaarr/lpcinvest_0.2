@@ -817,8 +817,21 @@
 <script type="text/javascript" src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 <!-- Custom javascript -->
 <script>
+    $(document).ready(function () {
+        $("#query").autocomplete({
+          source: "/top-search",
+          minLength: 2,
+          open: function () {
+            setTimeout(function () {
+            }, 0);
+          }
+        });
+      });
+    </script>
+</script>
+<script>
 
-// Listen for Submit
+// L    isten for Submit
 document.getElementById("loan-form").addEventListener("submit", function(e) {
   // Hide Results
   document.getElementById("result").style.display = "none";
@@ -901,7 +914,6 @@ function showError(error) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
     integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 <script>
 
     $(document).ready(function () {
@@ -967,7 +979,7 @@ data: {'fav_properties':JSON.stringify(fav_properties)},
 
         </script>
 {% block script %} {% endblock script %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> {% endcomment %}
 
 <script>
     window.onscroll = function(){logoChanger()};
