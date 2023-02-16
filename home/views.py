@@ -608,6 +608,8 @@ def beginners_guide(request):
 
 def reasons_to_invest(request):
     return render(request,'user/pages/reasons.html')
+def places_to_invest(request):
+    return render(request,'user/pages/places_to_invest.html')    
 
 def investing_uk(request):
     return render(request,'user/pages/investing_uk.html')
