@@ -989,22 +989,6 @@ def create_new_person(post_data):
 
 @csrf_exempt
 def pipedrive_json(request):
-    # API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
-    # COMPANYDOMAIN = 'lpcinvest'
-
-    # url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
-    # body = {
-    #         "title": post_data['property_name'],
-    #         "owner_id": 12863850,
-    #         "label_ids": [],
-    #         "value": None,
-    #         "expected_close_date": None,
-    #         "person_id": 67108,
-    #         "organization_id": None,
-    #         }
-    
-    # res = requests.post(url,json=body)
-    # Pipedrive_jsondata(sender = 'admin',Data=res.json()).save()
     if request.method == 'POST':
         resp = request.body
         post_data = resp.decode('utf-8')
@@ -1029,8 +1013,10 @@ def pipedrive_json(request):
 
         # creating new lead..
         url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
+        name = post_data['name']
+        property_name =  post_data['property_name']
         body = {
-                "title": "Final Testing..",
+                "title": f"{property_name} From {name}",
                 "owner_id": 12863850,
                 "label_ids": [],
                 "value": None,
