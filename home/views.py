@@ -993,7 +993,7 @@ def pipedrive_json(request):
         resp = request.body
         post_data = resp.decode('utf-8')
         post_data = literal_eval(post_data)
-        Pipedrive_jsondata(sender = 'abc',Data=post_data).save()
+        Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
         # Validating Pipedrive db
         API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
         COMPANYDOMAIN = 'lpcinvest'
@@ -1002,15 +1002,14 @@ def pipedrive_json(request):
         url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
         respone = requests.get(url)
 
-        if respone.status_code != 200:
-            # add new person 
-            person_id = create_new_person(post_data)
-        else:
-            try:            
-                person_id = respone.json()['data']['items'][0]['item']['id']
-            except:
-                person_id = create_new_person(post_data)
-
+        # if respone.status_code != 200:
+        #     # add new person 
+        #     person_id = create_new_person(post_data)
+        # else:
+        #     try:            
+        #         person_id = respone.json()['data']['items'][0]['item']['id']
+        #     except:
+        #         person_id = create_new_person(post_data)
         # creating new lead..
         url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
         body = {
@@ -1019,11 +1018,12 @@ def pipedrive_json(request):
                 "label_ids": [],
                 "value": None,
                 "expected_close_date": None,
-                "person_id": person_id,
+                "person_id": 67108,
                 "organization_id": None,
                 }
         
         res = requests.post(url,json=body)
+        print(res.json())
         return HttpResponse('Ok')
         
 
