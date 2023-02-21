@@ -946,87 +946,84 @@ def landing_page_home(request):
     return render(request,'landing_page/index.html',context)
 
 from django.views.decorators.csrf import csrf_exempt
+from ast import literal_eval
+
+
+def create_new_person(post_data):
+    API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
+    COMPANYDOMAIN = 'lpcinvest'
+    user_fullname = post_data['name']
+    first_name = post_data['name'].split(' ')[0]
+    last_name = post_data['name'].split(' ')[1]
+    user_phone = post_data['phone']
+    user_email = post_data['email']
+    body_json = {
+        "owner_id": {
+            "id": 12863850,
+            "name": "Kerry Pender",
+            "email": "kerry.pender@lpcinvest.com",
+            "value": 12863850
+        },
+        "name": user_fullname,
+        "first_name": first_name,
+        "last_name": last_name,
+        "phone": [
+        {
+            "label": "work",
+            "value": user_phone,
+            "primary": True
+        }
+        ],
+        "email": [
+            {
+                "label": "work",
+                "value": user_email,
+                "primary": True
+            }
+        ]
+    }
+    url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons?api_token={API_KEY}"
+    res = requests.post(url = url, json=body_json)
+    person_id = res.json()['data']['id']
+    return person_id
 
 @csrf_exempt
 def pipedrive_json(request):
-    resp = request.body
-    post_data = resp.decode('utf-8')
-    Pipedrive_jsondata(sender = 'abc',Data=post_data).save()
-    print(post_data)
-    if request.POST:
+    if request.method == 'POST':
         resp = request.body
-        print(resp)
-        Pipedrive_jsondata(sender = 'abc',Data=resp).save()
         post_data = resp.decode('utf-8')
+        post_data = literal_eval(post_data)
         Pipedrive_jsondata(sender = 'abc',Data=post_data).save()
+        # Validating Pipedrive db
+        API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
+        COMPANYDOMAIN = 'lpcinvest'
+        term = post_data['email']
+        # if Person found
+        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
+        respone = requests.get(url)
 
-    # API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
-    # COMPANYDOMAIN = 'lpcinvest'
-    # term = 'tusharspatil808@gmail.com'
-    # # if Person found
-    # url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
-    # respone = requests.get(url)
-    # if respone.status_code != 200:
-    #     # add new person 
-    #     user_fullname = 'Tushar Patil'
-    #     first_name = 'Tushar'
-    #     last_name = 'Patil'
-    #     user_phone = 1234567890
-    #     user_email = 'tusharspatil808@gmail.com'
-    #     body_json = {
-    #         "owner_id": {
-    #             "id": 12863850,
-    #             "name": "Kerry Pender",
-    #             "email": "kerry.pender@lpcinvest.com",
-    #             "value": 12863850
-    #         },
-    #         "name": user_fullname,
-    #         "first_name": first_name,
-    #         "last_name": last_name,
-    #         "phone": [
-    #         {
-    #             "label": "work",
-    #             "value": user_phone,
-    #             "primary": True
-    #         }
-    #         ],
-    #         "email": [
-    #             {
-    #                 "label": "work",
-    #                 "value": user_email,
-    #                 "primary": True
-    #             }
-    #         ]
-    #     }
+        if respone.status_code != 200:
+            # add new person 
+            person_id = create_new_person(post_data)
+        else:
+            try:            
+                person_id = respone.json()['data']['items'][0]['item']['id']
+            except:
+                person_id = create_new_person(post_data)
 
-    # else:
-    #     person_id = respone.json()['data']['items'][0]['item']['id']
-
-    # url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
-    # body = {
-    #         "title": "From Trafford bar ",
-    #         "owner_id": 12863850,
-    #         "label_ids": [],
-    #         "value": None,
-    #         "expected_close_date": None,
-    #         "person_id": person_id,
-    #         "organization_id": None,
-    #         # "is_archived": True,
-    #         # "source_name": "api lead creating",
-    #         # "was_seen": True,
-    #         # "next_activity_id": True,
-    #         # "add_time": "2022-06-29T14:41:18.696Z",
-    #         # "update_time": "2022-07-19T14:21:29.372Z",
-    #         "03c7c7a4953d950b53a2bea4dd908b8d5489b72c": 150000,
-    #         "03c7c7a4953d950b53a2bea4dd908b8d5489b72c_currency": "GBP",
-    #         "bd10167a4d380acebb615fefde47f9302fdad290": 300000,
-    #         "bd10167a4d380acebb615fefde47f9302fdad290_currency": "GBP",
-    #         "visible_to": "3",
-    #         # "cc_email": "lpcinvest+10346415+leadhXGfznQaq6HSnThLvah69C@pipedrivemail.com"
-    #     }
-    
-    # res = requests.post(url,json=body)
-    # print(res.json())
-    return HttpResponse('Ok')
-     
+        # creating new lead..
+        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
+        body = {
+                "title": post_data['property_name'],
+                "owner_id": 12863850,
+                "label_ids": [],
+                "value": None,
+                "expected_close_date": None,
+                "person_id": person_id,
+                "organization_id": None,
+                }
+        
+        res = requests.post(url,json=body)
+        return HttpResponse('Ok')
+        
 
