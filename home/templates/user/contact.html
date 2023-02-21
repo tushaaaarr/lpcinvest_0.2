@@ -79,12 +79,35 @@
     </div>
 </div>
 </div>
+<button class='btn something' >something</button>
 <!-- Google map start -->
 <div class="section contact-2-map d-none mt-5">
     <div class="map">
         <div id="map" class="contact-map"></div>
     </div>
 </div>
+<script>
+       const divs = document.querySelectorAll('.sc-evZas eHMnjR');
+    divs.forEach(el => el.addEventListener('click', event => {
+        e.preventDefault();
+        console.log('click..')
+        fbq('track', 'Lead');
+    }))
+</script>
+
+<script async>
+    let allSubs = document.getElementsByClassName("sc-evZas eHMnjR");
+    allSubs = [...allSubs];
+    allSubs.map((ini)=>{
+    ini.addEventListener("click", function(){
+        e.preventDefault();
+      fbq('track', 'Lead');
+      console.log("1");
+    });
+    })
+    </script>
 {%endblock body%} 
 
-{% block script %} {% endblock script %}
+{% block script %} 
+
+{% endblock script %}

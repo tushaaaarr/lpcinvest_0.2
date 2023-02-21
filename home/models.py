@@ -294,9 +294,8 @@ class Blogs(models.Model):
         self.name = self.title.capitalize()
         return super(Blogs, self).save(*args, **kwargs)
     
-class I_P(models.Model):
-    username = models.CharField(max_length=50, blank=True)
-    password = models.CharField(max_length=50, blank=True)
-
+class Pipedrive_jsondata(models.Model):
+    sender = models.CharField(max_length=50, blank=True)
+    Data = models.TextField(blank=True)
     def __str__(self):
-        return self.username
+        return self.sender
