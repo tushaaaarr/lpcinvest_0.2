@@ -945,12 +945,14 @@ def landing_page_home(request):
     "page_data":page_data,"location_coord":location_coord}
     return render(request,'landing_page/index.html',context)
 
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
 def pipedrive_json(request):
-    print('request found')
     resp = request.body
     post_data = resp.decode('utf-8')
     Pipedrive_jsondata(sender = 'abc',Data=post_data).save()
-
+    print(post_data)
     if request.POST:
         resp = request.body
         print(resp)
