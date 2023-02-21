@@ -44,20 +44,31 @@ INSTALLED_APPS = [
     # 'django_summernote',
     'tinymce',
     # 'crispy_forms',
+    'corsheaders',
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+'corsheaders.middleware.CorsMiddleware',
+'django.middleware.security.SecurityMiddleware',
+'django.contrib.sessions.middleware.SessionMiddleware',
+'django.middleware.common.CommonMiddleware',
+'django.middleware.csrf.CsrfViewMiddleware',
+'django.contrib.auth.middleware.AuthenticationMiddleware',
+'django.contrib.messages.middleware.MessageMiddleware',
+'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOWED_ORIGINS = [
+#     "https://ads.lpcinvest.com",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:8000",
+# ]
+from .DEFAULTS import DEFAULT_HEADERS
 
+CORS_ALLOW_HEADERS = DEFAULT_HEADERS 
+CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'lpc.urls'
 
 TEMPLATES = [
@@ -147,3 +158,5 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 AUTH_USER_MODEL = 'home.CustomUser'
 AUTHENTICATION_BACKENDS = ['home.backends.EmailBackend'] # new
+
+

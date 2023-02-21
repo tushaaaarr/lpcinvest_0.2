@@ -946,7 +946,11 @@ def landing_page_home(request):
     return render(request,'landing_page/index.html',context)
 
 def pipedrive_json(request):
-    print('request.found')
+    print('request found')
+    resp = request.body
+    post_data = resp.decode('utf-8')
+    Pipedrive_jsondata(sender = 'abc',Data=post_data).save()
+
     if request.POST:
         resp = request.body
         print(resp)
