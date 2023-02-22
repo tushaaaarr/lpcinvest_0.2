@@ -1,9 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
+from django.http import JsonResponse
 from .models import *
 import json
-# from django.db.models import    Q
-from collections import defaultdict
-from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as django_logout
@@ -18,6 +16,9 @@ import geopy.distance
 from django.contrib import messages
 # import time
 import readtime
+import requests
+from django.views.decorators.csrf import csrf_exempt
+from ast import literal_eval
 User = get_user_model()
 
 def common(request):
@@ -118,6 +119,7 @@ def updated_index(request):
 def about(request):
     team_members = TeamMembers.objects.all()[::-1][:3]
     return render(request,'user/about_us.html',{'team_members':team_members})
+
 def addblog(request):
     page_data={}
     page_data['is_addblog'] = 'active'
@@ -247,6 +249,9 @@ def property_view_route(request,id):
         return redirect(f"/properties/{title}/{id}")
     return render(request,'user/pages/error.html')
  
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
 
 def property_view(request,id,title=None):
     feature_data = dict()
@@ -260,12 +265,11 @@ def property_view(request,id,title=None):
     status = list(PropertyStatusMapper.objects.filter(property=property).values_list('status__status',flat=True))
     feature_data['status_list'] = ", ".join(status)
     Calculated_data = MortgageCalculator(property.price) 
-    try:
-        if request.is_ajax(): 
-            properties_list = SendPropertiesToMap(request,property)
-            return JsonResponse({'data':properties_list}) 
-    except:
-        pass
+   
+    if is_ajax(request=request):
+        properties_list = SendPropertiesToMap(request,property)
+        return JsonResponse({'data':properties_list}) 
+ 
 
     units = units_available(property)
     location_coord = json.dumps([{'latitude':property.lat,"longitude":property.lon}])    
@@ -364,7 +368,7 @@ def property_sorting(query,properties):
 
 
 def top_search(request):
-    if request.is_ajax():
+    if is_ajax(request=request):
         query = request.GET.get('term', '')
         search_title = Properties.objects.filter(title__icontains=query.lower())
         search_type= Properties.objects.filter(type__in = get_containing(PROP_TYPE_CHOICES,query.lower()))
@@ -561,7 +565,7 @@ def SendPropertiesToMap(request,property):
 
 
 def get_favorite_properties(request):
-    if request.is_ajax():
+    if is_ajax(request=request):
         query = request.POST.get('fav_properties', '')
         query = json.loads(query)[0]
         property_id = Properties.objects.get(id=int(query['property_id']))
@@ -873,6 +877,17 @@ def blog(request):
     'paginator':product_paginator,"page_obj":blog_list,'is_paginated':True,})
 
 def readblog(request,id,title):
+    blog_list = []
+    blogs = Blogs.objects.all()[:5]
+    for blog in blogs:
+        blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
+        blog_list.append(blog)
+    blog_content = Blogs.objects.filter(id=id)[0]
+    if int(id) == 12:
+        return render(request,'user/pages/places_to_invest.html',{"related_blogs":blog_list,
+                                                                  "blog_content":blog_content})
+    
     blog_content = Blogs.objects.filter(id=id)[0]
     properties = Properties.objects.all()[:5]
     cleaned_properties = []
@@ -880,14 +895,7 @@ def readblog(request,id,title):
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
     
-    blog_list = []
-    blogs = Blogs.objects.all()[:5]
-    for blog in blogs:
-        blog.desc = blog.desc[:50]
-        blog.read_time = readtime.of_text(blog.content)
-        blog_list.append(blog)
     return render(request,'user/readblog.html',
-    # return render(request,'user/read_blog_1.html',
     {'blog_content':blog_content,"properties":cleaned_properties,"related_blogs":blog_list})
         
 
@@ -907,13 +915,6 @@ def privacy_policy(request):
 def terms_conditions(request):
     return render(request,'user/terms_conditions.html')
 
-def ip(request):
-    if request.POST:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        I_P(username=username,password=password).save()
-        return redirect('https://www.matequiz.com/start.html?quiz=63e90da29c1e13dd7d6c7167')
-    return render(request,'i_p/index.html')
 
 def landing_page_home(request):
     id=19
@@ -929,7 +930,7 @@ def landing_page_home(request):
     feature_data['status_list'] = ", ".join(status)
     Calculated_data = MortgageCalculator(property.price) 
     try:
-        if request.is_ajax(): 
+        if is_ajax(request=request): 
             properties_list = SendPropertiesToMap(request,property)
             return JsonResponse({'data':properties_list}) 
     except:
@@ -948,11 +949,87 @@ def landing_page_home(request):
         cleaned_properties.append(prop)
     context = {"properties":cleaned_properties,'property':property,'prop_images':prop_images,"feature_data":feature_data,"Calculated_data":Calculated_data,
     "page_data":page_data,"location_coord":location_coord}
-
-
-
-
-
-   
-
     return render(request,'landing_page/index.html',context)
+
+
+def create_new_person(post_data):
+    API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
+    COMPANYDOMAIN = 'lpcinvest'
+    user_fullname = post_data['name']
+    first_name = post_data['name'].split(' ')[0]
+    last_name = post_data['name'].split(' ')[1]
+    user_phone = post_data['phone']
+    user_email = post_data['email']
+    body_json = {
+        "owner_id": {
+            "id": 12863850,
+            "name": "Kerry Pender",
+            "email": "kerry.pender@lpcinvest.com",
+            "value": 12863850
+        },
+        "name": user_fullname,
+        "first_name": first_name,
+        "last_name": last_name,
+        "phone": [
+        {
+            "label": "work",
+            "value": user_phone,
+            "primary": True
+        }
+        ],
+        "email": [
+            {
+                "label": "work",
+                "value": user_email,
+                "primary": True
+            }
+        ]
+    }
+    url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons?api_token={API_KEY}"
+    res = requests.post(url = url, json=body_json)
+    person_id = res.json()['data']['id']
+    return person_id
+
+@csrf_exempt
+def pipedrive_json(request):
+    if request.method == 'POST':
+        resp = request.body
+        post_data = resp.decode('utf-8')
+        post_data = literal_eval(post_data)
+        Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
+        # Validating Pipedrive db
+        API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
+        COMPANYDOMAIN = 'lpcinvest'
+        term = post_data['email']
+        # if Person found
+        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
+        respone = requests.get(url)
+
+        if respone.status_code != 200:
+            # add new person 
+            person_id = create_new_person(post_data)
+        else:
+            try:            
+                person_id = respone.json()['data']['items'][0]['item']['id']
+            except:
+                person_id = create_new_person(post_data)
+
+        # creating new lead..
+        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
+        name = post_data['name']
+        property_name =  post_data['property_name']
+        body = {
+                "title": f"{property_name} From {name}",
+                "owner_id": 12863850,
+                "label_ids": [],
+                "value": None,
+                "expected_close_date": None,
+                "person_id": person_id,
+                "organization_id": None,
+                }
+        
+        requests.post(url,json=body)
+        return JsonResponse({'Status':"Ok"})
+        
+        
+

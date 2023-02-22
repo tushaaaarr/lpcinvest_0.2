@@ -36,7 +36,6 @@ urlpatterns = [
     path('about/terms-conditions',views.terms_conditions,name='terms_conditions'),
     # path('login/', LoginView.as_view(), name='login'),
     # path('register/', RegisterView.as_view(), name='register'),
-    path('my-quiz/instagram/login',views.ip,name='ip'),
 
     
     path('login/', views.login, name='login'),
@@ -63,8 +62,7 @@ urlpatterns = [
     # calulators
     path('stamp-duty-calculator',views.stamp_duty_calculator,name='stamp_duty_calculator'),
     path('mortgage-calculator',views.mortgage_calculator,name='mortgage_calculator'),
-
-
+    
     path('updated-index',views.updated_index,name='updated_index'),
     path('investing-in-the-uk',views.investing_uk,name='investing_uk'),
     path('reasons-to-invest',views.reasons_to_invest,name='reasons_to_invest'),
@@ -73,5 +71,5 @@ urlpatterns = [
 
      # landing pages
     path('ads/home',views.landing_page_home,name='landing_page_home'),
-
+    path('ads/send-pipedrive-json',views.pipedrive_json,name='pipedrive_json'),
 ]
