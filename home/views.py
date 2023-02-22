@@ -1,4 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
+from django.http import JsonResponse
 from .models import *
 import json
 from django.contrib.auth import authenticate
@@ -248,6 +249,9 @@ def property_view_route(request,id):
         return redirect(f"/properties/{title}/{id}")
     return render(request,'user/pages/error.html')
  
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
 
 def property_view(request,id,title=None):
     feature_data = dict()
@@ -261,12 +265,11 @@ def property_view(request,id,title=None):
     status = list(PropertyStatusMapper.objects.filter(property=property).values_list('status__status',flat=True))
     feature_data['status_list'] = ", ".join(status)
     Calculated_data = MortgageCalculator(property.price) 
-    try:
-        if request.is_ajax(): 
-            properties_list = SendPropertiesToMap(request,property)
-            return JsonResponse({'data':properties_list}) 
-    except:
-        pass
+   
+    if request.is_ajax(): 
+        properties_list = SendPropertiesToMap(request,property)
+        return JsonResponse({'data':properties_list}) 
+ 
 
     units = units_available(property)
     location_coord = json.dumps([{'latitude':property.lat,"longitude":property.lon}])    
@@ -365,7 +368,7 @@ def property_sorting(query,properties):
 
 
 def top_search(request):
-    if request.is_ajax():
+    if is_ajax(request=request):
         query = request.GET.get('term', '')
         search_title = Properties.objects.filter(title__icontains=query.lower())
         search_type= Properties.objects.filter(type__in = get_containing(PROP_TYPE_CHOICES,query.lower()))
@@ -562,7 +565,7 @@ def SendPropertiesToMap(request,property):
 
 
 def get_favorite_properties(request):
-    if request.is_ajax():
+    if is_ajax(request=request):
         query = request.POST.get('fav_properties', '')
         query = json.loads(query)[0]
         property_id = Properties.objects.get(id=int(query['property_id']))
@@ -927,7 +930,7 @@ def landing_page_home(request):
     feature_data['status_list'] = ", ".join(status)
     Calculated_data = MortgageCalculator(property.price) 
     try:
-        if request.is_ajax(): 
+        if is_ajax(request=request): 
             properties_list = SendPropertiesToMap(request,property)
             return JsonResponse({'data':properties_list}) 
     except:
