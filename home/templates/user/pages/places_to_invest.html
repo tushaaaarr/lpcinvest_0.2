@@ -11,12 +11,12 @@
 
             <div class="bg-dark altCar">
              
-              <video  style="width: 100%; height: 100%; object-fit: cover;opacity: 0.5;" autoplay muted loop>
+              <!-- <video  style="width: 100%; height: 100%; object-fit: cover;opacity: 0.5;" autoplay muted loop>
                 <source src="/static/img/5pin.mp4" type="video/mp4">
               Your browser does not support the video tag.
-              </video>
+              </video> -->
               
-              <!-- <div class="carousel-item active" data-bs-interval="6000">
+              <div class="carousel-item active" data-bs-interval="6000">
                   <img src="/static/img/background-index/1.jpg" class="d-block " alt="...">
               </div>
               <div class="carousel-item" data-bs-interval="6000">
@@ -24,7 +24,7 @@
               </div>
               <div class="carousel-item" data-bs-interval="6000">
                   <img src="/static/img/background-index/3.jpg" class="d-block " alt="...">
-              </div> -->
+              </div>
 
           </div>
 
@@ -209,8 +209,54 @@
 <!-- Benefits end -->
 
 
+
+<!-- Related Article section start -->
+
+ <!--Blog Card  Start-->
+ <div class="blog comon-slick content-area bg-light mt-3" data-aos="fade-up">
+  <div class="container">
+      <!-- Main title -->
+      <div class="main-title-5">
+          <h2 class="heading">Related <span style="color:#00CE8D">Articles</span></span></h2>
+          <div class="title-border">
+              <div class="title-border-inner"></div>
+              <div class="title-border-inner"></div>
+              <div class="title-border-inner"></div>
+          </div>
+      </div>
+      <div class="slick row comon-slick-inner"
+          data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+    
+          {%for blog in related_blogs%}   
+          <div class="item slide-box">
+              <div class="blog-3 b-photo2" style="background:url(/media/{{blog.image_1}});
+              background-size:cover;background-repeat: no-repeat;background-position: center;">
+                  <div class="blog-info">
+                      <h3 style="font-weight:700" class='text-capitalize'><a href="/blog/{{blog.desc | slugify}}/{{blog.id}}">{{blog.desc}}..</a></h3>
+                      <div class="container">
+                          <div class = "btn-group">
+                                    <p><i class="fa fa-calendar pe-1 pt-4"></i> {{blog.pub_date}}</p> 
+                                    <p class="ml-3 text-capitalize"><i class="fa fa-clock-o pe-1 pt-4"></i>{{blog.read_time}}</p> 
+                          </div>
+                    </div>
+                    
+                  </div>
+
+              </div>
+          </div>
+         {%endfor%}
+        </div>
+     
+  </div>
+</div>
+<!-- Related Article secion End -->
+
+
+
+
+
 <!-- Contact section start -->
-<div data-aos="fade-up" class='mt-1 altContSec'>
+<!-- <div data-aos="fade-up" class='mt-1 altContSec'>
   <div class="container mx-auto py-5 contact_section " >
     <div class="row d-flex justify-content-center px-2 mx-0" >
       <div class="col-12">
@@ -228,7 +274,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- Contact section End -->
 
 

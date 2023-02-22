@@ -613,7 +613,13 @@ def beginners_guide(request):
 def reasons_to_invest(request):
     return render(request,'user/pages/reasons.html')
 def places_to_invest(request):
-    return render(request,'user/pages/places_to_invest.html')    
+    blog_list = []
+    blogs = Blogs.objects.all()[:5]
+    for blog in blogs:
+        blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
+        blog_list.append(blog)
+    return render(request,'user/pages/places_to_invest.html',{"related_blogs":blog_list})    
 
 def investing_uk(request):
     return render(request,'user/pages/investing_uk.html')
