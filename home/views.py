@@ -266,7 +266,7 @@ def property_view(request,id,title=None):
     feature_data['status_list'] = ", ".join(status)
     Calculated_data = MortgageCalculator(property.price) 
    
-    if request.is_ajax(): 
+    if is_ajax(request=request):
         properties_list = SendPropertiesToMap(request,property)
         return JsonResponse({'data':properties_list}) 
  
