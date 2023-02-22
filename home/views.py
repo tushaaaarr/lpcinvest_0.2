@@ -1,9 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .models import *
 import json
-# from django.db.models import    Q
-from collections import defaultdict
-from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as django_logout
@@ -19,7 +16,8 @@ from django.contrib import messages
 # import time
 import readtime
 import requests
-
+from django.views.decorators.csrf import csrf_exempt
+from ast import literal_eval
 User = get_user_model()
 
 def common(request):
@@ -120,6 +118,7 @@ def updated_index(request):
 def about(request):
     team_members = TeamMembers.objects.all()[::-1][:3]
     return render(request,'user/about_us.html',{'team_members':team_members})
+
 def addblog(request):
     page_data={}
     page_data['is_addblog'] = 'active'
@@ -875,6 +874,17 @@ def blog(request):
     'paginator':product_paginator,"page_obj":blog_list,'is_paginated':True,})
 
 def readblog(request,id,title):
+    blog_list = []
+    blogs = Blogs.objects.all()[:5]
+    for blog in blogs:
+        blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
+        blog_list.append(blog)
+    blog_content = Blogs.objects.filter(id=id)[0]
+    if int(id) == 12:
+        return render(request,'user/pages/places_to_invest.html',{"related_blogs":blog_list,
+                                                                  "blog_content":blog_content})
+    
     blog_content = Blogs.objects.filter(id=id)[0]
     properties = Properties.objects.all()[:5]
     cleaned_properties = []
@@ -882,14 +892,7 @@ def readblog(request,id,title):
         prop = clean_property_data(property_)
         cleaned_properties.append(prop)
     
-    blog_list = []
-    blogs = Blogs.objects.all()[:5]
-    for blog in blogs:
-        blog.desc = blog.desc[:50]
-        blog.read_time = readtime.of_text(blog.content)
-        blog_list.append(blog)
     return render(request,'user/readblog.html',
-    # return render(request,'user/read_blog_1.html',
     {'blog_content':blog_content,"properties":cleaned_properties,"related_blogs":blog_list})
         
 
@@ -944,9 +947,6 @@ def landing_page_home(request):
     context = {"properties":cleaned_properties,'property':property,'prop_images':prop_images,"feature_data":feature_data,"Calculated_data":Calculated_data,
     "page_data":page_data,"location_coord":location_coord}
     return render(request,'landing_page/index.html',context)
-
-from django.views.decorators.csrf import csrf_exempt
-from ast import literal_eval
 
 
 def create_new_person(post_data):
