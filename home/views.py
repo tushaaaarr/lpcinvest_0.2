@@ -889,7 +889,8 @@ def readblog(request,id,title):
         blog.desc = blog.desc[:50]
         blog.read_time = readtime.of_text(blog.content)
         blog_list.append(blog)
-    blog_content = Blogs.objects.filter(id=id)[0]
+    blog_content = Blogs.objects.filter(id=int(id))[0]
+    print(blog_content.desc)
     if int(id) == 12:
         return render(request,'user/pages/places_to_invest.html',{"related_blogs":blog_list,
                                                                   "blog_content":blog_content})
