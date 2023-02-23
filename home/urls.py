@@ -72,4 +72,5 @@ urlpatterns = [
      # landing pages
     path('ads/home',views.landing_page_home,name='landing_page_home'),
     path('ads/send-pipedrive-json',views.pipedrive_json,name='pipedrive_json'),
+    path('webflow_integration',views.webflow_integration,name='webflow_integration'),
 ]

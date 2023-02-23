@@ -890,6 +890,7 @@ def readblog(request,id,title):
         blog.read_time = readtime.of_text(blog.content)
         blog_list.append(blog)
     blog_content = Blogs.objects.filter(id=int(id))[0]
+    
     print(blog_content.desc)
     if int(id) == 12:
         return render(request,'user/pages/places_to_invest.html',{"related_blogs":blog_list,
@@ -1040,3 +1041,25 @@ def pipedrive_json(request):
         
         
 
+from remote_jinja import render_remote
+
+def webflow_integration(request):
+    # param = {'title':'Trafford bar apartment'}
+    # return render_remote("https://lpc-invest-ads.webflow.io")
+    # import requests
+
+    url = "https://ads.lpcinvest.com/lpc-invest-trafford-bar-apartments"
+    # YOUR_API_TOKEN = 'de33123c704f37502e5299a1ac3f726ed5581dbdec6ddf4c2c509a4a8cc7f26d'
+
+    # headers = {
+    #     "accept": "application/json",
+    #     "authorization": f'Bearer {YOUR_API_TOKEN}'
+    # }
+
+    # response = requests.get(url, headers=headers)
+
+    # return render_remote(url)
+
+    r = render_remote(url,name="test-name")
+    print(name)
+    return HttpResponse(r)
