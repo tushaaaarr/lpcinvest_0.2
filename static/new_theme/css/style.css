@@ -141,7 +141,7 @@ textarea.form-control {
   border: 20px solid transparent;
   background: #fff;
   min-height: 300px;
-  overflow-y: scroll; }
+  overflow-y: scroll!important; }
   .site-navbar nav {
     text-align: left; }
     .site-navbar nav .menu {
