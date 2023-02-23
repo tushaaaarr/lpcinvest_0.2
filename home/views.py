@@ -1059,7 +1059,5 @@ def webflow_integration(request):
     # response = requests.get(url, headers=headers)
 
     # return render_remote(url)
-
     r = render_remote(url,name="test-name")
-    print(name)
     return HttpResponse(r)
