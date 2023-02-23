@@ -409,7 +409,7 @@ buttons{
                             <i class="fa fa-question-circle"></i> Enquire</button>
                     </div>
                 </div>
-
+{%if feature_data.feature_list%}
 <div class="features bg-light" style="box-shadow: none;">
                 <!-- Properties amenities start -->
                 <div class="properties-amenities mb-40">
@@ -423,8 +423,9 @@ buttons{
                         </div>
                     </div>
                 </div>
+              </div>
 
-            </div>
+              {%endif%}
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
                     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
@@ -619,7 +620,9 @@ buttons{
 
 
     </div>
-</div>
+
+  </div>
+
 <!--Download Guide section Start  -->
 <div class="my-5" style="box-shadow:0 0 10px rgba(0,0,0,0.2); background-image:url("{% static 'img/modal_image.jpg' %}");
 background-position:center;bacground-repeat:no-repeat;background-attachment:center; background-size:100%;">
