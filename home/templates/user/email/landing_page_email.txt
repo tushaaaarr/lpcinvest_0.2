@@ -1,0 +1,13 @@
+{% autoescape off %}
+Hello lpcinvest Team,
+
+We received a new lead from {{sender_name}}.
+
+Property Name : {{property_name}}
+
+{% comment %} {{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %} {% endcomment %}
+
+Click below link to see new lead {{domain}} and request another reset.
+
+
+{% endautoescape %}

@@ -489,10 +489,26 @@ def search(request):
     context = {"properties":properties,"properties_data":properties_data}
     return render(request,'user/property/properties-list-leftsidebar.html',context)
 
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode  
+from django.template.loader import render_to_string  
+from django.utils.encoding import force_bytes, force_text  
+from django.core.mail import send_mail  
 
-def send_mail():
-    return None
+def send_newmail():
+    user_email = 'tusharspatil808@gmail.com'
+    subject = "New lead from {user}"
+    email_template_name = "user/email/landing_page_email.txt"
 
+    c = {
+    'property_name':'example',
+    'sender_name': 'abc',
+    'domain':'https://lpcinvest.pipedrive.com/leads/inbox',
+    'protocol': 'http',
+    }
+    email = render_to_string(email_template_name, c)
+    send_mail(subject, email, 'privatemale67@gmail.com', [user_email], fail_silently=False)
+    
+    return HttpResponse("Sent..")
 
 def get_properties(in_property):
     lon1 = in_property.lat
@@ -1060,4 +1076,5 @@ def webflow_integration(request):
 
     # return render_remote(url)
     r = render_remote(url,name="test-name")
+    send_newmail()
     return HttpResponse(r)

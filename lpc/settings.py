@@ -142,6 +142,22 @@ USE_L10N = True
 USE_TZ = True
 
 
+# SMTP CONFIG
+SMTP_HOST= str(os.getenv('SMTP_HOST'))
+SMTP_HOST_USER = str(os.getenv('SMTP_HOST_USER'))
+SMTP_HOST_PASS = str(os.getenv('SMTP_HOST_PASS'))
+SMTP_HOST_PORT = str(os.getenv('SMTP_HOST_PORT'))
+EMAIL_USE_TLS = True  
+
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_HOST_USER = 'privatemale67@gmail.com'  
+EMAIL_HOST_PASSWORD = 'wxikzwcmpyqoltcv'  
+EMAIL_PORT = 587  
+STATIC_URL = '/static/'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+
 MESSAGE_TAGS = {
     messages.ERROR:'danger'
 }
