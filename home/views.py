@@ -374,7 +374,7 @@ def top_search(request):
         search_type= Properties.objects.filter(type__in = get_containing(PROP_TYPE_CHOICES,query.lower()))
         search_blogs= Blogs.objects.filter(desc__icontains = query.lower())
         top_keys = ['blogs','latest properties','blog','new apartments','latest blogs','construction updates','new constructions','constructions','stamp duty calculator','mortgage calculator','studios']
-        search_keys = [x for x in top_keys if query in x]
+        search_keys = [x for x in top_keys if query.lower() in x]
         results = []
 
         for keyw in search_keys:
@@ -398,6 +398,7 @@ def top_search(request):
     query = request.GET.get('query', "")
     properties = Properties.objects.filter(title = query.lower())
     blogs = Blogs.objects.filter(desc__icontains = query.lower())
+
     if query.lower() in ['blogs','blog','latest blogs']:
         return redirect('/blogs')
 
