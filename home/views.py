@@ -396,9 +396,8 @@ def top_search(request):
         return HttpResponse(data)
 
     query = request.GET.get('query', "")
-    properties = Properties.objects.filter(title__contains=query.lower())
+    properties = Properties.objects.filter(title = query.lower())
     blogs = Blogs.objects.filter(desc__icontains = query.lower())
-
     if query.lower() in ['blogs','blog','latest blogs']:
         return redirect('/blogs')
 
