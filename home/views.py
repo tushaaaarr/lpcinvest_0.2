@@ -489,9 +489,7 @@ def search(request):
     context = {"properties":properties,"properties_data":properties_data}
     return render(request,'user/property/properties-list-leftsidebar.html',context)
 
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode  
 from django.template.loader import render_to_string  
-from django.utils.encoding import force_bytes, force_text  
 from django.core.mail import send_mail  
 
 def send_newmail():
@@ -507,7 +505,7 @@ def send_newmail():
     }
     email = render_to_string(email_template_name, c)
     send_mail(subject, email, 'privatemale67@gmail.com', [user_email], fail_silently=False)
-    
+
     return HttpResponse("Sent..")
 
 def get_properties(in_property):
