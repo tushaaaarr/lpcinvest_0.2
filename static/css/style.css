@@ -138,6 +138,12 @@ ul {
     padding: 10px 30px 11px;
 }
 
+#LeadboosterContainer{
+    bottom: 5% !important;
+    right: 5%!important;
+
+}
+
 .btn-4 i::before {
     position: relative;
     font-size: 18px;
