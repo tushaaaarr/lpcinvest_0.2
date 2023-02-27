@@ -52,7 +52,7 @@
         </div>
             <div class="row g-0 contact-innner">
                 <div class="col-lg-7">
-                    <form action="/#" id="contact us form">
+                    <form action="/pipedrive-responses" id="contact us form">
                         <div class="form-group">
                           <label for="uname">Name:</label>
                           <input type="text" class="form-control" id="uname" placeholder="Enter Full Name" name="name" required>
@@ -94,8 +94,10 @@
                         <button type="submit" class="btn cont-sec">Submit</button>
                       </form>
                       
-                      <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
-                        Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
+                      <div class="d-flex align-items-center h-100">
+                        <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
+                          Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
+                        </div>
                       </div>
 
                     <div class="pipedriveWebForms d-none" data-pd-webforms=https://webforms.pipedrive.com/f/5VJtmmm0Bokw4VROSeceSIwHq8toxTB1PagJZHJpJSiuelBP8PrMteXLYtDTUYEpCr><script src=https://webforms.pipedrive.com/f/loader></script></div>
@@ -169,7 +171,7 @@
  }
  
    
- $('form[action="/#"]').each(function (i, el) {
+ $('form[action="/pipedrive-responses"]').each(function (i, el) {
 var form = $(el);
 form.submit(function (e) {
  e.preventDefault();

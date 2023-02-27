@@ -337,10 +337,11 @@ buttons{
 
                         <button type="submit" class="btn cont-sec">Submit</button>
                       </form>
-                      
+                      <div class="d-flex align-items-center h-100">
                       <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
                         Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
                       </div>
+                    </div>
 
                         <div class="pipedriveWebForms d-none"
                         data-pd-webforms=https://webforms.pipedrive.com/f/cB7meCB7GbTrgUwl1wvr6F0GvWoG7Z5U9Qk6y8Jc1DZeGGQwaVaV0Ktrgr92kk7fvJ>
@@ -764,7 +765,7 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
     }
     
       
-    $('form[action="/#"]').each(function (i, el) {
+    $('form[action="/pipedrive-responses"]').each(function (i, el) {
   var form = $(el);
   form.submit(function (e) {
     e.preventDefault();
@@ -780,7 +781,7 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
     data.id=e.target.id;
     data.property_name=e.target.id;
     
-    fetch("https://www.lpcinvest.com/ads/send-pipedrive-json", {
+  fetch("https://www.lpcinvest.com/ads/send-pipedrive-json", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
