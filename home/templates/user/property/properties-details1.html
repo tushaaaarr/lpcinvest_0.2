@@ -320,16 +320,16 @@ buttons{
 
                         <div class="form-group form-check">
                           <label class="form-check-label d-block">
-                            <input class="form-check-input" type="checkbox" name="chk1" > First Time Investor
+                            <input class="form-check-input" type="checkbox" value="First Time Investor" name="chk" > First Time Investor
                           </label>  
                           <label class="form-check-label d-block">
-                            <input class="form-check-input" type="checkbox" name="chk2" > Investor
+                            <input class="form-check-input" type="checkbox" value="Investor" name="chk" > Investor
                           </label>
                           <label class="form-check-label d-block">
-                            <input class="form-check-input" type="checkbox" name="chk3" > Owner Occupier
+                            <input class="form-check-input" type="checkbox" value="Owner Occupier" name="chk" > Owner Occupier
                           </label>
                           <label class="form-check-label d-block">
-                            <input class="form-check-input" type="checkbox" name="chk4" > Sourcing Agent
+                            <input class="form-check-input" type="checkbox" value="Sourcing Agent" name="chk" > Sourcing Agent
                           </label>
                         </div>
                         <div class="form-group">
@@ -772,28 +772,15 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
     e.preventDefault();
     form = $(e.target);
     var data = convertFormToJSON(form);
-  
-    let new_property;
-    if(data.chk1=="on"){
-    	new_property="First Time investor";
-    }
-    else if(data.chk2=="on"){
-    	new_property="Investor";
-    }
-    else if(data.chk3=="on"){
-    	new_property="Owner Occupier";
-    }
-    else if(data.chk4=="on"){
-    	new_property="Sourcing Agent";
-    }
     
-    data.investor_type= new_property;
+    var investarray = [];
+    var checkboxes = $('input:checkbox[name=chk]:checked').each(function(){
+    investarray.push($(this).val());
+    });
+    
+    data.investor_type= investarray;
     data.id=e.target.id;
     data.property_name=e.target.id;
-
-    console.log(data);
-    console.log(e.target.id)
-
     
     fetch("https://www.lpcinvest.com/ads/send-pipedrive-json", {
   method: "POST",
@@ -820,7 +807,7 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
     
   });
 });
-    </script>
+</script>
     <!-- New Form script Start -->
 
     
