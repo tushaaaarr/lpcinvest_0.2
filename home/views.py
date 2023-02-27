@@ -974,9 +974,10 @@ def landing_page_home(request):
     return render(request,'landing_page/index.html',context)
 
 
+API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
+COMPANYDOMAIN = 'lpcinvest'
+
 def create_new_person(post_data):
-    API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
-    COMPANYDOMAIN = 'lpcinvest'
     user_fullname = post_data['name']
     first_name = post_data['name'].split(' ')[0]
     last_name = post_data['name'].split(' ')[1]
@@ -1012,6 +1013,25 @@ def create_new_person(post_data):
     person_id = res.json()['data']['id']
     return person_id
 
+
+def create_new_lead(post_data,person_id):
+    # creating new lead..
+    url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
+    name = post_data['name']
+    property_name =  post_data['property_name']
+    body = {
+            "title": f"{property_name} From {name}",
+            "owner_id": 12863850,
+            "label_ids": [],
+            "value": None,
+            "expected_close_date": None,
+            "person_id": person_id,
+            "organization_id": None,
+            }
+    
+    res = requests.post(url,json=body)
+    return res.status_code
+
 @csrf_exempt
 def pipedrive_json(request):
     if request.method == 'POST':
@@ -1020,8 +1040,6 @@ def pipedrive_json(request):
         post_data = literal_eval(post_data)
         Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
         # Validating Pipedrive db
-        API_KEY= "44d51723cad340ffacf475cbe66213d1ba0c8ea0"
-        COMPANYDOMAIN = 'lpcinvest'
         term = post_data['email']
         # if Person found
         url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
@@ -1036,24 +1054,39 @@ def pipedrive_json(request):
             except:
                 person_id = create_new_person(post_data)
 
-        # creating new lead..
-        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
-        name = post_data['name']
-        property_name =  post_data['property_name']
-        body = {
-                "title": f"{property_name} From {name}",
-                "owner_id": 12863850,
-                "label_ids": [],
-                "value": None,
-                "expected_close_date": None,
-                "person_id": person_id,
-                "organization_id": None,
-                }
-        
-        requests.post(url,json=body)
+        # create new lead
+        create_new_lead(post_data,person_id)
         return JsonResponse({'Status':"Ok"})
         
-        
+
+def pipedrive_responses(request):
+    if request.method == 'POST':
+        post_data = {}
+        post_data['email'] = request.POST.get('email')
+        post_data['phone'] = request.POST.get('phone')
+        post_data['name'] = request.POST.get('name')
+        post_data['property_type'] = request.POST.get('property_type')
+        post_data['message'] = request.POST.get('message')
+
+        print(post_data)
+
+        Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
+        # Validating Pipedrive db
+        term = post_data['email']
+        # if Person found
+        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
+        respone = requests.get(url)
+
+        if respone.status_code != 200:
+            # add new person 
+            person_id = create_new_person(post_data)
+        else:
+            try:            
+                person_id = respone.json()['data']['items'][0]['item']['id']
+            except:
+                person_id = create_new_person(post_data)
+
+    return JsonResponse({'status':"created"})        
 
 from remote_jinja import render_remote
 

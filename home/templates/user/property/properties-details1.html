@@ -282,7 +282,6 @@ buttons{
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class="about-text clearfix mb-5">
-
                         <h4>You are only steps away from your perfect investment!</h4>
                         <p></p>Fill in your contact details below to learn more about {{property.title}} investment.
                         </div>
@@ -298,12 +297,11 @@ buttons{
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                      <form action="/#" id="{{property.title}}">
+                      <form method='post' action="/pipedrive-responses" id="{{property.title}}" >
+                        {% csrf_token %}
                         <div class="form-group">
                           <label for="uname">Name:</label>
                           <input type="text" class="form-control" id="uname" placeholder="Enter Full Name" name="name" required>
-                          
-                
                         </div>
                         <div class="form-group">
                           <label for="email">Email:</label>
