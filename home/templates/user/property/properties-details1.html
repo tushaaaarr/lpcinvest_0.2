@@ -16,7 +16,6 @@
 
     }
     .w-form-done{
-      display: none;
       background-color: #00CE8D;
     }
     .properties-description p strong {
@@ -330,14 +329,14 @@ buttons{
                           <textarea class="form-control" rows="5" id="comment"></textarea>
                         </div>
 
-                        <button type="submit" class="btn cont-sec">Submit</button>
+                        <button type="submit" class="btn cont-sec wait">Submit</button>
                       </form>
-                      <div class="d-flex align-items-center h-100">
-                      <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
-                        Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
+                      <div class="align-items-center h-100 success-msg ">
+                        <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
+                          Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
+                        </div>
                       </div>
-                    </div>
-
+                      <div class="loader" style="top:30%;left:30%"></div>
                         <div class="pipedriveWebForms d-none"
                         data-pd-webforms=https://webforms.pipedrive.com/f/cB7meCB7GbTrgUwl1wvr6F0GvWoG7Z5U9Qk6y8Jc1DZeGGQwaVaV0Ktrgr92kk7fvJ>
                     </div>
@@ -378,7 +377,49 @@ buttons{
                           </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <div class="pipedriveWebForms" data-pd-webforms=https://webforms.pipedrive.com/f/6iEzffLE99coEvWbS7AKaBdP93xeO8FzTVrPYNMaqyGN8AIVi2Dz8OdimuAgLXxcLp>
+                        <form method='post' action="/pipedrive-responses" id="{{property.title}}" >
+                          {% csrf_token %}
+                          <div class="form-group">
+                            <label for="uname">Name:</label>
+                            <input type="text" class="form-control" id="uname" placeholder="Enter Full Name" name="name" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                          </div>
+                          <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
+                          </div>
+                          <div class="form-group form-check">
+                            <label class="form-check-label d-block">
+                              <input class="form-check-input" type="checkbox" value="First Time Investor" name="chk" > First Time Investor
+                            </label>  
+                            <label class="form-check-label d-block">
+                              <input class="form-check-input" type="checkbox" value="Investor" name="chk" > Investor
+                            </label>
+                            <label class="form-check-label d-block">
+                              <input class="form-check-input" type="checkbox" value="Owner Occupier" name="chk" > Owner Occupier
+                            </label>
+                            <label class="form-check-label d-block">
+                              <input class="form-check-input" type="checkbox" value="Sourcing Agent" name="chk" > Sourcing Agent
+                            </label>
+                          </div>
+                          <div class="form-group">
+                            <label for="comment">Message(optional):</label>
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                          </div>
+    
+                          <button type="submit" class="btn cont-sec wait">Submit</button>
+                        </form>
+                        <div class="align-items-center h-100 success-msg ">
+                          <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
+                            Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
+                          </div>
+                        </div>
+                        <div class="loader" style="top:30%;left:30%"></div>
+
+                        <div class="pipedriveWebForms d-none" data-pd-webforms=https://webforms.pipedrive.com/f/6iEzffLE99coEvWbS7AKaBdP93xeO8FzTVrPYNMaqyGN8AIVi2Dz8OdimuAgLXxcLp>
                         </div>
                       </div>
                   </div>
@@ -623,7 +664,48 @@ buttons{
                 <!-- Advanced search start -->
                 <div class="widget advanced-search bg-light" style="box-shadow: none;">
                     <h3>Property Form</h3>
-                    <div class="pipedriveWebForms"
+                    <form method='post' action="/pipedrive-responses" id="{{property.title}}" >
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="uname">Name:</label>
+                        <input type="text" class="form-control" id="uname" placeholder="Enter Full Name" name="name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                      </div>
+                      <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
+                      </div>
+                      <div class="form-group form-check">
+                        <label class="form-check-label d-block">
+                          <input class="form-check-input" type="checkbox" value="First Time Investor" name="chk" > First Time Investor
+                        </label>  
+                        <label class="form-check-label d-block">
+                          <input class="form-check-input" type="checkbox" value="Investor" name="chk" > Investor
+                        </label>
+                        <label class="form-check-label d-block">
+                          <input class="form-check-input" type="checkbox" value="Owner Occupier" name="chk" > Owner Occupier
+                        </label>
+                        <label class="form-check-label d-block">
+                          <input class="form-check-input" type="checkbox" value="Sourcing Agent" name="chk" > Sourcing Agent
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label for="comment">Message(optional):</label>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                      </div>
+
+                      <button type="submit" class="btn cont-sec wait">Submit</button>
+                    </form>
+                    <div class="align-items-center h-100 success-msg ">
+                      <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
+                        Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
+                      </div>
+                    </div>
+                    <div class="loader" style="top:6%;left:30%"></div>
+                    <div class="pipedriveWebForms d-none"
                         data-pd-webforms=https://webforms.pipedrive.com/f/cB7meCB7GbTrgUwl1wvr6F0GvWoG7Z5U9Qk6y8Jc1DZeGGQwaVaV0Ktrgr92kk7fvJ>
                     </div>
 
@@ -750,57 +832,69 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
     <script type="text/javascript" src="{% static 'js/maps.js' %}" defer></script>
     <!-- New Form script Start -->
     <script>
-     function convertFormToJSON(form) {
-    var array = $(form).serializeArray();
-    var json = {};
-    $.each(array, function () {
-      json[this.name] = this.value || "";
+      function convertFormToJSON(form) {
+     var array = $(form).serializeArray();
+     var json = {};
+     $.each(array, function () {
+       json[this.name] = this.value || "";
+     });
+     return json;
+     }
+     
+       
+     $('form[action="/pipedrive-responses"]').each(function (i, el) {
+    var form = $(el);
+    form.submit(function (e) {
+     e.preventDefault();
+     
+     var parent = $(form.parent());
+    $('.wait').prop('disabled', true);
+    $('.wait').html("Please Wait...");
+     parent.children("form").fadeTo(1000, 0.4);
+     parent.children('.loader').css('display', 'block');
+    
+     form = $(e.target);
+     var data = convertFormToJSON(form);
+     
+     var investarray = [];
+     var checkboxes = $('input:checkbox[name=chk]:checked').each(function(){
+     investarray.push($(this).val());
+     });
+     
+     data.investor_type= investarray;
+     data.id=e.target.id;
+     data.property_name=e.target.id;
+     console.log(data)
+     
+     fetch("https://www.lpcinvest.com/ads/send-pipedrive-json", {
+    method: "POST",
+    headers: {
+     "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+    })
+    .then((response) => {
+     if (response.ok) {
+       console.log("success");
+       var parent = $(form.parent());
+       // Hide the form
+       parent.children("form").css("display", "none");
+       // Display the "Done" block
+       parent.children(".success-msg").css("display", "flex");
+       $('.wait').prop('disabled', false);
+       $('.wait').html("Submit");
+        parent.children(".loader").css("display", "none");
+       fbq('track', 'Lead');
+       return response.json();
+     }
+    })
+    .then((response) => console.log(JSON.stringify(response)));
+    
+     console.log("inFunction");     
+     
     });
-    return json;
-    }
-    
-      
-    $('form[action="/pipedrive-responses"]').each(function (i, el) {
-  var form = $(el);
-  form.submit(function (e) {
-    e.preventDefault();
-    form = $(e.target);
-    var data = convertFormToJSON(form);
-    
-    var investarray = [];
-    var checkboxes = $('input:checkbox[name=chk]:checked').each(function(){
-    investarray.push($(this).val());
     });
-    
-    data.investor_type= investarray;
-    data.id=e.target.id;
-    data.property_name=e.target.id;
-    
-  fetch("https://www.lpcinvest.com/pipedrive-responses", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(data),
-})
-  .then((response) => {
-    if (response.ok) {
-      console.log("success");
-      var parent = $(form.parent());
-      // Hide the form
-      parent.children("form").css("display", "none");
-      // Display the "Done" block
-      parent.children(".w-form-done").css("display", "block");
-      return response.json();
-    }
-  })
-  .then((response) => console.log(JSON.stringify(response)));
-
-    console.log("inFunction");     
-    
-  });
-});
-</script>
+    </script>
     <!-- New Form script Start -->
 
     

@@ -4,8 +4,10 @@
     p{
         font-weight: 700 !important;
     }
-    .w-form-done{
+    .success-msg{
       display: none;
+    }
+    .w-form-done{
       background-color: #00CE8D;
     }
 </style>
@@ -91,14 +93,15 @@
                           <textarea class="form-control" rows="5" id="comment"></textarea>
                         </div>
 
-                        <button type="submit" class="btn cont-sec">Submit</button>
+                        <button type="submit" class="btn cont-sec wait">Submit</button>
                       </form>
                       
-                      <div class="d-flex align-items-center h-100">
+                      <div class="align-items-center h-100 success-msg ">
                         <div class="w-form-done fw-bold p-2 w-100 fs-6 text-light text-center rounded shadow-lg">
                           Thank you for your Interest. <span class="block text-white">We will contact you soon.</span>
                         </div>
                       </div>
+                      <div class="loader"></div>
 
                     <div class="pipedriveWebForms d-none" data-pd-webforms=https://webforms.pipedrive.com/f/5VJtmmm0Bokw4VROSeceSIwHq8toxTB1PagJZHJpJSiuelBP8PrMteXLYtDTUYEpCr><script src=https://webforms.pipedrive.com/f/loader></script></div>
                 </div>
@@ -175,6 +178,13 @@
 var form = $(el);
 form.submit(function (e) {
  e.preventDefault();
+ 
+ var parent = $(form.parent());
+$('.wait').prop('disabled', true);
+$('.wait').html("Please Wait...");
+ parent.children("form").fadeTo(1000, 0.4);
+ parent.children('.loader').css('display', 'block');
+
  form = $(e.target);
  var data = convertFormToJSON(form);
  
@@ -201,7 +211,10 @@ body: JSON.stringify(data),
    // Hide the form
    parent.children("form").css("display", "none");
    // Display the "Done" block
-   parent.children(".w-form-done").css("display", "block");
+   parent.children(".success-msg").css("display", "flex");
+   $('.wait').prop('disabled', false);
+   $('.wait').html("Submit");
+    parent.children(".loader").css("display", "none");
    fbq('track', 'Lead');
    return response.json();
  }
