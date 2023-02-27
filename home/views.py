@@ -492,9 +492,8 @@ def search(request):
 from django.template.loader import render_to_string  
 from django.core.mail import send_mail  
 
-def send_newmail():
-    user_email = 'tusharspatil808@gmail.com'
-    subject = "New lead from {user}"
+def send_newmail(user_email,sender_name,source):
+    subject = f"New lead from {sender_name}"
     email_template_name = "user/email/landing_page_email.txt"
 
     c = {
@@ -502,9 +501,10 @@ def send_newmail():
     'sender_name': 'abc',
     'domain':'https://lpcinvest.pipedrive.com/leads/inbox',
     'protocol': 'http',
+    "source:":source,
     }
     email = render_to_string(email_template_name, c)
-    send_mail(subject, email, 'privatemale67@gmail.com', [user_email], fail_silently=False)
+    send_mail(subject, email, 'privatemale67@gmail.com', user_email, fail_silently=False)
 
     return HttpResponse("Sent..")
 
@@ -1055,41 +1055,50 @@ def pipedrive_json(request):
                 person_id = create_new_person(post_data)
 
         # create new lead
-        create_new_lead(post_data,person_id)
-        return JsonResponse({'Status':"Ok"})
+        status_code = create_new_lead(post_data,person_id)
+        if status_code == 201:
+            sales_team_list = ['tusharspatil808@gmail.com']
+            sender_name = post_data['name']
+            source = 'Landing Page'
+            send_newmail(sales_team_list,sender_name,source)
+        return JsonResponse({'Status':status_code}) 
         
-
+@csrf_exempt
 def pipedrive_responses(request):
-    if request.method == 'POST':
-        post_data = {}
-        post_data['email'] = request.POST.get('email')
-        post_data['phone'] = request.POST.get('phone')
-        post_data['name'] = request.POST.get('name')
-        post_data['property_type'] = request.POST.get('property_type')
-        post_data['message'] = request.POST.get('message')
-
-        print(post_data)
-
-        Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
-        # Validating Pipedrive db
-        term = post_data['email']
-        # if Person found
-        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
-        respone = requests.get(url)
-
-        if respone.status_code != 200:
-            # add new person 
+    body_unicode = request.body.decode('utf-8')
+    post_data = json.loads(body_unicode)
+    # post_data['email'] = request.POST.get('email')
+    # post_data['phone'] = request.POST.get('phone')
+    # post_data['name'] = request.POST.get('name')
+    # post_data['property_type'] = request.POST.get('property_type')
+    # post_data['message'] = request.POST.get('message')
+    # post_data['property_name'] = 'Broadway Residence'
+    
+    Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
+    # Validating Pipedrive db
+    term = post_data['email']
+    # if Person found
+    url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
+    respone = requests.get(url)
+    if respone.status_code != 200:
+        # add new person 
+        person_id = create_new_person(post_data)
+    else:
+        try:            
+            person_id = respone.json()['data']['items'][0]['item']['id']
+        except:
             person_id = create_new_person(post_data)
-        else:
-            try:            
-                person_id = respone.json()['data']['items'][0]['item']['id']
-            except:
-                person_id = create_new_person(post_data)
 
-    return JsonResponse({'status':"created"})        
+    status_code = create_new_lead(post_data,person_id)
+    if status_code == 201:
+        sales_team_list = ['tusharspatil808@gmail.com']
+        sender_name = post_data['name']
+        source = 'Main Website'
+        send_newmail(sales_team_list,sender_name,source)
+    return JsonResponse({'Status':status_code})  
+
 
 from remote_jinja import render_remote
-
 def webflow_integration(request):
     # param = {'title':'Trafford bar apartment'}
     # return render_remote("https://lpc-invest-ads.webflow.io")

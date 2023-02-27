@@ -306,16 +306,11 @@ buttons{
                         <div class="form-group">
                           <label for="email">Email:</label>
                           <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                         
-                          
                         </div>
                         <div class="form-group">
                           <label for="phone">Phone Number:</label>
                           <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
-                         
-                          
                         </div>
-
                         <div class="form-group form-check">
                           <label class="form-check-label d-block">
                             <input class="form-check-input" type="checkbox" value="First Time Investor" name="chk" > First Time Investor
@@ -781,7 +776,7 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
     data.id=e.target.id;
     data.property_name=e.target.id;
     
-  fetch("https://www.lpcinvest.com/ads/send-pipedrive-json", {
+  fetch("https://www.lpcinvest.com/pipedrive-responses", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -796,7 +791,6 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
       parent.children("form").css("display", "none");
       // Display the "Done" block
       parent.children(".w-form-done").css("display", "block");
-      fbq('track', 'Lead');
       return response.json();
     }
   })
