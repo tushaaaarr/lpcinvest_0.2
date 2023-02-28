@@ -620,6 +620,9 @@ def CityGuide(request,city=None):
 
 def contact(request):
     return render(request,'user/contact.html')
+def dashboard_data(request):
+    return render(request,'user/data_dashboard.html')
+
 
 def beginners_guide(request):
     return render(request,'user/pages/beginners_guide.html')

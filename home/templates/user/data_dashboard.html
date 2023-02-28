@@ -1,0 +1,251 @@
+{% extends 'user/basic.html' %} {% load static %} {% block title %} Contact Us{% endblock title%} {% block css %}
+
+<style>
+  p {
+    font-weight: 700 !important;
+  }
+  .success-msg {
+    display: none;
+  }
+  .w-form-done {
+    background-color: #00ce8d;
+  }
+</style>
+
+{% endblock css %} {% block body %}
+<!-- Sub banner start -->
+<!-- <div class="sub-banner">
+  <div class="container">
+    <div class="breadcrumb-area">
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="active">Contact Us</li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+<section class="site-hero overlay" style="background-image: url('static/img/background-index/2.jpg')">
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center" data-aos="fade-up">
+        <div class="text-center">
+          <h1 class="heading">Data Dashbaord</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sub Banner end -->
+<div class="row my-5 mx-0">
+  <div class="contact-2 content-area-17 mb-5 pb-5">
+    <div class="container">
+      <!-- Main title -->
+      <div class="main-title text-center">
+        <h1>Data Dashbaord</h1>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p> -->
+      </div>
+      <div class="row g-0 contact-innner">
+        <div class="col-12">
+          <p>Type something in the input field to search the table for first names, last names or emails:</p>
+
+          <input class="form-control d-block mb-5" id="myInput" type="text" placeholder="Search.." />
+          <div style="width: 100%; overflow-x: scroll">
+            <table class="table table-bordered table-striped" style="width: fit-content">
+              <thead class="thead-dark">
+                <tr class="text-center">
+                  <th>Property Name</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone No.</th>
+                  <th>Investment Type</th>
+                  <th>Source</th>
+                  <th>
+                    <div class="d-flex justify-content-between align-items-center gap-2">
+                      <div class="form-group my-0 py-0">
+                        <select
+                          class="form-control text-center fw-bold py-0 my-0 bg-dark"
+                          id="exampleFormControlSelect1"
+                          onchange="filter(event)"
+                          style="color: white !important"
+                        >
+                          <option>Date</option>
+                          <option>Newest First</option>
+                          <option>Oldest First</option>
+                        </select>
+                      </div>
+                      <i class="fa fa-filter text-black"></i>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                <tr>
+                  <td>Trafford</td>
+                  <td>Doe</td>
+                  <td>john@example.com</td>
+                  <td>9999999</td>
+                  <td>Owner Occupier</td>
+                  <td>Landing Page</td>
+                  <td>12/11/2022</td>
+                </tr>
+                <tr>
+                  <td>Mary</td>
+                  <td>Moe</td>
+                  <td>mary@mail.com</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>Dooley</td>
+                  <td>july@greatstuff.com</td>
+                </tr>
+                <tr>
+                  <td>Anja</td>
+                  <td>Ravendale</td>
+                  <td>a_r@test.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search Script Start -->
+
+<script>
+  $(document).ready(function () {
+    $("#myInput").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      });
+    });
+  });
+</script>
+<script>
+  let datas = [];
+  datas = [
+    {
+      name: "Rohit Sharma",
+      email: "rs288442@gmail.com",
+      phone: "07696685542",
+      chk: "on",
+      property_name: "Waterloo-House",
+      message: "dwad",
+      investor_type: ["First-Time-Investor", "Investor"],
+      id: "Waterloo-House",
+      source: "Waterloo-Houseads",
+      date: "2/28/2023",
+    },
+    {
+      name: "Rohit Sharma",
+      email: "rs288442@gmail.com",
+      phone: "07696685542",
+      chk: "on",
+      property_name: "Waterloo-House",
+      message: "dwad",
+      investor_type: ["First-Time-Investor", "Investor"],
+      id: "Waterloo-House",
+      source: "Waterloo-Houseads",
+      date: "2/18/2023",
+    },
+    {
+      name: "Rohit Sharma",
+      email: "rs288442@gmail.com",
+      phone: "07696685542",
+      chk: "on",
+      property_name: "Waterloo-House",
+      message: "dwad",
+      investor_type: ["First-Time-Investor", "Investor"],
+      id: "Waterloo-House",
+      source: "Waterloo-Houseads",
+      date: "1/28/2023",
+    },
+  ];
+
+  $(document).ready(function () {
+    // Add data source ====>
+    // fetch("#", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // }).then((response) => {
+    //   if (response.ok) {
+    //     console.log("success");
+    //     // datas = response.json();
+    //     return response.json();
+    //   }
+    // });
+    // End=====>
+
+    // Comment this after adding data source
+
+    showData();
+  });
+
+  //Search Script End
+  // Filter -->
+
+  function showData() {
+    document.getElementById("myTable").innerHTML = "";
+    datas.map((ini) => {
+      let tr = document.createElement("tr");
+      let td = document.createElement("td");
+      td.innerHTML = ini.id;
+      tr.appendChild(td);
+
+      td = document.createElement("td");
+      td.innerHTML = ini.name;
+      tr.appendChild(td);
+
+      td = document.createElement("td");
+      td.innerHTML = ini.email;
+      tr.appendChild(td);
+
+      td = document.createElement("td");
+      td.innerHTML = ini.phone;
+      tr.appendChild(td);
+
+      td = document.createElement("td");
+      td.innerHTML = ini.investor_type;
+      tr.appendChild(td);
+
+      td = document.createElement("td");
+      td.innerHTML = ini.id;
+      tr.appendChild(td);
+
+      td = document.createElement("td");
+      td.innerHTML = ini.date;
+      tr.appendChild(td);
+
+      document.getElementById("myTable").appendChild(tr);
+    });
+  }
+
+  function filter(event) {
+    let option = event.target.value;
+    console.log(option);
+    if (option == "Newest First") {
+      datas = datas.sort(function (a, b) {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+
+      showData();
+      console.log(datas);
+    } else if (option == "Oldest First") {
+      datas = datas.sort(function (a, b) {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      });
+      showData();
+      console.log(datas);
+    }
+  }
+</script>
+
+{%endblock body%} {% block script %} {% endblock script %}

@@ -864,6 +864,9 @@ background-position:center;bacground-repeat:no-repeat;background-attachment:cent
      data.investor_type= investarray;
      data.id=e.target.id;
      data.property_name=e.target.id;
+     data.source = e.target.id + "website";
+	const d = new Date();
+ data.date = d.toLocaleDateString("en-US"); 
      console.log(data)
      
      fetch("https://www.lpcinvest.com/ads/send-pipedrive-json", {

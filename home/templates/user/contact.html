@@ -134,7 +134,6 @@
     </div>
 </div>
 </div>
-<button class='btn something' >something</button>
 <!-- Google map start -->
 <div class="section contact-2-map d-none mt-5">
     <div class="map">
@@ -196,6 +195,9 @@ $('.wait').html("Please Wait...");
  data.investor_type= investarray;
  data.id=e.target.id;
  data.property_name=e.target.id;
+ data.source = e.target.id + "website";
+	const d = new Date();
+ data.date = d.toLocaleDateString("en-US"); 
  
  fetch("https://www.lpcinvest.com/ads/send-pipedrive-json", {
 method: "POST",

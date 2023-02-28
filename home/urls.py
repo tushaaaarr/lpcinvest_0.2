@@ -74,4 +74,7 @@ urlpatterns = [
     path('ads/send-pipedrive-json',views.pipedrive_json,name='pipedrive_json'),
     path('webflow_integration',views.webflow_integration,name='webflow_integration'),
     path('pipedrive-responses',views.pipedrive_responses,name='pipedrive-responses'),
+
+    # Dashboard
+    path('dashboard_data',views.dashboard_data,name='dashboard_data'),
 ]
