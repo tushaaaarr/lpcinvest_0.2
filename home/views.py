@@ -1090,8 +1090,10 @@ def pipedrive_json(request):
                 source = 'Landing Page'
                 # send_newmail(sales_team_list,sender_name,source)
             return JsonResponse({'Status':status_code}) 
-    else:
-        return JsonResponse({'Status':"lead already exists.."}) 
+        
+        else:
+            return JsonResponse({'Status':"lead already exists.."}) 
+    
 #Main Website forms 
 @csrf_exempt
 def pipedrive_responses(request):
