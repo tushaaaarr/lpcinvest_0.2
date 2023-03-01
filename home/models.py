@@ -295,7 +295,16 @@ class Blogs(models.Model):
         return super(Blogs, self).save(*args, **kwargs)
     
 class Pipedrive_jsondata(models.Model):
-    sender = models.CharField(max_length=50, blank=True)
+    sender = models.CharField(max_length=40, blank=True)
+    property_name = models.CharField(max_length=50, blank=True)
+    investment_type = models.TextField(blank=True,default="")
+    message = models.TextField(blank=True,default="")
+    source = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=50, blank=True)
+    email = models.CharField(max_length=40, blank=True)
+    phone = models.CharField(max_length=20, blank=True)
+    date = models.DateField(default=datetime.now())
+
     Data = models.TextField(blank=True)
     def __str__(self):
         return self.sender
