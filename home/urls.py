@@ -77,5 +77,5 @@ urlpatterns = [
     path('pipedrive-responses',views.pipedrive_responses,name='pipedrive-responses'),
 
     # Dashboard
-    path('dashboard_data',views.dashboard_data,name='dashboard_data'),
+    path('leads/dashboard/view',views.pipedrive_leads,name='dashboard_data'),
 ]

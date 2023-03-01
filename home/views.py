@@ -20,6 +20,7 @@ import requests
 from django.views.decorators.csrf import csrf_exempt
 from ast import literal_eval
 User = get_user_model()
+from django.contrib.admin.views.decorators import staff_member_required
 
 def common(request):
     feature_data = {}
@@ -620,9 +621,6 @@ def CityGuide(request,city=None):
 
 def contact(request):
     return render(request,'user/contact.html')
-def dashboard_data(request):
-    return render(request,'user/data_dashboard.html')
-
 
 def beginners_guide(request):
     return render(request,'user/pages/beginners_guide.html')
@@ -1052,7 +1050,17 @@ def pipedrive_json(request):
         resp = request.body
         post_data = resp.decode('utf-8')
         post_data = literal_eval(post_data)
-        Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
+        try:
+            Pipedrive_jsondata(sender = post_data['email'],Data=post_data,
+                            property_name=post_data['property_name'],
+                            investment_type=post_data['investor_type']['investor_type'],
+                            source='Landing Page',name=post_data['name'],
+                            email=post_data['email'],phone=post_data['email'],
+                            ).save()
+        except:
+            Pipedrive_jsondata(sender = post_data['email'],Data = post_data)
+            pass
+
         # Validating Pipedrive db
         term = post_data['email']
         # if Person found
@@ -1074,21 +1082,30 @@ def pipedrive_json(request):
             sales_team_list = ['tusharspatil808@gmail.com']
             sender_name = post_data['name']
             source = 'Landing Page'
-            send_newmail(sales_team_list,sender_name,source)
+            # send_newmail(sales_team_list,sender_name,source)
         return JsonResponse({'Status':status_code}) 
-        
+
+#Main Website forms 
 @csrf_exempt
 def pipedrive_responses(request):
     body_unicode = request.body.decode('utf-8')
-    post_data = json.loads(body_unicode)
-    # post_data['email'] = request.POST.get('email')
-    # post_data['phone'] = request.POST.get('phone')
-    # post_data['name'] = request.POST.get('name')
-    # post_data['property_type'] = request.POST.get('property_type')
-    # post_data['message'] = request.POST.get('message')
-    # post_data['property_name'] = 'Broadway Residence'
+    post_data = json.loads(body_unicode)  
+    try:
+        s = post_data['investor_type']
+        investor_type = ' '.join([str(elem) for elem in s])
+    except:
+        investor_type = post_data['investor_type']
+    try:
+        Pipedrive_jsondata(sender = post_data['email'],Data=post_data,
+                            property_name=post_data['property_name'],
+                            investment_type=investor_type,
+                            source='Main Website',name=post_data['name'],
+                            email=post_data['email'],phone=post_data['email'],
+                            ).save()
+    except:
+        # Pipedrive_jsondata('sender'=post_data['email'],Data=post_data).save()
+        pass
     
-    Pipedrive_jsondata(sender = post_data['email'],Data=post_data).save()
     # Validating Pipedrive db
     term = post_data['email']
     # if Person found
@@ -1108,7 +1125,7 @@ def pipedrive_responses(request):
         sales_team_list = ['tusharspatil808@gmail.com']
         sender_name = post_data['name']
         source = 'Main Website'
-        send_newmail(sales_team_list,sender_name,source)
+        # send_newmail(sales_team_list,sender_name,source)
     return JsonResponse({'Status':status_code})  
 
 
@@ -1132,3 +1149,12 @@ def webflow_integration(request):
     r = render_remote(url,name="test-name")
     send_newmail()
     return HttpResponse(r)
+
+@staff_member_required
+def pipedrive_leads(request): 
+    all_leads = Pipedrive_jsondata.objects.all().order_by('date')[::-1]
+    for lead in all_leads:
+        lead.date = str(lead.date)
+
+
+    return render(request,'user/leads_dashboard/data_dashboard.html',{'table_data':all_leads})

@@ -71,8 +71,8 @@
                           style="color: white !important"
                         >
                           <option>Date</option>
-                          <option>Newest First</option>
-                          <option>Oldest First</option>
+                          {% comment %} <option>Newest First</option>
+                          <option>Oldest First</option> {% endcomment %}
                         </select>
                       </div>
                       <i class="fa fa-filter text-black"></i>
@@ -81,30 +81,17 @@
                 </tr>
               </thead>
               <tbody id="myTable">
+                {% for lead in table_data%}
                 <tr>
-                  <td>Trafford</td>
-                  <td>Doe</td>
-                  <td>john@example.com</td>
-                  <td>9999999</td>
-                  <td>Owner Occupier</td>
-                  <td>Landing Page</td>
-                  <td>12/11/2022</td>
+                  <td>{{lead.property_name}}</td>
+                  <td>{{lead.name}}</td>
+                  <td>{{lead.email}}</td>
+                  <td>{{lead.phone}}</td>
+                  <td>{{lead.investment_type}}</td>
+                  <td>{{lead.source}}</td>
+                  <td>{{lead.date}}</td>
                 </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@mail.com</td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td>july@greatstuff.com</td>
-                </tr>
-                <tr>
-                  <td>Anja</td>
-                  <td>Ravendale</td>
-                  <td>a_r@test.com</td>
-                </tr>
+                {%endfor%}
               </tbody>
             </table>
           </div>
@@ -192,41 +179,7 @@
   //Search Script End
   // Filter -->
 
-  function showData() {
-    document.getElementById("myTable").innerHTML = "";
-    datas.map((ini) => {
-      let tr = document.createElement("tr");
-      let td = document.createElement("td");
-      td.innerHTML = ini.id;
-      tr.appendChild(td);
 
-      td = document.createElement("td");
-      td.innerHTML = ini.name;
-      tr.appendChild(td);
-
-      td = document.createElement("td");
-      td.innerHTML = ini.email;
-      tr.appendChild(td);
-
-      td = document.createElement("td");
-      td.innerHTML = ini.phone;
-      tr.appendChild(td);
-
-      td = document.createElement("td");
-      td.innerHTML = ini.investor_type;
-      tr.appendChild(td);
-
-      td = document.createElement("td");
-      td.innerHTML = ini.id;
-      tr.appendChild(td);
-
-      td = document.createElement("td");
-      td.innerHTML = ini.date;
-      tr.appendChild(td);
-
-      document.getElementById("myTable").appendChild(tr);
-    });
-  }
 
   function filter(event) {
     let option = event.target.value;
@@ -236,14 +189,11 @@
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
 
-      showData();
       console.log(datas);
     } else if (option == "Oldest First") {
       datas = datas.sort(function (a, b) {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
       });
-      showData();
-      console.log(datas);
     }
   }
 </script>
