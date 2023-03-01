@@ -68,6 +68,7 @@ urlpatterns = [
     path('reasons-to-invest',views.reasons_to_invest,name='reasons_to_invest'),
     path('places-to-invest',views.places_to_invest,name='places_to_invest'),
     path('beginners-guide',views.beginners_guide,name='beginners_guide'),
+    path('investing-overseas',views.investing_overseas,name='investing_overseas'),
 
      # landing pages
     path('ads/home',views.landing_page_home,name='landing_page_home'),

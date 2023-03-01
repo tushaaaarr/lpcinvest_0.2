@@ -638,6 +638,17 @@ def places_to_invest(request):
         blog_list.append(blog)
     return render(request,'user/pages/places_to_invest.html',{"related_blogs":blog_list})    
 
+def investing_overseas(request):
+    blog_list = []
+    blogs = Blogs.objects.all()[:5]
+    for blog in blogs:
+        blog.desc = blog.desc[:50]
+        blog.read_time = readtime.of_text(blog.content)
+        blog_list.append(blog)
+    return render(request,'user/pages/investing_overseas.html',{"related_blogs":blog_list})    
+
+
+
 def investing_uk(request):
     return render(request,'user/pages/investing_uk.html')
 
