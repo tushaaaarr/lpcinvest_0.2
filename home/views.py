@@ -1061,7 +1061,7 @@ def pipedrive_json(request):
                                 property_name=post_data['property_name'],
                                 investment_type=investor_type,
                                 source='Landing Page',name=post_data['name'],
-                                email=post_data['email'],phone=post_data['email'],
+                                email=post_data['email'],phone=post_data['phone'],
                                 ).save()
             except:
                 Pipedrive_jsondata(sender = post_data['email'],Data = post_data)
@@ -1110,7 +1110,7 @@ def pipedrive_responses(request):
                                 property_name=post_data['property_name'],
                                 investment_type=investor_type,
                                 source='Main Website',name=post_data['name'],
-                                email=post_data['email'],phone=post_data['email'],
+                                email=post_data['email'],phone=post_data['phone'],
                                 ).save()
         except:
             # Pipedrive_jsondata('sender'=post_data['email'],Data=post_data).save()
