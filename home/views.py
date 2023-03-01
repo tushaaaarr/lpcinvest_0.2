@@ -1050,41 +1050,48 @@ def pipedrive_json(request):
         resp = request.body
         post_data = resp.decode('utf-8')
         post_data = literal_eval(post_data)
-        try:
-            Pipedrive_jsondata(sender = post_data['email'],Data=post_data,
-                            property_name=post_data['property_name'],
-                            investment_type=post_data['investor_type']['investor_type'],
-                            source='Landing Page',name=post_data['name'],
-                            email=post_data['email'],phone=post_data['email'],
-                            ).save()
-        except:
-            Pipedrive_jsondata(sender = post_data['email'],Data = post_data)
-            pass
-
-        # Validating Pipedrive db
-        term = post_data['email']
-        # if Person found
-        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
-        respone = requests.get(url)
-
-        if respone.status_code != 200:
-            # add new person 
-            person_id = create_new_person(post_data)
-        else:
-            try:            
-                person_id = respone.json()['data']['items'][0]['item']['id']
+        if not Pipedrive_jsondata.objects.filter(email = post_data['email']).filter(property_name = post_data['property_name']).exists():
+            try:
+                s = post_data['investor_type']
+                investor_type = ' '.join([str(elem) for elem in s])
             except:
+                investor_type = post_data['investor_type']
+            try:
+                Pipedrive_jsondata(sender = post_data['email'],Data=post_data,
+                                property_name=post_data['property_name'],
+                                investment_type=investor_type,
+                                source='Landing Page',name=post_data['name'],
+                                email=post_data['email'],phone=post_data['email'],
+                                ).save()
+            except:
+                Pipedrive_jsondata(sender = post_data['email'],Data = post_data)
+                pass
+
+            # Validating Pipedrive db
+            term = post_data['email']
+            # if Person found
+            url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
+            respone = requests.get(url)
+
+            if respone.status_code != 200:
+                # add new person 
                 person_id = create_new_person(post_data)
+            else:
+                try:            
+                    person_id = respone.json()['data']['items'][0]['item']['id']
+                except:
+                    person_id = create_new_person(post_data)
 
-        # create new lead
-        status_code = create_new_lead(post_data,person_id)
-        if status_code == 201:
-            sales_team_list = ['tusharspatil808@gmail.com']
-            sender_name = post_data['name']
-            source = 'Landing Page'
-            # send_newmail(sales_team_list,sender_name,source)
-        return JsonResponse({'Status':status_code}) 
-
+            # create new lead
+            status_code = create_new_lead(post_data,person_id)
+            if status_code == 201:
+                sales_team_list = ['tusharspatil808@gmail.com']
+                sender_name = post_data['name']
+                source = 'Landing Page'
+                # send_newmail(sales_team_list,sender_name,source)
+            return JsonResponse({'Status':status_code}) 
+    else:
+        return JsonResponse({'Status':"lead already exists.."}) 
 #Main Website forms 
 @csrf_exempt
 def pipedrive_responses(request):
@@ -1095,38 +1102,41 @@ def pipedrive_responses(request):
         investor_type = ' '.join([str(elem) for elem in s])
     except:
         investor_type = post_data['investor_type']
-    try:
-        Pipedrive_jsondata(sender = post_data['email'],Data=post_data,
-                            property_name=post_data['property_name'],
-                            investment_type=investor_type,
-                            source='Main Website',name=post_data['name'],
-                            email=post_data['email'],phone=post_data['email'],
-                            ).save()
-    except:
-        # Pipedrive_jsondata('sender'=post_data['email'],Data=post_data).save()
-        pass
-    
-    # Validating Pipedrive db
-    term = post_data['email']
-    # if Person found
-    url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
-    respone = requests.get(url)
-    if respone.status_code != 200:
-        # add new person 
-        person_id = create_new_person(post_data)
-    else:
-        try:            
-            person_id = respone.json()['data']['items'][0]['item']['id']
+    if not Pipedrive_jsondata.objects.filter(email = post_data['email']).filter(property_name = post_data['property_name']).exists():
+        try:
+            Pipedrive_jsondata(sender = post_data['email'],Data=post_data,
+                                property_name=post_data['property_name'],
+                                investment_type=investor_type,
+                                source='Main Website',name=post_data['name'],
+                                email=post_data['email'],phone=post_data['email'],
+                                ).save()
         except:
+            # Pipedrive_jsondata('sender'=post_data['email'],Data=post_data).save()
+            pass
+        
+        # Validating Pipedrive db
+        term = post_data['email']
+        # if Person found
+        url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/persons/search?term={term}&fields=email&api_token={API_KEY}"
+        respone = requests.get(url)
+        if respone.status_code != 200:
+            # add new person 
             person_id = create_new_person(post_data)
+        else:
+            try:            
+                person_id = respone.json()['data']['items'][0]['item']['id']
+            except:
+                person_id = create_new_person(post_data)
 
-    status_code = create_new_lead(post_data,person_id)
-    if status_code == 201:
-        sales_team_list = ['tusharspatil808@gmail.com']
-        sender_name = post_data['name']
-        source = 'Main Website'
-        # send_newmail(sales_team_list,sender_name,source)
-    return JsonResponse({'Status':status_code})  
+        status_code = create_new_lead(post_data,person_id)
+        if status_code == 201:
+            sales_team_list = ['tusharspatil808@gmail.com']
+            sender_name = post_data['name']
+            source = 'Main Website'
+            # send_newmail(sales_team_list,sender_name,source)
+        return JsonResponse({'Status':status_code})
+    else:
+        return JsonResponse({'Status':"Lead already exists.."})
 
 
 from remote_jinja import render_remote
@@ -1155,6 +1165,4 @@ def pipedrive_leads(request):
     all_leads = Pipedrive_jsondata.objects.all().order_by('date')[::-1]
     for lead in all_leads:
         lead.date = str(lead.date)
-
-
     return render(request,'user/leads_dashboard/data_dashboard.html',{'table_data':all_leads})
