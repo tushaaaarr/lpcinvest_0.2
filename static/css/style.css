@@ -3926,7 +3926,7 @@ mark {
 .popular-places .popular-places-photo:before {
     position: absolute;
     content: '';
-    background: linear-gradient(0,#0a3dc3ad,rgb(74 121 255 / 28%));
+    background: linear-gradient(0,#2e2e2e23,rgba(31, 31, 31, 0.28));
     right: 0;
     width: 0%;
     height: 100%;

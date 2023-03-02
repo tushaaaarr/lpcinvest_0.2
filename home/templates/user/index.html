@@ -1,5 +1,4 @@
-{% extends 'user/basic.html' %} {% load static %} {% block title %} UK Property
-Investments{% endblock title%} {% block css %}
+{% extends 'user/basic.html' %}{% load static %}{% block title %}UK Property Investments{% endblock title%}{%block css%}
 
 <style>
   /* .expander{
@@ -65,36 +64,19 @@ Investments{% endblock title%} {% block css %}
 
 <!-- Banner start -->
 <div class="banner" id="banner">
-  <div
-    id="bannerCarousole"
-    class="carousel slide carousel-fade"
-    data-bs-touch="false"
-    data-bs-ride="carousel"
-  >
+  <div id="bannerCarousole" class="carousel slide carousel-fade" data-bs-touch="false" data-bs-ride="carousel">
     <div class="carousel-inner">
       <!-- <div class="carousel-item banner-max-height item-bg bg-dark"> -->
 
       <div class="bg-dark altCar">
         <div class="carousel-item active" data-bs-interval="6000">
-          <img
-            src="/static/img/background-index/1.jpg"
-            class="d-block"
-            alt="..."
-          />
+          <img src="/static/img/background-index/1.jpg" class="d-block" alt="..." />
         </div>
         <div class="carousel-item" data-bs-interval="6000">
-          <img
-            src="/static/img/background-index/2.jpg"
-            class="d-block"
-            alt="..."
-          />
+          <img src="/static/img/background-index/2.jpg" class="d-block" alt="..." />
         </div>
         <div class="carousel-item" data-bs-interval="6000">
-          <img
-            src="/static/img/background-index/3.jpg"
-            class="d-block"
-            alt="..."
-          />
+          <img src="/static/img/background-index/3.jpg" class="d-block" alt="..." />
         </div>
       </div>
 
@@ -102,9 +84,7 @@ Investments{% endblock title%} {% block css %}
         <div class="carousel-content container">
           <div class="text-center bi-3">
             <div class="clearfix">
-              <h3 class="text-capitalize">
-                The Perfect Property Opportunities in the UK
-              </h3>
+              <h3 class="text-capitalize">The Perfect Property Opportunities in the UK</h3>
             </div>
             <div class="clearfix"></div>
             <div class="inline-search-area clearfix">
@@ -118,11 +98,7 @@ Investments{% endblock title%} {% block css %}
                     </select>
                   </div>
                   <div class="col-md-6 mb-lg-0 col-lg-4 search-col">
-                    <select
-                      class="selectpicker search-fields"
-                      name="status"
-                      id="status"
-                    >
+                    <select class="selectpicker search-fields" name="status" id="status">
                       <option value="all">Development Status</option>
                       <option value="Completed">Completed</option>
                       <option value="Off plan">Off Plan</option>
@@ -156,64 +132,39 @@ Investments{% endblock title%} {% block css %}
         Welcome to
         <span class="d-block d-inline" style="color: #00ce8d">LPC Invest!</span>
       </h2>
-      <div
-        class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-2 ms-2"
-        data-aos="fade-up"
-      >
-        <img
-          src="media/media/1.1.jpg"
-          alt="Image"
-          class="img-fluid rounded"
-          loading="lazy"
-        />
+      <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-2 ms-2" data-aos="fade-up">
+        <img src="media/media/1.1.jpg" alt="Image" class="img-fluid rounded" loading="lazy" />
       </div>
-      <div
-        class="col-md-12 col-lg-4 order-lg-1 text-start pt-4 pt-lg-0"
-        data-aos="fade-up"
-      >
+      <div class="col-md-12 col-lg-4 order-lg-1 text-start pt-4 pt-lg-0" data-aos="fade-up">
         <h2 class="heading fs-1 text-center text-lg-left d-lg-block d-none">
           Welcome to
-          <span class="d-block d-inline" style="color: #00ce8d"
-            >LPC Invest!</span
-          >
+          <span class="d-block d-inline" style="color: #00ce8d">LPC Invest!</span>
         </h2>
         <p class="mb-2">
           LPC Invest is an innovative
-          <strong>Property Investment company</strong> based in
-          <strong>Manchester</strong>, presenting an exceptional portfolio of
-          exclusive and recently completed properties across the North-West, UK.
+          <strong>Property Investment company</strong> based in <strong>Manchester</strong>, presenting an exceptional
+          portfolio of exclusive and recently completed properties across the North-West, UK.
         </p>
         <p class="mb-2">
-          We specialise in serving Homebuyers, first time property investors and
-          portfolio extenders looking for the perfect and most profitable
-          property. LPC Invest’s team has a collective
-          <strong>62 years</strong> of market wide experience to assist you in
-          finding the ideal investment. We have a deep knowledge of the market
-          and its current trends.
+          We specialise in serving Homebuyers, first time property investors and portfolio extenders looking for the
+          perfect and most profitable property. LPC Invest’s team has a collective
+          <strong>62 years</strong> of market wide experience to assist you in finding the ideal investment. We have a
+          deep knowledge of the market and its current trends.
         </p>
       </div>
     </div>
     <div class="row" data-aos="fade-up">
       <div class="col-12 text-start">
         <p class="mb-4">
-          Our <strong>experienced, dynamic and progressive</strong> team will
-          support you in reaching your property investment goals. LPC Invest
-          hold access to the UK's most lucrative and exciting property
-          investment opportunities, all delivered by established and
-          <strong>award-winning developers</strong>. Our responsibility is to
-          ultimately relieve investors' decision-making concern and assist them
-          from start to finish, easing property investment complexities.
-          <span class="d-block pt-2"
-            >Start your journey with us and get more from your
-            investments.</span
-          >
+          Our <strong>experienced, dynamic and progressive</strong> team will support you in reaching your property
+          investment goals. LPC Invest hold access to the UK's most lucrative and exciting property investment
+          opportunities, all delivered by established and <strong>award-winning developers</strong>. Our responsibility
+          is to ultimately relieve investors' decision-making concern and assist them from start to finish, easing
+          property investment complexities.
+          <span class="d-block pt-2">Start your journey with us and get more from your investments.</span>
         </p>
         <p>
-          <a
-            href="/about"
-            class="btn btn-primary text-white py-2 mr-3 cont-sec rounded-0"
-            >Learn More</a
-          >
+          <a href="/about" class="btn btn-primary text-white py-2 mr-3 cont-sec rounded-0">Learn More</a>
         </p>
       </div>
     </div>
@@ -222,16 +173,11 @@ Investments{% endblock title%} {% block css %}
 <!-- Welcome section End -->
 
 <!-- Featured properties start -->
-<div
-  class="featured-car-section pt-2 comon-slick content-area bg-light mt-5"
-  data-aos="fade"
->
+<div class="featured-car-section pt-2 comon-slick content-area bg-light mt-5" data-aos="fade">
   <div class="container">
     <!-- Main title -->
     <div class="main-title-5">
-      <h2 class="heading pt-0">
-        Featured <span style="color: #00ce8d">Properties</span>
-      </h2>
+      <h2 class="heading pt-0">Featured <span style="color: #00ce8d">Properties</span></h2>
       <div class="title-border">
         <div class="title-border-inner"></div>
         <div class="title-border-inner"></div>
@@ -254,49 +200,30 @@ Investments{% endblock title%} {% block css %}
           />
           <div class="ling-section">
             <h3 style="font-weight: 700 !important">
-              <a
-                href="/properties/{{property.title | slugify }}/{{property.id}}"
-                >{{property.title}}</a
-              >
+              <a href="/properties/{{property.title | slugify }}/{{property.id}}">{{property.title}}</a>
             </h3>
             <ul class="member-socials clearfix" style="margin: 0px">
-              <li style="font-weight: 700">
-                <i class="fa fa-map-marker"></i> {{property.city | title}}
-              </li>
+              <li style="font-weight: 700"><i class="fa fa-map-marker"></i> {{property.city | title}}</li>
             </ul>
             {%if property.yields %}
             <ul class="member-socials clearfix" style="margin: 0px">
               <li style="font-weight: 700 !important">
-                <i class="fa fa-info-circle"></i> Gross Yields:
-                {{property.yields}}
+                <i class="fa fa-info-circle"></i> Gross Yields: {{property.yields}}
               </li>
             </ul>
             {%endif%}
             <ul class="member-socials clearfix d-block" style="margin: 0px">
-              <li
-                class="text-light px-2 rounded"
-                style="
-                  font-weight: bolder;
-                  font-weight: 700;
-                  background: #00ce8d;
-                "
-              >
+              <li class="text-light px-2 rounded" style="font-weight: bolder; font-weight: 700; background: #00ce8d">
                 <span class="text-dark pe-1">From </span> £{{property.price}}
               </li>
             </ul>
-            <a
-              href="/properties/{{property.title | slugify }}/{{property.id}}"
-              class="read-more-btn"
-              >Read More</a
-            >
+            <a href="/properties/{{property.title | slugify }}/{{property.id}}" class="read-more-btn">Read More</a>
           </div>
         </div>
       </div>
       {%endfor%}
     </div>
-    <div
-      class="col-12 d-flex justify-content-center justify-content-lg-end mb-1"
-    >
+    <div class="col-12 d-flex justify-content-center justify-content-lg-end mb-1">
       <a href="/all-properties" class="btn-4 mx-auto">See More</a>
     </div>
   </div>
@@ -313,9 +240,8 @@ Investments{% endblock title%} {% block css %}
         <span style="color: #00ce8d"> Thrive With LPC</span>
       </h2>
       <p style="font-weight: 700 !important">
-        Achieve substantial financial gain through the development of a
-        diversified property portfolio that yields consistent and reliable
-        returns.
+        Achieve substantial financial gain through the development of a diversified property portfolio that yields
+        consistent and reliable returns.
       </p>
     </div>
     <div class="row">
@@ -326,14 +252,11 @@ Investments{% endblock title%} {% block css %}
           </div>
           <div class="detail align-self-center">
             <h3>
-              <p style="color: #00ce8d" style="font-weight: 700 !important">
-                Highly Experienced Team
-              </p>
+              <p style="color: #00ce8d" style="font-weight: 700 !important">Highly Experienced Team</p>
             </h3>
             <p style="font-weight: 700 !important">
-              Established Property Experts with over 62 years of collective
-              knowledge, experience and skills in the property industry. We are
-              professional, progressive and passionate.
+              Established Property Experts with over 62 years of collective knowledge, experience and skills in the
+              property industry. We are professional, progressive and passionate.
             </p>
             <h4 style="font-weight: 700 !important">01</h4>
           </div>
@@ -351,8 +274,8 @@ Investments{% endblock title%} {% block css %}
               </p>
             </h3>
             <p style="font-weight: 700 !important">
-              Offering completely personalised services for specific goals, LPC
-              Invest tailors the experience to all of its individual clients.
+              Offering completely personalised services for specific goals, LPC Invest tailors the experience to all of
+              its individual clients.
             </p>
             <h4 style="font-weight: 700 !important">02</h4>
           </div>
@@ -365,13 +288,10 @@ Investments{% endblock title%} {% block css %}
           </div>
           <div class="detail align-self-center">
             <h3>
-              <p style="color: #00ce8d">
-                Premium & Exclusive Property Opportunities
-              </p>
+              <p style="color: #00ce8d">Premium & Exclusive Property Opportunities</p>
             </h3>
             <p style="font-weight: 700 !important">
-              A vast selection of handpicked developments across the United
-              Kingdom populate LPC’s property portfolio.
+              A vast selection of handpicked developments across the United Kingdom populate LPC’s property portfolio.
             </p>
             <h4 style="font-weight: 700 !important">03</h4>
           </div>
@@ -383,17 +303,12 @@ Investments{% endblock title%} {% block css %}
 <!-- Services end -->
 
 <!-- Popular places section strat -->
-<div
-  class="popular-places-section mt-5 content-area-7 pt-3 bg-light"
-  data-aos="fade-up"
->
+<div class="popular-places-section mt-5 content-area-7 pt-3 bg-light" data-aos="fade-up">
   <div class="container">
     <!-- Main title -->
     <!-- Main title -->
     <div class="main-title-5">
-      <h2 class="heading pt-0">
-        Top UK<span style="color: #00ce8d"> Hotspots</span>
-      </h2>
+      <h2 class="heading pt-0">Top UK<span style="color: #00ce8d"> Hotspots</span></h2>
       <div class="title-border">
         <div class="title-border-inner"></div>
         <div class="title-border-inner"></div>
@@ -404,113 +319,103 @@ Investments{% endblock title%} {% block css %}
       <div class="col-lg-7 col-md-12 col-sm-12">
         <div class="row">
           <div class="col-sm-6">
-            <div class="popular-places">
-              <div class="popular-places-inner">
-                <div class="popular-places-overflow">
-                  <div class="popular-places-photo">
-                    <img
-                      class="img-fluid w-100"
-                      src="{% static 'img/cities/1.jpg' %}"
-                      alt="properties"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="info">
-                    <h3>
-                      <a href="/city/manchester">Manchester</a>
-                    </h3>
+            <a href="/city/manchester">
+              <div class="popular-places">
+                <div class="popular-places-inner">
+                  <div class="popular-places-overflow">
+                    <div class="popular-places-photo">
+                      <img
+                        class="img-fluid w-100"
+                        src="{% static 'img/cities/1.jpg' %}"
+                        alt="properties"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="info">
+                      <h3 class="text-light fw-bold">Manchester</h3>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
           <div class="col-sm-6">
-            <div class="popular-places">
-              <div class="popular-places-inner">
-                <div class="popular-places-overflow">
-                  <div class="popular-places-photo w-100">
-                    <img
-                      class="img-fluid"
-                      src="{% static 'img/cities/2.jpg' %}"
-                      alt="properties"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="info">
-                    <h3>
-                      <a href="/city/liverpool">Liverpool</a>
-                    </h3>
+            <a href="/city/liverpool">
+              <div class="popular-places">
+                <div class="popular-places-inner">
+                  <div class="popular-places-overflow">
+                    <div class="popular-places-photo w-100">
+                      <img class="img-fluid" src="{% static 'img/cities/2.jpg' %}" alt="properties" loading="lazy" />
+                    </div>
+                    <div class="info">
+                      <h3 class="text-light fw-bold">Liverpool</h3>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
           <div class="col-sm-6">
-            <div class="popular-places">
-              <div class="popular-places-inner">
-                <div class="popular-places-overflow">
-                  <div class="popular-places-photo">
-                    <img
-                      class="img-fluid w-100"
-                      src="{% static 'img/cities/3.jpg' %}"
-                      alt="properties"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="info">
-                    <h3>
-                      <a href="/city/birmingham">Birmingham</a>
-                    </h3>
+            <a href="/city/birmingham">
+              <div class="popular-places">
+                <div class="popular-places-inner">
+                  <div class="popular-places-overflow">
+                    <div class="popular-places-photo">
+                      <img
+                        class="img-fluid w-100"
+                        src="{% static 'img/cities/3.jpg' %}"
+                        alt="properties"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="info">
+                      <h3 class="text-light fw-bold">Birmingham</h3>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
           <div class="col-sm-6">
-            <div class="popular-places">
-              <div class="popular-places-inner">
-                <div class="popular-places-overflow">
-                  <div class="popular-places-photo w-100">
-                    <img
-                      class="img-fluid"
-                      src="{% static 'img/cities/4.jpg' %}"
-                      alt="properties"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="info">
-                    <h3>
-                      <a href="/city/bradford">Bradford</a>
-                    </h3>
+            <a href="/city/bradford">
+              <div class="popular-places">
+                <div class="popular-places-inner">
+                  <div class="popular-places-overflow">
+                    <div class="popular-places-photo w-100">
+                      <img class="img-fluid" src="{% static 'img/cities/4.jpg' %}" alt="properties" loading="lazy" />
+                    </div>
+                    <div class="info">
+                      <h3 class="text-light fw-bold">Bradford</h3>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
       <div class="col-lg-5 col-md-12 col-sm-12">
-        <div class="popular-places">
-          <div class="popular-places-inner">
-            <div class="popular-places-overflow">
-              <div class="popular-places-photo">
-                <div class="popular-places-photodd">
-                  <img
-                    class="img-fluid big-img w-100"
-                    src="{% static 'img/cities/5.jpg' %}"
-                    alt="properties"
-                    loading="lazy"
-                  />
+        <a href="/city/london">
+          <div class="popular-places">
+            <div class="popular-places-inner">
+              <div class="popular-places-overflow">
+                <div class="popular-places-photo">
+                  <div class="popular-places-photodd">
+                    <img
+                      class="img-fluid big-img w-100"
+                      src="{% static 'img/cities/5.jpg' %}"
+                      alt="properties"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div class="info">
-                <h3>
-                  <a href="/city/london">London</a>
-                </h3>
+                <div class="info">
+                  <h3 class="text-light fw-bold">London</h3>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -524,12 +429,7 @@ Investments{% endblock title%} {% block css %}
   <div class="container mx-auto py-5 contact_section">
     <div class="row d-flex justify-content-center px-0">
       <div class="col-12">
-        <p
-          class="text-lead text-light text-capitalize"
-          style="font-weight: 700"
-        >
-          Want to know more?
-        </p>
+        <p class="text-lead text-light text-capitalize" style="font-weight: 700">Want to know more?</p>
         <h2 class="heading pb-4 text-capitalize" style="color: #00ce8d">
           <span class="text-light">Contact us</span> today
         </h2>
@@ -547,15 +447,11 @@ Investments{% endblock title%} {% block css %}
             href="https://api.whatsapp.com/send?phone=+447788258827&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project"
             target="_blank"
           >
-            <button
-              type="button"
-              class="btn p-2 my-2 cont-sec"
-              style="border-radius: 0"
-            >
+            <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0">
               <i class="fa fs-5 fa-whatsapp px-2"></i>Whatsapp
             </button></a
           >
-<!-- 
+          <!-- 
           <a href="mailto:info@lpcinvest.com"
             ><button
               type="button"
@@ -565,16 +461,9 @@ Investments{% endblock title%} {% block css %}
               <i class="fa fs-5 fa-envelope px-2"></i>Email
             </button></a
           > -->
-          
-          <a
-            href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting"
-            target="_blank"
-          >
-            <button
-              type="button"
-              class="btn cont-sec my-2 p-2"
-              style="border-radius: 0"
-            >
+
+          <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
+            <button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0">
               <i class="fa fs-5 fa-edit px-2"></i>Appointment
             </button></a
           >
@@ -586,16 +475,11 @@ Investments{% endblock title%} {% block css %}
 <!-- Contact section End -->
 
 <!-- Blog start -->
-<div
-  class="blog comon-slick content-area bg-light pt-2 mt-3 mb-3"
-  data-aos="fade-up"
->
+<div class="blog comon-slick content-area bg-light pt-2 mt-3 mb-3" data-aos="fade-up">
   <div class="container">
     <!-- Main title -->
     <div class="main-title-5">
-      <h2 class="heading">
-        Blog and <span style="color: #00ce8d">Articles</span>
-      </h2>
+      <h2 class="heading">Blog and <span style="color: #00ce8d">Articles</span></h2>
       <div class="title-border">
         <div class="title-border-inner"></div>
         <div class="title-border-inner"></div>
@@ -615,18 +499,12 @@ Investments{% endblock title%} {% block css %}
         >
           <div class="blog-info">
             <h3 style="font-weight: 700" class="text-capitalize">
-              <a href="/blog/{{blog.desc | slugify}}/{{blog.id}}"
-                >{{blog.desc}}..</a
-              >
+              <a href="/blog/{{blog.desc | slugify}}/{{blog.id}}">{{blog.desc}}..</a>
             </h3>
             <div class="container">
               <div class="btn-group">
-                <p>
-                  <i class="fa fa-calendar pe-1 pt-4"></i> {{blog.pub_date}}
-                </p>
-                <p class="ml-3 text-capitalize">
-                  <i class="fa fa-clock-o pe-1 pt-4"></i>{{blog.read_time}}
-                </p>
+                <p><i class="fa fa-calendar pe-1 pt-4"></i> {{blog.pub_date}}</p>
+                <p class="ml-3 text-capitalize"><i class="fa fa-clock-o pe-1 pt-4"></i>{{blog.read_time}}</p>
               </div>
             </div>
           </div>
@@ -634,15 +512,8 @@ Investments{% endblock title%} {% block css %}
       </div>
       {%endfor%}
     </div>
-    <div
-      class="col-12 d-flex justify-content-center justify-content-lg-end mb-3"
-    >
-      <a
-        href="/blogs"
-        class="btn cont-sec"
-        style="border-radius: 0%; width: 200px"
-        >See More</a
-      >
+    <div class="col-12 d-flex justify-content-center justify-content-lg-end mb-3">
+      <a href="/blogs" class="btn cont-sec" style="border-radius: 0%; width: 200px">See More</a>
     </div>
   </div>
 </div>
@@ -657,10 +528,7 @@ Investments{% endblock title%} {% block css %}
     </div>
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <div
-          class="faq-accordion accordion accordion-flush faq-accordion"
-          id="accordionFlushExample"
-        >
+        <div class="faq-accordion accordion accordion-flush faq-accordion" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
               <button
@@ -682,23 +550,16 @@ Investments{% endblock title%} {% block css %}
             >
               <div class="accordion-body">
                 <div class="p-text">
-                  LPC Invest has a team of experienced professionals who know
-                  the ins and outs of the property market. We provide you with
-                  all the tools, resources and advice you need to make smart
-                  investments. We have access to exclusive deals on properties
-                  you won't find anywhere else and we'll always strive to help
-                  you secure the most profitable investments. With LPC Invest
-                  you'll never feel alone in the property market – it's an
-                  investment journey that is designed carefully just for you. or
-                  LPC Invest is the perfect choice to make a great investment in
-                  the property market. We provide tailored advice and
-                  exceptional service that make the process of investing in a
-                  property much easier. Our team has years of experience in the
-                  property sector and an extensive network of contacts so we can
-                  guarantee you access to the best prices for high-yield
-                  investments. With our expert guidance, you can rest assured
-                  that you’ll be making the best decisions possible for your
-                  portfolio.
+                  LPC Invest has a team of experienced professionals who know the ins and outs of the property market.
+                  We provide you with all the tools, resources and advice you need to make smart investments. We have
+                  access to exclusive deals on properties you won't find anywhere else and we'll always strive to help
+                  you secure the most profitable investments. With LPC Invest you'll never feel alone in the property
+                  market – it's an investment journey that is designed carefully just for you. or LPC Invest is the
+                  perfect choice to make a great investment in the property market. We provide tailored advice and
+                  exceptional service that make the process of investing in a property much easier. Our team has years
+                  of experience in the property sector and an extensive network of contacts so we can guarantee you
+                  access to the best prices for high-yield investments. With our expert guidance, you can rest assured
+                  that you’ll be making the best decisions possible for your portfolio.
                 </div>
               </div>
             </div>
@@ -724,22 +585,16 @@ Investments{% endblock title%} {% block css %}
             >
               <div class="accordion-body">
                 <div class="p-text">
-                  Investing in property can offer you significant returns, with
-                  a number of investors receiving returns far greater than those
-                  achieved through more traditional investments. The property
-                  also offers the added benefit of diversity to your investment
-                  portfolio, allowing you to achieve higher returns with lower
-                  risk levels. Lastly, investing in property is relatively easy
-                  and straightforward if you work with an experienced team like
-                  LPC Invest, who can help guide you through the process of
-                  creating a successful investment portfolio. or Investing in
-                  property provides a great opportunity for long-term wealth
-                  creation. Property prices tend to appreciate over time, so you
-                  can reap healthy rewards from a well-thought-out investment
-                  strategy. At LPC Invest, we use our knowledge and experience
-                  of the property market to help you make the best investment
-                  decisions possible and secure maximum returns on your
-                  investments.
+                  Investing in property can offer you significant returns, with a number of investors receiving returns
+                  far greater than those achieved through more traditional investments. The property also offers the
+                  added benefit of diversity to your investment portfolio, allowing you to achieve higher returns with
+                  lower risk levels. Lastly, investing in property is relatively easy and straightforward if you work
+                  with an experienced team like LPC Invest, who can help guide you through the process of creating a
+                  successful investment portfolio. or Investing in property provides a great opportunity for long-term
+                  wealth creation. Property prices tend to appreciate over time, so you can reap healthy rewards from a
+                  well-thought-out investment strategy. At LPC Invest, we use our knowledge and experience of the
+                  property market to help you make the best investment decisions possible and secure maximum returns on
+                  your investments.
                 </div>
               </div>
             </div>
@@ -765,27 +620,19 @@ Investments{% endblock title%} {% block css %}
             >
               <div class="accordion-body">
                 <div class="p-text">
-                  Investing in properties is a great way of both increasing your
-                  wealth and diversifying your investments. At LPC Invest, we
-                  take safety seriously. Our experienced team is here to support
-                  you every step of the way, helping you make informed decisions
-                  so that you can be confident in making sound investments. We
-                  evaluate each property to ensure it meets our high standards
-                  before recommending it as an option for investment – giving
-                  you added peace of mind and confidence in investing with us.
-                  Though it is vital to note that investing in property carries
-                  some level of risk, such as changes in the local economy,
-                  changes in the real estate market, and natural disasters or
-                  other unforeseen events. It's essential to be aware of these
-                  risks and to do proper research and due diligence before
-                  making any investment decisions. Additionally, it's important
-                  to have a clear strategy and long-term vision in mind.
-                  However, with proper research, due diligence, and a long-term
-                  investment strategy, real estate investment can be relatively
-                  safe. Additionally, the UK property market has shown steady
-                  growth over the years. Hence, owning a rental property can
-                  provide a steady stream of rental income, which can help to
-                  offset the costs of owning the property.
+                  Investing in properties is a great way of both increasing your wealth and diversifying your
+                  investments. At LPC Invest, we take safety seriously. Our experienced team is here to support you
+                  every step of the way, helping you make informed decisions so that you can be confident in making
+                  sound investments. We evaluate each property to ensure it meets our high standards before recommending
+                  it as an option for investment – giving you added peace of mind and confidence in investing with us.
+                  Though it is vital to note that investing in property carries some level of risk, such as changes in
+                  the local economy, changes in the real estate market, and natural disasters or other unforeseen
+                  events. It's essential to be aware of these risks and to do proper research and due diligence before
+                  making any investment decisions. Additionally, it's important to have a clear strategy and long-term
+                  vision in mind. However, with proper research, due diligence, and a long-term investment strategy,
+                  real estate investment can be relatively safe. Additionally, the UK property market has shown steady
+                  growth over the years. Hence, owning a rental property can provide a steady stream of rental income,
+                  which can help to offset the costs of owning the property.
                 </div>
               </div>
             </div>
@@ -811,20 +658,15 @@ Investments{% endblock title%} {% block css %}
             >
               <div class="accordion-body">
                 <div class="p-text">
-                  Of course! You are welcome to use your own solicitor. Our goal
-                  here at LPC Invest is to make the process as stress-free as
-                  possible and we understand that having someone you know and
-                  trust is important. We will be more than happy to work
-                  together with them as long as they are a qualified and
-                  experienced professional in the field of real estate law. or
-                  Absolutely! We always recommend that clients use a qualified
-                  solicitor to guide them through complex legal processes and
-                  ensure that their interests are represented throughout. Your
-                  solicitor will provide invaluable advice, conduct property
-                  searches, and review the contract for any issues or
-                  irregularities. Working with an experienced professional will
-                  give you peace of mind in knowing that your best interests are
-                  being properly taken care of.
+                  Of course! You are welcome to use your own solicitor. Our goal here at LPC Invest is to make the
+                  process as stress-free as possible and we understand that having someone you know and trust is
+                  important. We will be more than happy to work together with them as long as they are a qualified and
+                  experienced professional in the field of real estate law. or Absolutely! We always recommend that
+                  clients use a qualified solicitor to guide them through complex legal processes and ensure that their
+                  interests are represented throughout. Your solicitor will provide invaluable advice, conduct property
+                  searches, and review the contract for any issues or irregularities. Working with an experienced
+                  professional will give you peace of mind in knowing that your best interests are being properly taken
+                  care of.
                 </div>
               </div>
             </div>
@@ -851,40 +693,27 @@ Investments{% endblock title%} {% block css %}
             >
               <div class="accordion-body">
                 <div class="p-text">
-                  There are several options for managing an investment property,
-                  including:
+                  There are several options for managing an investment property, including:
                   <ul class="list-group shadow">
-                    <li
-                      class="list-group-item list-group-item-info d-flex gap-1 align-items-center"
-                    >
+                    <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center">
                       <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Self-management: The property owner manages the property
-                      themselves, handling tasks such as tenant screenings, rent
-                      collection, and maintenance.
-                    </li>
-                    <li
-                      class="list-group-item list-group-item d-flex gap-1 align-items-center"
-                    >
-                      <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Hiring a property management company: The property owner
-                      hires a professional property management company to handle
-                      tasks such as tenant screenings, rent collection, and
-                      maintenance.
-                    </li>
-                    <li
-                      class="list-group-item list-group-item-info d-flex gap-1 align-items-center"
-                    >
-                      <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Hiring a property manager: The property owner hires a
-                      single property manager to handle tasks such as tenant
+                      Self-management: The property owner manages the property themselves, handling tasks such as tenant
                       screenings, rent collection, and maintenance.
                     </li>
+                    <li class="list-group-item list-group-item d-flex gap-1 align-items-center">
+                      <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
+                      Hiring a property management company: The property owner hires a professional property management
+                      company to handle tasks such as tenant screenings, rent collection, and maintenance.
+                    </li>
+                    <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center">
+                      <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
+                      Hiring a property manager: The property owner hires a single property manager to handle tasks such
+                      as tenant screenings, rent collection, and maintenance.
+                    </li>
                   </ul>
-                  Ultimately, the decision of who will manage the property will
-                  depend on the property owner's preferences and their level of
-                  experience managing properties. It is important to discuss the
-                  pros and cons of each option and help the client make an
-                  informed decision that best fits their needs.
+                  Ultimately, the decision of who will manage the property will depend on the property owner's
+                  preferences and their level of experience managing properties. It is important to discuss the pros and
+                  cons of each option and help the client make an informed decision that best fits their needs.
                 </div>
               </div>
             </div>
@@ -911,55 +740,37 @@ Investments{% endblock title%} {% block css %}
             >
               <div class="accordion-body">
                 <div class="p-text">
-                  When you buy an investment property, the process of becoming a
-                  landlord can vary depending on a number of factors. Here are a
-                  few things to consider:
+                  When you buy an investment property, the process of becoming a landlord can vary depending on a number
+                  of factors. Here are a few things to consider:
                   <ul class="list-group shadow">
-                    <li
-                      class="list-group-item list-group-item d-flex gap-1 align-items-center"
-                    >
+                    <li class="list-group-item list-group-item d-flex gap-1 align-items-center">
                       <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Finding tenants: Finding tenants can take anywhere from a
-                      few days to a few months, depending on the rental market
-                      and the condition of the property.
+                      Finding tenants: Finding tenants can take anywhere from a few days to a few months, depending on
+                      the rental market and the condition of the property.
                     </li>
-                    <li
-                      class="list-group-item list-group-item-info d-flex gap-1 align-items-center"
-                    >
+                    <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center">
                       <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Legal paperwork: Depending on the state and local laws,
-                      there may be certain legal paperwork that needs to be
-                      completed before a tenant can move in. This can take a few
-                      days to a few weeks.
+                      Legal paperwork: Depending on the state and local laws, there may be certain legal paperwork that
+                      needs to be completed before a tenant can move in. This can take a few days to a few weeks.
                     </li>
-                    <li
-                      class="list-group-item list-group-item d-flex gap-1 align-items-center"
-                    >
+                    <li class="list-group-item list-group-item d-flex gap-1 align-items-center">
                       <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Inspections: Depending on the condition of the property,
-                      inspections may be required before a tenant can move in.
-                      This can take a few days to a few weeks.
+                      Inspections: Depending on the condition of the property, inspections may be required before a
+                      tenant can move in. This can take a few days to a few weeks.
                     </li>
-                    <li
-                      class="list-group-item list-group-item-info d-flex gap-1 align-items-center"
-                    >
+                    <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center">
                       <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Repairs and renovations: If the property needs repairs or
-                      renovations before it can be rented, this can take
-                      anywhere from a few days to a few months.
+                      Repairs and renovations: If the property needs repairs or renovations before it can be rented,
+                      this can take anywhere from a few days to a few months.
                     </li>
-                    <li
-                      class="list-group-item list-group-item d-flex gap-1 align-items-center"
-                    >
+                    <li class="list-group-item list-group-item d-flex gap-1 align-items-center">
                       <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
-                      Closing on the property: It takes usually around 30-45
-                      days to close on a property after a purchase agreement is
-                      signed.
+                      Closing on the property: It takes usually around 30-45 days to close on a property after a
+                      purchase agreement is signed.
                     </li>
                   </ul>
-                  Overall, the process of becoming a landlord after buying an
-                  investment property can take anywhere from a few weeks to a
-                  few months, depending on the factors mentioned above.
+                  Overall, the process of becoming a landlord after buying an investment property can take anywhere from
+                  a few weeks to a few months, depending on the factors mentioned above.
                 </div>
               </div>
             </div>
@@ -986,24 +797,17 @@ Investments{% endblock title%} {% block css %}
             >
               <div class="accordion-body">
                 <div class="p-text">
-                  At LPC Invest, we use verifiable benchmarks to measure
-                  progress of our clients' investment objectives. Many
-                  portfolios are monitored against the Growth, Balanced and
-                  Income benchmark defined by PIMFA (formerly the Wealth
-                  Management Association). Using MSCI WMA Private Investor
-                  Series, we ensure that these benchmarks give a fair comparison
-                  to accurately assess our performance. With LPC Invest, you can
-                  be rest assured that your investments are securely managed and
-                  measured against reliable benchmarks. We prioritize
-                  market-linked performance benchmarks when monitoring our
-                  clients' investments. We use these benchmarks to measure and
-                  track our investments against the expected performance of the
-                  markets over a period of three years. This helps us make sure
-                  that our clients are consistently getting the best returns
-                  possible. Additionally, we also have the flexibility to use
-                  actual weightings that may deviate from the benchmark's
-                  weights, giving us an even greater level of precision and
-                  accuracy in tracking our investments.
+                  At LPC Invest, we use verifiable benchmarks to measure progress of our clients' investment objectives.
+                  Many portfolios are monitored against the Growth, Balanced and Income benchmark defined by PIMFA
+                  (formerly the Wealth Management Association). Using MSCI WMA Private Investor Series, we ensure that
+                  these benchmarks give a fair comparison to accurately assess our performance. With LPC Invest, you can
+                  be rest assured that your investments are securely managed and measured against reliable benchmarks.
+                  We prioritize market-linked performance benchmarks when monitoring our clients' investments. We use
+                  these benchmarks to measure and track our investments against the expected performance of the markets
+                  over a period of three years. This helps us make sure that our clients are consistently getting the
+                  best returns possible. Additionally, we also have the flexibility to use actual weightings that may
+                  deviate from the benchmark's weights, giving us an even greater level of precision and accuracy in
+                  tracking our investments.
                 </div>
               </div>
             </div>

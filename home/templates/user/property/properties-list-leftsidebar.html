@@ -1,9 +1,9 @@
-{% extends 'user/basic.html' %} {% load static %} {% load templatehelpers %}
- {% block title %} Properties{% endblock title%} {% block css %}
+{% extends 'user/basic.html' %} {% load static %}{% load templatehelpers %}{% block title %}Properties{%endblock title%}
+{% block css %}
 
 <style>
-  .filter-option-inner-inner{
-    text-transform: capitalize!important;
+  .filter-option-inner-inner {
+    text-transform: capitalize !important;
   }
   .aCls {
     color: #00ce8d !important;
@@ -44,28 +44,19 @@
 <!-- Banner 2 start -->
 
 <div class="banner" id="banner">
-  <div
-    id="carouselExampleFade"
-    class="carousel slide carousel-fade"
-    data-bs-ride="carousel"
-  >
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item item-bg active">
-        <img
-          class="d-block w-100 h-100 ratioCar"
-          src="{% static 'img/background-index/1.jpg' %}"
-          alt="banner"
-        />
-        <div
-          class="carousel-caption banner-slider-inner d-flex h-100 text-start"
-        >
+        <img class="d-block w-100 h-100 ratioCar" src="{% static 'img/background-index/1.jpg' %}" alt="banner" />
+        <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
           <div class="carousel-content container align-self-center">
             <div class="banner-info2">
               <div class="text-l text-center">
                 {% if properties_data.selected_city %}
-                <h3 class="text-uppercase">
-                  {{properties_data.selected_city | title}}
-                </h3>
+                <h3 class="text-uppercase">{{properties_data.selected_city | title}}</h3>
+
+                <div class="quotes"></div>
+
                 {%else%}
                 <h3 class="text-uppercase">Properties</h3>
                 {%endif%}
@@ -75,19 +66,14 @@
         </div>
       </div>
       <div class="carousel-item item-bg">
-        <img
-          class="d-block w-100 h-100 ratioCar"
-          src="{% static 'img/background-index/2.jpg' %}"alt="banner"/>
-        <div
-          class="carousel-caption banner-slider-inner d-flex h-100 text-start"
-        >
+        <img class="d-block w-100 h-100 ratioCar" src="{% static 'img/background-index/2.jpg' %}" alt="banner" />
+        <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
           <div class="carousel-content container align-self-center">
             <div class="banner-info2">
               <div class="text-l text-center">
                 {% if properties_data.selected_city %}
-                <h3 class="text-uppercase">
-                  {{properties_data.selected_city | title}}
-                </h3>
+                <h3 class="text-uppercase">{{properties_data.selected_city | title}}</h3>
+                <div class="quotes"></div>
                 {%else%}
                 <h3 class="text-uppercase">Properties</h3>
                 {%endif%}
@@ -97,21 +83,14 @@
         </div>
       </div>
       <div class="carousel-item item-bg">
-        <img
-          class="d-block w-100 h-100 ratioCar"
-          src="{% static 'img/background-index/3.jpg' %}"
-          alt="banner"
-        />
-        <div
-          class="carousel-caption banner-slider-inner d-flex h-100 text-start"
-        >
+        <img class="d-block w-100 h-100 ratioCar" src="{% static 'img/background-index/3.jpg' %}" alt="banner" />
+        <div class="carousel-caption banner-slider-inner d-flex h-100 text-start">
           <div class="carousel-content container align-self-center">
             <div class="banner-info2">
               <div class="text-l text-center">
                 {% if properties_data.selected_city %}
-                <h3 class="text-uppercase">
-                  {{properties_data.selected_city | title}}
-                </h3>
+                <h3 class="text-uppercase">{{properties_data.selected_city | title}}</h3>
+                <div class="quotes"></div>
                 {%else%}
                 <h3 class="text-uppercase">Properties</h3>
                 {%endif%}
@@ -161,7 +140,7 @@
             <div class="m-border"></div>
             <form method="GET" action="/all-properties">
               <div class="form-group">
-                <select class="selectpicker search-fields" name="status" >
+                <select class="selectpicker search-fields" name="status">
                   <option value="all">Development Status</option>
                   {%if properties_data.selected_status == "Completed"%}
                   <option value="Completed" selected>Completed</option>
@@ -176,7 +155,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <select class="selectpicker search-fields" name="type" >
+                <select class="selectpicker search-fields" name="type">
                   <option value="all_type">Property Type</option>
                   {%if properties_data.selected_type == "cash_only"%}
                   <option value="{{cash_only}}" selected>Cash Only</option>
@@ -199,20 +178,18 @@
               </div>
               <div class="form-group">
                 <select class="selectpicker search-fields" name="location" class="text-capitalize">
-                  <option value="City" class="text-capitalize"  >all Cities</option>
-                  {%for city in common_properties_data.cities%} 
-                  {%if properties_data.selected_city == city%}
+                  <option value="City" class="text-capitalize">all Cities</option>
+                  {%for city in common_properties_data.cities%} {%if properties_data.selected_city == city%}
                   <option value="{{city}}" class="text-capitalize" selected>{{city}}</option>
                   {%else %}
                   <option value="{{city}}" class="text-capitalize">{{city | title}}</option>
-                  {%endif%}
-                  {%endfor%}
+                  {%endif%} {%endfor%}
                 </select>
               </div>
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
-                    <select class="selectpicker search-fields" name="bedrooms" >
+                    <select class="selectpicker search-fields" name="bedrooms">
                       <option>Bedrooms</option>
 
                       {%if properties_data.selected_bedrooms == "1"%}
@@ -278,7 +255,7 @@
                 </div>
               </div>
 
-              <div class="range-slider clearfix form-group mb-30" >
+              <div class="range-slider clearfix form-group mb-30">
                 <label>Price</label>
                 <div
                   data-min="0"
@@ -288,7 +265,6 @@
                   data-unit="£"
                   class="range-slider-ui ui-slider pslide"
                   aria-disabled="false"
-                
                 ></div>
                 <div class="clearfix"></div>
               </div>
@@ -307,10 +283,7 @@
                 <div class="clearfix"></div>
               </div>
 
-              <div
-                class="accordion accordion-flush other-features mb-30"
-                id="accordionFlushExample"
-              >
+              <div class="accordion accordion-flush other-features mb-30" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
                     <button
@@ -328,7 +301,8 @@
                     id="flush-collapseOne"
                     class="accordion-collapse collapse"
                     aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
+                    data-bs-parent="#accordionFlushExample"
+                  >
                     <div class="accordion-body">
                       <h3 class="sidebar-title">Features</h3>
                       <div class="s-border"></div>
@@ -336,26 +310,23 @@
 
                       {%for feature in common_properties_data.feature_list%}
                       <div class="checkbox checkbox-theme checkbox-circle">
-                        <input id="feature_{{feature.id}}" class="form-check-input" type="checkbox"name="feature"value="{{feature}}"/>
-                        <label class="form-check-label" for="feature_{{feature.id}}">
-                          {{feature}}
-                        </label>
+                        <input
+                          id="feature_{{feature.id}}"
+                          class="form-check-input"
+                          type="checkbox"
+                          name="feature"
+                          value="{{feature}}"
+                        />
+                        <label class="form-check-label" for="feature_{{feature.id}}"> {{feature}} </label>
                       </div>
                       {%endfor%}
                     </div>
                   </div>
                 </div>
               </div>
-              <input
-                type="hidden"
-                name="features_list"
-                value=""
-                id="features_list"
-              />
+              <input type="hidden" name="features_list" value="" id="features_list" />
               <div class="form-group mb-0">
-                <button class="btn rounded-0 cont-sec" id="FilterButton">
-                  Search
-                </button>
+                <button class="btn rounded-0 cont-sec" id="FilterButton">Search</button>
               </div>
             </form>
           </div>
@@ -366,20 +337,12 @@
             <div class="m-border"></div>
             {%for property in common_properties_data.recent_properties%}
             <div class="d-flex mb-3 recent-posts-box">
-              <a
-                class="col-6 p-0"
-                href="/properties/{{property.title | slugify }}/{{property.id}}"
-                
-              >
-                <img
-                  src="/media/{{property.image}}"
-                  alt="small-properties"
-                  class="flex-shrink-0 img-fluid w-100"
-                />
+              <a class="col-6 p-0" href="/properties/{{property.title | slugify }}/{{property.id}}">
+                <img src="/media/{{property.image}}" alt="small-properties" class="flex-shrink-0 img-fluid w-100" />
               </a>
               <div class="detail col-6 align-self-center">
                 <h5 class="m-0 text-capitalize">
-                  <a 
+                  <a
                     class="text-capitalize aCls"
                     style="font-size: 16px !important"
                     href="/properties/{{property.title | slugify }}/{{property.id}}"
@@ -387,10 +350,8 @@
                   >
                 </h5>
                 <div class="listing-post-meta">
-                  <span style='color:#00CE8D'>From </span> £{{property.price}}
-                  <a
-                    href="/properties/{{property.title | slugify }}/{{property.id}}"
-                    class="d-block"
+                  <span style="color: #00ce8d">From </span> £{{property.price}}
+                  <a href="/properties/{{property.title | slugify }}/{{property.id}}" class="d-block"
                     ><i class="fa fa-calendar"></i> {{property.pub_date}}
                   </a>
                 </div>
@@ -409,30 +370,15 @@
             <div class="col-lg-6 col-6">
               <div class="sorting-options2">
                 <select
-                  class="selectpicker search-fields  pe-0"
+                  class="selectpicker search-fields pe-0"
                   name="sort_properties"
                   id="sort-list"
                   onchange="location = finalurl();"
                 >
                   <option>Default Order</option>
-                  <option
-                    value="price_high_low"
-                    {{properties_data.is_price_high_low}}
-                  >
-                    Price High to Low
-                  </option>
-                  <option
-                    value="price_low_high"
-                    {{properties_data.is_price_low_high}}
-                  >
-                    Price: Low to High
-                  </option>
-                  <option
-                    value="latest_property"
-                    {{properties_data.is_latest_property}}
-                  >
-                    Newest Properties
-                  </option>
+                  <option value="price_high_low" {{properties_data.is_price_high_low}}>Price High to Low</option>
+                  <option value="price_low_high" {{properties_data.is_price_low_high}}>Price: Low to High</option>
+                  <option value="latest_property" {{properties_data.is_latest_property}}>Newest Properties</option>
                 </select>
               </div>
             </div>
@@ -479,9 +425,7 @@
                     <option value="cash_only">Cash Only</option>
                     <option value="buy_to_live">Buy to Live</option>
                     {%elif properties_data.selected_type == "buy_to_live" %}
-                    <option value="{{buy_to_live}}" selected>
-                      Buy to Live
-                    </option>
+                    <option value="{{buy_to_live}}" selected>Buy to Live</option>
                     <option value="cash_only">Cash Only</option>
                     <option value="buy_to_let">Buy to Let</option>
                     {%else%}
@@ -494,8 +438,7 @@
                 <div class="form-group">
                   <select class="selectpicker search-fields" name="location">
                     <option value="City">All Cities</option>
-                    {%for city in common_properties_data.cities%} 
-                    {%if properties_data.selected_city == city%}
+                    {%for city in common_properties_data.cities%} {%if properties_data.selected_city == city%}
                     <option value="{{city}}" selected>{{city}}</option>
                     {%else %}
                     <option value="{{city}}">{{city | title}}</option>
@@ -505,10 +448,7 @@
                 <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
-                      <select
-                        class="selectpicker search-fields"
-                        name="bedrooms"
-                      >
+                      <select class="selectpicker search-fields" name="bedrooms">
                         <option>Bedrooms</option>
 
                         {%if properties_data.selected_bedrooms == "1"%}
@@ -546,10 +486,7 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
-                      <select
-                        class="selectpicker search-fields"
-                        name="bathrooms"
-                      >
+                      <select class="selectpicker search-fields" name="bathrooms">
                         <option>Bathroom</option>
                         {%if properties_data.selected_bathrooms == "1"%}
                         <option value="1" selected>1</option>
@@ -605,10 +542,7 @@
                   <div class="clearfix"></div>
                 </div>
 
-                <div
-                  class="accordion accordion-flush other-features mb-30"
-                  id="accordionFlushExample"
-                >
+                <div class="accordion accordion-flush other-features mb-30" id="accordionFlushExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                       <button
@@ -643,25 +577,16 @@
                             value="{{feature}}"
                             class="form-check-input"
                           />
-                          <label for="feature_{{feature.id}}-sm" class="form-check-label">
-                            {{feature}}
-                          </label>
+                          <label for="feature_{{feature.id}}-sm" class="form-check-label"> {{feature}} </label>
                         </div>
                         {%endfor%}
                       </div>
                     </div>
                   </div>
                 </div>
-                <input
-                  type="hidden"
-                  name="features_list"
-                  value=""
-                  id="features_list2"
-                />
+                <input type="hidden" name="features_list" value="" id="features_list2" />
                 <div class="form-group mb-0">
-                  <button class="btn rounded-0 cont-sec" id="FilterButton2">
-                    Search
-                  </button>
+                  <button class="btn rounded-0 cont-sec" id="FilterButton2">Search</button>
                 </div>
               </form>
             </div>
@@ -673,8 +598,7 @@
         <div class="pages-404">
           <div class="nobottomborder">
             <h1 style="color: #00ce8d">
-              It seems we can't find what you're looking for.!
-              {%for property in properties %}
+              We don’t have any developments here at the moment... {%for property in properties %}
               <h1>{{property}</h1>
               {%endfor%}
             </h1>
@@ -696,22 +620,14 @@
             <div class="row g-0">
               <div class="col-lg-5 col-md-5">
                 <div class="property-photo">
-                  <a
-                    href="/properties/{{property.title | slugify }}/{{property.id}}"
-                    class="property-img"
-                  >
-                    <img
-                      src="/media/{{property.image}}"
-                      alt="properties"
-                      class="img-fluid"
-                    />
+                  <a href="/properties/{{property.title | slugify }}/{{property.id}}" class="property-img">
+                    <img src="/media/{{property.image}}" alt="properties" class="img-fluid" />
                     {%if property.status%}
                     <div class="listing-badges">
                       <div class="tag">{{property.status}}</div>
                     </div>
                     {%endif%}
-                    <div class="price-box px-2  rounded" style="font-weight: 700">
-                      
+                    <div class="price-box px-2 rounded" style="font-weight: 700">
                       <span class="text-dark">From</span> £{{property.price}}
                     </div>
                   </a>
@@ -721,30 +637,23 @@
                 <div class="detail">
                   <div class="hdg">
                     <h3 class="title text-capitalize">
-                      <a href="/properties/{{property.title | slugify }}/{{property.id}}"
-                        >{{property.title}}</a
-                      >
+                      <a href="/properties/{{property.title | slugify }}/{{property.id}}">{{property.title}}</a>
                     </h3>
                     <h5 class="location">
                       <a href="/properties/{{property.title | slugify }}/{{property.id}}"
-                        ><span>
-                          <i class="fa fa-map-marker"></i>{{property.city |title}}</span
-                        >
+                        ><span> <i class="fa fa-map-marker"></i>{{property.city |title}}</span>
                       </a>
                     </h5>
                     {%if property.yields %}
                     <h5 class="location">
                       <a
-                        ><span>
-                          <i class="fa fa-info-circle"></i>Gross Yields: </span
-                        >{{property.yields}}</a
+                        ><span> <i class="fa fa-info-circle"></i>Gross Yields: </span>{{property.yields}}</a
                       >
                     </h5>
                     {%endif%} {%if property.room %}
                     <h5 class="location">
                       <a
-                        ><span><i class="fa fa-home"></i>Units: </span
-                        >{{property.type | title}}</a
+                        ><span><i class="fa fa-home"></i>Units: </span>{{property.type | title}}</a
                       >
                     </h5>
                     {%endif%}
@@ -756,10 +665,7 @@
                     {%else%}
                     <i class="heart fa fa-heart-o" id="{{property.id}}"></i>
                     {%endif%}
-                    <span>
-                      <i class="flaticon-calendar"></i>{{property.pub_date}}
-                      Ago</span
-                    >
+                    <span> <i class="flaticon-calendar"></i>{{property.pub_date}} Ago</span>
                   </div>
                 </div>
               </div>
@@ -784,20 +690,12 @@
               </li>
               {% endif %} {% for i in paginator.page_range %} {% if i == page_obj.number%}
               <li class="page-item">
-                <a
-                  class="page-link active"
-                  href="{% relative_url i 'page' request.GET.urlencode %}"
-                  >{{i}}</a
-                >
+                <a class="page-link active" href="{% relative_url i 'page' request.GET.urlencode %}">{{i}}</a>
               </li>
 
               {% else %}
               <li class="page-item">
-                <a
-                  class="page-link"
-                  href="{% relative_url i 'page' request.GET.urlencode %}"
-                  >{{i}}</a
-                >
+                <a class="page-link" href="{% relative_url i 'page' request.GET.urlencode %}">{{i}}</a>
               </li>
 
               {% endif %} {% endfor %} {% if page_obj.has_next %}
@@ -828,9 +726,6 @@
   </form>
 </div>
 
-
-
-
 <script>
   function finalurl() {
     var url = new URL(window.location.href);
@@ -854,7 +749,6 @@
         dt.push($(this).val());
       });
       document.getElementById("features_list").value = dt;
-      
     });
   });
 
@@ -864,11 +758,10 @@
       $.each($("input[name='feature2']:checked"), function () {
         dt2.push($(this).val());
       });
-     
+
       document.getElementById("features_list2").value = dt2;
     });
   });
-
 
   $(".change-view-btn").on("click", function (e) {
     if (this.id == "grid_view") {
@@ -884,43 +777,84 @@
     }
   });
 
-
-
-
-$( document ).ready(function() {
-    
+  $(document).ready(function () {
     let params = new URLSearchParams(location.search);
-    let minPrice = parseInt(params.get('min_price')==null?0:params.get('min_price'));
-    let maxPrice = parseInt(params.get('max_price')==null?1000000:params.get('max_price'));
-    let maxDepo = parseInt(params.get('max_deposit')==null?1000000:params.get('max_deposit'));
-    let minDepo = parseInt(params.get('min_deposit')==null?0:params.get('min_deposit'));
-    let featuresList = params.get('features_list').split(',')
-    
+    let minPrice = parseInt(params.get("min_price") == null ? 0 : params.get("min_price"));
+    let maxPrice = parseInt(params.get("max_price") == null ? 1000000 : params.get("max_price"));
+    let maxDepo = parseInt(params.get("max_deposit") == null ? 1000000 : params.get("max_deposit"));
+    let minDepo = parseInt(params.get("min_deposit") == null ? 0 : params.get("min_deposit"));
+    let featuresList = params.get("features_list").split(",");
+
     // Price slider state preserve
-    $( ".pslide" ).slider("values",[minPrice,maxPrice]);  
-    $( ".pslide .min-value" ).html(minPrice);
-    $( ".pslide .max-value" ).html(maxPrice);
+    $(".pslide").slider("values", [minPrice, maxPrice]);
+    $(".pslide .min-value").html(minPrice);
+    $(".pslide .max-value").html(maxPrice);
     $("input[name='min_price']").val(minPrice);
     $("input[name='max_price']").val(maxPrice);
-    
+
     // Deposit slider state preserve
-    $( ".dslide" ).slider("values",[minDepo,maxDepo]);
-    $( ".dslide .min-value" ).html(minDepo);
-    $( ".dslide .max-value" ).html(maxDepo);
+    $(".dslide").slider("values", [minDepo, maxDepo]);
+    $(".dslide .min-value").html(minDepo);
+    $(".dslide .max-value").html(maxDepo);
     $("input[name='min_deposit']").val(minDepo);
     $("input[name='max_deposit']").val(maxDepo);
     let allF = $("input[name='feature']");
-    jQuery.map(allF, function(ini) { 
-      featuresList.includes(ini.value)?ini.checked=true:ini.checked=false;
-      });
+    jQuery.map(allF, function (ini) {
+      featuresList.includes(ini.value) ? (ini.checked = true) : (ini.checked = false);
+    });
     let allF2 = $("input[name='feature2']");
-    jQuery.map(allF2, function(ini) { 
-      featuresList.includes(ini.value)?ini.checked=true:ini.checked=false;
-    });  
-});
-
-
+    jQuery.map(allF2, function (ini) {
+      featuresList.includes(ini.value) ? (ini.checked = true) : (ini.checked = false);
+    });
+  });
 </script>
 
+<script>
+  let quotes = document.getElementsByClassName("quotes");
+  quotes = [...quotes];
+  quotes.map(
+    (ini) =>
+      (ini.innerHTML = `{%if properties_data.selected_city == "birmingham"%}
+                <h5 class="text-capitalize fw-bold text-light">
+                  The largest city of the West Midlands conurbation, one of England's principal industrial and
+                  commercial areas
+                </h5>
+
+                {%elif properties_data.selected_city == "manchester"%}
+
+                <h5 class="text-capitalize fw-bold text-light">
+                  A city centre jam-packed with unique and eclectic restaurants, bars, shops, museums, galleries, hotels
+                  and investment opportunities
+                </h5>
+
+                {%elif properties_data.selected_city == "liverpool"%}
+                <h5 class="text-capitalize fw-bold text-light">
+                  A city of creative types, music lovers, culture addicts and friendly faces.
+                </h5>
+                {%elif properties_data.selected_city == "london"%}
+                <h5 class="text-capitalize fw-bold text-light">
+                  A bustling global metropolis that is renowned for its iconic landmarks, rich history, diverse culture,
+                  and vibrant energy
+                </h5>
+                {%elif properties_data.selected_city == "preston"%}
+
+                <h5 class="text-capitalize fw-bold text-light">
+                  A charming city on the rise in Lancashire, UK, that boasts a rich history, stunning architecture, and
+                  a lively arts and culture scene
+                </h5>
+                {%elif properties_data.selected_city == "sheffield"%}
+
+                <h5 class="text-capitalize fw-bold text-light">
+                  A bustling city in South Yorkshire, UK, that is famous for its industrial heritage, stunning natural
+                  surroundings, and thriving music and arts scene
+                </h5>
+                {%elif properties_data.selected_city == "bradford"%}
+                <h5 class="text-capitalize fw-bold text-light">
+                  A diverse and multicultural city in West Yorkshire, UK, known for its rich history, impressive
+                  Victorian architecture, and contributions to the textile industry
+                </h5>
+                {%endif %}`)
+  );
+</script>
 
 {%endblock body%}
