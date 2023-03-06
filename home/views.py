@@ -1143,14 +1143,14 @@ def pipedrive_responses(request):
 
 
 def webflow_integration__(request):
-    import os
-    import base64
-    import requests
-    from msal import ConfidentialClientApplication
-    import json
-    import msal
-    import requests
-    import webbrowser
+    # import os
+    # import base64
+    # import requests
+    # from msal import ConfidentialClientApplication
+    # import json
+    # import msal
+    # import requests
+    # import webbrowser
     client_id = '96da3089-bb0e-407f-957f-080cf9ccfaf9'
     client_secret = 'TAg8Q~2VsrNeqMzcinj8ZVsI6o1IJNPe-VP67cWt'
     t_id_p = "5438656b-756e-44be-8378-8daecb186853"
@@ -1256,7 +1256,7 @@ def webflow_integration(request):
 
 
     import json
-    import msal
+    # import msal
     import requests
     client_id = client_id
     client_secret = client_secret
