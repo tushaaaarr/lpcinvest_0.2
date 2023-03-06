@@ -1063,6 +1063,7 @@ def pipedrive_json(request):
                                 investment_type=investor_type,
                                 source='Landing Page',name=post_data['name'],
                                 email=post_data['email'],phone=post_data['phone'],
+                                date = datetime.now()
                                 ).save()
             except:
                 Pipedrive_jsondata(sender = post_data['email'],Data = post_data)
@@ -1112,11 +1113,12 @@ def pipedrive_responses(request):
                                 investment_type=investor_type,
                                 source='Main Website',name=post_data['name'],
                                 email=post_data['email'],phone=post_data['phone'],
+                                date = datetime.now()
                                 ).save()
         except:
             # Pipedrive_jsondata('sender'=post_data['email'],Data=post_data).save()
             pass
-        
+
         # Validating Pipedrive db
         term = post_data['email']
         # if Person found
@@ -1188,10 +1190,6 @@ def webflow_integration22(request):
     m.subject = 'Testing!'
     m.body = "George Best quote: I've stopped drinking, but only while I'm asleep."
     m.send()
-    
-
-
-
 
 from remote_jinja import render_remote
 def webflow_integration(request):
@@ -1364,10 +1362,8 @@ def pipedrive_leads(request):
         lead.date = str(lead.date)
     return render(request,'user/leads_dashboard/data_dashboard.html',{'table_data':all_leads})
 
-
 from O365 import Account
 def send_o365_mail():
-    
     credentials = ('b40197aa-619e-453d-b287-f037a041005d', '3jU8Q~6ExWvQQPJQ_CANUhIEoC-TIa043-nwac7z')
     account = Account(credentials)
     print(account)
@@ -1378,28 +1374,22 @@ def send_o365_mail():
     s = m.send()
     return s
 
-
 def auth_step_one():
-
     callback = 'my absolute url to auth_step_two_callback'
     account = Account(credentials)
     url, state = account.con.get_authorization_url(requested_scopes=my_scopes,
                                                    redirect_uri=callback)
-
     # the state must be saved somewhere as it will be needed later
     my_db.store_state(state) # example...
-
     return redirect(url)
 
 def auth_step_two_callback():
     account = Account(credentials)
-
     # retreive the state saved in auth_step_one
     my_saved_state = my_db.get_state()  # example...
 
     # rebuild the redirect_uri used in auth_step_one
     callback = 'my absolute url to auth_step_two_callback'
-
     result = account.con.request_token(request.url,
                                        state=my_saved_state,
                                        redirect_uri=callback)
