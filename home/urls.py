@@ -64,7 +64,7 @@ urlpatterns = [
     path('mortgage-calculator',views.mortgage_calculator,name='mortgage_calculator'),
     
     path('updated-index',views.updated_index,name='updated_index'),
-    path('investing-in-the-uk',views.investing_uk,name='investing_uk'),
+    path('investing-in-the-uk',views.investing_overseas,name='investing_uk'),
     path('reasons-to-invest',views.reasons_to_invest,name='reasons_to_invest'),
     path('places-to-invest',views.places_to_invest,name='places_to_invest'),
     path('beginners-guide',views.beginners_guide,name='beginners_guide'),

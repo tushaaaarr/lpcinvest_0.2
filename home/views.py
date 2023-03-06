@@ -578,19 +578,24 @@ def SendPropertiesToMap(request,property):
     properties_list = get_properties(property)
     return properties_list
 
-
+@csrf_exempt
 def get_favorite_properties(request):
     if is_ajax(request=request):
         query = request.POST.get('fav_properties', '')
         query = json.loads(query)[0]
         property_id = Properties.objects.get(id=int(query['property_id']))
-        try:
-            if UserFavProperties.objects.filter(property=property_id,user= request.user).exists():
-                UserFavProperties.objects.filter(property=property_id,user= request.user).update(is_checked=query['status'])
-            else:
-                UserFavProperties(user=request.user,property=property_id,is_checked = query['status']).save()
-        except:
-            return redirect('/login')
+        if request.user.is_authenticated:
+            try:
+                if UserFavProperties.objects.filter(property=property_id,user= request.user).exists():
+                    UserFavProperties.objects.filter(property=property_id,user= request.user).update(is_checked=query['status'])
+                else:
+                    UserFavProperties(user=request.user,property=property_id,is_checked = query['status']).save()
+            except:
+                return redirect('/login')
+        else:
+            # req_route = request.path
+            # absolute_path = f"/login?={req_route}"
+            return JsonResponse({'status':400})
 
 def property_form(request):
     fname = request.POST.get('fname')
@@ -598,7 +603,6 @@ def property_form(request):
     email = request.POST.get('email')
     phone = request.POST.get('phone')
     message =  request.POST.get('message')
-
     return redirect('/thankyou')
 
 def blog(request):
@@ -627,6 +631,7 @@ def beginners_guide(request):
 
 def reasons_to_invest(request):
     return render(request,'user/pages/reasons.html')
+
 def places_to_invest(request):
     blog_list = []
     blogs = Blogs.objects.all()[:5]
@@ -645,10 +650,6 @@ def investing_overseas(request):
         blog_list.append(blog)
     return render(request,'user/pages/investing_overseas.html',{"related_blogs":blog_list})    
 
-
-
-def investing_uk(request):
-    return render(request,'user/pages/investing_uk.html')
 
 def newsletter(request):
     return render(request,'user/dashboard/newsletter.html')
@@ -758,14 +759,13 @@ def exclusive_properties(request):
     page_data = {}
     properties = Properties.objects.filter(is_exclusive = True)
     fav_properties = list()
+   
+    property_ids = UserExclusiveProperties.objects.filter(user= request.user).values_list("property_id",flat=True)
+    properties = Properties.objects.filter(id__in = property_ids)        
+    exclusive_properties = list()
     for prop in properties:
-        fav_properties.append(clean_property_data(prop,request.user))
-    # property_ids = UserExclusiveProperties.objects.filter(user= request.user).values_list("property_id",flat=True)
-    # properties = Properties.objects.filter(id__in = property_ids)        
-    # exclusive_properties = list()
-    # for prop in properties:
-    #     exclusive_properties.append(clean_property_data(prop,request.user))      
-    exclusive_properties = fav_properties
+        exclusive_properties.append(clean_property_data(prop,request.user))      
+
     if len(exclusive_properties)<1:
         page_data['not_found'] = True
     page_data['is_exclusive_properties'] = 'active'
@@ -806,7 +806,9 @@ def monthly_offers(request):
     return render(request,'user/dashboard/discounted_properties.html',{'properties':cleaned_properties,"page_data":page_data})
 
 
+
 @login_required(redirect_field_name='next',login_url = '/login')
+@staff_member_required
 def submit_property(request):
     page_data = {}
     if request.method =="POST":
@@ -939,7 +941,6 @@ def readblog_route(request,id):
         return redirect(f"/blog/{title}/{id}")
     return render(request,'user/pages/error.html')
  
-
 def partners(request):
     return render(request,'user/partners.html')
 
@@ -1031,6 +1032,7 @@ def create_new_lead(post_data,person_id):
     url = f"https://{COMPANYDOMAIN}.pipedrive.com/v1/leads?api_token={API_KEY}"
     name = post_data['name']
     property_name =  post_data['property_name']
+
     body = {
             "title": f"{property_name} From {name}",
             "owner_id": 12863850,
@@ -1040,7 +1042,6 @@ def create_new_lead(post_data,person_id):
             "person_id": person_id,
             "organization_id": None,
             }
-    
     res = requests.post(url,json=body)
     return res.status_code
 
@@ -1141,6 +1142,57 @@ def pipedrive_responses(request):
         return JsonResponse({'Status':"Lead already exists.."})
 
 
+def webflow_integration__(request):
+    import os
+    import base64
+    import requests
+    from msal import ConfidentialClientApplication
+    import json
+    import msal
+    import requests
+    import webbrowser
+    client_id = '96da3089-bb0e-407f-957f-080cf9ccfaf9'
+    client_secret = 'TAg8Q~2VsrNeqMzcinj8ZVsI6o1IJNPe-VP67cWt'
+    t_id_p = "5438656b-756e-44be-8378-8daecb186853"
+    CLIENT_ID = 'b40197aa-619e-453d-b287-f037a041005d'
+    SECRET_ID = '71900778-d4e5-45fc-855b-7185a602d302'
+    SECRET_KEY = "3jU8Q~6ExWvQQPJQ_CANUhIEoC-TIa043-nwac7z"
+    SCOPES = ['User.Read', 'User.Export.All']
+    BASE_URL = 'https://graph.microsoft.com/v1.0'
+    endpoint = BASE_URL + '/me'
+    authority = "https://login.microsoftonline.com/consumers/"
+    client_instance = msal.ConfidentialClientApplication(
+    client_id=CLIENT_ID,
+    client_credential=SECRET_KEY,
+    authority=authority)
+    authorization_request_url = client_instance.get_authorization_request_url(scopes=SCOPES)
+    print(authorization_request_url)
+    
+
+def webflow_integration22(request):
+    client_id = '96da3089-bb0e-407f-957f-080cf9ccfaf9'
+    client_secret = 'TAg8Q~2VsrNeqMzcinj8ZVsI6o1IJNPe-VP67cWt'
+    CLIENT_ID = 'b40197aa-619e-453d-b287-f037a041005d'
+    SECRET_ID = '71900778-d4e5-45fc-855b-7185a602d302'
+    SECRET_KEY = "3jU8Q~6ExWvQQPJQ_CANUhIEoC-TIa043-nwac7z"
+    user_email = 'tusharspatil808@gmail.com'
+    userId = "d9f44032-2901-4314-a6eb-52bd9972e627"
+    credentials = (client_id, client_secret)
+    resource='thorwatpreetam4gmail.onmicrosoft.com'
+    res1 = "thorwatpreetam4@gmail.com"
+    userPrincipalName = "thorwatpreetam4_gmail.com#EXT#@thorwatpreetam4gmail.onmicrosoft.com"
+    account = Account(credentials,main_resource=userId)
+    print(account)
+    m = account.new_message(resource=resource)
+    m.to.add(user_email)    
+    m.subject = 'Testing!'
+    m.body = "George Best quote: I've stopped drinking, but only while I'm asleep."
+    m.send()
+    
+
+
+
+
 from remote_jinja import render_remote
 def webflow_integration(request):
     # param = {'title':'Trafford bar apartment'}
@@ -1159,7 +1211,150 @@ def webflow_integration(request):
 
     # return render_remote(url)
     r = render_remote(url,name="test-name")
-    send_newmail()
+    # send_newmail()
+    CLIENT_ID = 'b40197aa-619e-453d-b287-f037a041005d'
+    SECRET_ID = '71900778-d4e5-45fc-855b-7185a602d302'
+    SECRET_KEY = "3jU8Q~6ExWvQQPJQ_CANUhIEoC-TIa043-nwac7z"
+    CLIENT_SECRET = "3jU8Q~6ExWvQQPJQ_CANUhIEoC-TIa043-nwac7z"
+    t_id = "7ad658fa-73d4-4a19-94c5-7b9309c04f0d"
+
+    # own creds..
+    client_id = '96da3089-bb0e-407f-957f-080cf9ccfaf9'
+    client_secret = 'TAg8Q~2VsrNeqMzcinj8ZVsI6o1IJNPe-VP67cWt'
+    t_id_p = "5438656b-756e-44be-8378-8daecb186853"
+    
+    # userId = "d9f44032-2901-4314-a6eb-52bd9972e627"
+
+    # scopes = ['https://graph.microsoft.com/Mail.ReadWrite', 'https://graph.microsoft.com/Mail.Send']
+    # scopes2 = ['message_send', 'message_all']
+   
+    # email = 'surajpatil97200@gmail.com'
+    user_email = "tusharspatil808@gmail.com"
+    # resource='thorwatpreetam4gmail.onmicrosoft.com'
+    # res1 = "thorwatpreetam4@gmail.com"
+    # userPrincipalName = "thorwatpreetam4_gmail.com#EXT#@thorwatpreetam4gmail.onmicrosoft.com"
+    
+    
+    # credentials = (client_id, client_secret)
+    # account = Account(credentials,auth_flow_type='credentials',tenant_id=t_id)
+    # m = account.new_message(resource=userId)
+    # m.to.add(user_email)  
+    # m.subject = "email_title"
+    # m.body = 'message'
+    # m.send()
+
+
+
+
+
+
+
+
+
+
+
+
+
+    import json
+    import msal
+    import requests
+    client_id = client_id
+    client_secret = client_secret
+    tenant_id = t_id_p
+
+    authority = f"https://login.microsoftonline.com/{tenant_id}"
+    app = msal.ConfidentialClientApplication(
+        client_id=client_id,
+        client_credential=client_secret,
+        authority=authority)
+
+    scopes = ["https://graph.microsoft.com/.default"]
+    result = None
+    result = app.acquire_token_silent(scopes, account=None)
+    
+    if not result:
+        print("No suitable token exists in cache. Let's get a new one from Azure Active Directory.")
+        result = app.acquire_token_for_client(scopes=scopes)
+
+    if "access_token" in result:
+        print("Access token created.")
+    
+    if "access_token" in result:
+        userPrincipalName = "thorwatpreetam4_gmail.com#EXT#@thorwatpreetam4gmail.onmicrosoft.com"
+        # url = f"https://graph.microsoft.com/v1.0//users/{userPrincipalName}"
+        # rs = requests.get(url,
+        #                    headers={'Authorization': 'Bearer ' + result['access_token']},)
+        # print(rs.json())
+        userId = "7ac2811a-823e-4400-a059-71086825cc4e"
+        userId2 ="d9f44032-2901-4314-a6eb-52bd9972e627"
+        new_t_id_p = "thorwatpreetam4@gmail.com"
+        # "cb870639f61630d5" 
+        # userId = "lee@lpcinvest.onmicrosoft.com"
+        endpoint = f'https://graph.microsoft.com/v1.0/users/{new_t_id_p}/messages'
+        toUserEmail = user_email    
+        email_msg = {'Message': {'Subject': "Test Sending Email from Python",
+                                'Body': {'ContentType': 'Text', 'Content': "This is a test email."},
+                                'ToRecipients': [{'EmailAddress': {'Address': toUserEmail}}]
+                                },
+                    'SaveToSentItems': 'true'}
+        
+        r = requests.get(endpoint,headers={'Authorization': 'Bearer ' + result['access_token']},)
+                        #  json=email_msg)
+        print('rell',r.json())
+        if r.ok:
+            print('Sent email successfully')
+        else:
+            print(r.json())
+    else:
+        print(result.get("error"))
+        print(result.get("error_description"))
+        print(result.get("correlation_id"))
+
+    # # m = account.new_message()
+   
+    # example_mailbox = account.mailbox(resource=resource)
+    # msg = example_mailbox.new_message()
+    # msg.to.add(email)
+    # msg.subject = "email_title"
+    # msg.body = 'message'
+    # msg.send()
+
+    # m = account.new_message(resource=resource)
+    # m.to.add(email)
+    # m.subject = "email_title"
+    # m.body = 'message'
+    # # m.send()
+    # subject = 'testing title'
+    # user_email = "tusharspatil808@gmail.com"
+    
+    # account = Account(credentials, auth_flow_type='credentials', tenant_id=TENANT_ID)
+
+    # example_mailbox = account.mailbox(resource=resource)
+    # msg = example_mailbox.new_message()
+    # msg.to.add(email)
+    # msg.subject = "email_title"
+    # msg.body = 'message'
+    # msg.send()
+
+
+
+    # if account.authenticate(scores = scopes2):
+    #     print('Authenticated!')
+    #     mailbox = account.mailbox(resource=resource)
+    #     inbox = mailbox.inbox_folder()
+    #     for message in inbox.get_messages():
+    #         print(message)
+        
+    # if account.authenticate(scopes=scopes):
+    #     print('Authenticated!')
+    # else:
+    #     print('Not authenticated..')
+    # m = account.new_message()
+    # m.to.add('tusharspatil808@gmail.com')
+    # m.subject = 'Testing API!'
+    # m.body = "Im tushar here.. just testing api's"
+    # s = m.send()
+    # print(s)
     return HttpResponse(r)
 
 @staff_member_required
@@ -1168,3 +1363,48 @@ def pipedrive_leads(request):
     for lead in all_leads:
         lead.date = str(lead.date)
     return render(request,'user/leads_dashboard/data_dashboard.html',{'table_data':all_leads})
+
+
+from O365 import Account
+def send_o365_mail():
+    
+    credentials = ('b40197aa-619e-453d-b287-f037a041005d', '3jU8Q~6ExWvQQPJQ_CANUhIEoC-TIa043-nwac7z')
+    account = Account(credentials)
+    print(account)
+    m = account.new_message()
+    m.to.add('tusharspatil808@gmail.com')
+    m.subject = 'Testing API!'
+    m.body = "Im tushar here.. just testing api's"
+    s = m.send()
+    return s
+
+
+def auth_step_one():
+
+    callback = 'my absolute url to auth_step_two_callback'
+    account = Account(credentials)
+    url, state = account.con.get_authorization_url(requested_scopes=my_scopes,
+                                                   redirect_uri=callback)
+
+    # the state must be saved somewhere as it will be needed later
+    my_db.store_state(state) # example...
+
+    return redirect(url)
+
+def auth_step_two_callback():
+    account = Account(credentials)
+
+    # retreive the state saved in auth_step_one
+    my_saved_state = my_db.get_state()  # example...
+
+    # rebuild the redirect_uri used in auth_step_one
+    callback = 'my absolute url to auth_step_two_callback'
+
+    result = account.con.request_token(request.url,
+                                       state=my_saved_state,
+                                       redirect_uri=callback)
+    # if result is True, then authentication was succesful
+    #  and the auth token is stored in the token backend
+    if result:
+        return render_template('auth_complete.html')
+    # else ....

@@ -353,7 +353,7 @@
                                   <li><a class="dropdown-item text-capitalize" href="/beginners-guide">Beginner’s Guide</a></li>
                                   <li><a class="dropdown-item text-capitalize" href="/investing-in-the-uk">Investing in the U.K. from Overseas</a></li>
                                   <li><a class="dropdown-item text-capitalize" href="/faqs">FAQs</a></li>
-                                  <li><a class="dropdown-item text-capitalize" href="#">5 Reasons to Invest</a>
+                                  <li><a class="dropdown-item text-capitalize" href="/reasons-to-invest">5 Reasons to Invest</a>
 
                                   </li>
                                   <li><a class="dropdown-item text-capitalize" href="#">Construction Updates</a></li> 
@@ -475,7 +475,7 @@
                         <ul>
                             <li><a class="dropdown-item text-capitalize" href="/beginners-guide">Beginner’s Guide</a></li>
                                     <li><a class="dropdown-item text-capitalize" href="/investing-in-the-uk">Investing in the U.K. from Overseas</a></li>
-                                    <li><a class="dropdown-item text-capitalize" href="#">5 Reasons to Invest</a>
+                                    <li><a class="dropdown-item text-capitalize" href="/reasons-to-invest">5 Reasons to Invest</a>
                                     </li>
                                    
                                     <li><a class="dropdown-item text-capitalize" href="/faqs">FAQs</a></li>
@@ -990,14 +990,11 @@ $(".heart.fa").click(function() {
   $.ajax({ url: 'get-favorited-properties',
 type: "POST",
 dataType: "json",
-headers: {
-"X-CSRFToken": getCookie("csrftoken")
-},
 data: {'fav_properties':JSON.stringify(fav_properties)},
 }).done(function(data) {
-        if (data.result === true)
+        if (data.status == 400)
         {
-            window.location('/login')
+            window.location = "/login/?next=" + document.location.pathname
     }
 });
 });
