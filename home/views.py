@@ -992,8 +992,13 @@ COMPANYDOMAIN = 'lpcinvest'
 
 def create_new_person(post_data):
     user_fullname = post_data['name']
-    first_name = post_data['name'].split(' ')[0]
-    last_name = post_data['name'].split(' ')[1]
+    try:
+        first_name = post_data['name'].split(' ')[0]
+        last_name = post_data['name'].split(' ')[-1]     
+    except:
+        first_name = post_data['name']
+        last_name = post_data['name']   
+
     user_phone = post_data['phone']
     user_email = post_data['email']
     body_json = {
@@ -1206,7 +1211,6 @@ def webflow_integration(request):
     # }
 
     # response = requests.get(url, headers=headers)
-
     # return render_remote(url)
     r = render_remote(url,name="test-name")
     # send_newmail()
@@ -1217,9 +1221,9 @@ def webflow_integration(request):
     t_id = "7ad658fa-73d4-4a19-94c5-7b9309c04f0d"
 
     # own creds..
-    client_id = '96da3089-bb0e-407f-957f-080cf9ccfaf9'
-    client_secret = 'TAg8Q~2VsrNeqMzcinj8ZVsI6o1IJNPe-VP67cWt'
-    t_id_p = "5438656b-756e-44be-8378-8daecb186853"
+    # client_id = '96da3089-bb0e-407f-957f-080cf9ccfaf9'
+    # client_secret = 'TAg8Q~2VsrNeqMzcinj8ZVsI6o1IJNPe-VP67cWt'
+    # t_id_p = "5438656b-756e-44be-8378-8daecb186853"
     
     # userId = "d9f44032-2901-4314-a6eb-52bd9972e627"
 
@@ -1233,37 +1237,23 @@ def webflow_integration(request):
     # userPrincipalName = "thorwatpreetam4_gmail.com#EXT#@thorwatpreetam4gmail.onmicrosoft.com"
     
     
-    # credentials = (client_id, client_secret)
     # account = Account(credentials,auth_flow_type='credentials',tenant_id=t_id)
     # m = account.new_message(resource=userId)
     # m.to.add(user_email)  
     # m.subject = "email_title"
     # m.body = 'message'
     # m.send()
-
-
-
-
-
-
-
-
-
-
-
-
-
     import json
-    # import msal
+    import msal
     import requests
-    client_id = client_id
-    client_secret = client_secret
-    tenant_id = t_id_p
+    # client_id = client_id
+    # client_secret = client_secret
+    tenant_id = t_id
 
     authority = f"https://login.microsoftonline.com/{tenant_id}"
     app = msal.ConfidentialClientApplication(
-        client_id=client_id,
-        client_credential=client_secret,
+        client_id=CLIENT_ID,
+        client_credential=CLIENT_SECRET,
         authority=authority)
 
     scopes = ["https://graph.microsoft.com/.default"]
@@ -1271,24 +1261,24 @@ def webflow_integration(request):
     result = app.acquire_token_silent(scopes, account=None)
     
     if not result:
-        print("No suitable token exists in cache. Let's get a new one from Azure Active Directory.")
+        print("No suitable token exists in cache. ")
         result = app.acquire_token_for_client(scopes=scopes)
 
     if "access_token" in result:
-        print("Access token created.")
+        print("Access token created.",result["access_token"])
     
     if "access_token" in result:
         userPrincipalName = "thorwatpreetam4_gmail.com#EXT#@thorwatpreetam4gmail.onmicrosoft.com"
-        # url = f"https://graph.microsoft.com/v1.0//users/{userPrincipalName}"
+        # url = f"https://graph.microsoft.com/v1.0//users/{ }"
         # rs = requests.get(url,
         #                    headers={'Authorization': 'Bearer ' + result['access_token']},)
         # print(rs.json())
-        userId = "7ac2811a-823e-4400-a059-71086825cc4e"
-        userId2 ="d9f44032-2901-4314-a6eb-52bd9972e627"
-        new_t_id_p = "thorwatpreetam4@gmail.com"
-        # "cb870639f61630d5" 
-        # userId = "lee@lpcinvest.onmicrosoft.com"
-        endpoint = f'https://graph.microsoft.com/v1.0/users/{new_t_id_p}/messages'
+
+        # userId = "7ac2811a-823e-4400-a059-71086825cc4e"
+        # userId2 ="d9f44032-2901-4314-a6eb-52bd9972e627"
+
+        userId = "40278eb9-ad70-45dc-b540-326995758f20"
+        endpoint = f'https://graph.microsoft.com/v1.0/users/{userId}/sendMail'
         toUserEmail = user_email    
         email_msg = {'Message': {'Subject': "Test Sending Email from Python",
                                 'Body': {'ContentType': 'Text', 'Content': "This is a test email."},
@@ -1296,9 +1286,7 @@ def webflow_integration(request):
                                 },
                     'SaveToSentItems': 'true'}
         
-        r = requests.get(endpoint,headers={'Authorization': 'Bearer ' + result['access_token']},)
-                        #  json=email_msg)
-        print('rell',r.json())
+        r = requests.post(endpoint,headers={'Authorization': 'Bearer ' + result['access_token']},json=email_msg)
         if r.ok:
             print('Sent email successfully')
         else:
@@ -1324,12 +1312,12 @@ def webflow_integration(request):
     # # m.send()
     # subject = 'testing title'
     # user_email = "tusharspatil808@gmail.com"
-    
-    # account = Account(credentials, auth_flow_type='credentials', tenant_id=TENANT_ID)
+    # credentials = (CLIENT_ID, CLIENT_SECRET)
+    # account = Account(credentials, auth_flow_type='credentials', tenant_id=t_id)
 
-    # example_mailbox = account.mailbox(resource=resource)
+    # example_mailbox = account.mailbox(resource="info@lpcinvest.com")
     # msg = example_mailbox.new_message()
-    # msg.to.add(email)
+    # msg.to.add(user_email)
     # msg.subject = "email_title"
     # msg.body = 'message'
     # msg.send()
