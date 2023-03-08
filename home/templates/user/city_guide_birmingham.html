@@ -1,0 +1,173 @@
+{% extends 'user/basic.html' %} {% load static %}{%block title%}City Guide - Birmingham{%endblock title%} {%block css%}
+{%endblock css %}{% block body %}
+
+<!-- Banner start -->
+<div class="banner" id="banner">
+  <div id="bannerCarousole" class="carousel slide carousel-fade" data-bs-touch="false" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- <div class="carousel-item banner-max-height item-bg bg-dark"> -->
+
+      <div class="bg-dark altCar">
+        <div class="carousel-item active" data-bs-interval="6000">
+          <img src="/static/img/background-index/1.jpg" class="d-block" alt="..." />
+        </div>
+        <div class="carousel-item" data-bs-interval="6000">
+          <img src="/static/img/background-index/2.jpg" class="d-block" alt="..." />
+        </div>
+        <div class="carousel-item" data-bs-interval="6000">
+          <img src="/static/img/background-index/3.jpg" class="d-block" alt="..." />
+        </div>
+      </div>
+
+      <!-- <div id="boxgallery" class="boxgallery" data-effect="effect-1">
+                  <div class="panel"><img src="/static/img/background-index/1.jpg" alt="Image 1"/></div>
+                  <div class="panel"><img src="/static/img/background-index/2.jpg" alt="Image 2"/></div>
+                  <div class="panel"><img src="/static/img/background-index/3.jpg" alt="Image 3"/></div>
+              </div> -->
+      <!-- </div> -->
+      <div class="carousel-caption d-flex h-100">
+        <div class="carousel-content container">
+          <div class="text-center bi-3">
+            <div class="clearfix">
+              <h3 class="text-capitalize">Birmingham</h3>
+              <h4 class="text-capitalize fs-2 fw-bold text-light">City Guide</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Banner end -->
+
+<!-- Benefits start -->
+<div class="bg-light d-flex align-items-center justify-content-center py-5">
+  <div class="services my-3 py-5" data-aos="fade-up">
+    <div class="container bg-light rounded shadow-lg pt-2 pb-5 px-4 my-5">
+      <!-- Main title -->
+      <div class="main-title text-center mt-2 pb-2">
+        <h2 class="heading fs-1 pt-5 text-capitalize">
+          <span style="color: #00ce8d">Why</span> should you invest in
+          <span class="d-block" style="color: #00ce8d">Birmingham?</span>
+        </h2>
+        <p class="text-dark py-2">
+          Birmingham, one of the UK's economic superpowers stands proud in the North West of England as has seen itself
+          crowned as the UK's second city. The city has cemented itself as a true powerhouse with its ever-growing young
+          population and mass appeal to those choosing to relocate from London's centre. This is to be supported by the
+          arrival of infrastructure projects such as Crossrail and HS2, both are set to increase investors' confidence
+          in the property industry and the demand for buy-to-let property.
+        </p>
+      </div>
+      <div class="row">
+        <!-- <div class="col-12 col-lg-6 p-5 d-flex align-items-center order-lg-2"> 
+            <img src="/static/img/lpc2.svg" class="w-100">
+          </div> -->
+        <div class="col-12 col-lg-12 d-flex align-items-center order-lg-1">
+          <ul class="list-group shadow">
+            <li class="list-group-item list-group-item d-flex gap-1 align-items-center">
+              <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
+              <span class="border-left-2 border-dark">
+                <h6 class="h5 fw-bold border-bottom-1 border-dark text-capitalize">Supply Vs Demand</h6>
+                In late February of 2022, buyer demand was 70% higher than the 5-year average, while the total supply of
+                homes available to buy was 43% lower.
+              </span>
+            </li>
+            <li class="list-group-item list-group-item-info d-flex gap-1 align-items-center">
+              <i class="fa fa-check text-success fw-bold fs-2 pe-3"></i>
+              <span class="border-left-2 border-dark">
+                <h6 class="h5 fw-bold border-bottom-1 border-dark text-capitalize">Growth In House Price</h6>
+                In the last 12 months, the average house price in Birmingham has risen by 8.3%, lower than the recent
+                high of 9.6% in early March of 2022. However, the housing prices in London have experienced a 4%
+                increase, which is noteworthy due to the fact that the cost of housing in the capital is generally
+                higher compared to other regions in the country.
+              </span>
+            </li>
+
+            <li class="list-group-item list-group-item d-flex gap-1 bg-dark align-items-center">
+              <i class="fa fa-star text-warning fw-bold fs-2 pe-3"></i>
+              <span class="border-left-2 border-dark">
+                <h6 class="h5 fw-bold border-bottom-1 border-dark text-light text-capitalize">
+                  Market For Rental Properties
+                </h6>
+                <span class="text-light">
+                  In Birmingham, you will find a wide range of buy-to-let property rental opportunities. Among the
+                  tenants are locals, people who work in Birmingham, as well as students at all 5 Birmingham
+                  Universities. Short-term rental and serviced accommodation are also available and in high demand
+                  across the city. Birmingham presents a lucrative opportunity for buy-to-let investors with the
+                  potential to generate substantial returns from rental properties.Home.co.uk's Birmingham Market Rent
+                  Summary suggests that the average monthly rent across Birmingham is currently around £1,526, but
+                  actual rents depend on the type of property and location. Highlighting how Birmingham is one of the
+                  UK’s best cities when concerning buy-to-let investment. Currently, the average rent for different
+                  types of Birmingham houses or flats is £944 PCM for a one-bed apartment, £1,316 for a two-bed
+                  apartment and £1,489 for a three-bed apartment. Proving the strengths of this lucrative market.
+                  (However, achievable rents and rents for particular areas should be checked with your local letting
+                  agent.) Birmingham property yields based on a long-term lease range from 3% to 5% on average
+                  (property.xyz). However, certain areas of Birmingham can offer yields of over 6%.
+                </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="py-5 text-center text-dark">
+        If you wish to explore LPC’s exclusive Birmingham developments, book a consultation with a member of our expert
+        team today.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- Benefits end -->
+
+<!-- Contact section start -->
+<div data-aos="fade-up" id="contS" class="mt-3 altContSec">
+  <div class="container mx-auto py-5 contact_section">
+    <div class="row d-flex justify-content-center px-0">
+      <div class="col-12">
+        <p class="text-lead text-light text-capitalize" style="font-weight: 700">Want to know more?</p>
+        <h2 class="heading pb-4 text-capitalize" style="color: #00ce8d">
+          <span class="text-light">Contact us</span> today
+        </h2>
+        <div class="d-md-flex d-block gap-3">
+          <!-- <a href="tel://+44 7788 258827">
+            <button
+              type="button"
+              class="btn p-2 my-2 cont-sec"
+              style="border-radius: 0"
+            >
+              <i class="fa fs-5 fa-phone px-2"></i>Call Us
+            </button></a
+          > -->
+          <a
+            href="https://api.whatsapp.com/send?phone=+447788258827&text=Hi%2C I enquired through the LPC-Invest website and am interested in your project"
+            target="_blank"
+          >
+            <button type="button" class="btn p-2 my-2 cont-sec" style="border-radius: 0">
+              <i class="fa fs-5 fa-whatsapp px-2"></i>Whatsapp
+            </button></a
+          >
+          <!-- 
+          <a href="mailto:info@lpcinvest.com"
+            ><button
+              type="button"
+              class="btn cont-sec my-2 p-2"
+              style="border-radius: 0"
+            >
+              <i class="fa fs-5 fa-envelope px-2"></i>Email
+            </button></a
+          > -->
+
+          <a href="https://lpcinvest.pipedrive.com/scheduler/DpedXLfo/book-a-free-consultation-meeting" target="_blank">
+            <button type="button" class="btn cont-sec my-2 p-2" style="border-radius: 0">
+              <i class="fa fs-5 fa-edit px-2"></i>Appointment
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact section End -->
+
+{%endblock body%} {% block script %} {% endblock script %}

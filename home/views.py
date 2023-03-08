@@ -131,8 +131,10 @@ def community(request):
 
 def developers(request):
     return render(request,'user/pages/developers.html')
-def cityguide(request):
-    return render(request,'user/city_guide_alt.html')    
+def cityguide_bradford(request):
+    return render(request,'user/city_guide_bradford.html')    
+def cityguide_birmingham(request):
+    return render(request,'user/city_guide_birmingham.html')      
 
 def error(request):
     return render(request,'user/pages/error.html')

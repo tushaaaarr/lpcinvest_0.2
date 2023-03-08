@@ -7,7 +7,8 @@ urlpatterns = [
     path('about',views.about,name='about'),
     path('about/community',views.community,name='community'),
     path('about/developers',views.developers,name='developers'),
-    path('cityguide',views.cityguide,name='cityguide'),
+    path('cityguide/bradford',views.cityguide_bradford,name='cityguide_bradford'),
+    path('cityguide/birmingham',views.cityguide_birmingham,name='cityguide_birmingham'),
     # Property
     path('all-properties',views.property_listing,name='properties'),
     path('properties-map',views.property_listing_map,name='property_listing_map'),
