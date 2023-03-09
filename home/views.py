@@ -406,8 +406,8 @@ def top_search(request):
         return redirect('/blogs')
 
     if query.lower() in ['latest properties','new apartments']:
-        properties_data = property_sorting("latest_property",Properties.objects.all())
-        properties = properties_data['properties']
+       
+        properties = Properties.objects.all().order_by('-pub_date')
 
     if query.lower() in ['studios','studio']:
         type_dt = PropertyTypeMapper.objects.filter(type__type ='studio')
@@ -921,7 +921,6 @@ def readblog(request,id,title):
         blog_list.append(blog)
     blog_content = Blogs.objects.filter(id=int(id))[0]
     
-    print(blog_content.desc)
     if int(id) == 12:
         return render(request,'user/pages/places_to_invest.html',{"related_blogs":blog_list,
                                                                   "blog_content":blog_content})
@@ -1191,7 +1190,6 @@ def webflow_integration22(request):
     res1 = "thorwatpreetam4@gmail.com"
     userPrincipalName = "thorwatpreetam4_gmail.com#EXT#@thorwatpreetam4gmail.onmicrosoft.com"
     account = Account(credentials,main_resource=userId)
-    print(account)
     m = account.new_message(resource=resource)
     m.to.add(user_email)    
     m.subject = 'Testing!'

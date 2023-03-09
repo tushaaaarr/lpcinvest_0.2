@@ -101,13 +101,13 @@ DATABASES = {
     }
 }
 
-DATABASES = { 'default': { 'ENGINE': 'django.db.backends.mysql',
-                                'NAME': 'db2',
-                                'USER': 'lpcinvestadmin',
-                                'HOST':'db2.coy3lmfl9bor.ap-northeast-1.rds.amazonaws.com',
-                                'PORT':'3306',
-                                'PASSWORD':'lpcINVEST',
-                                } }
+# DATABASES = { 'default': { 'ENGINE': 'django.db.backends.mysql',
+#                                 'NAME': 'db2',
+#                                 'USER': 'lpcinvestadmin',
+#                                 'HOST':'db2.coy3lmfl9bor.ap-northeast-1.rds.amazonaws.com',
+#                                 'PORT':'3306',
+#                                 'PASSWORD':'lpcINVEST',
+#                                 } }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
