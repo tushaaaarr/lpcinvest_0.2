@@ -13460,3 +13460,139 @@ margin-top: 30px;
     display: none;
   }
 /* FADE CAROUSEL END */
+
+
+
+
+/* New Dropzone code start ===============*/
+
+
+  
+  /* DropZone Css */
+  #drop_zone,
+  #drop_zone2 {
+    border: 5px dashed #00CE8D;
+    border-radius: 2%;
+    width: 100%;
+    min-width: 65vw;
+    min-height: 350px;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* text-align: center; */
+    justify-content: center;
+    gap: 10px;
+    padding-left: 10px;
+  }
+  .el::after{
+    content: "Drop Images Here or Click to add Images";
+    font-size: 32px;
+    font-weight: 800;
+    opacity: 0.5;
+    color: #000;
+    margin: auto  auto;  
+    border: 2px solid #000;
+    padding: 5px;
+}
+  
+  .drop_area {
+    height: fit-content;
+    position: relative;
+    width: 100%;
+  }
+  
+  #parDefault,
+  #parDefault2 {
+    font-weight: 800;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    z-index: -1;
+  }
+  #drop_zone img,
+  #drop_zone2 img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .grid-images {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    row-gap: 10px;
+  }
+  
+  .grid-images img {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .tabbers {
+    width: fit-content;
+  }
+  .tabbers button {
+    width: 100%;
+    background: none;
+  }
+  .activeTab {
+    background-color: coral !important;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    #parDefault,
+    #parDefault2 {
+      font-size: 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .sideView {
+      height: 100vh;
+    }
+    #parDefault,
+    #parDefault2 {
+      font-size: 16px;
+    }
+    .dpimg {
+      height: 2rem;
+      width: 2rem;
+    }
+    .txt h5 {
+      font-size: 14px;
+    }
+    .txt p {
+      font-size: 12px;
+    }
+    .card-img-overlay {
+      height: 60px !important;
+    }
+    .roundWrapper {
+      border-radius: 0% !important;
+    }
+  }
+  
+  @media only screen and (max-width: 512px) {
+    .roundWrapper {
+      border-radius: 0% !important;
+    }
+    #parDefault,
+    #parDefault2 {
+      font-size: 12px;
+    }
+  }
+  
+
+
+/* New Dropzone Code End */

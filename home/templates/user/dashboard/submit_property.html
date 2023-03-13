@@ -167,12 +167,45 @@
       <h4 class="bg-grea-3">Property Gallery</h4>
       <div class="row pad-20 mx-0">
           <div class="col-lg-12">
-            <input class="form-control form-control-lg" id="formFileLg" type="file" name="files" multiple required/>
+            <!-- <input class="form-control form-control-lg" id="formFileLg" type="file" name="files" multiple required/> -->
             <!-- <div id="myDropZone" class="dropzone dropzone-design">
               
                   <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
               </div>
           </div> -->
+
+          <!-- New Drop Zone Start -->
+          <div class="input-group mb-3">
+            <!-- <input
+              name="files"
+              type="file"
+              class="form-control"
+              id="formFileLg1"
+              multiple
+              onchange="clickAdd(event)"
+            /> -->
+
+            <input 
+              class="form-control form-control-lg" 
+              id="formFileLg1" 
+              type="file" 
+              name="files" 
+              onchange="clickAdd(event)"
+              multiple required 
+            />
+          </div>
+          
+          <!-- <p class="bg-warning text-dark fw-bold p-2 rounded">*Max Size upto (35MB Total)</p> -->
+          <label for="formFileLg1">
+          <div class="drop_area">
+            <div id="drop_zone" class="el" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);"></div>
+          </div>
+        </label>
+          <!-- New Drop Zone End -->
+
+
+
+
       </div>
       
       <h4 class="bg-grea-3">Detailed Information</h4>
